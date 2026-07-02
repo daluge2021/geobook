@@ -25,4 +25,4 @@ Disallow: /private/
 User-agent: *
 Disallow: /private/
 
-Sitemap: http://localhost/sitemap.xml
+Sitemap: https://daluge2021.github.io/geobook/sitemap.xml
