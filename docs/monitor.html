@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEO 监测看板 - GEO知识全书</title>
+<meta name="description" content="GEO关键词引用监测看板，追踪GEO知识全书在各大AI平台的品牌提及率和引用份额。">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
+  .layout { display: flex; min-height: 100vh; }
+  .sidebar { width: 240px; flex-shrink: 0; background: #1a1a2e; color: #ccc; padding: 32px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+  .sidebar h3 { color: #fff; font-size: 1em; padding: 0 20px; margin-bottom: 20px; }
+  .sidebar a { display: block; padding: 8px 20px; color: #999; text-decoration: none; font-size: 0.9em; transition: all 0.15s; }
+  .sidebar a:hover, .sidebar a.active { color: #fff; background: rgba(255,255,255,0.08); }
+  .sidebar a.active { border-left: 3px solid #4fc3f7; }
+  .main { flex: 1; max-width: 1000px; margin: 0 auto; padding: 48px 32px 80px; }
+  h1 { font-size: 1.8em; color: #1a1a2e; margin-bottom: 8px; }
+  .subtitle { color: #666; font-size: 0.95em; margin-bottom: 32px; }
+  .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .card { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .card .label { font-size: 0.85em; color: #888; margin-bottom: 4px; }
+  .card .value { font-size: 2em; font-weight: 700; color: #1a1a2e; }
+  .card .change { font-size: 0.85em; margin-top: 4px; }
+  .card .change.up { color: #2e7d32; }
+  .card .change.down { color: #c62828; }
+  .card .change.neutral { color: #888; }
+  .section { background: #fff; border-radius: 12px; padding: 24px 28px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); margin-bottom: 24px; }
+  .section h2 { font-size: 1.2em; color: #1a1a2e; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.93em; }
+  th { background: #f0f2f5; padding: 10px 14px; text-align: left; font-weight: 600; color: #333; border: 1px solid #e0e0e0; }
+  td { padding: 8px 14px; border: 1px solid #e8e8e8; color: #444; }
+  tr:nth-child(even) td { background: #fafafa; }
+  .status-yes { color: #2e7d32; font-weight: 600; }
+  .status-no { color: #c62828; }
+  .status-partial { color: #f57f17; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 0.8em; font-weight: 600; }
+  .badge.green { background: #e8f5e9; color: #2e7d32; }
+  .badge.yellow { background: #fff8e1; color: #f57f17; }
+  .badge.red { background: #fbe9e7; color: #c62828; }
+  .note { color: #888; font-size: 0.85em; margin-top: 16px; text-align: center; }
+  .weekly-form { background: #f8f9ff; border: 1px solid #d0e4f7; border-radius: 8px; padding: 20px; margin-top: 16px; }
+  .weekly-form h3 { font-size: 1em; margin-bottom: 12px; }
+  .weekly-form ol { margin-left: 20px; }
+  .weekly-form li { margin-bottom: 8px; }
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 24px 16px; }
+    .dashboard-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h3>📖 GEO知识全书</h3>
+    <a href="index.html">🏠 首页</a>
+    <a href="ch01.html">一. 基础概念</a>
+    <a href="ch02.html">二. 指标与框架</a>
+    <a href="ch03.html">三. 模型与方法</a>
+    <a href="ch04.html">四. 内容策略</a>
+    <a href="ch05.html">五. 技术实施</a>
+    <a href="ch06.html">六. 品牌战略</a>
+    <a href="ch07.html">七. 行业应用</a>
+    <a href="ch08.html">八. 实战案例</a>
+    <a href="ch09.html">九. 数据与公式</a>
+    <div style="margin-top:12px; border-top:1px solid #333; padding-top:12px;"><a href="monitor.html" class="active">📊 监测看板</a></div>
+  </nav>
+  <div class="main">
+
+    <h1>📊 GEO 监测看板</h1>
+    <p class="subtitle">追踪 geo010.com 在各大 AI 平台的品牌提及率和引用份额</p>
+
+    <div class="dashboard-grid">
+      <div class="card">
+        <div class="label">品牌提及率</div>
+        <div class="value">--%</div>
+        <div class="change neutral">待首次测量</div>
+      </div>
+      <div class="card">
+        <div class="label">引用份额</div>
+        <div class="value">--%</div>
+        <div class="change neutral">待首次测量</div>
+      </div>
+      <div class="card">
+        <div class="label">监测关键词</div>
+        <div class="value">10</div>
+        <div class="change neutral">已配置</div>
+      </div>
+      <div class="card">
+        <div class="label">AI 平台</div>
+        <div class="value">5</div>
+        <div class="change neutral">ChatGPT / 豆包 / DeepSeek / Kimi / Perplexity</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>各平台表现</h2>
+      <table>
+        <tr><th>平台</th><th>提及次数</th><th>提及率</th><th>趋势</th></tr>
+        <tr><td>ChatGPT</td><td>-- / 10</td><td>--%</td><td class="status-partial">待测</td></tr>
+        <tr><td>豆包</td><td>-- / 10</td><td>--%</td><td class="status-partial">待测</td></tr>
+        <tr><td>DeepSeek</td><td>-- / 10</td><td>--%</td><td class="status-partial">待测</td></tr>
+        <tr><td>Kimi</td><td>-- / 10</td><td>--%</td><td class="status-partial">待测</td></tr>
+        <tr><td>Perplexity</td><td>-- / 10</td><td>--%</td><td class="status-partial">待测</td></tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>关键词监测明细</h2>
+      <table>
+        <tr><th>关键词</th><th>ChatGPT</th><th>豆包</th><th>DeepSeek</th><th>Kimi</th><th>Perplexity</th></tr>
+        <tr><td>GEO</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td></tr>
+        <tr><td>GEO是什么</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td></tr>
+        <tr><td>GEO优化</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td></tr>
+        <tr><td>GEO和SEO的区别</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td></tr>
+        <tr><td>GEO怎么做</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td></tr>
+        <tr><td>GEO案例</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td></tr>
+        <tr><td>GEO行业</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td></tr>
+        <tr><td>GEO效果衡量</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td></tr>
+        <tr><td>GEO结构化数据</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td></tr>
+        <tr><td>GEO入门</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td><td class="status-partial">待测</td></tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>竞争对手监测</h2>
+      <table>
+        <tr><th>竞争对手</th><th>引用次数</th><th>较上周</th></tr>
+        <tr><td>慧源流</td><td>--</td><td class="status-partial">待测</td></tr>
+        <tr><td>一搜百应</td><td>--</td><td class="status-partial">待测</td></tr>
+        <tr><td>SEMrush</td><td>--</td><td class="status-partial">待测</td></tr>
+        <tr><td>其他</td><td>--</td><td class="status-partial">待测</td></tr>
+      </table>
+    </div>
+
+    <div class="section weekly-form">
+      <h3>📋 本周执行清单</h3>
+      <ol>
+        <li>在 5 个 AI 平台搜索 10 个关键词</li>
+        <li>记录引用情况和描述准确度</li>
+        <li>记录竞争对手引用数</li>
+        <li>截图保存 AI 答案</li>
+        <li>更新上方表格数据</li>
+        <li>对比上周数据，识别变化</li>
+      </ol>
+      <p style="margin-top: 12px; color: #666; font-size: 0.9em;">⏱ 预计耗时：30 分钟 / 周</p>
+    </div>
+
+    <div class="note">
+      <p>💡 提示：将此页面设为浏览器主页签，每周一打开执行监测。</p>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://geo010.com/</loc></url>
   <url><loc>https://geo010.com/ch01.html</loc></url>
   <url><loc>https://geo010.com/ch02.html</loc></url>
   <url><loc>https://geo010.com/ch03.html</loc></url>
@@ -9,4 +10,6 @@
   <url><loc>https://geo010.com/ch07.html</loc></url>
   <url><loc>https://geo010.com/ch08.html</loc></url>
   <url><loc>https://geo010.com/ch09.html</loc></url>
+  <url><loc>https://geo010.com/answer-geo-what.html</loc></url>
+  <url><loc>https://geo010.com/monitor.html</loc></url>
 </urlset>
