@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>第五章 技术实施 - GEO知识全书</title>
 <meta name="description" content="Schema结构化数据、LLMs.txt高级应用、实体识别、AI爬虫管理、监测工具、AgenticGEO、技术栈">
+<meta name="keywords" content="GEO,生成式引擎优化,Generative Engine Optimization,SEO,AI搜索,品牌优化,数字营销"/>
+<link rel="canonical" href="https://geo010.com/ch05.html"/>
+<meta property="og:title" content="第五章 技术实施 - GEO知识全书"/>
+<meta property="og:description" content="Schema结构化数据、LLMs.txt高级应用、实体识别、AI爬虫管理、监测工具、AgenticGEO、技术栈。7篇深度文章详解GEO技术实施。"/>
+<meta property="og:url" content="https://geo010.com/ch05.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="https://geo010.com/og-image.png"/>
+<meta property="og:locale" content="zh_CN"/>
+<meta property="og:locale:alternate" content="en_US"/>
+<meta property="og:site_name" content="GEO知识全书"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="第五章 技术实施 - GEO知识全书"/>
+<meta name="twitter:description" content="Schema结构化数据、LLMs.txt高级应用、实体识别、AI爬虫管理、监测工具、AgenticGEO、技术栈。7篇深度文章详解GEO技术实施。"/>
+<meta name="twitter:image" content="https://geo010.com/og-image.png"/>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
@@ -210,17 +224,15 @@
 
 <p>用<code><script></code>标签在页面中嵌入JSON格式的数据。</p>
 
-<p><code>`</code>html</p>
-<p><script type="application/ld+json"></p>
-<p>{</p>
-<p>"@context": "https://schema.org",</p>
-<p>"@type": "Article",</p>
-<p>"headline": "2026年CRM选型指南",</p>
-<p>"author": { "@type": "Person", "name": "张三" },</p>
-<p>"datePublished": "2026-03-15"</p>
-<p>}</p>
-<p></script></p>
-<p><code>`</code></p>
+<pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "2026年CRM选型指南",
+  "author": { "@type": "Person", "name": "张三" },
+  "datePublished": "2026-03-15"
+}
+&lt;/script&gt;</code></pre>
 
 <p><strong>优点：</strong> 不影响页面内容，最容易维护，AI爬虫兼容性最好。</p>
 <p><strong>推荐度：</strong> ⭐⭐⭐⭐⭐</p>

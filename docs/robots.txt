@@ -1,8 +1,26 @@
-User-agent: GPTBot
+# GEO知识全书 robots.txt
+# https://geo010.com
+
+# Google
+User-agent: Googlebot
 Allow: /
 Disallow: /private/
 
 User-agent: Google-Extended
+Allow: /
+Disallow: /private/
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Disallow: /private/
+
+# AI Crawlers
+User-agent: GPTBot
+Allow: /
+Disallow: /private/
+
+User-agent: ChatGPT-User
 Allow: /
 Disallow: /private/
 
@@ -14,15 +32,17 @@ User-agent: Claude-Web
 Allow: /
 Disallow: /private/
 
-User-agent: CCBot
-Allow: /
-Disallow: /private/
-
 User-agent: anthropic-ai
 Allow: /
 Disallow: /private/
 
+User-agent: CCBot
+Allow: /
+Disallow: /private/
+
+# Default
 User-agent: *
+Allow: /
 Disallow: /private/
 
 Sitemap: https://geo010.com/sitemap.xml
