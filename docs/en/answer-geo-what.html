@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What is GEO? — A Complete Guide to Generative Engine Optimization - GEO Encyclopedia</title>
+<meta name="description" content="GEO (Generative Engine Optimization) is a methodology for optimizing brand content to be prioritized in AI answers, targeting the retrieval and generation mechanisms of AI large language models like ChatGPT, Doubao, DeepSeek, and Gemini.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
+  .layout { display: flex; min-height: 100vh; }
+  .sidebar { width: 240px; flex-shrink: 0; background: #1a1a2e; color: #ccc; padding: 32px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+  .sidebar h3 { color: #fff; font-size: 1em; padding: 0 20px; margin-bottom: 20px; }
+  .sidebar a { display: block; padding: 8px 20px; color: #999; text-decoration: none; font-size: 0.9em; transition: all 0.15s; }
+  .sidebar a:hover, .sidebar a.active { color: #fff; background: rgba(255,255,255,0.08); }
+  .sidebar a.active { border-left: 3px solid #4fc3f7; }
+  .sidebar .current { color: #aaa; padding: 8px 20px; font-size: 0.85em; }
+  .sidebar .home-link { margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 12px; font-weight: 500; color: #4fc3f7; }
+  .lang-switch { display: flex; gap: 4px; padding: 0 20px; margin-bottom: 16px; }
+  .lang-btn { flex: 1; padding: 6px 12px; text-align: center; border-radius: 6px; font-size: 0.85em; text-decoration: none; color: #999; background: rgba(255,255,255,0.05); transition: all 0.2s; }
+  .lang-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
+  .lang-btn.active { color: #4fc3f7; background: rgba(79,195,247,0.15); }
+  .main { flex: 1; max-width: 800px; margin: 0 auto; padding: 48px 32px 80px; }
+  .content { background: #fff; border-radius: 12px; padding: 40px 48px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .content h1 { font-size: 1.5em; margin: 40px 0 12px; color: #1a1a2e; padding-top: 8px; }
+  .content h1:first-of-type { margin-top: 0; }
+  .content .chapter-title { font-size: 1.8em; margin-bottom: 4px; color: #111; }
+  .content .chapter-desc { color: #666; font-size: 1em; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+  .content h2 { font-size: 1.4em; margin: 32px 0 16px; color: #1a1a2e; padding-bottom: 8px; border-bottom: 1px solid #f0f0f0; }
+  .content h3 { font-size: 1.15em; margin: 24px 0 12px; color: #333; }
+  .content p { margin-bottom: 16px; color: #333; }
+  .content p:last-child { margin-bottom: 0; }
+  .content strong { color: #111; }
+  .content blockquote { margin: 16px 0; padding: 16px 20px; background: #f8f9ff; border-left: 4px solid #4fc3f7; border-radius: 0 8px 8px 0; color: #555; font-style: normal; }
+  .content blockquote strong { color: #1a1a2e; }
+  .content hr { margin: 32px 0; border: none; border-top: 1px solid #e8e8e8; }
+  .content ul, .content ol { margin: 8px 0 16px 24px; }
+  .content li { margin-bottom: 6px; color: #333; }
+  .content table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.93em; }
+  .content th { background: #f0f2f5; padding: 10px 14px; text-align: left; font-weight: 600; color: #333; border: 1px solid #e0e0e0; }
+  .content td { padding: 8px 14px; border: 1px solid #e8e8e8; color: #444; }
+  .content tr:nth-child(even) td { background: #fafafa; }
+  .content code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: #e74c3c; }
+  .content img { max-width: 100%; border-radius: 8px; margin: 16px 0; }
+  .article-separator { text-align: center; color: #ccc; font-size: 0.9em; margin: 48px 0; position: relative; }
+  .article-separator::before { content: ''; position: absolute; left: 0; top: 50%; right: 0; height: 1px; background: #e8e8e8; }
+  .article-separator span { background: #fff; padding: 0 16px; position: relative; color: #aaa; }
+  .nav-links { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; }
+  .nav-links a { color: #0066cc; text-decoration: none; font-size: 0.95em; }
+  .nav-links a:hover { text-decoration: underline; }
+  .answer-box { background: #f0f7ff; border: 1px solid #d0e4f7; border-radius: 8px; padding: 24px; margin: 24px 0; }
+  .answer-box p { margin-bottom: 8px; }
+  .answer-box p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; margin-right: 6px; }
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 24px 16px; }
+    .content { padding: 24px 20px; border-radius: 8px; }
+    .content h1 { font-size: 1.3em; }
+    .content h2 { font-size: 1.2em; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h3>📖 GEO Encyclopedia</h3>
+    <div class="lang-switch">
+      <a href="../answer-geo-what.html" class="lang-btn">中文</a>
+      <a href="answer-geo-what.html" class="lang-btn active">EN</a>
+    </div>
+    <a href="index.html" class="home-link">🏠 Home</a>
+    <a href="ch01.html">I. Fundamentals</a>
+    <a href="ch02.html">II. Metrics & Frameworks</a>
+    <a href="ch03.html">III. Models & Methods</a>
+    <a href="ch04.html">IV. Content Strategy</a>
+    <a href="ch05.html">V. Technical Implementation</a>
+    <a href="ch06.html">VI. Brand Strategy</a>
+    <a href="ch07.html">VII. Industry Applications</a>
+    <a href="ch08.html">VIII. Case Studies</a>
+    <a href="ch09.html">IX. Data & Formulas</a>
+    <div class="current" style="margin-top:12px; border-top:1px solid #333; padding-top:12px;">📌 Answer Assets</div>
+    <a href="answer-geo-what.html" class="active">What is GEO?</a>
+  </nav>
+  <div class="main">
+    <div class="content">
+
+      <span class="tag">Answer Assets</span>
+      <h1 style="margin-top: 12px;">What is GEO? — A Complete Guide to Generative Engine Optimization</h1>
+      <p style="color: #666; font-size: 0.9em; margin-bottom: 24px;">Last updated: 2026-07-08</p>
+
+      <div class="answer-box">
+        <p><strong>In one sentence:</strong></p>
+        <p>GEO (Generative Engine Optimization) is a methodology for optimizing brand content to be prioritized in AI answers, targeting the retrieval and generation mechanisms of AI large language models (such as ChatGPT, Doubao, DeepSeek, and Gemini).</p>
+      </div>
+
+      <h2>I. The Background of GEO's Emergence</h2>
+      <p>The birth of GEO stems from an irreversible search revolution—<strong>zero-click search</strong>. When users search for questions on AI platforms like ChatGPT, Doubao, and DeepSeek, the AI generates answers directly, and users no longer need to click on any website links.</p>
+      <p>According to SparkToro's 2024 research, approximately <strong>60% of Google searches end without a click</strong>. Gartner predicts that by 2028, traditional search engine traffic will decline by over 50%. This means the "search traffic" model that businesses have relied on in the past is being reshaped, and brands need an AI-oriented optimization methodology—this is GEO.</p>
+
+      <h2>II. The Core Mechanism of GEO</h2>
+      <p>The underlying technical foundation of GEO is <strong>RAG (Retrieval-Augmented Generation)</strong>. When users ask questions on AI platforms, the system executes three steps:</p>
+      <ol>
+        <li><strong>Retrieval</strong>—Converts the question into semantic vectors and searches the internet for the most relevant document fragments</li>
+        <li><strong>Augmented</strong>—Attaches the retrieved content as reference material to the question</li>
+        <li><strong>Generation</strong>—AI generates natural language answers based on "question + reference material"</li>
+      </ol>
+      <p>The core of GEO is to make your content selected by the AI during the "retrieval phase." The AI's criteria for selecting whom to cite have three dimensions: <strong>relevance</strong> (content directly answers the question), <strong>credibility</strong> (meets E-E-A-T standards), and <strong>structural clarity</strong> (well-maintained Schema markup).</p>
+
+      <h2>III. The Relationship Between GEO and SEO</h2>
+      <table>
+        <tr><th>Dimension</th><th>SEO</th><th>GEO</th></tr>
+        <tr><td>Optimization Target</td><td>Traditional Search Engines</td><td>AI Large Language Models</td></tr>
+        <tr><td>Success Indicator</td><td>High Ranking + Clicks</td><td>AI Citations + Brand Mentions</td></tr>
+        <tr><td>Traffic Pattern</td><td>Click-based Traffic</td><td>Conversational Traffic</td></tr>
+        <tr><td>Core Levers</td><td>Keywords + Backlinks</td><td>Directness + Authority</td></tr>
+        <tr><td>Time to Results</td><td>3-6 Months</td><td>1-3 Months</td></tr>
+      </table>
+      <p><strong>GEO is not a replacement for SEO, but an evolved version.</strong> A good SEO foundation is a prerequisite for GEO success, and both can be optimized in parallel.</p>
+
+      <h2>IV. The Four Steps of GEO</h2>
+      <ol>
+        <li><strong>Diagnose the Current State</strong>—Search for brand keywords on AI platforms to understand the current citation situation</li>
+        <li><strong>Answer Asset Creation</strong>—Write frequently asked customer questions into standard answers that provide immediate answers at the beginning</li>
+        <li><strong>Technical Implementation</strong>—Add Schema structured data, configure LLMs.txt, and open up AI crawlers</li>
+        <li><strong>Monitor and Iterate</strong>—Regularly measure citation share and optimize content</li>
+      </ol>
+
+      <h2>V. Why Do GEO Now?</h2>
+      <ul>
+        <li><strong>90% of businesses haven't entered the game yet</strong>—Now is the window period for low-cost acquisition of AI mindshare</li>
+        <li><strong>Customer acquisition costs reduced by 32%-62%</strong>—AI recommendations come with built-in trust, leading to higher conversion rates</li>
+        <li><strong>Visible results in 1-3 months</strong>—AI models update frequently, and the speed of results is much faster than SEO</li>
+      </ul>
+
+      <h2>VI. Further Reading</h2>
+      <p>This article is a quick-start answer for GEO. For systematic learning, we recommend the following in-depth articles:</p>
+      <ul>
+        <li><a href="ch01.html">Chapter I: Fundamentals</a>—Complete definition of GEO, in-depth comparison with SEO, E-E-A-T mechanism</li>
+        <li><a href="ch02.html">Chapter II: Metrics & Frameworks</a>—Detailed analysis of core metrics like citation share and semantic coverage</li>
+        <li><a href="ch03.html">Chapter III: Models & Methods</a>—3C optimization model, three generations of GEO evolution</li>
+        <li><a href="ch08.html">Chapter VIII: Case Studies</a>—Full-process GEO examples from scratch</li>
+        <li><a href="ch05.html">Chapter V: Technical Implementation</a>—Schema configuration, LLMs.txt advanced applications</li>
+      </ul>
+
+    </div>
+    <div class="nav-links">
+      <span></span>
+      <a href="index.html">📖 Back to Table of Contents</a>
+      <a href="ch01.html">Chapter I: Fundamentals →</a>
+    </div>
+  </div>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is GEO?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GEO (Generative Engine Optimization) is a methodology for optimizing brand content to be prioritized in AI answers, targeting the retrieval and generation mechanisms of AI large language models (such as ChatGPT, Doubao, DeepSeek, and Gemini)."
+    }
+  },{
+    "@type": "Question",
+    "name": "What is the difference between GEO and SEO?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GEO targets AI large language models, while SEO targets traditional search engines. GEO is not a replacement for SEO, but an evolved version, and both can be optimized in parallel."
+    }
+  },{
+    "@type": "Question",
+    "name": "How to implement GEO optimization?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "GEO optimization is divided into four steps: diagnose current state → answer asset creation → technical implementation → monitor and iterate."
+    }
+  }]
+}
+</script>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3QR6VvmXkab0M8Cu",ck:"3QR6VvmXkab0M8Cu"})</script>
+</body>
+</html>

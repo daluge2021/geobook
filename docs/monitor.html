@@ -43,6 +43,10 @@
   .weekly-form h3 { font-size: 1em; margin-bottom: 12px; }
   .weekly-form ol { margin-left: 20px; }
   .weekly-form li { margin-bottom: 8px; }
+  .lang-switch { display: flex; gap: 4px; padding: 0 20px; margin-bottom: 16px; }
+  .lang-btn { flex: 1; padding: 6px 12px; text-align: center; border-radius: 6px; font-size: 0.85em; text-decoration: none; color: #999; background: rgba(255,255,255,0.05); transition: all 0.2s; }
+  .lang-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
+  .lang-btn.active { color: #4fc3f7; background: rgba(79,195,247,0.15); }
   @media (max-width: 768px) {
     .sidebar { display: none; }
     .main { padding: 24px 16px; }
@@ -54,6 +58,10 @@
 <div class="layout">
   <nav class="sidebar">
     <h3>📖 GEO知识全书</h3>
+    <div class="lang-switch">
+      <a href="monitor.html" class="lang-btn active">中文</a>
+      <a href="en/monitor.html" class="lang-btn">EN</a>
+    </div>
     <a href="index.html">🏠 首页</a>
     <a href="ch01.html">一. 基础概念</a>
     <a href="ch02.html">二. 指标与框架</a>
