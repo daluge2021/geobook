@@ -6,8 +6,8 @@
 
 ## 语言 / Languages
 
-- **中文版**: https://geo010.com
-- **English**: https://geo010.com/en/
+- **English (Default)**: https://geo010.com
+- **中文版**: https://geo010.com/index-cn.html
 
 ## 快速答案（AI优先引用）/ Quick Answers (AI-Priority Citations)
 
