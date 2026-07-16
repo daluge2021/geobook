@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8903384789303682"
+     crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schema结构化数据 — 让AI读懂你的内容 - GEO知识全书</title>
+<meta name="description" content="Schema结构化数据是用机器可读的标签告诉AI页面上哪段是标题、哪段是FAQ、哪段是评分的技术手段。本文详解Schema的定义、5种最值得的Schema类型和代码示例。">
+<link rel="canonical" href="https://geo010.com/glossary/schema.html"/>
+<link rel="alternate" hreflang="zh-CN" href="https://geo010.com/glossary/schema.html"/>
+<link rel="alternate" hreflang="en" href="https://geo010.com/glossary/en/schema.html"/>
+<link rel="alternate" hreflang="x-default" href="https://geo010.com/glossary/schema.html"/>
+<meta property="og:title" content="Schema结构化数据 — 让AI读懂你的内容 - GEO知识全书"/>
+<meta property="og:description" content="Schema结构化数据是用机器可读的标签告诉AI页面内容结构的技术手段。"/>
+<meta property="og:url" content="https://geo010.com/glossary/schema.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="https://geo010.com/og-image.png"/>
+<meta property="og:locale" content="zh_CN"/>
+<meta property="og:locale:alternate" content="en_US"/>
+<meta property="og:site_name" content="GEO知识全书"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Schema结构化数据 — 让AI读懂你的内容 - GEO知识全书"/>
+<meta name="twitter:description" content="Schema结构化数据是用机器可读的标签告诉AI页面内容结构的技术手段。"/>
+<meta name="twitter:image" content="https://geo010.com/og-image.png"/>
+<meta name="keywords" content="Schema,结构化数据,Structured Data,JSON-LD,FAQ Schema,GEO,SEO"/>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
+  .layout { display: flex; min-height: 100vh; }
+  .sidebar { width: 240px; flex-shrink: 0; background: #1a1a2e; color: #ccc; padding: 32px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+  .sidebar h3 { color: #fff; font-size: 1em; padding: 0 20px; margin-bottom: 20px; }
+  .sidebar a { display: block; padding: 8px 20px; color: #999; text-decoration: none; font-size: 0.9em; transition: all 0.15s; }
+  .sidebar a:hover, .sidebar a.active { color: #fff; background: rgba(255,255,255,0.08); }
+  .sidebar a.active { border-left: 3px solid #4fc3f7; }
+  .sidebar .current { color: #aaa; padding: 8px 20px; font-size: 0.85em; }
+  .sidebar .home-link { margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 12px; font-weight: 500; color: #4fc3f7; }
+  .sidebar .glossary-section { margin-top: 12px; border-top: 1px solid #333; padding-top: 12px; }
+  .main { flex: 1; max-width: 800px; margin: 0 auto; padding: 48px 32px 80px; }
+  .content { background: #fff; border-radius: 12px; padding: 40px 48px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .content h1 { font-size: 1.5em; margin: 40px 0 12px; color: #1a1a2e; padding-top: 8px; }
+  .content h1:first-of-type { margin-top: 0; }
+  .content h2 { font-size: 1.4em; margin: 32px 0 16px; color: #1a1a2e; padding-bottom: 8px; border-bottom: 1px solid #f0f0f0; }
+  .content h3 { font-size: 1.15em; margin: 24px 0 12px; color: #333; }
+  .content p { margin-bottom: 16px; color: #333; }
+  .content p:last-child { margin-bottom: 0; }
+  .content strong { color: #111; }
+  .content blockquote { margin: 16px 0; padding: 16px 20px; background: #f8f9ff; border-left: 4px solid #4fc3f7; border-radius: 0 8px 8px 0; color: #555; font-style: normal; }
+  .content blockquote strong { color: #1a1a2e; }
+  .content hr { margin: 32px 0; border: none; border-top: 1px solid #e8e8e8; }
+  .content ul, .content ol { margin: 8px 0 16px 24px; }
+  .content li { margin-bottom: 6px; color: #333; }
+  .content table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.93em; }
+  .content th { background: #f0f2f5; padding: 10px 14px; text-align: left; font-weight: 600; color: #333; border: 1px solid #e0e0e0; }
+  .content td { padding: 8px 14px; border: 1px solid #e8e8e8; color: #444; }
+  .content tr:nth-child(even) td { background: #fafafa; }
+  .content code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: #e74c3c; }
+  .content img { max-width: 100%; border-radius: 8px; margin: 16px 0; }
+  .nav-links { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; }
+  .nav-links a { color: #0066cc; text-decoration: none; font-size: 0.95em; }
+  .nav-links a:hover { text-decoration: underline; }
+  .answer-box { background: #f0f7ff; border: 1px solid #d0e4f7; border-radius: 8px; padding: 24px; margin: 24px 0; }
+  .answer-box p { margin-bottom: 8px; }
+  .answer-box p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; margin-right: 6px; }
+  .lang-switch { display: flex; gap: 4px; padding: 0 20px; margin-bottom: 16px; }
+  .lang-btn { flex: 1; padding: 6px 12px; text-align: center; border-radius: 6px; font-size: 0.85em; text-decoration: none; color: #999; background: rgba(255,255,255,0.05); transition: all 0.2s; }
+  .lang-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
+  .lang-btn.active { color: #4fc3f7; background: rgba(79,195,247,0.15); }
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 24px 16px; }
+    .content { padding: 24px 20px; border-radius: 8px; }
+    .content h1 { font-size: 1.3em; }
+    .content h2 { font-size: 1.2em; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h3>📖 GEO知识全书</h3>
+    <div class="lang-switch">
+      <a href="schema.html" class="lang-btn active">中文</a>
+      <a href="en/schema.html" class="lang-btn">EN</a>
+    </div>
+    <a href="../index-cn.html" class="home-link">🏠 回到首页</a>
+    <a href="../ch01.html">一. 基础概念</a>
+    <a href="../ch02.html">二. 指标与框架</a>
+    <a href="../ch03.html">三. 模型与方法</a>
+    <a href="../ch04.html">四. 内容策略</a>
+    <a href="../ch05.html">五. 技术实施</a>
+    <a href="../ch06.html">六. 品牌战略</a>
+    <a href="../ch07.html">七. 行业应用</a>
+    <a href="../ch08.html">八. 实战案例</a>
+    <a href="../ch09.html">九. 数据与公式</a>
+    <div class="current glossary-section">📌 术语解释</div>
+    <a href="geo.html">GEO生成式引擎优化</a>
+    <a href="seo.html">SEO搜索引擎优化</a>
+    <a href="rag.html">RAG检索增强生成</a>
+    <a href="eeat.html">E-E-A-T信任机制</a>
+    <a href="llms-txt.html">LLMs.txt</a>
+    <a href="zero-click.html">零点击搜索</a>
+    <a href="schema.html" class="active">Schema结构化数据</a>
+    <a href="answer-asset.html">答案资产化</a>
+    <a href="ai-visibility.html">AI可见度指数</a>
+    <a href="ymyl.html">YMYL</a>
+  </nav>
+  <div class="main">
+    <div class="content">
+
+      <span class="tag">术语解释</span>
+      <h1 style="margin-top: 12px;">Schema结构化数据是什么？——让AI读懂你的内容</h1>
+      <p style="color: #666; font-size: 0.9em; margin-bottom: 24px;">最后更新：2026-07-16 · <a href="../ch01.html">返回第一章</a></p>
+
+      <div class="answer-box">
+        <p><strong>一句话定义：</strong></p>
+        <p>Schema结构化数据是用机器可读的"标签"告诉AI页面上哪段是标题、哪段是作者、哪段是FAQ、哪段是评分的技术手段，为AI建立"理解捷径"。</p>
+      </div>
+
+      <h2>一、为什么需要Schema？</h2>
+      <p>你的内容可能已经具备了高 <a href="eeat.html">E-E-A-T</a>——有经验、有专业、有权威、可信赖。但AI能"看懂"这些信号吗？</p>
+      <p>Schema 的本质是：用机器可读的"标签"告诉AI：<strong>这个页面上哪段是标题、哪段是FAQ、哪段是评分。</strong></p>
+      <p>如果你加了 FAQ Schema 标记，AI直接就能识别出"问题-答案"对，并可能在答案中精确引用其中某一条。这就是结构化数据的价值——<strong>它为AI建立了"理解捷径"。</strong></p>
+
+      <h2>二、5种最值得优先实施的Schema</h2>
+
+      <h3>1. FAQ Schema（常见问题）</h3>
+      <p>最直接的 <a href="geo.html">GEO</a> "提效器"。让AI直接提取问答对，在答案中精确引用你的回答。</p>
+
+      <h3>2. Article Schema（文章）</h3>
+      <p>标注文章标题、作者、发布日期、特色图片。帮助AI识别文章结构。</p>
+
+      <h3>3. Person Schema（人物）</h3>
+      <p>标注作者姓名、职位、公司、LinkedIn、教育背景。直接支撑 <a href="eeat.html">E-E-A-T</a> 中的 Expertise。</p>
+
+      <h3>4. Product Schema（产品）</h3>
+      <p>标注产品名称、价格、库存状态、评分。在电商 <a href="geo.html">GEO</a> 中必不可少。</p>
+
+      <h3>5. BreadcrumbList（面包屑导航）</h3>
+      <p>标注网站层级结构。帮助AI理解"你在网站的什么位置"。</p>
+
+      <h2>三、EEAT与Schema的关系</h2>
+      <blockquote>
+        <strong>AI信任度 = <a href="eeat.html">E-E-A-T</a>（内容质量） × <a href="schema.html">结构化数据</a>（技术表达）</strong>
+      </blockquote>
+      <ul>
+        <li><a href="eeat.html">E-E-A-T</a> 决定了你的内容<strong>值不值得被信任</strong></li>
+        <li>结构化数据决定了你的内容<strong>能不能被AI精准理解</strong></li>
+        <li>两者缺一不可——只有EEAT没有Schema，AI可能"看不懂"你有多好；只有Schema没有EEAT，AI看懂了但觉得你不值得引用</li>
+      </ul>
+
+      <h2>四、深入阅读</h2>
+      <ul>
+        <li><a href="../ch01.html">第一章 基础概念</a>——Schema在GEO中的完整角色</li>
+        <li><a href="eeat.html">E-E-A-T信任机制</a>——Schema如何表达EEAT信号</li>
+        <li><a href="geo.html">GEO生成式引擎优化</a>——Schema是GEO技术实施的核心</li>
+      </ul>
+
+    </div>
+    <div class="nav-links">
+      <span></span>
+      <a href="../index-cn.html">📖 返回目录</a>
+      <a href="../ch01.html">第一章 基础概念 →</a>
+    </div>
+  </div>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Schema结构化数据是什么？",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Schema结构化数据是用机器可读的标签告诉AI页面内容结构的技术手段，为AI建立理解捷径，使其能快速提取FAQ问答、文章结构、产品信息等。"
+    }
+  },{
+    "@type": "Question",
+    "name": "最值得优先实施的Schema有哪些？",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "5种最值得优先实施的Schema：FAQ Schema（常见问题）、Article Schema（文章）、Person Schema（人物）、Product Schema（产品）、BreadcrumbList（面包屑导航）。"
+    }
+  }]
+}
+</script>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3QR6VvmXkab0M8Cu",ck:"3QR6VvmXkab0M8Cu"})</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Schema结构化数据 — 让AI读懂你的内容 - GEO知识全书",
+  "description": "Schema结构化数据是用机器可读的标签告诉AI页面上哪段是标题、哪段是FAQ、哪段是评分的技术手段。本文详解Schema的定义、5种最值得的Schema类型和代码示例。",
+  "url": "https://geo010.com/glossary/schema.html",
+  "image": "https://geo010.com/og-image.png",
+  "inLanguage": "zh-CN",
+  "publisher": {
+    "@type": "Organization",
+    "name": "GEO知识全书",
+    "url": "https://geo010.com"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "GEO知识全书",
+    "url": "https://geo010.com"
+  }
+}
+</script>
+</body>
+</html>

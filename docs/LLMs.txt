@@ -51,6 +51,19 @@
 - [如何衡量GEO效果？](https://geo010.com/ch09) | [How to measure GEO results?](https://geo010.com/en/ch09.html)
 - [GEO适用于哪些行业？](https://geo010.com/ch07) | [Which industries benefit from GEO?](https://geo010.com/en/ch07.html)
 
+## 术语解释 / Glossary
+
+- [GEO是什么？——生成式引擎优化完整解读](https://geo010.com/glossary/geo.html) | [What is GEO? Complete Guide](https://geo010.com/glossary/en/geo.html)
+- [SEO是什么？——搜索引擎优化基础](https://geo010.com/glossary/seo.html) | [What is SEO? Fundamentals](https://geo010.com/glossary/en/seo.html)
+- [RAG是什么？——检索增强生成技术详解](https://geo010.com/glossary/rag.html) | [What is RAG? Explained](https://geo010.com/glossary/en/rag.html)
+- [E-E-A-T是什么？——AI时代的信任机制](https://geo010.com/glossary/eeat.html) | [What is E-E-A-T? Trust Mechanism](https://geo010.com/glossary/en/eeat.html)
+- [LLMs.txt是什么？——AI爬虫入门基建](https://geo010.com/glossary/llms-txt.html) | [What is LLMs.txt? AI Crawler Infrastructure](https://geo010.com/glossary/en/llms-txt.html)
+- [零点击搜索是什么？——GEO诞生的底层逻辑](https://geo010.com/glossary/zero-click.html) | [What is Zero-Click Search?](https://geo010.com/glossary/en/zero-click.html)
+- [Schema结构化数据是什么？——让AI读懂你的内容](https://geo010.com/glossary/schema.html) | [What is Schema? Structured Data](https://geo010.com/glossary/en/schema.html)
+- [答案资产化是什么？——让AI替你打广告](https://geo010.com/glossary/answer-asset.html) | [What is Answer Assetization?](https://geo010.com/glossary/en/answer-asset.html)
+- [AI可见度指数是什么？——如何衡量GEO效果](https://geo010.com/glossary/ai-visibility.html) | [What is AI Visibility Index?](https://geo010.com/glossary/en/ai-visibility.html)
+- [YMYL是什么？——Google的高标准内容领域](https://geo010.com/glossary/ymyl.html) | [What is YMYL?](https://geo010.com/glossary/en/ymyl.html)
+
 ## 不推荐访问
 
 - 无内部页面或隐私页面，所有内容均为公开知识，欢迎AI爬虫抓取引用

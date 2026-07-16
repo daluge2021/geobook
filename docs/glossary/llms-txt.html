@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8903384789303682"
+     crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLMs.txt — AI爬虫时代的入门基建 - GEO知识全书</title>
+<meta name="description" content="LLMs.txt是放在网站根目录下专门给大语言模型看的网站说明书，告诉AI哪些页面最重要。本文详解LLMs.txt的定义、与sitemap的区别、真实案例和30分钟操作指南。">
+<link rel="canonical" href="https://geo010.com/glossary/llms-txt.html"/>
+<link rel="alternate" hreflang="zh-CN" href="https://geo010.com/glossary/llms-txt.html"/>
+<link rel="alternate" hreflang="en" href="https://geo010.com/glossary/en/llms-txt.html"/>
+<link rel="alternate" hreflang="x-default" href="https://geo010.com/glossary/llms-txt.html"/>
+<meta property="og:title" content="LLMs.txt — AI爬虫时代的入门基建 - GEO知识全书"/>
+<meta property="og:description" content="LLMs.txt是放在网站根目录下专门给大语言模型看的网站说明书，告诉AI哪些页面最重要。"/>
+<meta property="og:url" content="https://geo010.com/glossary/llms-txt.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="https://geo010.com/og-image.png"/>
+<meta property="og:locale" content="zh_CN"/>
+<meta property="og:locale:alternate" content="en_US"/>
+<meta property="og:site_name" content="GEO知识全书"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="LLMs.txt — AI爬虫时代的入门基建 - GEO知识全书"/>
+<meta name="twitter:description" content="LLMs.txt是放在网站根目录下专门给大语言模型看的网站说明书，告诉AI哪些页面最重要。"/>
+<meta name="twitter:image" content="https://geo010.com/og-image.png"/>
+<meta name="keywords" content="LLMs.txt,AI爬虫,ChatGPT,GPTBot,网站优化,GEO"/>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
+  .layout { display: flex; min-height: 100vh; }
+  .sidebar { width: 240px; flex-shrink: 0; background: #1a1a2e; color: #ccc; padding: 32px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+  .sidebar h3 { color: #fff; font-size: 1em; padding: 0 20px; margin-bottom: 20px; }
+  .sidebar a { display: block; padding: 8px 20px; color: #999; text-decoration: none; font-size: 0.9em; transition: all 0.15s; }
+  .sidebar a:hover, .sidebar a.active { color: #fff; background: rgba(255,255,255,0.08); }
+  .sidebar a.active { border-left: 3px solid #4fc3f7; }
+  .sidebar .current { color: #aaa; padding: 8px 20px; font-size: 0.85em; }
+  .sidebar .home-link { margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 12px; font-weight: 500; color: #4fc3f7; }
+  .sidebar .glossary-section { margin-top: 12px; border-top: 1px solid #333; padding-top: 12px; }
+  .main { flex: 1; max-width: 800px; margin: 0 auto; padding: 48px 32px 80px; }
+  .content { background: #fff; border-radius: 12px; padding: 40px 48px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .content h1 { font-size: 1.5em; margin: 40px 0 12px; color: #1a1a2e; padding-top: 8px; }
+  .content h1:first-of-type { margin-top: 0; }
+  .content h2 { font-size: 1.4em; margin: 32px 0 16px; color: #1a1a2e; padding-bottom: 8px; border-bottom: 1px solid #f0f0f0; }
+  .content h3 { font-size: 1.15em; margin: 24px 0 12px; color: #333; }
+  .content p { margin-bottom: 16px; color: #333; }
+  .content p:last-child { margin-bottom: 0; }
+  .content strong { color: #111; }
+  .content blockquote { margin: 16px 0; padding: 16px 20px; background: #f8f9ff; border-left: 4px solid #4fc3f7; border-radius: 0 8px 8px 0; color: #555; font-style: normal; }
+  .content blockquote strong { color: #1a1a2e; }
+  .content hr { margin: 32px 0; border: none; border-top: 1px solid #e8e8e8; }
+  .content ul, .content ol { margin: 8px 0 16px 24px; }
+  .content li { margin-bottom: 6px; color: #333; }
+  .content table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.93em; }
+  .content th { background: #f0f2f5; padding: 10px 14px; text-align: left; font-weight: 600; color: #333; border: 1px solid #e0e0e0; }
+  .content td { padding: 8px 14px; border: 1px solid #e8e8e8; color: #444; }
+  .content tr:nth-child(even) td { background: #fafafa; }
+  .content code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: #e74c3c; }
+  .content img { max-width: 100%; border-radius: 8px; margin: 16px 0; }
+  .nav-links { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; }
+  .nav-links a { color: #0066cc; text-decoration: none; font-size: 0.95em; }
+  .nav-links a:hover { text-decoration: underline; }
+  .answer-box { background: #f0f7ff; border: 1px solid #d0e4f7; border-radius: 8px; padding: 24px; margin: 24px 0; }
+  .answer-box p { margin-bottom: 8px; }
+  .answer-box p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; margin-right: 6px; }
+  .lang-switch { display: flex; gap: 4px; padding: 0 20px; margin-bottom: 16px; }
+  .lang-btn { flex: 1; padding: 6px 12px; text-align: center; border-radius: 6px; font-size: 0.85em; text-decoration: none; color: #999; background: rgba(255,255,255,0.05); transition: all 0.2s; }
+  .lang-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
+  .lang-btn.active { color: #4fc3f7; background: rgba(79,195,247,0.15); }
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 24px 16px; }
+    .content { padding: 24px 20px; border-radius: 8px; }
+    .content h1 { font-size: 1.3em; }
+    .content h2 { font-size: 1.2em; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h3>📖 GEO知识全书</h3>
+    <div class="lang-switch">
+      <a href="llms-txt.html" class="lang-btn active">中文</a>
+      <a href="en/llms-txt.html" class="lang-btn">EN</a>
+    </div>
+    <a href="../index-cn.html" class="home-link">🏠 回到首页</a>
+    <a href="../ch01.html">一. 基础概念</a>
+    <a href="../ch02.html">二. 指标与框架</a>
+    <a href="../ch03.html">三. 模型与方法</a>
+    <a href="../ch04.html">四. 内容策略</a>
+    <a href="../ch05.html">五. 技术实施</a>
+    <a href="../ch06.html">六. 品牌战略</a>
+    <a href="../ch07.html">七. 行业应用</a>
+    <a href="../ch08.html">八. 实战案例</a>
+    <a href="../ch09.html">九. 数据与公式</a>
+    <div class="current glossary-section">📌 术语解释</div>
+    <a href="geo.html">GEO生成式引擎优化</a>
+    <a href="seo.html">SEO搜索引擎优化</a>
+    <a href="rag.html">RAG检索增强生成</a>
+    <a href="eeat.html">E-E-A-T信任机制</a>
+    <a href="llms-txt.html" class="active">LLMs.txt</a>
+    <a href="zero-click.html">零点击搜索</a>
+    <a href="schema.html">Schema结构化数据</a>
+    <a href="answer-asset.html">答案资产化</a>
+    <a href="ai-visibility.html">AI可见度指数</a>
+    <a href="ymyl.html">YMYL</a>
+  </nav>
+  <div class="main">
+    <div class="content">
+
+      <span class="tag">术语解释</span>
+      <h1 style="margin-top: 12px;">LLMs.txt是什么？——AI爬虫时代的入门基建</h1>
+      <p style="color: #666; font-size: 0.9em; margin-bottom: 24px;">最后更新：2026-07-16 · <a href="../ch01.html">返回第一章</a></p>
+
+      <div class="answer-box">
+        <p><strong>一句话定义：</strong></p>
+        <p>LLMs.txt 是一个放在网站根目录下的纯文本文件（如 example.com/llms.txt），专门给大语言模型看的"网站使用说明书"，告诉AI哪些页面最重要、分别讲什么内容。</p>
+      </div>
+
+      <h2>一、GEO 基础层：所有优化的"0号前提"</h2>
+      <p>很多人做 <a href="geo.html">GEO</a> 容易犯一个错误：<strong>一来就直接干内容。</strong> 翻资料、写文章、加上 <a href="schema.html">Schema</a> 标记——然后发现AI还是没反应。</p>
+      <p>他们忽略了一个最基本的问题：<strong>AI能不能"看到"你的内容？</strong></p>
+      <p>GEO基础层要过三关：</p>
+      <ul>
+        <li><strong>爬取（Crawl）</strong>——AI能连上你的服务器吗？</li>
+        <li><strong>解析（Parse）</strong>——AI能读懂你的页面吗？</li>
+        <li><strong>索引（Index）</strong>——AI记住了你的内容吗？</li>
+      </ul>
+
+      <h2>二、LLMs.txt 和 sitemap.xml 的区别</h2>
+      <table>
+        <tr><th>维度</th><th>sitemap.xml</th><th>LLMs.txt</th></tr>
+        <tr><td><strong>面向对象</strong></td><td>传统搜索引擎（Googlebot等）</td><td>AI大语言模型（ChatGPT、Perplexity等）</td></tr>
+        <tr><td><strong>格式</strong></td><td>XML，机器可读</td><td>Markdown，人也可读</td></tr>
+        <tr><td><strong>语义</strong></td><td>只有URL和更新频率</td><td>带一句话描述，帮助AI理解每个页面内容</td></tr>
+        <tr><td><strong>优先级提示</strong></td><td>priority字段（但Google基本忽略）</td><td>自然语言排序（最重要的放最前面）</td></tr>
+        <tr><td><strong>排除规则</strong></td><td>通常不做排除</td><td>可以直接说"这些页面不需要被引用"</td></tr>
+      </table>
+      <p><strong>两者不是替代关系，是互补关系。</strong></p>
+
+      <h2>三、LLMs.txt 格式示例</h2>
+      <p>格式非常简单，用 Markdown 写就行：</p>
+      <p><code># 品牌名</code></p>
+      <p><code>## 核心产品</code></p>
+      <p><code>- [产品A - 面向中小企业的CRM系统](https://example.com/product-a)</code></p>
+      <p><code>## 常见问题</code></p>
+      <p><code>- [如何开始使用产品A](https://example.com/faq/get-started)</code></p>
+      <p><code>## 不推荐</code></p>
+      <p><code>- https://example.com/internal（内部文档，不需要被引用）</code></p>
+
+      <h2>四、AI爬虫 vs Googlebot：四个关键区别</h2>
+      <ul>
+        <li><strong>JS渲染能力不同</strong>——AI爬虫的JS引擎可能无法完整渲染所有内容</li>
+        <li><strong>超时时间更短</strong>——AI爬虫可能几百毫秒没响应就跳过了</li>
+        <li><strong>robots.txt规则不同</strong>——需要检查是否对所有AI爬虫开放</li>
+        <li><strong>类型更多样</strong>——GPTBot、ClaudeBot、Google-Extended、PerplexityBot、CCBot</li>
+      </ul>
+
+      <h2>五、30分钟操作指南</h2>
+      <ol>
+        <li><strong>检查robots.txt（5分钟）</strong>——确保对AI爬虫开放</li>
+        <li><strong>创建LLMs.txt（10分钟）</strong>——列出最重要的页面和描述</li>
+        <li><strong>测试AI爬取能力（10分钟）</strong>——在Perplexity上搜索品牌关键词测试</li>
+        <li><strong>检查服务器响应（5分钟）</strong>——确保关键页面500ms内返回</li>
+      </ol>
+
+      <h2>六、深入阅读</h2>
+      <ul>
+        <li><a href="../ch01.html">第一章 基础概念</a>——LLMs.txt在GEO中的完整角色</li>
+        <li><a href="geo.html">GEO生成式引擎优化</a>——LLMs.txt是GEO基础层最高效的动作</li>
+        <li><a href="rag.html">RAG检索增强生成</a>——AI爬虫如何抓取和使用LLMs.txt</li>
+      </ul>
+
+    </div>
+    <div class="nav-links">
+      <span></span>
+      <a href="../index-cn.html">📖 返回目录</a>
+      <a href="../ch01.html">第一章 基础概念 →</a>
+    </div>
+  </div>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "LLMs.txt是什么？",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "LLMs.txt是一个放在网站根目录下的纯文本文件，专门给大语言模型看的网站使用说明书，告诉AI哪些页面最重要、分别讲什么内容。格式使用Markdown编写。"
+    }
+  },{
+    "@type": "Question",
+    "name": "LLMs.txt和sitemap.xml有什么区别？",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "sitemap.xml面向传统搜索引擎，格式为XML，只有URL和更新频率。LLMs.txt面向AI大语言模型，格式为Markdown，带一句话描述帮助AI理解内容，两者互补而非替代。"
+    }
+  }]
+}
+</script>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3QR6VvmXkab0M8Cu",ck:"3QR6VvmXkab0M8Cu"})</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "LLMs.txt — AI爬虫时代的入门基建 - GEO知识全书",
+  "description": "LLMs.txt是放在网站根目录下专门给大语言模型看的网站说明书，告诉AI哪些页面最重要。本文详解LLMs.txt的定义、与sitemap的区别、真实案例和30分钟操作指南。",
+  "url": "https://geo010.com/glossary/llms-txt.html",
+  "image": "https://geo010.com/og-image.png",
+  "inLanguage": "zh-CN",
+  "publisher": {
+    "@type": "Organization",
+    "name": "GEO知识全书",
+    "url": "https://geo010.com"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "GEO知识全书",
+    "url": "https://geo010.com"
+  }
+}
+</script>
+</body>
+</html>

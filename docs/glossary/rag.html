@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8903384789303682"
+     crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAG检索增强生成 — 技术详解 - GEO知识全书</title>
+<meta name="description" content="RAG（Retrieval-Augmented Generation，检索增强生成）是当前所有AI搜索产品的底层技术架构，也是GEO的核心技术基础。本文详解RAG的三步工作原理、为什么是GEO的关键、以及对内容的三个要求。">
+<link rel="canonical" href="https://geo010.com/glossary/rag.html"/>
+<link rel="alternate" hreflang="zh-CN" href="https://geo010.com/glossary/rag.html"/>
+<link rel="alternate" hreflang="en" href="https://geo010.com/glossary/en/rag.html"/>
+<link rel="alternate" hreflang="x-default" href="https://geo010.com/glossary/rag.html"/>
+<meta property="og:title" content="RAG检索增强生成 — 技术详解 - GEO知识全书"/>
+<meta property="og:description" content="RAG（Retrieval-Augmented Generation）是当前所有AI搜索产品的底层技术架构，也是GEO的核心技术基础。"/>
+<meta property="og:url" content="https://geo010.com/glossary/rag.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="https://geo010.com/og-image.png"/>
+<meta property="og:locale" content="zh_CN"/>
+<meta property="og:locale:alternate" content="en_US"/>
+<meta property="og:site_name" content="GEO知识全书"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="RAG检索增强生成 — 技术详解 - GEO知识全书"/>
+<meta name="twitter:description" content="RAG（Retrieval-Augmented Generation）是当前所有AI搜索产品的底层技术架构，也是GEO的核心技术基础。"/>
+<meta name="twitter:image" content="https://geo010.com/og-image.png"/>
+<meta name="keywords" content="RAG,检索增强生成,Retrieval-Augmented Generation,AI搜索,语义搜索,GEO"/>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
+  .layout { display: flex; min-height: 100vh; }
+  .sidebar { width: 240px; flex-shrink: 0; background: #1a1a2e; color: #ccc; padding: 32px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+  .sidebar h3 { color: #fff; font-size: 1em; padding: 0 20px; margin-bottom: 20px; }
+  .sidebar a { display: block; padding: 8px 20px; color: #999; text-decoration: none; font-size: 0.9em; transition: all 0.15s; }
+  .sidebar a:hover, .sidebar a.active { color: #fff; background: rgba(255,255,255,0.08); }
+  .sidebar a.active { border-left: 3px solid #4fc3f7; }
+  .sidebar .current { color: #aaa; padding: 8px 20px; font-size: 0.85em; }
+  .sidebar .home-link { margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 12px; font-weight: 500; color: #4fc3f7; }
+  .sidebar .glossary-section { margin-top: 12px; border-top: 1px solid #333; padding-top: 12px; }
+  .main { flex: 1; max-width: 800px; margin: 0 auto; padding: 48px 32px 80px; }
+  .content { background: #fff; border-radius: 12px; padding: 40px 48px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .content h1 { font-size: 1.5em; margin: 40px 0 12px; color: #1a1a2e; padding-top: 8px; }
+  .content h1:first-of-type { margin-top: 0; }
+  .content h2 { font-size: 1.4em; margin: 32px 0 16px; color: #1a1a2e; padding-bottom: 8px; border-bottom: 1px solid #f0f0f0; }
+  .content h3 { font-size: 1.15em; margin: 24px 0 12px; color: #333; }
+  .content p { margin-bottom: 16px; color: #333; }
+  .content p:last-child { margin-bottom: 0; }
+  .content strong { color: #111; }
+  .content blockquote { margin: 16px 0; padding: 16px 20px; background: #f8f9ff; border-left: 4px solid #4fc3f7; border-radius: 0 8px 8px 0; color: #555; font-style: normal; }
+  .content blockquote strong { color: #1a1a2e; }
+  .content hr { margin: 32px 0; border: none; border-top: 1px solid #e8e8e8; }
+  .content ul, .content ol { margin: 8px 0 16px 24px; }
+  .content li { margin-bottom: 6px; color: #333; }
+  .content table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.93em; }
+  .content th { background: #f0f2f5; padding: 10px 14px; text-align: left; font-weight: 600; color: #333; border: 1px solid #e0e0e0; }
+  .content td { padding: 8px 14px; border: 1px solid #e8e8e8; color: #444; }
+  .content tr:nth-child(even) td { background: #fafafa; }
+  .content code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: #e74c3c; }
+  .content img { max-width: 100%; border-radius: 8px; margin: 16px 0; }
+  .nav-links { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; }
+  .nav-links a { color: #0066cc; text-decoration: none; font-size: 0.95em; }
+  .nav-links a:hover { text-decoration: underline; }
+  .answer-box { background: #f0f7ff; border: 1px solid #d0e4f7; border-radius: 8px; padding: 24px; margin: 24px 0; }
+  .answer-box p { margin-bottom: 8px; }
+  .answer-box p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; margin-right: 6px; }
+  .lang-switch { display: flex; gap: 4px; padding: 0 20px; margin-bottom: 16px; }
+  .lang-btn { flex: 1; padding: 6px 12px; text-align: center; border-radius: 6px; font-size: 0.85em; text-decoration: none; color: #999; background: rgba(255,255,255,0.05); transition: all 0.2s; }
+  .lang-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
+  .lang-btn.active { color: #4fc3f7; background: rgba(79,195,247,0.15); }
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 24px 16px; }
+    .content { padding: 24px 20px; border-radius: 8px; }
+    .content h1 { font-size: 1.3em; }
+    .content h2 { font-size: 1.2em; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h3>📖 GEO知识全书</h3>
+    <div class="lang-switch">
+      <a href="rag.html" class="lang-btn active">中文</a>
+      <a href="en/rag.html" class="lang-btn">EN</a>
+    </div>
+    <a href="../index-cn.html" class="home-link">🏠 回到首页</a>
+    <a href="../ch01.html">一. 基础概念</a>
+    <a href="../ch02.html">二. 指标与框架</a>
+    <a href="../ch03.html">三. 模型与方法</a>
+    <a href="../ch04.html">四. 内容策略</a>
+    <a href="../ch05.html">五. 技术实施</a>
+    <a href="../ch06.html">六. 品牌战略</a>
+    <a href="../ch07.html">七. 行业应用</a>
+    <a href="../ch08.html">八. 实战案例</a>
+    <a href="../ch09.html">九. 数据与公式</a>
+    <div class="current glossary-section">📌 术语解释</div>
+    <a href="geo.html">GEO生成式引擎优化</a>
+    <a href="seo.html">SEO搜索引擎优化</a>
+    <a href="rag.html" class="active">RAG检索增强生成</a>
+    <a href="eeat.html">E-E-A-T信任机制</a>
+    <a href="llms-txt.html">LLMs.txt</a>
+    <a href="zero-click.html">零点击搜索</a>
+    <a href="schema.html">Schema结构化数据</a>
+    <a href="answer-asset.html">答案资产化</a>
+    <a href="ai-visibility.html">AI可见度指数</a>
+    <a href="ymyl.html">YMYL</a>
+  </nav>
+  <div class="main">
+    <div class="content">
+
+      <span class="tag">术语解释</span>
+      <h1 style="margin-top: 12px;">RAG是什么？——检索增强生成技术详解</h1>
+      <p style="color: #666; font-size: 0.9em; margin-bottom: 24px;">最后更新：2026-07-16 · <a href="../ch01.html">返回第一章</a></p>
+
+      <div class="answer-box">
+        <p><strong>一句话定义：</strong></p>
+        <p>RAG（Retrieval-Augmented Generation，检索增强生成）是当前所有AI搜索产品的底层技术架构，指AI在回答用户问题时，先从互联网实时检索相关网页，再基于检索结果综合生成答案的技术机制。</p>
+      </div>
+
+      <h2>一、RAG 的工作原理</h2>
+      <p>当你在 ChatGPT 的搜索框中输入"2026年最好的国产手机是哪款？"时，AI 并不是直接凭"记忆"回答。它做了三件事：</p>
+
+      <h3>第一步：检索（Retrieval）</h3>
+      <p>系统把你的问题转化为一个"语义向量"（可以理解为问题的一种数学表示），然后在互联网上搜索最相关的文档片段。这个过程不是靠"关键词匹配"，而是靠<strong>语义匹配</strong>——它理解你想要的是"性能好、口碑好的中国品牌手机"。</p>
+
+      <h3>第二步：增强（Augmented）</h3>
+      <p>系统把检索到的 N 个最相关网页内容，作为"参考材料"附加到你的问题后面。这些材料就是你网站的正文内容。这一步决定了AI回答的质量上限——<strong>"检索到好材料"是"生成好答案"的前提。</strong></p>
+
+      <h3>第三步：生成（Generation）</h3>
+      <p>大语言模型基于"原始问题+参考材料"来生成一段自然语言的回答。它不是在"背诵"，而是在理解参考材料的基础上进行综合、提炼和重组。</p>
+
+      <h2>二、为什么 RAG 是 <a href="geo.html">GEO</a> 的关键？</h2>
+      <p>对于 GEO 从业者来说，RAG 的关键含义只有一个：</p>
+      <blockquote>
+        <strong>你的内容只有在"检索阶段"被AI命中了，才有可能出现在答案中。</strong>
+      </blockquote>
+      <p>这就引出了 <a href="geo.html">GEO</a> 最核心的问题：<strong>AI在检索时，凭什么选中你？</strong></p>
+      <p>这不是传统 <a href="seo.html">SEO</a> 的"排名信号"能回答的。AI的检索逻辑更接近"语义搜索"——它不在意你的页面 Title 里有没有那个关键词，而是看你的内容整体上是不是"对这个问题有用的材料"。</p>
+
+      <h2>三、RAG 给内容提出的三个要求</h2>
+      <table>
+        <tr><th>要求</th><th>含义</th><th>GEO对策</th></tr>
+        <tr><td><strong>语义相关</strong></td><td>内容意思上高度匹配用户问题</td><td>语义覆盖策略：覆盖用户可能问的所有"意思"</td></tr>
+        <tr><td><strong>结构清晰</strong></td><td>AI能快速定位到最有用的段落</td><td><a href="schema.html">Schema结构化标记</a>、开篇即答、标题层级分明</td></tr>
+        <tr><td><strong>可信可引用</strong></td><td>内容有据可查，AI愿意引用你</td><td><a href="eeat.html">E-E-A-T</a>达标、数据来源标注、权威背书</td></tr>
+      </table>
+
+      <h2>四、RAG 与传统搜索的区别</h2>
+      <table>
+        <tr><th>维度</th><th>传统搜索引擎</th><th>RAG驱动的AI搜索</th></tr>
+        <tr><td>检索方式</td><td>关键词匹配</td><td>语义向量匹配</td></tr>
+        <tr><td>结果呈现</td><td>10个链接列表</td><td>一段综合答案</td></tr>
+        <tr><td>用户行为</td><td>浏览链接列表，点击多个</td><td>直接阅读AI答案，可能零点击</td></tr>
+        <tr><td>对内容的要求</td><td>关键词密度、外链、技术优化</td><td>语义相关、结构清晰、<a href="eeat.html">可信</a></td></tr>
+      </table>
+
+      <h2>五、实战：如何让 RAG 选中你的内容？</h2>
+      <ol>
+        <li><strong><a href="answer-asset.html">答案资产化</a></strong>——围绕用户高频问题，写"开篇即答"的标准答案</li>
+        <li><strong>语义覆盖</strong>——一个主题从多个角度覆盖，确保匹配用户的各种"问法"</li>
+        <li><strong>结构化标记</strong>——添加 <a href="schema.html">FAQ Schema</a>、Article Schema 等，帮AI快速理解</li>
+        <li><strong>提升<a href="eeat.html">可信度</a></strong>——标注数据来源、引用权威文献、展示作者资质</li>
+        <li><strong><a href="llms-txt.html">配置LLMs.txt</a></strong>——告诉AI你最重要的页面在哪里</li>
+      </ol>
+
+      <h2>六、深入阅读</h2>
+      <ul>
+        <li><a href="../ch01.html">第一章 基础概念</a>——RAG在GEO中的完整应用</li>
+        <li><a href="geo.html">GEO生成式引擎优化</a>——RAG技术如何驱动GEO</li>
+        <li><a href="eeat.html">E-E-A-T信任机制</a>——提升RAG检索中的可信度</li>
+        <li><a href="answer-asset.html">答案资产化</a>——让RAG更容易选中你</li>
+      </ul>
+
+    </div>
+    <div class="nav-links">
+      <span></span>
+      <a href="../index-cn.html">📖 返回目录</a>
+      <a href="../ch01.html">第一章 基础概念 →</a>
+    </div>
+  </div>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "RAG是什么？",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "RAG（Retrieval-Augmented Generation，检索增强生成）是当前所有AI搜索产品的底层技术架构，指AI在回答用户问题时，先从互联网实时检索相关网页，再基于检索结果综合生成答案的技术机制。"
+    }
+  },{
+    "@type": "Question",
+    "name": "RAG的工作原理是什么？",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "RAG分三步：1.检索——将问题语义化后在互联网上搜索最相关文档；2.增强——将检索到的内容作为参考材料附加到问题后面；3.生成——基于问题和参考材料生成自然语言答案。"
+    }
+  }]
+}
+</script>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3QR6VvmXkab0M8Cu",ck:"3QR6VvmXkab0M8Cu"})</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "RAG检索增强生成 — 技术详解 - GEO知识全书",
+  "description": "RAG（Retrieval-Augmented Generation）是当前所有AI搜索产品的底层技术架构，也是GEO的核心技术基础。本文详解RAG的三步工作原理、为什么是GEO的关键、以及对内容的三个要求。",
+  "url": "https://geo010.com/glossary/rag.html",
+  "image": "https://geo010.com/og-image.png",
+  "inLanguage": "zh-CN",
+  "publisher": {
+    "@type": "Organization",
+    "name": "GEO知识全书",
+    "url": "https://geo010.com"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "GEO知识全书",
+    "url": "https://geo010.com"
+  }
+}
+</script>
+</body>
+</html>

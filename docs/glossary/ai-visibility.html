@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8903384789303682"
+     crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI可见度指数 — 如何衡量GEO效果 - GEO知识全书</title>
+<meta name="description" content="AI可见度指数是衡量品牌在AI生成答案中被提及和引用的综合指标。本文详解AI可见度指数的定义、测量方法、三个关键子指标和基线设定方法。">
+<link rel="canonical" href="https://geo010.com/glossary/ai-visibility.html"/>
+<link rel="alternate" hreflang="zh-CN" href="https://geo010.com/glossary/ai-visibility.html"/>
+<link rel="alternate" hreflang="en" href="https://geo010.com/glossary/en/ai-visibility.html"/>
+<link rel="alternate" hreflang="x-default" href="https://geo010.com/glossary/ai-visibility.html"/>
+<meta property="og:title" content="AI可见度指数 — 如何衡量GEO效果 - GEO知识全书"/>
+<meta property="og:description" content="AI可见度指数是衡量品牌在AI生成答案中被提及和引用的综合指标。"/>
+<meta property="og:url" content="https://geo010.com/glossary/ai-visibility.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="https://geo010.com/og-image.png"/>
+<meta property="og:locale" content="zh_CN"/>
+<meta property="og:locale:alternate" content="en_US"/>
+<meta property="og:site_name" content="GEO知识全书"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="AI可见度指数 — 如何衡量GEO效果 - GEO知识全书"/>
+<meta name="twitter:description" content="AI可见度指数是衡量品牌在AI生成答案中被提及和引用的综合指标。"/>
+<meta name="twitter:image" content="https://geo010.com/og-image.png"/>
+<meta name="keywords" content="AI可见度指数,AI Visibility Index,GEO,引用份额,品牌提及,Bing Webmaster Tools"/>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
+  .layout { display: flex; min-height: 100vh; }
+  .sidebar { width: 240px; flex-shrink: 0; background: #1a1a2e; color: #ccc; padding: 32px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+  .sidebar h3 { color: #fff; font-size: 1em; padding: 0 20px; margin-bottom: 20px; }
+  .sidebar a { display: block; padding: 8px 20px; color: #999; text-decoration: none; font-size: 0.9em; transition: all 0.15s; }
+  .sidebar a:hover, .sidebar a.active { color: #fff; background: rgba(255,255,255,0.08); }
+  .sidebar a.active { border-left: 3px solid #4fc3f7; }
+  .sidebar .current { color: #aaa; padding: 8px 20px; font-size: 0.85em; }
+  .sidebar .home-link { margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 12px; font-weight: 500; color: #4fc3f7; }
+  .sidebar .glossary-section { margin-top: 12px; border-top: 1px solid #333; padding-top: 12px; }
+  .main { flex: 1; max-width: 800px; margin: 0 auto; padding: 48px 32px 80px; }
+  .content { background: #fff; border-radius: 12px; padding: 40px 48px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .content h1 { font-size: 1.5em; margin: 40px 0 12px; color: #1a1a2e; padding-top: 8px; }
+  .content h1:first-of-type { margin-top: 0; }
+  .content h2 { font-size: 1.4em; margin: 32px 0 16px; color: #1a1a2e; padding-bottom: 8px; border-bottom: 1px solid #f0f0f0; }
+  .content h3 { font-size: 1.15em; margin: 24px 0 12px; color: #333; }
+  .content p { margin-bottom: 16px; color: #333; }
+  .content p:last-child { margin-bottom: 0; }
+  .content strong { color: #111; }
+  .content blockquote { margin: 16px 0; padding: 16px 20px; background: #f8f9ff; border-left: 4px solid #4fc3f7; border-radius: 0 8px 8px 0; color: #555; font-style: normal; }
+  .content blockquote strong { color: #1a1a2e; }
+  .content hr { margin: 32px 0; border: none; border-top: 1px solid #e8e8e8; }
+  .content ul, .content ol { margin: 8px 0 16px 24px; }
+  .content li { margin-bottom: 6px; color: #333; }
+  .content table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.93em; }
+  .content th { background: #f0f2f5; padding: 10px 14px; text-align: left; font-weight: 600; color: #333; border: 1px solid #e0e0e0; }
+  .content td { padding: 8px 14px; border: 1px solid #e8e8e8; color: #444; }
+  .content tr:nth-child(even) td { background: #fafafa; }
+  .content code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: #e74c3c; }
+  .content img { max-width: 100%; border-radius: 8px; margin: 16px 0; }
+  .nav-links { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; }
+  .nav-links a { color: #0066cc; text-decoration: none; font-size: 0.95em; }
+  .nav-links a:hover { text-decoration: underline; }
+  .answer-box { background: #f0f7ff; border: 1px solid #d0e4f7; border-radius: 8px; padding: 24px; margin: 24px 0; }
+  .answer-box p { margin-bottom: 8px; }
+  .answer-box p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; margin-right: 6px; }
+  .lang-switch { display: flex; gap: 4px; padding: 0 20px; margin-bottom: 16px; }
+  .lang-btn { flex: 1; padding: 6px 12px; text-align: center; border-radius: 6px; font-size: 0.85em; text-decoration: none; color: #999; background: rgba(255,255,255,0.05); transition: all 0.2s; }
+  .lang-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
+  .lang-btn.active { color: #4fc3f7; background: rgba(79,195,247,0.15); }
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 24px 16px; }
+    .content { padding: 24px 20px; border-radius: 8px; }
+    .content h1 { font-size: 1.3em; }
+    .content h2 { font-size: 1.2em; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h3>📖 GEO知识全书</h3>
+    <div class="lang-switch">
+      <a href="ai-visibility.html" class="lang-btn active">中文</a>
+      <a href="en/ai-visibility.html" class="lang-btn">EN</a>
+    </div>
+    <a href="../index-cn.html" class="home-link">🏠 回到首页</a>
+    <a href="../ch01.html">一. 基础概念</a>
+    <a href="../ch02.html">二. 指标与框架</a>
+    <a href="../ch03.html">三. 模型与方法</a>
+    <a href="../ch04.html">四. 内容策略</a>
+    <a href="../ch05.html">五. 技术实施</a>
+    <a href="../ch06.html">六. 品牌战略</a>
+    <a href="../ch07.html">七. 行业应用</a>
+    <a href="../ch08.html">八. 实战案例</a>
+    <a href="../ch09.html">九. 数据与公式</a>
+    <div class="current glossary-section">📌 术语解释</div>
+    <a href="geo.html">GEO生成式引擎优化</a>
+    <a href="seo.html">SEO搜索引擎优化</a>
+    <a href="rag.html">RAG检索增强生成</a>
+    <a href="eeat.html">E-E-A-T信任机制</a>
+    <a href="llms-txt.html">LLMs.txt</a>
+    <a href="zero-click.html">零点击搜索</a>
+    <a href="schema.html">Schema结构化数据</a>
+    <a href="answer-asset.html">答案资产化</a>
+    <a href="ai-visibility.html" class="active">AI可见度指数</a>
+    <a href="ymyl.html">YMYL</a>
+  </nav>
+  <div class="main">
+    <div class="content">
+
+      <span class="tag">术语解释</span>
+      <h1 style="margin-top: 12px;">AI可见度指数是什么？——如何衡量GEO效果</h1>
+      <p style="color: #666; font-size: 0.9em; margin-bottom: 24px;">最后更新：2026-07-16 · <a href="../ch01.html">返回第一章</a></p>
+
+      <div class="answer-box">
+        <p><strong>一句话定义：</strong></p>
+        <p>AI可见度指数是用于衡量品牌在AI生成答案中被提及和引用的综合指标，反映"当AI聊到你所在行业的话题时，你的名字出现在AI答案中的概率有多大"。</p>
+      </div>
+
+      <h2>一、为什么需要新的衡量指标？</h2>
+      <p>传统 <a href="seo.html">SEO</a> 的衡量——"排名第几名"——在 <a href="geo.html">GEO</a> 中不那么适用，因为：</p>
+      <ul>
+        <li>AI的答案有<strong>随机性</strong>（同一个问题问两次，答案可能不完全一样）</li>
+        <li>AI不显示"第1名第2名"，而是生成一段文字</li>
+        <li>不同AI平台（ChatGPT、豆包、Perplexity）的偏好不同</li>
+      </ul>
+      <p>所以AI可见度指数是一个<strong>概率化的综合评分</strong>，通常以0-100分呈现。</p>
+
+      <h2>二、测量方法</h2>
+      <p>大多数GEO监测工具（如 Profound、SEMrush、BrightEdge）的工作方式：</p>
+      <ol>
+        <li><strong>选定话题集</strong>——你关心的核心关键词和问题（约20-50个）</li>
+        <li><strong>多元查询</strong>——在多个AI平台（通常5-8个）上反复查询</li>
+        <li><strong>内容分析</strong>——用NLP技术分析AI答案，提取品牌提及、链接引用、上下文情感、出现位置</li>
+        <li><strong>综合评分</strong>——根据上述数据计算综合指数</li>
+      </ol>
+
+      <h2>三、三个关键子指标</h2>
+      <table>
+        <tr><th>指标</th><th>含义</th><th>来源</th></tr>
+        <tr><td><strong>品牌提及率</strong></td><td>在相关话题的AI答案中，品牌被提及的频率</td><td>基础指标</td></tr>
+        <tr><td><strong>引用份额</strong></td><td>在所有被AI引用的来源中，你的内容占比</td><td>Bing Webmaster Tools 2026年正式提供</td></tr>
+        <tr><td><strong>描述准确度</strong></td><td>AI对品牌的描述是否正确</td><td>内容质量指标</td></tr>
+      </table>
+
+      <h2>四、如何设定基线？</h2>
+      <p>建议在企业开始 <a href="geo.html">GEO</a> 优化的<strong>第一天</strong>就做一次基线测量：</p>
+      <ol>
+        <li>列出10个你最想出现的话题</li>
+        <li>在ChatGPT、豆包、DeepSeek、Kimi、Perplexity上分别查询</li>
+        <li>记录：有没有提到你？怎么说的？提到了几个竞争对手？</li>
+        <li>按月复测，观察变化趋势</li>
+      </ol>
+
+      <h2>五、深入阅读</h2>
+      <ul>
+        <li><a href="../ch01.html">第一章 基础概念</a>——AI可见度指数在GEO中的应用</li>
+        <li><a href="answer-asset.html">答案资产化</a>——提升AI可见度的核心策略</li>
+        <li><a href="geo.html">GEO生成式引擎优化</a>——AI可见度是GEO的输出衡量</li>
+      </ul>
+
+    </div>
+    <div class="nav-links">
+      <span></span>
+      <a href="../index-cn.html">📖 返回目录</a>
+      <a href="../ch01.html">第一章 基础概念 →</a>
+    </div>
+  </div>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "AI可见度指数是什么？",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "AI可见度指数是衡量品牌在AI生成答案中被提及和引用的综合指标，反映当AI聊到你所在行业话题时，你的名字出现在AI答案中的概率。通常以0-100分呈现。"
+    }
+  },{
+    "@type": "Question",
+    "name": "AI可见度指数怎么测量？",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "AI可见度指数测量分4步：选定话题集→在多个AI平台多元查询→用NLP分析答案提取品牌提及等数据→综合评分。核心子指标包括品牌提及率、引用份额、描述准确度。"
+    }
+  }]
+}
+</script>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3QR6VvmXkab0M8Cu",ck:"3QR6VvmXkab0M8Cu"})</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI可见度指数 — 如何衡量GEO效果 - GEO知识全书",
+  "description": "AI可见度指数是衡量品牌在AI生成答案中被提及和引用的综合指标。本文详解AI可见度指数的定义、测量方法、三个关键子指标和基线设定方法。",
+  "url": "https://geo010.com/glossary/ai-visibility.html",
+  "image": "https://geo010.com/og-image.png",
+  "inLanguage": "zh-CN",
+  "publisher": {
+    "@type": "Organization",
+    "name": "GEO知识全书",
+    "url": "https://geo010.com"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "GEO知识全书",
+    "url": "https://geo010.com"
+  }
+}
+</script>
+</body>
+</html>

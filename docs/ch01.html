@@ -68,6 +68,9 @@
   .lang-btn { flex: 1; padding: 6px 12px; text-align: center; border-radius: 6px; font-size: 0.85em; text-decoration: none; color: #999; background: rgba(255,255,255,0.05); transition: all 0.2s; }
   .lang-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
   .lang-btn.active { color: #4fc3f7; background: rgba(79,195,247,0.15); }
+  .glossary-section { margin-top: 12px; border-top: 1px solid #333; padding-top: 12px; }
+  .glossary-link { color: #0066cc; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+  .glossary-link:hover { color: #004499; text-decoration-style: solid; }
   @media (max-width: 768px) {
     .sidebar { display: none; }
     .main { padding: 24px 16px; }
@@ -96,6 +99,17 @@
     <a href="ch08.html" class="">八. 实战案例</a>
     <a href="ch09.html" class="">九. 数据与公式</a>
     <div class="current">第1-5篇 · 6篇</div>
+    <div class="current glossary-section">📌 术语解释</div>
+    <a href="glossary/geo.html">GEO生成式引擎优化</a>
+    <a href="glossary/seo.html">SEO搜索引擎优化</a>
+    <a href="glossary/rag.html">RAG检索增强生成</a>
+    <a href="glossary/eeat.html">E-E-A-T信任机制</a>
+    <a href="glossary/llms-txt.html">LLMs.txt</a>
+    <a href="glossary/zero-click.html">零点击搜索</a>
+    <a href="glossary/schema.html">Schema结构化数据</a>
+    <a href="glossary/answer-asset.html">答案资产化</a>
+    <a href="glossary/ai-visibility.html">AI可见度指数</a>
+    <a href="glossary/ymyl.html">YMYL</a>
   </nav>
   <div class="main">
     <div class="content">
@@ -138,13 +152,13 @@
 
 <p><strong>"流量"的定义正在被重写。</strong> 以前我们说"流量"="网站点击量"。现在，"流量"正在变成"AI答案中的品牌出现次数"。</p>
 
-<p>在这个转折点上，一个全新的营销优化领域应运而生——<strong>GEO（Generative Engine Optimization，生成式引擎优化）</strong>。</p>
+<p>在这个转折点上，一个全新的营销优化领域应运而生——<strong><a href="glossary/geo.html" class="glossary-link">GEO（Generative Engine Optimization，生成式引擎优化）</a></strong>。</p>
 
 <hr>
 
 <h2>二、零点击搜索：GEO诞生的底层逻辑</h2>
 
-<p>要理解GEO，必须先理解它为什么会出现。答案就四个字：<strong>零点击搜索</strong>。</p>
+<p>要理解GEO，必须先理解它为什么会出现。答案就四个字：<strong><a href="glossary/zero-click.html" class="glossary-link">零点击搜索</a></strong>。</p>
 
 <p><strong>什么是零点击搜索？</strong></p>
 
@@ -172,6 +186,10 @@
 
 <p><strong>这就产生了GEO存在的根本理由：在"零点击"成为主流的时代，让品牌在用户"唯一看到的内容"——AI答案中，占据一席之地。</strong></p>
 
+<blockquote>
+<strong>想了解零点击搜索的数据规模和演变历程？</strong> 请阅读：<a href="glossary/zero-click.html">零点击搜索是什么？——GEO诞生的底层逻辑（术语详解）→
+</blockquote>
+
 <hr>
 
 <h2>三、GEO的核心机制：如何让AI"点名"你？</h2>
@@ -184,7 +202,7 @@
 
 <p><strong>路径一：预训练数据。</strong> 这是AI在训练阶段已经"学过"的海量互联网公开数据（包括维基百科、学术论文、新闻网站等）。如果你的品牌出现在这些数据中，它就"知道"你。</p>
 
-<p><strong>路径二：联网检索（RAG）。</strong> 当AI需要实时信息（比如"2026年最新手机推荐"），会触发<strong>检索增强生成</strong>机制——先去网上实时抓取相关内容，把抓取到的网页作为"参考资料"，再综合生成答案。这就是GEO的主战场。</p>
+<p><strong>路径二：联网检索（<a href="glossary/rag.html" class="glossary-link">RAG</a>）。</strong> 当AI需要实时信息（比如"2026年最新手机推荐"），会触发<strong>检索增强生成</strong>机制——先去网上实时抓取相关内容，把抓取到的网页作为"参考资料"，再综合生成答案。这就是GEO的主战场。</p>
 
 <p>在联网检索引擎中，AI会像一名资深的编辑，面对成千上万个网页进行"选材"。它选材的标准有三个维度：</p>
 
@@ -199,11 +217,11 @@
   <li>数据来源是否可查？</li>
   <li>是否有权威第三方背书？</li>
   <li>你的说法在多个独立来源上能否交叉验证？</li>
-  <li>你是这个话题的"专家"吗？（EEAT评估）</li>
+  <li>你是这个话题的"专家"吗？（<a href="glossary/eeat.html" class="glossary-link">E-E-A-T</a>评估）</li>
 </ul>
 <p><strong>3. 结构清晰度：AI能轻松提取你的关键信息吗？</strong></p>
 <ul>
-  <li>页面是否有清晰的结构化标记（Schema）？</li>
+  <li>页面是否有清晰的结构化标记（<a href="glossary/schema.html" class="glossary-link">Schema</a>）？</li>
   <li>标题层级是否分明？</li>
   <li>关键数据是否用列表、表格等形式组织？</li>
 </ul>
@@ -314,7 +332,7 @@
 
 <h2>二、SEO的三十年："排名"这件事的本质</h2>
 
-<p>SEO的全称是Search Engine Optimization，搜索引擎优化。它想解决的问题很简单：<strong>当用户在搜索引擎输入某个词时，让你的网页排在越前面越好。</strong></p>
+<p><strong>SEO（Search Engine Optimization，<a href="glossary/seo.html" class="glossary-link">搜索引擎优化</a>）</strong>。它想解决的问题很简单：<strong>当用户在搜索引擎输入某个词时，让你的网页排在越前面越好。</strong></p>
 
 <p>听起来很简单，但这个简单的目标背后，是30年的攻防战。</p>
 
@@ -342,6 +360,10 @@
 <p>答案是：原则不变，方法要变。</p>
 
 <p>因为搜索引擎的目标依然是"让用户满意"，但AI这个"回答者"比传统搜索引擎更挑剔——它对内容的评判标准从"关键词匹配"升级到了"语义理解+可信度评估"。</p>
+
+<blockquote>
+<strong>想深入了解 SEO 的完整进化史和核心要素？</strong> 请阅读：<a href="glossary/seo.html">SEO是什么？——搜索引擎优化基础（术语详解）→
+</blockquote>
 
 <hr>
 
@@ -432,7 +454,7 @@
 <p>SEO文章可能需要"铺垫引入"再给答案。GEO文章要求<strong>第一段直接给答案</strong>——因为AI在检索摘要时，往往只取开头的部分。</p>
 
 <p><strong>3. 结构化数据升级</strong></p>
-<p>如果你已经在做SEO的结构化数据（比如Article Schema），现在要升级到GEO级别的——FAQ Schema、HowTo Schema、Product Schema、Person Schema。这些是AI提取答案时的"加速器"。</p>
+<p>如果你已经在做SEO的结构化数据（比如Article Schema），现在要升级到<a href="glossary/schema.html" class="glossary-link">GEO级别</a>的——FAQ Schema、HowTo Schema、Product Schema、Person Schema。这些是AI提取答案时的"加速器"。</p>
 
 <p><strong>4. 不只是做外链，要做"可信信号"</strong></p>
 <p>在SEO中，外链的价值是"投票"。在GEO中，被权威来源引用（不仅仅是链接）是更重要的"可信信号"。比如你的品牌出现在维基百科、政府网站、行业协会网站上，AI会认为你"可信"。</p>
@@ -580,6 +602,10 @@
 
 <table><thead><tr><th>EEAT维度</th><th>内容层面</th><th>技术层面</th></tr></thead><tbody><tr><td><strong>Experience</strong></td><td>加入真实案例、操作过程、实战数据</td><td>用Person Schema标记作者经历</td></tr><tr><td><strong>Expertise</strong></td><td>标注作者资质、专业背景</td><td>用Author Schema关联LinkedIn等专业账号</td></tr><tr><td><strong>Authoritativeness</strong></td><td>引用权威来源、获取外部背书</td><td>获取高质量反向链接、百科收录</td></tr><tr><td><strong>Trustworthiness</strong></td><td>标注数据来源、更新日期、利益声明</td><td>使用HTTPS、清晰的隐私政策</td></tr></tbody></table>
 
+<blockquote>
+<strong>想深入了解 E-E-A-T 的四个维度和 GEO 实战应用？</strong> 请阅读：<a href="glossary/eeat.html">E-E-A-T是什么？——GEO时代的信任金标准（术语详解）→
+</blockquote>
+
 <hr>
 
 <h2>四、结构化数据——让AI"读懂"你的内容</h2>
@@ -629,6 +655,10 @@
   <li>两者缺一不可——只有EEAT没有结构化数据，AI可能"看不懂"你有多好；只有结构化数据没有EEAT，AI看懂了但觉得你不值得引用。</li>
 </ul>
 <p>只有<strong>内容质量+技术表达</strong>双管齐下，你才能成为AI的"首选引用源"。</p>
+
+<blockquote>
+<strong>想了解 Schema 结构化数据的5种核心类型和代码示例？</strong> 请阅读：<a href="glossary/schema.html">Schema是什么？——结构化数据让AI读懂你的内容（术语详解）→
+</blockquote>
 
 <hr>
 
@@ -705,7 +735,7 @@
 
 <h2>二、LLMs.txt：写给AI的"网站说明书"</h2>
 
-<p>LLMs.txt是GEO基础层中<strong>投入产出比最高的一个动作</strong>——花10分钟创建，可能带来巨大的收益。</p>
+<p><a href="glossary/llms-txt.html" class="glossary-link">LLMs.txt</a>是GEO基础层中<strong>投入产出比最高的一个动作</strong>——花10分钟创建，可能带来巨大的收益。</p>
 
 <h3>什么是LLMs.txt？</h3>
 
@@ -776,6 +806,10 @@
 <p><code>`</code></p>
 
 <p>你看，它甚至指定了"Uncrawlable"部分——告诉AI这些页面不值得爬取。这是一种<strong>资源主动配置</strong>：让AI的"注意力"集中在最有价值的页面上。</p>
+
+<blockquote>
+<strong>想了解 LLMs.txt 的完整格式和创建方法？</strong> 请阅读：<a href="glossary/llms-txt.html">LLMs.txt是什么？——AI爬虫时代的基建（术语详解）→
+</blockquote>
 
 <hr>
 
@@ -929,7 +963,7 @@
   <li>这个段落是否<strong>直接回答了问题</strong>（而不是绕了300字才说到重点）</li>
   <li>这个段落是否有<strong>清晰的结构</strong>（列表、数字、对比）</li>
 </ul>
-<p>这就引出了GEO最核心的内容策略：<strong>答案资产化</strong>。</p>
+<p>这就引出了GEO最核心的内容策略：<strong><a href="glossary/answer-asset.html" class="glossary-link">答案资产化</a></strong>。</p>
 
 <hr>
 
@@ -1052,13 +1086,17 @@
 
 <p>这就是接下要讲的内容——AI可见度指数。</p>
 
+<blockquote>
+<strong>想了解答案资产化的完整方法论和A/B测试数据？</strong> 请阅读：<a href="glossary/answer-asset.html">答案资产化是什么？——让AI替你打广告（术语详解）→
+</blockquote>
+
 <hr>
 
 <h2>五、AI可见度指数——你怎么知道AI"看见"你了？</h2>
 
 <p>你做了答案资产化，建了50个答案页面。然后呢？<strong>怎么知道AI有没有真的引用你？</strong></p>
 
-<p>这就需要引入GEO的核心衡量指标：<strong>AI可见度指数</strong>。</p>
+<p>这就需要引入GEO的核心衡量指标：<strong><a href="glossary/ai-visibility.html" class="glossary-link">AI可见度指数</a></strong>。</p>
 
 <h3>什么是AI可见度指数？</h3>
 
@@ -1108,8 +1146,13 @@
   <li>在ChatGPT、豆包、DeepSeek、Kimi、Perplexity上分别查询</li>
   <li>记录：有没有提到你？怎么说的？提到了几个竞争对手？</li>
   <li>按月复测，观察变化趋势</li>
-<hr>
 </ol>
+
+<blockquote>
+<strong>想了解 AI 可见度指数的完整测量方法和三个关键子指标？</strong> 请阅读：<a href="glossary/ai-visibility.html">AI可见度指数是什么？——衡量GEO效果的核心指标（术语详解）→
+</blockquote>
+
+<hr>
 <h2>六、答案资产化 + 可见度监测 = 完整闭环</h2>
 
 <p>答案资产化和AI可见度指数是GEO落地中"输入"和"输出"的关系：</p>

@@ -152,4 +152,74 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://geo010.com/monitor.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://geo010.com/en/monitor.html"/>
   </url>
+  <url>
+    <loc>https://geo010.com/glossary/geo.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://geo010.com/glossary/geo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://geo010.com/glossary/en/geo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://geo010.com/glossary/geo.html"/>
+  </url>
+  <url>
+    <loc>https://geo010.com/glossary/seo.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://geo010.com/glossary/seo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://geo010.com/glossary/en/seo.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://geo010.com/glossary/seo.html"/>
+  </url>
+  <url>
+    <loc>https://geo010.com/glossary/rag.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://geo010.com/glossary/rag.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://geo010.com/glossary/en/rag.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://geo010.com/glossary/rag.html"/>
+  </url>
+  <url>
+    <loc>https://geo010.com/glossary/eeat.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://geo010.com/glossary/eeat.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://geo010.com/glossary/en/eeat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://geo010.com/glossary/eeat.html"/>
+  </url>
+  <url>
+    <loc>https://geo010.com/glossary/llms-txt.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://geo010.com/glossary/llms-txt.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://geo010.com/glossary/en/llms-txt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://geo010.com/glossary/llms-txt.html"/>
+  </url>
+  <url>
+    <loc>https://geo010.com/glossary/zero-click.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://geo010.com/glossary/zero-click.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://geo010.com/glossary/en/zero-click.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://geo010.com/glossary/zero-click.html"/>
+  </url>
+  <url>
+    <loc>https://geo010.com/glossary/schema.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://geo010.com/glossary/schema.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://geo010.com/glossary/en/schema.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://geo010.com/glossary/schema.html"/>
+  </url>
+  <url>
+    <loc>https://geo010.com/glossary/answer-asset.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://geo010.com/glossary/answer-asset.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://geo010.com/glossary/en/answer-asset.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://geo010.com/glossary/answer-asset.html"/>
+  </url>
+  <url>
+    <loc>https://geo010.com/glossary/ai-visibility.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://geo010.com/glossary/ai-visibility.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://geo010.com/glossary/en/ai-visibility.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://geo010.com/glossary/ai-visibility.html"/>
+  </url>
+  <url>
+    <loc>https://geo010.com/glossary/ymyl.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://geo010.com/glossary/ymyl.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://geo010.com/glossary/en/ymyl.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://geo010.com/glossary/ymyl.html"/>
+  </url>
 </urlset>
