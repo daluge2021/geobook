@@ -205,6 +205,38 @@
   if(localStorage.getItem(key)!==today){
     localStorage.setItem(key,today);
     fetch('https://www.google.com/ping?sitemap=https://geo010.com/sitemap.xml').catch(function(){});
+    fetch('https://api.indexnow.org/indexnow',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        host:'geo010.com',
+        key:'c69d4fc0-5281-44df-ae82-a96dd9be018f',
+        keyLocation:'https://geo010.com/c69d4fc0-5281-44df-ae82-a96dd9be018f.txt',
+        urlList:[
+          'https://geo010.com/',
+          'https://geo010.com/index-cn.html',
+          'https://geo010.com/ch01.html',
+          'https://geo010.com/ch02.html',
+          'https://geo010.com/ch03.html',
+          'https://geo010.com/ch04.html',
+          'https://geo010.com/ch05.html',
+          'https://geo010.com/ch06.html',
+          'https://geo010.com/ch07.html',
+          'https://geo010.com/ch08.html',
+          'https://geo010.com/ch09.html',
+          'https://geo010.com/glossary/geo.html',
+          'https://geo010.com/glossary/seo.html',
+          'https://geo010.com/glossary/rag.html',
+          'https://geo010.com/glossary/eeat.html',
+          'https://geo010.com/glossary/llms-txt.html',
+          'https://geo010.com/glossary/zero-click.html',
+          'https://geo010.com/glossary/schema.html',
+          'https://geo010.com/glossary/answer-asset.html',
+          'https://geo010.com/glossary/ai-visibility.html',
+          'https://geo010.com/glossary/ymyl.html'
+        ]
+      })
+    }).catch(function(){});
   }
 })();
 </script>
