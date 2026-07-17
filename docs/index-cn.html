@@ -198,5 +198,15 @@
 </script>
 <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
 <script>LA.init({id:"3QR6VvmXkab0M8Cu",ck:"3QR6VvmXkab0M8Cu"})</script>
+<script>
+(function(){
+  var key='geo010_ping_date';
+  var today=new Date().toDateString();
+  if(localStorage.getItem(key)!==today){
+    localStorage.setItem(key,today);
+    fetch('https://www.google.com/ping?sitemap=https://geo010.com/sitemap.xml').catch(function(){});
+  }
+})();
+</script>
 </body>
 </html>
