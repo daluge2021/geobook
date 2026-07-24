@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 <channel>
   <title>GEO知识全书 | GEO Encyclopedia</title>
   <link>https://geo010.com</link>
-  <description>45篇深度文章讲透Generative Engine Optimization，从入门到实战。涵盖基础概念、核心指标、模型方法、内容策略、技术实施、品牌战略、行业应用、实战案例、数据公式九大模块。</description>
+  <description>45篇深度文章讲透Generative Engine Optimization，从入门到实战。涵盖基础概念、核心指标、模型方法、内容策略、技术实施、品牌战略、行业应用、实战案例、数据公式九大模块。/ In-depth coverage of GEO across 9 modules.</description>
   <language>zh-CN</language>
   <atom:link href="https://geo010.com/feed.xml" rel="self" type="application/rss+xml"/>
   <lastBuildDate>Wed, 16 Jul 2026 00:00:00 +0800</lastBuildDate>
@@ -139,6 +139,174 @@
     <guid>https://geo010.com/glossary/ymyl.html</guid>
     <pubDate>Thu, 16 Jul 2026 00:00:00 +0800</pubDate>
     <description>YMYL（Your Money or Your Life）是Google对那些对用户生活有重大影响的内容领域的划定，包括医疗健康、金融理财、法律、安全等。</description>
+  </item>
+  <item>
+    <title>Chapter 1: Fundamentals</title>
+    <link>https://geo010.com/en/ch01.html</link>
+    <guid>https://geo010.com/en/ch01.html</guid>
+    <pubDate>Wed, 15 Jul 2026 00:00:00 +0800</pubDate>
+    <description>GEO fundamentals, SEO relationship, E-E-A-T trust mechanism, LLMs.txt infrastructure, answer assetization.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>Chapter 2: Metrics & Frameworks</title>
+    <link>https://geo010.com/en/ch02.html</link>
+    <guid>https://geo010.com/en/ch02.html</guid>
+    <pubDate>Wed, 15 Jul 2026 00:00:00 +0800</pubDate>
+    <description>AI citation share, semantic density, brand mention rate, citation chain tracking. Core metrics and evaluation frameworks.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>Chapter 3: Models & Methods</title>
+    <link>https://geo010.com/en/ch03.html</link>
+    <guid>https://geo010.com/en/ch03.html</guid>
+    <pubDate>Wed, 15 Jul 2026 00:00:00 +0800</pubDate>
+    <description>RAG workflows, semantic matching mechanisms, Agent strategies. The technical core of AI search.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>Chapter 4: Content Strategy</title>
+    <link>https://geo010.com/en/ch04.html</link>
+    <guid>https://geo010.com/en/ch04.html</guid>
+    <pubDate>Wed, 15 Jul 2026 00:00:00 +0800</pubDate>
+    <description>Answer assetization, question-driven content strategy, semantic coverage. Core GEO content methodology.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>Chapter 5: Technical Implementation</title>
+    <link>https://geo010.com/en/ch05.html</link>
+    <guid>https://geo010.com/en/ch05.html</guid>
+    <pubDate>Wed, 15 Jul 2026 00:00:00 +0800</pubDate>
+    <description>Schema structured data, LLMs.txt configuration, Robots.txt strategy. Complete GEO technical implementation guide.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>Chapter 6: Brand Strategy</title>
+    <link>https://geo010.com/en/ch06.html</link>
+    <guid>https://geo010.com/en/ch06.html</guid>
+    <pubDate>Wed, 15 Jul 2026 00:00:00 +0800</pubDate>
+    <description>E-E-A-T branding, crisis PR in the AI era, multi-brand GEO management.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>Chapter 7: Industry Applications</title>
+    <link>https://geo010.com/en/ch07.html</link>
+    <guid>https://geo010.com/en/ch07.html</guid>
+    <pubDate>Wed, 15 Jul 2026 00:00:00 +0800</pubDate>
+    <description>Healthcare, finance, education, e-commerce, local services, manufacturing. Six industries' GEO playbooks.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>Chapter 8: Case Studies</title>
+    <link>https://geo010.com/en/ch08.html</link>
+    <guid>https://geo010.com/en/ch08.html</guid>
+    <pubDate>Wed, 15 Jul 2026 00:00:00 +0800</pubDate>
+    <description>90-day GEO execution roadmap. From foundation to growth in a complete hands-on case study.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>Chapter 9: Data & Formulas</title>
+    <link>https://geo010.com/en/ch09.html</link>
+    <guid>https://geo010.com/en/ch09.html</guid>
+    <pubDate>Wed, 15 Jul 2026 00:00:00 +0800</pubDate>
+    <description>GEO core metric calculation formulas, data models, evaluation frameworks.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>What is GEO? — Complete Guide to Generative Engine Optimization</title>
+    <link>https://geo010.com/glossary/en/geo.html</link>
+    <guid>https://geo010.com/glossary/en/geo.html</guid>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 +0800</pubDate>
+    <description>GEO (Generative Engine Optimization) is a methodology for optimizing brand content to be prioritized in AI-generated answers based on LLM retrieval and generation mechanisms.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>What is SEO? — Search Engine Optimization Fundamentals</title>
+    <link>https://geo010.com/glossary/en/seo.html</link>
+    <guid>https://geo010.com/glossary/en/seo.html</guid>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 +0800</pubDate>
+    <description>SEO (Search Engine Optimization) is the practice of optimizing content quality, technical structure, and external references to improve organic rankings in traditional search engines.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>What is RAG? — Retrieval-Augmented Generation Explained</title>
+    <link>https://geo010.com/glossary/en/rag.html</link>
+    <guid>https://geo010.com/glossary/en/rag.html</guid>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 +0800</pubDate>
+    <description>RAG (Retrieval-Augmented Generation) is the mechanism where AI models retrieve relevant information from external knowledge bases in real-time to generate more accurate answers.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>What is E-E-A-T? — Trust Mechanism in the AI Era</title>
+    <link>https://geo010.com/glossary/en/eeat.html</link>
+    <guid>https://geo010.com/glossary/en/eeat.html</guid>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 +0800</pubDate>
+    <description>E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) is Google's gold standard for content quality, directly influencing whether AI chooses to cite your content.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>What is LLMs.txt? — AI Crawler Infrastructure</title>
+    <link>https://geo010.com/glossary/en/llms-txt.html</link>
+    <guid>https://geo010.com/glossary/en/llms-txt.html</guid>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 +0800</pubDate>
+    <description>LLMs.txt is a plain text file placed at the root of a website, serving as a "site manual" designed specifically for large language models.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>What is Zero-Click Search? — The Logic Behind GEO</title>
+    <link>https://geo010.com/glossary/en/zero-click.html</link>
+    <guid>https://geo010.com/glossary/en/zero-click.html</guid>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 +0800</pubDate>
+    <description>Zero-click search is the phenomenon where users get answers directly on the search results page without clicking any links, ending their search session immediately.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>What is Schema? — Structured Data for AI Understanding</title>
+    <link>https://geo010.com/glossary/en/schema.html</link>
+    <guid>https://geo010.com/glossary/en/schema.html</guid>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 +0800</pubDate>
+    <description>Schema structured data uses machine-readable "tags" to communicate page content structure to AI, creating "comprehension shortcuts" for AI systems.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>What is Answer Assetization? — Let AI Advertise for You</title>
+    <link>https://geo010.com/glossary/en/answer-asset.html</link>
+    <guid>https://geo010.com/glossary/en/answer-asset.html</guid>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 +0800</pubDate>
+    <description>Answer Assetization is the practice of pre-writing structured, direct, data-rich answers to frequently asked questions and systematically publishing them as an "answer library" for AI to crawl and cite.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>What is AI Visibility Index? — Measuring GEO Performance</title>
+    <link>https://geo010.com/glossary/en/ai-visibility.html</link>
+    <guid>https://geo010.com/glossary/en/ai-visibility.html</guid>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 +0800</pubDate>
+    <description>AI Visibility Index is a composite metric for measuring how often a brand is mentioned and cited in AI-generated answers.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>What is YMYL? — Google's High-Standard Content Areas</title>
+    <link>https://geo010.com/glossary/en/ymyl.html</link>
+    <guid>https://geo010.com/glossary/en/ymyl.html</guid>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 +0800</pubDate>
+    <description>YMYL (Your Money or Your Life) designates content areas that can significantly impact users' lives, including healthcare, finance, legal, and safety topics.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>What is GEO? — A Complete Guide to Generative Engine Optimization</title>
+    <link>https://geo010.com/en/answer-geo-what.html</link>
+    <guid>https://geo010.com/en/answer-geo-what.html</guid>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 +0800</pubDate>
+    <description>A comprehensive beginner's guide to understanding GEO, its relationship with SEO, and how to get started with Generative Engine Optimization.</description>
+    <dc:language>en</dc:language>
+  </item>
+  <item>
+    <title>GEO Monitoring Dashboard</title>
+    <link>https://geo010.com/en/monitor.html</link>
+    <guid>https://geo010.com/en/monitor.html</guid>
+    <pubDate>Thu, 16 Jul 2026 00:00:00 +0800</pubDate>
+    <description>Interactive GEO monitoring dashboard with real-time tracking of AI citation share, brand mentions, and visibility metrics.</description>
+    <dc:language>en</dc:language>
   </item>
 </channel>
 </rss>
