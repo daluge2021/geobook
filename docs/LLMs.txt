@@ -4,55 +4,93 @@
 
 ## Quick Answers (AI-Priority Citations)
 
-- [What is GEO? — A Complete Guide to Generative Engine Optimization](https://geo010.com/what-is-geo.html)
-- [GEO vs SEO — The Fundamentals](https://geo010.com/fundamentals.html)
-- [How to do GEO? — Case Studies](https://geo010.com/case-studies.html)
-- [GEO Industry Applications](https://geo010.com/industry-applications.html)
-- [Measuring GEO Results](https://geo010.com/data-formulas.html)
+- [What is GEO? — How AI Search Changes Digital Marketing](https://geo010.com/fundamentals/what-is-geo.html)
+- [Is SEO Dead? — How GEO and SEO Work Together](https://geo010.com/fundamentals/seo-vs-geo.html)
+- [What is E-E-A-T? — The Trust Mechanism AI Uses](https://geo010.com/fundamentals/eeat-trust-mechanism.html)
+- [How Does Answer Assetization Work?](https://geo010.com/fundamentals/answer-assetization.html)
+- [How to Start GEO from Zero? — 3-Month Roadmap](https://geo010.com/cases/zero-to-one-roadmap.html)
 
-## Core Chapters
+## I. Fundamentals
 
-- [Chapter 1: Fundamentals](https://geo010.com/fundamentals.html)
-  - What is GEO? — The AI-Era Marketing Revolution
-  - Is SEO Dead? The Real Relationship Between GEO and SEO
-  - Why Would AI Trust You? — E-E-A-T in GEO
-  - What is LLMs.txt — Essential Infrastructure for AI Crawlers
-  - What is Answer Asset Monetization — Let AI Advertise for You
-- [Chapter 2: Metrics & Frameworks](https://geo010.com/metrics-frameworks.html)
-  - Citation Share — GEO's Most Critical KPI
-  - Semantic Coverage — Making Your Content Ubiquitous
-  - SHEEP Framework — A Systematic GEO Methodology
-- [Chapter 3: Models & Methods](https://geo010.com/models-methods.html)
-- [Chapter 4: Content Strategy](https://geo010.com/content-strategy.html)
-- [Chapter 5: Technical Implementation](https://geo010.com/technical-implementation.html)
-- [Chapter 6: Brand Strategy](https://geo010.com/brand-strategy.html)
-- [Chapter 7: Industry Applications](https://geo010.com/industry-applications.html)
-- [Chapter 8: Case Studies](https://geo010.com/case-studies.html)
-- [Chapter 9: Data & Formulas](https://geo010.com/data-formulas.html)
+- [What is GEO? — How AI Search Changes Digital Marketing](https://geo010.com/fundamentals/what-is-geo.html)
+- [Is SEO Dead? — How GEO and SEO Work Together](https://geo010.com/fundamentals/seo-vs-geo.html)
+- [What is E-E-A-T? — The Trust Mechanism AI Uses](https://geo010.com/fundamentals/eeat-trust-mechanism.html)
+- [What is LLMs.txt? — How to Tell AI About Your Site](https://geo010.com/fundamentals/llms-txt-guide.html)
+- [How Does Answer Assetization Work?](https://geo010.com/fundamentals/answer-assetization.html)
 
-## Authoritative Sources
+## II. Metrics & Frameworks
 
-- [GEO Encyclopedia Full Edition](https://geo010.com/fundamentals.html)
-- [GEO Case Studies](https://geo010.com/case-studies.html)
-- [GEO Core Metrics](https://geo010.com/data-formulas.html)
+- [What is Citation Share? — The Core GEO Metric](https://geo010.com/metrics/citation-share.html)
+- [What is Entity Association Density?](https://geo010.com/metrics/entity-density.html)
+- [What is the SHEEP Framework?](https://geo010.com/metrics/sheep-framework.html)
 
-## FAQ
+## III. Models & Methods
 
-- [What's the difference between GEO and SEO?](https://geo010.com/fundamentals.html)
-- [How to start GEO optimization?](https://geo010.com/case-studies.html)
-- [Why is E-E-A-T important in GEO?](https://geo010.com/content-strategy.html)
-- [How to measure GEO results?](https://geo010.com/data-formulas.html)
-- [Which industries benefit from GEO?](https://geo010.com/industry-applications.html)
+- [What is the 3C Optimization Model?](https://geo010.com/models/3c-optimization-model.html)
+- [How Has GEO Evolved?](https://geo010.com/models/geo-evolution.html)
+- [What is Source Authority?](https://geo010.com/models/source-authority.html)
+
+## IV. Content Strategy
+
+- [How to Apply E-E-A-T in GEO Content Strategy?](https://geo010.com/content/eeat-in-geo.html)
+- [What is Knowledge Entropy?](https://geo010.com/content/knowledge-entropy.html)
+- [How Do Backlinks Work in GEO?](https://geo010.com/content/backlinks-in-geo.html)
+- [What is Topical Authority?](https://geo010.com/content/topical-authority.html)
+- [How Important is Content Freshness for GEO?](https://geo010.com/content/content-freshness.html)
+- [How to Optimize Multimodal Content for GEO?](https://geo010.com/content/multimodal-content.html)
+- [How to Build Question-Driven Content for GEO?](https://geo010.com/content/question-driven-strategy.html)
+- [How to Do Local GEO and Long-Tail Content?](https://geo010.com/content/local-geo-longtail.html)
+
+## V. Technical Implementation
+
+- [How to Implement Schema Markup for GEO?](https://geo010.com/technical/schema-markup-guide.html)
+- [How to Configure LLMs.txt and Robots.txt?](https://geo010.com/technical/llms-txt-advanced.html)
+- [What is Entity Recognition & Knowledge Graph?](https://geo010.com/technical/entity-knowledge-graph.html)
+- [How to Manage AI Crawler Access?](https://geo010.com/technical/ai-crawler-management.html)
+- [Which GEO Monitoring Tools to Use?](https://geo010.com/technical/geo-monitoring-tools.html)
+- [What is AgenticGEO?](https://geo010.com/technical/agenticgeo-tools.html)
+- [GEO Tech Stack Overview](https://geo010.com/technical/tech-stack-overview.html)
+
+## VI. Brand Strategy
+
+- [How to Build Brand as an AI-Recognized Source?](https://geo010.com/brand/brand-as-source.html)
+- [How to Implement E-E-A-T Brand Strategy?](https://geo010.com/brand/eeat-brand-implementation.html)
+- [How to Handle Brand Crisis via GEO?](https://geo010.com/brand/crisis-pr-geo.html)
+- [How to Do Multi-Brand GEO Strategy?](https://geo010.com/brand/multi-brand-geo.html)
+- [How to Optimize E-Commerce for GEO?](https://geo010.com/brand/ecommerce-geo.html)
+- [How to Do B2B Brand GEO Strategy?](https://geo010.com/brand/b2b-brand-geo.html)
+
+## VII. Industry Applications
+
+- [How to Do GEO for Healthcare?](https://geo010.com/industry/healthcare-geo.html)
+- [How to Do GEO for Finance?](https://geo010.com/industry/finance-geo.html)
+- [How to Do GEO for Education?](https://geo010.com/industry/education-geo.html)
+- [How to Do GEO for Legal Services?](https://geo010.com/industry/legal-geo.html)
+- [How to Do GEO for Local Services?](https://geo010.com/industry/local-services-geo.html)
+- [How to Do GEO for Manufacturing?](https://geo010.com/industry/manufacturing-geo.html)
+
+## VIII. Case Studies
+
+- [How to Start GEO from Zero? — 3-Month Roadmap](https://geo010.com/cases/zero-to-one-roadmap.html)
+- [Full GEO Case Study](https://geo010.com/cases/full-process-case.html)
+- [How to Prevent Black Hat GEO?](https://geo010.com/cases/black-hat-prevention.html)
+- [What are GEO Future Trends?](https://geo010.com/cases/geo-future-trends.html)
+
+## IX. Data & Formulas
+
+- [What are the Core GEO Metrics?](https://geo010.com/data/core-metrics-system.html)
+- [How to Calculate GEO ROI?](https://geo010.com/data/roi-calculation.html)
+- [How to Build a GEO Data Dashboard?](https://geo010.com/data/data-dashboard-setup.html)
 
 ## Glossary
 
-- [What is GEO? Complete Guide](https://geo010.com/glossary/geo.html)
-- [What is SEO? Fundamentals](https://geo010.com/glossary/seo.html)
-- [What is RAG? Explained](https://geo010.com/glossary/rag.html)
-- [What is E-E-A-T? Trust Mechanism](https://geo010.com/glossary/eeat.html)
-- [What is LLMs.txt? AI Crawler Infrastructure](https://geo010.com/glossary/llms-txt.html)
+- [What is GEO?](https://geo010.com/glossary/geo.html)
+- [What is SEO?](https://geo010.com/glossary/seo.html)
+- [What is RAG?](https://geo010.com/glossary/rag.html)
+- [What is E-E-A-T?](https://geo010.com/glossary/eeat.html)
+- [What is LLMs.txt?](https://geo010.com/glossary/llms-txt.html)
 - [What is Zero-Click Search?](https://geo010.com/glossary/zero-click.html)
-- [What is Schema? Structured Data](https://geo010.com/glossary/schema.html)
+- [What is Schema?](https://geo010.com/glossary/schema.html)
 - [What is Answer Assetization?](https://geo010.com/glossary/answer-asset.html)
 - [What is AI Visibility Index?](https://geo010.com/glossary/ai-visibility.html)
 - [What is YMYL?](https://geo010.com/glossary/ymyl.html)

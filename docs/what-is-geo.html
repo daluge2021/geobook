@@ -32,10 +32,13 @@
   .sidebar a.active { border-left: 3px solid #4fc3f7; }
   .sidebar .current { color: #aaa; padding: 8px 20px; font-size: 0.85em; }
   .sidebar .home-link { margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 12px; font-weight: 500; color: #4fc3f7; }
-  .lang-switch { display: flex; gap: 4px; padding: 0 20px; margin-bottom: 16px; }
-  .lang-btn { flex: 1; padding: 6px 12px; text-align: center; border-radius: 6px; font-size: 0.85em; text-decoration: none; color: #999; background: rgba(255,255,255,0.05); transition: all 0.2s; }
-  .lang-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
-  .lang-btn.active { color: #4fc3f7; background: rgba(79,195,247,0.15); }
+  .nav-group-toggle { padding: 8px 20px; color: #aaa; font-size: 0.85em; cursor: pointer; user-select: none; transition: color 0.15s; display: flex; align-items: center; gap: 6px; }
+  .nav-group-toggle:hover { color: #fff; background: rgba(255,255,255,0.05); }
+  .nav-group-links { display: none; }
+  .nav-group.open .nav-group-links { display: block; }
+  .nav-group.open > .nav-group-toggle .arrow { transform: rotate(90deg); }
+  .arrow { display: inline-block; transition: transform 0.2s; font-size: 0.8em; }
+  .glossary-section { margin-top: 12px; border-top: 1px solid #333; padding-top: 12px; }
   .main { flex: 1; max-width: 800px; margin: 0 auto; padding: 48px 32px 80px; }
   .content { background: #fff; border-radius: 12px; padding: 40px 48px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
   .content h1 { font-size: 1.5em; margin: 40px 0 12px; color: #1a1a2e; padding-top: 8px; }
@@ -74,6 +77,7 @@
     .content { padding: 24px 20px; border-radius: 8px; }
     .content h1 { font-size: 1.3em; }
     .content h2 { font-size: 1.2em; }
+    .nav-links { flex-direction: column; gap: 12px; }
   }
 </style>
 </head>
@@ -82,17 +86,108 @@
   <nav class="sidebar">
     <h3>📖 GEO Encyclopedia</h3>
     <a href="index.html" class="home-link">🏠 Home</a>
-    <a href="fundamentals.html">I. Fundamentals</a>
-    <a href="metrics-frameworks.html">II. Metrics & Frameworks</a>
-    <a href="models-methods.html">III. Models & Methods</a>
-    <a href="content-strategy.html">IV. Content Strategy</a>
-    <a href="technical-implementation.html">V. Technical Implementation</a>
-    <a href="brand-strategy.html">VI. Brand Strategy</a>
-    <a href="industry-applications.html">VII. Industry Applications</a>
-    <a href="case-studies.html">VIII. Case Studies</a>
-    <a href="data-formulas.html">IX. Data & Formulas</a>
-    <div class="current" style="margin-top:12px; border-top:1px solid #333; padding-top:12px;">📌 Answer Assets</div>
-    <a href="what-is-geo.html" class="active">What is GEO?</a>
+    <a href="what-is-geo.html" class="active" style="margin-bottom: 8px;">📌 What is GEO? (Overview)</a>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> I. Fundamentals</div>
+      <div class="nav-group-links">
+        <a href="fundamentals/what-is-geo.html">What is GEO?</a>
+        <a href="fundamentals/seo-vs-geo.html">Is SEO Dead?</a>
+        <a href="fundamentals/eeat-trust-mechanism.html">E-E-A-T Trust</a>
+        <a href="fundamentals/llms-txt-guide.html">LLMs.txt Guide</a>
+        <a href="fundamentals/answer-assetization.html">Answer Assetization</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> II. Metrics</div>
+      <div class="nav-group-links">
+        <a href="metrics/citation-share.html">Citation Share</a>
+        <a href="metrics/entity-density.html">Entity Density</a>
+        <a href="metrics/sheep-framework.html">SHEEP Framework</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> III. Models</div>
+      <div class="nav-group-links">
+        <a href="models/3c-optimization-model.html">3C Model</a>
+        <a href="models/geo-evolution.html">GEO Evolution</a>
+        <a href="models/source-authority.html">Source Authority</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IV. Content</div>
+      <div class="nav-group-links">
+        <a href="content/eeat-in-geo.html">E-E-A-T in GEO</a>
+        <a href="content/knowledge-entropy.html">Knowledge Entropy</a>
+        <a href="content/backlinks-in-geo.html">Backlinks in GEO</a>
+        <a href="content/topical-authority.html">Topical Authority</a>
+        <a href="content/content-freshness.html">Content Freshness</a>
+        <a href="content/multimodal-content.html">Multimodal Content</a>
+        <a href="content/question-driven-strategy.html">Question-Driven Strategy</a>
+        <a href="content/local-geo-longtail.html">Local GEO</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> V. Technical</div>
+      <div class="nav-group-links">
+        <a href="technical/schema-markup-guide.html">Schema Markup</a>
+        <a href="technical/llms-txt-advanced.html">LLMs.txt Advanced</a>
+        <a href="technical/entity-knowledge-graph.html">Entity & Knowledge Graph</a>
+        <a href="technical/ai-crawler-management.html">AI Crawler Management</a>
+        <a href="technical/geo-monitoring-tools.html">Monitoring Tools</a>
+        <a href="technical/agenticgeo-tools.html">AgenticGEO</a>
+        <a href="technical/tech-stack-overview.html">Tech Stack Overview</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VI. Brand</div>
+      <div class="nav-group-links">
+        <a href="brand/brand-as-source.html">Brand as Source</a>
+        <a href="brand/eeat-brand-implementation.html">EEAT Brand</a>
+        <a href="brand/crisis-pr-geo.html">Crisis PR</a>
+        <a href="brand/multi-brand-geo.html">Multi-Brand</a>
+        <a href="brand/ecommerce-geo.html">E-Commerce</a>
+        <a href="brand/b2b-brand-geo.html">B2B Brand</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VII. Industry</div>
+      <div class="nav-group-links">
+        <a href="industry/healthcare-geo.html">Healthcare</a>
+        <a href="industry/finance-geo.html">Finance</a>
+        <a href="industry/education-geo.html">Education</a>
+        <a href="industry/legal-geo.html">Legal</a>
+        <a href="industry/local-services-geo.html">Local Services</a>
+        <a href="industry/manufacturing-geo.html">Manufacturing</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VIII. Cases</div>
+      <div class="nav-group-links">
+        <a href="cases/zero-to-one-roadmap.html">Zero to One</a>
+        <a href="cases/full-process-case.html">Full Case Study</a>
+        <a href="cases/black-hat-prevention.html">Black Hat Prevention</a>
+        <a href="cases/geo-future-trends.html">Future Trends</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IX. Data</div>
+      <div class="nav-group-links">
+        <a href="data/core-metrics-system.html">Core Metrics</a>
+        <a href="data/roi-calculation.html">ROI Calculator</a>
+        <a href="data/data-dashboard-setup.html">Data Dashboard</a>
+      </div>
+    </div>
+    <div class="current glossary-section">📌 Glossary</div>
+    <a href="glossary/geo.html">GEO</a>
+    <a href="glossary/seo.html">SEO</a>
+    <a href="glossary/rag.html">RAG</a>
+    <a href="glossary/eeat.html">E-E-A-T</a>
+    <a href="glossary/llms-txt.html">LLMs.txt</a>
+    <a href="glossary/zero-click.html">Zero-Click Search</a>
+    <a href="glossary/schema.html">Schema</a>
+    <a href="glossary/answer-asset.html">Answer Assetization</a>
+    <a href="glossary/ai-visibility.html">AI Visibility Index</a>
+    <a href="glossary/ymyl.html">YMYL</a>
   </nav>
   <div class="main">
     <div class="content">
@@ -148,18 +243,18 @@
       <h2>VI. Further Reading</h2>
       <p>This article is a quick-start answer for GEO. For systematic learning, we recommend the following in-depth articles:</p>
       <ul>
-        <li><a href="fundamentals.html">Chapter I: Fundamentals</a>—Complete definition of GEO, in-depth comparison with SEO, E-E-A-T mechanism</li>
-        <li><a href="metrics-frameworks.html">Chapter II: Metrics & Frameworks</a>—Detailed analysis of core metrics like citation share and semantic coverage</li>
-        <li><a href="models-methods.html">Chapter III: Models & Methods</a>—3C optimization model, three generations of GEO evolution</li>
-        <li><a href="case-studies.html">Chapter VIII: Case Studies</a>—Full-process GEO examples from scratch</li>
-        <li><a href="technical-implementation.html">Chapter V: Technical Implementation</a>—Schema configuration, LLMs.txt advanced applications</li>
+        <li><a href="fundamentals/what-is-geo.html">What Exactly Is GEO?</a>—Complete definition of GEO, zero-click revolution, and why it matters now</li>
+        <li><a href="fundamentals/seo-vs-geo.html">Is SEO Dead?</a>—In-depth comparison with SEO, why GEO is an evolution not replacement</li>
+        <li><a href="fundamentals/eeat-trust-mechanism.html">E-E-A-T Trust Mechanism</a>—How AI decides which sources to trust and cite</li>
+        <li><a href="cases/zero-to-one-roadmap.html">Zero-to-One GEO Roadmap</a>—A complete 3-month plan from scratch to launch</li>
+        <li><a href="technical/schema-markup-guide.html">Schema Markup Guide</a>—Technical implementation: Schema, LLMs.txt, and more</li>
       </ul>
 
     </div>
     <div class="nav-links">
       <span></span>
       <a href="index.html">📖 Back to Table of Contents</a>
-      <a href="fundamentals.html">Chapter I: Fundamentals →</a>
+      <a href="fundamentals/what-is-geo.html">What Exactly Is GEO? →</a>
     </div>
   </div>
 </div>
@@ -213,6 +308,15 @@
     "url": "https://geo010.com"
   }
 }
+</script>
+<script>
+document.querySelectorAll('.nav-group-toggle').forEach(function(toggle) {
+  toggle.addEventListener('click', function() {
+    this.parentElement.classList.toggle('open');
+  });
+});
+var active = document.querySelector('.sidebar a.active');
+if (active) { active.closest('.nav-group').classList.add('open'); }
 </script>
 </body>
 </html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8903384789303682" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEO Tech Stack Overview - GEO Encyclopedia</title>
+<meta name="description" content="Complete GEO tech stack overview covering the four-layer architecture: infrastructure, optimization, monitoring, and automation. Includes deployment roadmap and enterprise size recommendations.">
+<link rel="canonical" href="https://geo010.com/technical/tech-stack-overview.html"/>
+<meta property="og:title" content="GEO Tech Stack Overview - GEO Encyclopedia"/>
+<meta property="og:description" content="Complete GEO tech stack overview covering the four-layer architecture: infrastructure, optimization, monitoring, and automation. Includes deployment roadmap and enterprise size recommendations."/>
+<meta property="og:url" content="https://geo010.com/technical/tech-stack-overview.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="https://geo010.com/og-image.png"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="GEO Encyclopedia"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="GEO Tech Stack Overview - GEO Encyclopedia"/>
+<meta name="twitter:description" content="Complete GEO tech stack overview covering the four-layer architecture: infrastructure, optimization, monitoring, and automation. Includes deployment roadmap and enterprise size recommendations."/>
+<meta name="twitter:image" content="https://geo010.com/og-image.png"/>
+<meta name="keywords" content="GEO tech stack,four-layer architecture,infrastructure layer,optimization layer,monitoring layer,automation layer,GEO deployment roadmap,enterprise GEO,GEO implementation">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;line-height:1.9;color:#1a1a1a;background:#f5f5f5}
+.layout{display:flex;min-height:100vh}
+.sidebar{width:240px;flex-shrink:0;background:#1a1a2e;color:#ccc;padding:32px 0;position:sticky;top:0;height:100vh;overflow-y:auto}
+.sidebar h3{color:#fff;font-size:1em;padding:0 20px;margin-bottom:20px}
+.sidebar a{display:block;padding:8px 20px;color:#999;text-decoration:none;font-size:.9em;transition:all .15s}
+.sidebar a:hover,.sidebar a.active{color:#fff;background:rgba(255,255,255,.08)}
+.sidebar a.active{border-left:3px solid #4fc3f7}
+.sidebar .current{color:#aaa;padding:8px 20px;font-size:.85em}
+.sidebar .home-link{margin-bottom:12px;border-bottom:1px solid #333;padding-bottom:12px;font-weight:500;color:#4fc3f7}
+.nav-group-toggle{padding:8px 20px;color:#aaa;font-size:.85em;cursor:pointer;user-select:none;transition:color .15s;display:flex;align-items:center;gap:6px}
+.nav-group-toggle:hover{color:#fff;background:rgba(255,255,255,.05)}
+.nav-group-links{display:none}
+.nav-group.open .nav-group-links{display:block}
+.nav-group.open>.nav-group-toggle .arrow{transform:rotate(90deg)}
+.arrow{display:inline-block;transition:transform .2s;font-size:.8em}
+.main{flex:1;max-width:800px;margin:0 auto;padding:48px 32px 80px}
+.content{background:#fff;border-radius:12px;padding:40px 48px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.content .breadcrumb{color:#888;font-size:.85em;margin-bottom:16px}
+.content .breadcrumb a{color:#0066cc;text-decoration:none}
+.content .breadcrumb a:hover{text-decoration:underline}
+.content h1{font-size:1.5em;margin:40px 0 12px;color:#1a1a2e;padding-top:8px}
+.content h1:first-of-type{margin-top:0}
+.content h2{font-size:1.4em;margin:32px 0 16px;color:#1a1a2e;padding-bottom:8px;border-bottom:1px solid #f0f0f0}
+.content h3{font-size:1.15em;margin:24px 0 12px;color:#333}
+.content p{margin-bottom:16px;color:#333}
+.content p:last-child{margin-bottom:0}
+.content strong{color:#111}
+.content blockquote{margin:16px 0;padding:16px 20px;background:#f8f9ff;border-left:4px solid #4fc3f7;border-radius:0 8px 8px 0;color:#555;font-style:normal}
+.content blockquote strong{color:#1a1a2e}
+.content hr{margin:32px 0;border:none;border-top:1px solid #e8e8e8}
+.content ul,.content ol{margin:8px 0 16px 24px}
+.content li{margin-bottom:6px;color:#333}
+.content table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:.93em}
+.content th{background:#f0f2f5;padding:10px 14px;text-align:left;font-weight:600;color:#333;border:1px solid #e0e0e0}
+.content td{padding:8px 14px;border:1px solid #e8e8e8;color:#444}
+.content tr:nth-child(even) td{background:#fafafa}
+.content code{background:#f0f0f0;padding:2px 6px;border-radius:4px;font-size:.9em;color:#e74c3c}
+.content img{max-width:100%;border-radius:8px;margin:16px 0}
+.glossary-section{margin-top:12px;border-top:1px solid #333;padding-top:12px}
+.glossary-link{color:#0066cc;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px}
+.glossary-link:hover{color:#004499;text-decoration-style:solid}
+.nav-links{display:flex;justify-content:space-between;margin-top:48px;padding-top:24px;border-top:1px solid #eee}
+.nav-links a{color:#0066cc;text-decoration:none;font-size:.95em}
+.nav-links a:hover{text-decoration:underline}
+@media(max-width:768px){.sidebar{display:none}.main{padding:24px 16px}.content{padding:24px 20px;border-radius:8px}.content h1{font-size:1.3em}.content h2{font-size:1.2em}.nav-links{flex-direction:column;gap:12px}}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="sidebar">
+<h3>GEO Encyclopedia</h3>
+<a href="../index.html" class="home-link">Home</a>
+<div class="nav-group"><div class="nav-group-toggle"><span class="arrow">▸</span> I. Fundamentals</div><div class="nav-group-links"><a href="../fundamentals/what-is-geo.html">What is GEO?</a><a href="../fundamentals/seo-vs-geo.html">Is SEO Dead?</a><a href="../fundamentals/eeat-trust-mechanism.html">E-E-A-T Trust</a><a href="../fundamentals/llms-txt-guide.html">LLMs.txt Guide</a><a href="../fundamentals/answer-assetization.html">Answer Assetization</a></div></div>
+<div class="nav-group"><div class="nav-group-toggle"><span class="arrow">▸</span> II. Metrics</div><div class="nav-group-links"><a href="../metrics/citation-share.html">Citation Share</a><a href="../metrics/entity-density.html">Entity Density</a><a href="../metrics/sheep-framework.html">SHEEP Framework</a></div></div>
+<div class="nav-group"><div class="nav-group-toggle"><span class="arrow">▸</span> III. Models</div><div class="nav-group-links"><a href="../models/3c-optimization-model.html">3C Model</a><a href="../models/geo-evolution.html">GEO Evolution</a><a href="../models/source-authority.html">Source Authority</a></div></div>
+<div class="nav-group"><div class="nav-group-toggle"><span class="arrow">▸</span> IV. Content</div><div class="nav-group-links"><a href="../content/eeat-in-geo.html">E-E-A-T in GEO</a><a href="../content/knowledge-entropy.html">Knowledge Entropy</a><a href="../content/backlinks-in-geo.html">Backlinks in GEO</a><a href="../content/topical-authority.html">Topical Authority</a><a href="../content/content-freshness.html">Content Freshness</a><a href="../content/multimodal-content.html">Multimodal Content</a><a href="../content/question-driven-strategy.html">Question-Driven Strategy</a><a href="../content/local-geo-longtail.html">Local GEO</a></div></div>
+<div class="nav-group open"><div class="nav-group-toggle"><span class="arrow">▸</span> V. Technical</div><div class="nav-group-links"><a href="schema-markup-guide.html">Schema Markup</a><a href="llms-txt-advanced.html">LLMs.txt Advanced</a><a href="entity-knowledge-graph.html">Entity &amp; Knowledge Graph</a><a href="ai-crawler-management.html">AI Crawler Management</a><a href="geo-monitoring-tools.html">Monitoring Tools</a><a href="agenticgeo-tools.html">AgenticGEO</a><a href="tech-stack-overview.html" class="active">Tech Stack Overview</a></div></div>
+<div class="nav-group"><div class="nav-group-toggle"><span class="arrow">▸</span> VI. Brand</div><div class="nav-group-links"><a href="../brand/brand-as-source.html">Brand as Source</a><a href="../brand/eeat-brand-implementation.html">EEAT Brand</a><a href="../brand/crisis-pr-geo.html">Crisis PR</a><a href="../brand/multi-brand-geo.html">Multi-Brand</a><a href="../brand/ecommerce-geo.html">E-Commerce</a><a href="../brand/b2b-brand-geo.html">B2B Brand</a></div></div>
+<div class="nav-group"><div class="nav-group-toggle"><span class="arrow">▸</span> VII. Industry</div><div class="nav-group-links"><a href="../industry/healthcare-geo.html">Healthcare</a><a href="../industry/finance-geo.html">Finance</a><a href="../industry/education-geo.html">Education</a><a href="../industry/legal-geo.html">Legal</a><a href="../industry/local-services-geo.html">Local Services</a><a href="../industry/manufacturing-geo.html">Manufacturing</a></div></div>
+<div class="nav-group"><div class="nav-group-toggle"><span class="arrow">▸</span> VIII. Cases</div><div class="nav-group-links"><a href="../cases/zero-to-one-roadmap.html">Zero to One</a><a href="../cases/full-process-case.html">Full Case Study</a><a href="../cases/black-hat-prevention.html">Black Hat Prevention</a><a href="../cases/geo-future-trends.html">Future Trends</a></div></div>
+<div class="nav-group"><div class="nav-group-toggle"><span class="arrow">▸</span> IX. Data</div><div class="nav-group-links"><a href="../data/core-metrics-system.html">Core Metrics</a><a href="../data/roi-calculation.html">ROI Calculator</a><a href="../data/data-dashboard-setup.html">Data Dashboard</a></div></div>
+<div class="current glossary-section">Glossary</div>
+<a href="../glossary/geo.html">GEO</a><a href="../glossary/seo.html">SEO</a><a href="../glossary/rag.html">RAG</a><a href="../glossary/eeat.html">E-E-A-T</a><a href="../glossary/llms-txt.html">LLMs.txt</a><a href="../glossary/zero-click.html">Zero-Click Search</a><a href="../glossary/schema.html">Schema</a><a href="../glossary/answer-asset.html">Answer Assetization</a><a href="../glossary/ai-visibility.html">AI Visibility Index</a><a href="../glossary/ymyl.html">YMYL</a>
+</nav>
+<div class="main">
+<div class="content">
+<div class="breadcrumb"><a href="../index.html">Home</a> &gt; <a href="../technical-implementation.html">V. Technical</a> &gt; Tech Stack Overview</div>
+
+<h1>GEO Tech Stack Overview — Chapter 5 Technical Implementation Wrap-Up</h1>
+
+<blockquote>The previous 6 articles covered everything from structured data to AgenticGEO.</blockquote>
+<blockquote>You might have some "tool fatigue" — with so many technical tools, where should you actually start?</blockquote>
+<blockquote>This article ties together everything from Chapter 5,</blockquote>
+<blockquote>giving you a clear "GEO tech stack overview" —</blockquote>
+<blockquote>from foundational infrastructure to top-level automation, a complete path.</blockquote>
+
+<hr>
+
+<h2>1. The Four-Layer Architecture of the GEO Tech Stack</h2>
+
+<p>The GEO tech stack can be broken down into four layers, from basic to advanced:</p>
+
+<p><code>`</code></p>
+<p>L4 - Automation Layer</p>
+<p>AgenticGEO tools, AI optimization assistants, auto-publishing</p>
+<p>---</p>
+<p>L3 - Monitoring Layer</p>
+<p>GEO monitoring tools, citation tracking, competitor analysis</p>
+<p>---</p>
+<p>L2 - Optimization Layer</p>
+<p>Structured data, LLMs.txt, entity recognition, crawler management</p>
+<p>---</p>
+<p>L1 - Infrastructure Layer</p>
+<p>robots.txt, sitemap.xml, server performance, SSL</p>
+<p><code>`</code></p>
+
+<p><strong>Key principle: Build from bottom to top, never skip layers.</strong></p>
+
+<ul>
+  <li>If infrastructure layer isn't done → optimization layer actions won't take effect</li>
+  <li>If optimization layer isn't done → monitoring layer has "nothing to optimize"</li>
+  <li>If monitoring layer isn't done → automation layer lacks data foundation</li>
+</ul>
+
+<h2>2. Detailed Layer-by-Layer Breakdown</h2>
+
+<h3>L1 - Infrastructure Layer</h3>
+
+<p><strong>Core Goal:</strong> Ensure AI crawlers can smoothly access your website.</p>
+
+<table><thead><tr><th>Tool/Configuration</th><th>Function</th><th>Priority</th><th>Cost</th></tr></thead><tbody><tr><td><strong>Robots.txt</strong></td><td>Tells AI crawlers which pages can be crawled</td><td>★★★★★</td><td>Almost zero</td></tr><tr><td><strong>Sitemap.xml</strong></td><td>Tells AI crawlers which important pages the site has</td><td>★★★★★</td><td>Almost zero</td></tr><tr><td><strong>Server Performance</strong></td><td>Ensures AI crawlers don't timeout when accessing</td><td>★★★★</td><td>May require server upgrade</td></tr><tr><td><strong>HTTPS/SSL</strong></td><td>Secure connection, AI crawlers prefer HTTPS sites</td><td>★★★★★</td><td>Free (Let's Encrypt)</td></tr><tr><td><strong>Mobile Adaptation</strong></td><td>AI crawlers may evaluate from mobile view</td><td>★★★</td><td>Depends on current site status</td></tr></tbody></table>
+
+<p><strong>In one sentence: First get "letting AI in" right.</strong></p>
+
+<h3>L2 - Optimization Layer</h3>
+
+<p><strong>Core Goal:</strong> Let AI crawlers "understand" your content and be willing to cite it.</p>
+
+<table><thead><tr><th>Tool/Configuration</th><th>Function</th><th>Priority</th><th>Cost</th></tr></thead><tbody><tr><td><strong>Structured Data (Schema)</strong></td><td>Tells AI what type your content is</td><td>★★★★★</td><td>1-2 weeks development</td></tr><tr><td><strong>LLMs.txt</strong></td><td>Directly provides brand summary to AI large models</td><td>★★★★</td><td>Almost zero</td></tr><tr><td><strong>Entity Recognition Optimization</strong></td><td>Gets your brand into AI's knowledge graph</td><td>★★★★</td><td>Ongoing investment</td></tr><tr><td><strong>Content Citability Optimization</strong></td><td>Makes it easy for AI to extract your "golden quotes"</td><td>★★★★★</td><td>Content team ongoing</td></tr><tr><td><strong>AI Crawler Adaptation</strong></td><td>Differentiated configuration for different AI crawlers</td><td>★★★</td><td>As needed</td></tr></tbody></table>
+
+<p><strong>In one sentence: Make AI not only "see" you but "understand" you.</strong></p>
+
+<h3>L3 - Monitoring Layer</h3>
+
+<p><strong>Core Goal:</strong> Know whether your GEO is performing well.</p>
+
+<table><thead><tr><th>Tool Type</th><th>Representative Tools</th><th>Function</th><th>Starting Cost</th></tr></thead><tbody><tr><td>Free tools</td><td>Bing Webmaster Tools</td><td>Basic citation data</td><td>Free</td></tr><tr><td>Entry-level paid</td><td>Profound / Huiyuanliu</td><td>Multi-platform monitoring</td><td>¥300-500/month</td></tr><tr><td>Enterprise-level</td><td>BrightEdge / Yext</td><td>Comprehensive monitoring + analysis</td><td>Custom quote</td></tr></tbody></table>
+
+<p><strong>In one sentence: Without data, optimization is "blind men touching an elephant."</strong></p>
+
+<h3>L4 - Automation Layer</h3>
+
+<p><strong>Core Goal:</strong> Use AI's automation capabilities to improve GEO efficiency.</p>
+
+<table><thead><tr><th>Tool Type</th><th>Representative Tools</th><th>Function</th><th>Current Automation Level</th></tr></thead><tbody><tr><td>Assisted</td><td>Miaozhi Smart Assistant</td><td>Data analysis and suggestions</td><td>L1 - Assisted Analysis</td></tr><tr><td>Semi-automated</td><td>Profound Agent</td><td>Optimization suggestions + partial auto-execution</td><td>L2 - Semi-automated</td></tr><tr><td>Enterprise-level</td><td>BrightEdge AutoGEO</td><td>Content optimization and publishing automation</td><td>Between L1-L2</td></tr></tbody></table>
+
+<p><strong>In one sentence: Automation isn't replacing humans, but enabling humans to make more valuable decisions.</strong></p>
+
+<hr>
+
+<h2>3. GEO Tech Stack Deployment Roadmap</h2>
+
+<h3>Weeks 1-2: Complete L1 (Infrastructure)</h3>
+
+<ul>
+  <li>[ ] Configure robots.txt, ensure AI crawlers can access</li>
+  <li>[ ] Configure sitemap.xml, submit to major AI platforms</li>
+  <li>[ ] Check server response speed</li>
+  <li>[ ] Ensure HTTPS is deployed</li>
+  <li>[ ] Test if AI crawlers can crawl core pages</li>
+</ul>
+<h3>Weeks 3-6: Complete L2 (Optimization Layer)</h3>
+
+<ul>
+  <li>[ ] Deploy Organization Schema (site-wide)</li>
+  <li>[ ] Deploy Article Schema (all content pages)</li>
+  <li>[ ] Select 3-5 core FAQ pages, deploy FAQPage Schema</li>
+  <li>[ ] Create LLMs.txt, place in website root directory</li>
+  <li>[ ] Check cross-platform brand information consistency site-wide</li>
+</ul>
+<h3>Weeks 7-10: Launch L3 (Monitoring Layer)</h3>
+
+<ul>
+  <li>[ ] Select a GEO monitoring tool</li>
+  <li>[ ] Configure brand keywords and core topic list</li>
+  <li>[ ] Establish baseline data</li>
+  <li>[ ] Set up monthly monitoring process</li>
+</ul>
+<h3>Weeks 11-12: Explore L4 (Automation Layer)</h3>
+
+<ul>
+  <li>[ ] Select an AgenticGEO tool (assisted type)</li>
+  <li>[ ] Start with "low-risk tasks" for Agent-assisted work</li>
+  <li>[ ] Establish human-AI collaboration review process</li>
+</ul>
+
+<h2>4. Tech Stack Solutions for Different Enterprise Sizes</h2>
+
+<h3>Small Enterprises (1-3 person team, &lt;50 content pieces)</h3>
+
+<p><strong>Recommended Plan:</strong></p>
+<ul>
+  <li>L1: robots.txt + sitemap.xml + basic server config → Configure once, use long-term</li>
+  <li>L2: Core articles deploy Article Schema → 1-2 days</li>
+  <li>L3: Bing Webmaster Tools + manual testing → Free</li>
+  <li>L4: Don't enable for now</li>
+</ul>
+<p><strong>Total cost: Almost zero + content team time investment.</strong></p>
+
+<h3>Medium Enterprises (5-10 person team, 50-200 content pieces)</h3>
+
+<p><strong>Recommended Plan:</strong></p>
+<ul>
+  <li>L1: Basic configuration all in place</li>
+  <li>L2: Site-wide Schema deployment + FAQ markup + LLMs.txt</li>
+  <li>L3: Select one paid monitoring tool (Profound or Huiyuanliu)</li>
+  <li>L4: Select assisted Agent for data analysis and suggestions</li>
+</ul>
+<p><strong>Total cost: ~¥800-1,500/month (tool fees) + content team + technical support.</strong></p>
+
+<h3>Large Enterprises (20+ person team, 200+ content pieces)</h3>
+
+<p><strong>Recommended Plan:</strong></p>
+<ul>
+  <li>L1-L2: Site-wide standardized configuration, regular audits</li>
+  <li>L2: Advanced optimization — entity recognition, knowledge graph integration, cross-platform consistency</li>
+  <li>L3: Enterprise GEO monitoring tool + custom reports</li>
+  <li>L4: Semi-automated Agent, covering content optimization and distribution</li>
+</ul>
+<p><strong>Total cost: ~¥5,000-20,000+/month (tool + Agent fees) + dedicated team.</strong></p>
+
+<hr>
+
+<h2>5. Common Errors in Tech Stack Building</h2>
+
+<h3>Error 1: Skipping L1 to Directly Do L2-L4</h3>
+
+<p>Some people think "robots.txt is too simple, no rush to configure" and jump directly to Schema markup and monitoring tools.</p>
+
+<p>But if AI crawlers can't get in (L1 has issues), all subsequent configurations are wasted.</p>
+
+<p><strong>Principle: Start from L1, move up layer by layer, don't skip.</strong></p>
+
+<h3>Error 2: Buying Too Many Tools</h3>
+
+<p>The GEO tool market is increasingly competitive. Some brands buy 4-5 monitoring tools at once but don't use any of them well.</p>
+
+<p><strong>Recommendation: Start with one tool, use it consistently for 3 months, then decide whether to switch or add.</strong></p>
+
+<h3>Error 3: Pursuing Automation While Neglecting Infrastructure</h3>
+
+<p>Some brands get excited about AgenticGEO and jump straight to Agent tools. But looking back, basic robots.txt and Schema aren't even configured properly.</p>
+
+<p><strong>Reminder: Automation is the "superstructure," infrastructure is the "foundation." If the foundation isn't stable, even the most beautiful superstructure will collapse.</strong></p>
+
+<hr>
+
+<p>The GEO tech stack isn't "a pile of tools thrown together" — it's a systematic engineering project with logic and layers.</p>
+
+<p>From getting AI crawlers "in" (L1), to making your content "understandable" (L2), to knowing "how well it's performing" (L3), and finally letting AI "automatically optimize for you" (L4) — each layer builds the foundation for the next.</p>
+
+<p><strong>Don't pursue "one-step solutions." Follow the roadmap step by step, solidifying each layer before moving up.</strong></p>
+
+<p>There are no shortcuts in GEO technical optimization — but doing things in the right order is itself the most effective "shortcut."</p>
+
+<div class="nav-links">
+<a href="agenticgeo-tools.html">&lt; AgenticGEO</a>
+<a href="../index.html">Contents</a>
+<a href="../brand-strategy.html">Chapter 6: Brand Strategy &gt;</a>
+</div>
+</div>
+</div>
+</div>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3QR6VvmXkab0M8Cu",ck:"3QR6VvmXkab0M8Cu"})</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"GEO Tech Stack Overview — Chapter 5 Technical Implementation Wrap-Up","description":"Complete GEO tech stack overview covering the four-layer architecture: infrastructure, optimization, monitoring, and automation. Includes deployment roadmap and enterprise size recommendations.","author":{"@type":"Organization","name":"GEO Encyclopedia","url":"https://geo010.com"},"datePublished":"2026-01-15","dateModified":"2026-07-28","mainEntityOfPage":{"@type":"WebPage","@id":"https://geo010.com/technical/tech-stack-overview.html"},"publisher":{"@type":"Organization","name":"GEO Encyclopedia","url":"https://geo010.com"},"inLanguage":"en"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the four-layer GEO tech stack architecture?","acceptedAnswer":{"@type":"Answer","text":"The GEO tech stack has four layers: L1 Infrastructure (robots.txt, sitemap.xml, server, SSL), L2 Optimization (Schema, LLMs.txt, entity recognition), L3 Monitoring (citation tracking, competitor analysis), and L4 Automation (AgenticGEO tools). Build from bottom to top, never skip layers."}},{"@type":"Question","name":"How long does it take to deploy the GEO tech stack?","acceptedAnswer":{"@type":"Answer","text":"A typical deployment roadmap spans 12 weeks: weeks 1-2 for L1 infrastructure, weeks 3-6 for L2 optimization, weeks 7-10 for L3 monitoring, and weeks 11-12 for L4 automation exploration."}},{"@type":"Question","name":"How much does GEO tech stack implementation cost?","acceptedAnswer":{"@type":"Answer","text":"Costs vary by enterprise size: small teams (under 50 content pieces) need almost zero cost plus time investment; medium teams (50-200 pieces) need about 800-1500 yuan monthly for tools; large enterprises (200+ pieces) need 5000-20000+ yuan monthly for tools, agents, and dedicated teams."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://geo010.com/"},{"@type":"ListItem","position":2,"name":"V. Technical Implementation","item":"https://geo010.com/technical-implementation.html"},{"@type":"ListItem","position":3,"name":"Tech Stack Overview","item":"https://geo010.com/technical/tech-stack-overview.html"}]}
+</script>
+</body>
+</html>

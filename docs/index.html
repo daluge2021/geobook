@@ -9,7 +9,6 @@
 <title>GEO Encyclopedia - Brand Growth Guide for the AI Era</title>
 <meta name="description" content="Generative Engine Optimization - 45 in-depth articles covering AI-era brand growth strategies. From fundamentals to implementation.">
 <link rel="canonical" href="https://geo010.com/"/>
-
 <meta property="og:title" content="GEO Encyclopedia - Brand Growth Guide for the AI Era"/>
 <meta property="og:description" content="45 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth."/>
 <meta property="og:url" content="https://geo010.com/"/>
@@ -19,7 +18,7 @@
 <meta property="og:site_name" content="GEO Encyclopedia"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="GEO Encyclopedia - Brand Growth Guide for the AI Era"/>
-<meta name="twitter:description" content="45 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth."/>
+<meta name="twitter:description" content="45 in-depth articles on Generative Engine Optimization, from fundamentals to implementation."/>
 <meta name="twitter:image" content="https://geo010.com/og-image.png"/>
 <meta name="keywords" content="GEO,Generative Engine Optimization,SEO,AI search,brand optimization,digital marketing"/>
 <style>
@@ -31,26 +30,33 @@
   .sidebar a { display: block; padding: 8px 20px; color: #999; text-decoration: none; font-size: 0.9em; transition: all 0.15s; }
   .sidebar a:hover, .sidebar a.active { color: #fff; background: rgba(255,255,255,0.08); }
   .sidebar a.active { border-left: 3px solid #4fc3f7; }
-  .lang-switch { display: flex; gap: 4px; padding: 0 20px; margin-bottom: 16px; }
-  .lang-btn { flex: 1; padding: 6px 12px; text-align: center; border-radius: 6px; font-size: 0.85em; text-decoration: none; color: #999; background: rgba(255,255,255,0.05); transition: all 0.2s; }
-  .lang-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
-  .lang-btn.active { color: #4fc3f7; background: rgba(79,195,247,0.15); }
+  .sidebar .current { color: #aaa; padding: 8px 20px; font-size: 0.85em; }
+  .sidebar .home-link { margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 12px; font-weight: 500; color: #4fc3f7; }
+  .nav-group-toggle { padding: 8px 20px; color: #aaa; font-size: 0.85em; cursor: pointer; user-select: none; transition: color 0.15s; display: flex; align-items: center; gap: 6px; }
+  .nav-group-toggle:hover { color: #fff; background: rgba(255,255,255,0.05); }
+  .nav-group-links { display: none; }
+  .nav-group.open .nav-group-links { display: block; }
+  .nav-group.open > .nav-group-toggle .arrow { transform: rotate(90deg); }
+  .arrow { display: inline-block; transition: transform 0.2s; font-size: 0.8em; }
+  .glossary-section { margin-top: 12px; border-top: 1px solid #333; padding-top: 12px; }
   .main { flex: 1; max-width: 800px; margin: 0 auto; padding: 48px 32px 80px; }
   .hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff; border-radius: 16px; padding: 48px; margin-bottom: 32px; }
   .hero h1 { font-size: 2.2em; margin-bottom: 8px; }
   .hero .subtitle { font-size: 1.1em; color: #90caf9; margin-bottom: 16px; }
   .hero p { color: #b0bec5; font-size: 0.95em; max-width: 600px; }
   .badge { display: inline-block; background: rgba(79,195,247,0.2); color: #4fc3f7; padding: 4px 14px; border-radius: 20px; font-size: 0.85em; margin-top: 16px; }
-  .chapters { display: flex; flex-direction: column; gap: 12px; }
-  .chapter { background: #fff; border-radius: 12px; padding: 20px 28px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); transition: all 0.2s; display: flex; align-items: center; justify-content: space-between; }
-  .chapter:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
-  .chapter .info { flex: 1; }
-  .chapter .num { font-size: 0.85em; color: #4fc3f7; font-weight: 600; margin-bottom: 2px; }
-  .chapter h2 { font-size: 1.15em; color: #111; }
-  .chapter h2 a { text-decoration: none; color: inherit; }
-  .chapter h2 a:hover { color: #0066cc; }
-  .chapter .desc { color: #666; font-size: 0.88em; margin-top: 4px; }
-  .chapter .count { font-size: 0.8em; color: #aaa; background: #f0f1f3; padding: 4px 12px; border-radius: 20px; white-space: nowrap; margin-left: 16px; }
+  .about { margin-bottom: 32px; padding: 24px; background: #fff; border-radius: 8px; }
+  .about h2 { font-size: 1.2em; margin-bottom: 12px; }
+  .chapters { display: flex; flex-direction: column; gap: 20px; }
+  .chapter-group { background: #fff; border-radius: 12px; padding: 24px 28px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .chapter-group h2 { font-size: 1.15em; color: #1a1a2e; margin-bottom: 4px; }
+  .chapter-group h2 a { text-decoration: none; color: inherit; }
+  .chapter-group h2 a:hover { color: #0066cc; }
+  .chapter-group .desc { color: #666; font-size: 0.88em; margin-bottom: 12px; }
+  .chapter-group .articles { display: flex; flex-direction: column; gap: 4px; }
+  .chapter-group .articles a { color: #333; text-decoration: none; font-size: 0.92em; padding: 6px 0; border-bottom: 1px solid #f0f0f0; }
+  .chapter-group .articles a:last-child { border-bottom: none; }
+  .chapter-group .articles a:hover { color: #0066cc; }
   .footer { margin-top: 48px; text-align: center; color: #999; font-size: 0.85em; border-top: 1px solid #e0e0e0; padding-top: 24px; }
   .footer a { color: #0066cc; text-decoration: none; }
   .footer a:hover { text-decoration: underline; }
@@ -59,8 +65,6 @@
     .main { padding: 24px 16px; }
     .hero { padding: 32px 24px; }
     .hero h1 { font-size: 1.6em; }
-    .chapter { flex-direction: column; align-items: flex-start; gap: 8px; }
-    .chapter .count { margin-left: 0; }
   }
 </style>
 </head>
@@ -69,107 +73,234 @@
   <nav class="sidebar">
     <h3>📖 GEO Encyclopedia</h3>
     <a href="index.html" class="active">🏠 Home</a>
-    <a href="fundamentals.html">I. Fundamentals</a>
-    <a href="metrics-frameworks.html">II. Metrics & Frameworks</a>
-    <a href="models-methods.html">III. Models & Methods</a>
-    <a href="content-strategy.html">IV. Content Strategy</a>
-    <a href="technical-implementation.html">V. Technical Implementation</a>
-    <a href="brand-strategy.html">VI. Brand Strategy</a>
-    <a href="industry-applications.html">VII. Industry Applications</a>
-    <a href="case-studies.html">VIII. Case Studies</a>
-    <a href="data-formulas.html">IX. Data & Formulas</a>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> I. Fundamentals</div>
+      <div class="nav-group-links">
+        <a href="fundamentals/what-is-geo.html">What is GEO?</a>
+        <a href="fundamentals/seo-vs-geo.html">Is SEO Dead?</a>
+        <a href="fundamentals/eeat-trust-mechanism.html">E-E-A-T Trust</a>
+        <a href="fundamentals/llms-txt-guide.html">LLMs.txt Guide</a>
+        <a href="fundamentals/answer-assetization.html">Answer Assetization</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> II. Metrics</div>
+      <div class="nav-group-links">
+        <a href="metrics/citation-share.html">Citation Share</a>
+        <a href="metrics/entity-density.html">Entity Density</a>
+        <a href="metrics/sheep-framework.html">SHEEP Framework</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> III. Models</div>
+      <div class="nav-group-links">
+        <a href="models/3c-optimization-model.html">3C Model</a>
+        <a href="models/geo-evolution.html">GEO Evolution</a>
+        <a href="models/source-authority.html">Source Authority</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IV. Content</div>
+      <div class="nav-group-links">
+        <a href="content/eeat-in-geo.html">E-E-A-T in GEO</a>
+        <a href="content/knowledge-entropy.html">Knowledge Entropy</a>
+        <a href="content/backlinks-in-geo.html">Backlinks in GEO</a>
+        <a href="content/topical-authority.html">Topical Authority</a>
+        <a href="content/content-freshness.html">Content Freshness</a>
+        <a href="content/multimodal-content.html">Multimodal Content</a>
+        <a href="content/question-driven-strategy.html">Question-Driven Strategy</a>
+        <a href="content/local-geo-longtail.html">Local GEO</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> V. Technical</div>
+      <div class="nav-group-links">
+        <a href="technical/schema-markup-guide.html">Schema Markup</a>
+        <a href="technical/llms-txt-advanced.html">LLMs.txt Advanced</a>
+        <a href="technical/entity-knowledge-graph.html">Entity &amp; Knowledge Graph</a>
+        <a href="technical/ai-crawler-management.html">AI Crawler Management</a>
+        <a href="technical/geo-monitoring-tools.html">Monitoring Tools</a>
+        <a href="technical/agenticgeo-tools.html">AgenticGEO</a>
+        <a href="technical/tech-stack-overview.html">Tech Stack Overview</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VI. Brand</div>
+      <div class="nav-group-links">
+        <a href="brand/brand-as-source.html">Brand as Source</a>
+        <a href="brand/eeat-brand-implementation.html">EEAT Brand</a>
+        <a href="brand/crisis-pr-geo.html">Crisis PR</a>
+        <a href="brand/multi-brand-geo.html">Multi-Brand</a>
+        <a href="brand/ecommerce-geo.html">E-Commerce</a>
+        <a href="brand/b2b-brand-geo.html">B2B Brand</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VII. Industry</div>
+      <div class="nav-group-links">
+        <a href="industry/healthcare-geo.html">Healthcare</a>
+        <a href="industry/finance-geo.html">Finance</a>
+        <a href="industry/education-geo.html">Education</a>
+        <a href="industry/legal-geo.html">Legal</a>
+        <a href="industry/local-services-geo.html">Local Services</a>
+        <a href="industry/manufacturing-geo.html">Manufacturing</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VIII. Cases</div>
+      <div class="nav-group-links">
+        <a href="cases/zero-to-one-roadmap.html">Zero to One</a>
+        <a href="cases/full-process-case.html">Full Case Study</a>
+        <a href="cases/black-hat-prevention.html">Black Hat Prevention</a>
+        <a href="cases/geo-future-trends.html">Future Trends</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IX. Data</div>
+      <div class="nav-group-links">
+        <a href="data/core-metrics-system.html">Core Metrics</a>
+        <a href="data/roi-calculation.html">ROI Calculator</a>
+        <a href="data/data-dashboard-setup.html">Data Dashboard</a>
+      </div>
+    </div>
+    <div class="current glossary-section">📌 Glossary</div>
+    <a href="glossary/geo.html">GEO</a>
+    <a href="glossary/seo.html">SEO</a>
+    <a href="glossary/rag.html">RAG</a>
+    <a href="glossary/eeat.html">E-E-A-T</a>
+    <a href="glossary/llms-txt.html">LLMs.txt</a>
+    <a href="glossary/zero-click.html">Zero-Click Search</a>
+    <a href="glossary/schema.html">Schema</a>
+    <a href="glossary/answer-asset.html">Answer Assetization</a>
+    <a href="glossary/ai-visibility.html">AI Visibility Index</a>
+    <a href="glossary/ymyl.html">YMYL</a>
   </nav>
   <div class="main">
     <div class="hero">
       <h1>📖 GEO Encyclopedia</h1>
       <div class="subtitle">Generative Engine Optimization · 45 In-Depth Articles</div>
-      <p>Master the brand growth playbook for the AI era. From fundamentals to implementation — everything you need to know about GEO in one place. Covers core concepts, metrics, frameworks, content strategy, technical setup, brand strategy, industry applications, case studies, and data analytics.</p>
+      <p>Master the brand growth playbook for the AI era. From fundamentals to implementation — everything you need to know about GEO in one place.</p>
       <span class="badge">🤖 Open to AI Crawlers · Welcome to Cite</span>
     </div>
 
-    <div class="about" style="margin-bottom: 32px; padding: 24px; background: #fff; border-radius: 8px;">
-      <h2 style="font-size: 1.2em; margin-bottom: 12px;">What is GEO?</h2>
+    <div class="about">
+      <h2>What is GEO?</h2>
       <p>Generative Engine Optimization (GEO) is the practice of optimizing your brand's visibility within AI-generated answers. As search engines like Google, ChatGPT, Perplexity, and DeepSeek increasingly provide direct AI answers instead of blue link lists, businesses must ensure their content is cited, referenced, and recommended by these AI systems.</p>
-      <p>This encyclopedia covers the complete GEO knowledge system — from understanding zero-click search trends and E-E-A-T trust signals, to implementing Schema structured data, managing AI crawler access, and measuring citation share. Whether you're a marketer, SEO specialist, or business owner, these 45 articles will guide you through every aspect of AI-era brand growth.</p>
+      <p>This encyclopedia covers the complete GEO knowledge system — from understanding zero-click search trends and E-E-A-T trust signals, to implementing Schema structured data, managing AI crawler access, and measuring citation share.</p>
     </div>
 
     <div class="chapters">
-      <a href="fundamentals.html" class="chapter" style="text-decoration:none">
-        <div class="info">
-          <div class="num">Chapter 1</div>
-          <h2>Fundamentals</h2>
-          <div class="desc">What is GEO, SEO vs GEO relationship, E-E-A-T trust mechanisms, LLMs.txt infrastructure, answer asset monetization</div>
+      <div class="chapter-group">
+        <h2><a href="fundamentals/what-is-geo.html">I. Fundamentals</a></h2>
+        <div class="desc">What is GEO, SEO vs GEO, E-E-A-T trust, LLMs.txt, answer assetization</div>
+        <div class="articles">
+          <a href="fundamentals/what-is-geo.html">What is GEO? — How AI Search Changes Digital Marketing</a>
+          <a href="fundamentals/seo-vs-geo.html">Is SEO Dead? — How GEO and SEO Work Together</a>
+          <a href="fundamentals/eeat-trust-mechanism.html">What is E-E-A-T? — The Trust Mechanism AI Uses</a>
+          <a href="fundamentals/llms-txt-guide.html">What is LLMs.txt? — How to Tell AI About Your Site</a>
+          <a href="fundamentals/answer-assetization.html">How Does Answer Assetization Work?</a>
         </div>
-        <span class="count">5 articles</span>
-      </a>
-      <a href="metrics-frameworks.html" class="chapter" style="text-decoration:none">
-        <div class="info">
-          <div class="num">Chapter 2</div>
-          <h2>Metrics & Frameworks</h2>
-          <div class="desc">Citation share, semantic coverage, entity association density, SHEEP framework</div>
+      </div>
+
+      <div class="chapter-group">
+        <h2><a href="metrics/citation-share.html">II. Metrics & Frameworks</a></h2>
+        <div class="desc">Citation share, semantic coverage, entity density, SHEEP framework</div>
+        <div class="articles">
+          <a href="metrics/citation-share.html">What is Citation Share? — The Core GEO Metric</a>
+          <a href="metrics/entity-density.html">What is Entity Association Density?</a>
+          <a href="metrics/sheep-framework.html">What is the SHEEP Framework? — 5 Steps to GEO</a>
         </div>
-        <span class="count">3 articles</span>
-      </a>
-      <a href="models-methods.html" class="chapter" style="text-decoration:none">
-        <div class="info">
-          <div class="num">Chapter 3</div>
-          <h2>Models & Methods</h2>
-          <div class="desc">3C optimization model, three generations of evolution, source authority principles</div>
+      </div>
+
+      <div class="chapter-group">
+        <h2><a href="models/3c-optimization-model.html">III. Models & Methods</a></h2>
+        <div class="desc">3C model, GEO evolution, source authority</div>
+        <div class="articles">
+          <a href="models/3c-optimization-model.html">What is the 3C Optimization Model?</a>
+          <a href="models/geo-evolution.html">How Has GEO Evolved? — From Manual to AI</a>
+          <a href="models/source-authority.html">What is Source Authority? — AI's Trust Signal</a>
         </div>
-        <span class="count">3 articles</span>
-      </a>
-      <a href="content-strategy.html" class="chapter" style="text-decoration:none">
-        <div class="info">
-          <div class="num">Chapter 4</div>
-          <h2>Content Strategy</h2>
-          <div class="desc">E-E-A-T upgrade, knowledge entropy, backlinks, topic authority, content freshness, multimodal, question-driven, localization</div>
+      </div>
+
+      <div class="chapter-group">
+        <h2><a href="content/eeat-in-geo.html">IV. Content Strategy</a></h2>
+        <div class="desc">E-E-A-T, knowledge entropy, backlinks, topical authority, freshness, multimodal, question-driven, local</div>
+        <div class="articles">
+          <a href="content/eeat-in-geo.html">How to Apply E-E-A-T in GEO Content Strategy?</a>
+          <a href="content/knowledge-entropy.html">What is Knowledge Entropy? — What Content Does AI Prefer?</a>
+          <a href="content/backlinks-in-geo.html">How Do Backlinks Work in GEO?</a>
+          <a href="content/topical-authority.html">What is Topical Authority? — AI's Domain Expert</a>
+          <a href="content/content-freshness.html">How Important is Content Freshness for GEO?</a>
+          <a href="content/multimodal-content.html">How to Optimize Multimodal Content for GEO?</a>
+          <a href="content/question-driven-strategy.html">How to Build Question-Driven Content for GEO?</a>
+          <a href="content/local-geo-longtail.html">How to Do Local GEO and Long-Tail Content?</a>
         </div>
-        <span class="count">8 articles</span>
-      </a>
-      <a href="technical-implementation.html" class="chapter" style="text-decoration:none">
-        <div class="info">
-          <div class="num">Chapter 5</div>
-          <h2>Technical Implementation</h2>
-          <div class="desc">Schema structured data, LLMs.txt advanced usage, entity recognition, AI crawler management, monitoring tools, AgenticGEO, tech stack</div>
+      </div>
+
+      <div class="chapter-group">
+        <h2><a href="technical/schema-markup-guide.html">V. Technical Implementation</a></h2>
+        <div class="desc">Schema, LLMs.txt, entity recognition, AI crawlers, monitoring, AgenticGEO, tech stack</div>
+        <div class="articles">
+          <a href="technical/schema-markup-guide.html">How to Implement Schema Markup for GEO?</a>
+          <a href="technical/llms-txt-advanced.html">How to Configure LLMs.txt and Robots.txt?</a>
+          <a href="technical/entity-knowledge-graph.html">What is Entity Recognition & Knowledge Graph?</a>
+          <a href="technical/ai-crawler-management.html">How to Manage AI Crawler Access?</a>
+          <a href="technical/geo-monitoring-tools.html">Which GEO Monitoring Tools to Use?</a>
+          <a href="technical/agenticgeo-tools.html">What is AgenticGEO? — Autonomous Optimization</a>
+          <a href="technical/tech-stack-overview.html">GEO Tech Stack Overview</a>
         </div>
-        <span class="count">7 articles</span>
-      </a>
-      <a href="brand-strategy.html" class="chapter" style="text-decoration:none">
-        <div class="info">
-          <div class="num">Chapter 6</div>
-          <h2>Brand Strategy</h2>
-          <div class="desc">Brand as source, E-E-A-T branding, crisis PR, multi-brand, e-commerce, B2B</div>
+      </div>
+
+      <div class="chapter-group">
+        <h2><a href="brand/brand-as-source.html">VI. Brand Strategy</a></h2>
+        <div class="desc">Brand as source, E-E-A-T branding, crisis PR, multi-brand, e-commerce, B2B</div>
+        <div class="articles">
+          <a href="brand/brand-as-source.html">How to Build Brand as an AI-Recognized Source?</a>
+          <a href="brand/eeat-brand-implementation.html">How to Implement E-E-A-T Brand Strategy?</a>
+          <a href="brand/crisis-pr-geo.html">How to Handle Brand Crisis via GEO?</a>
+          <a href="brand/multi-brand-geo.html">How to Do Multi-Brand GEO Strategy?</a>
+          <a href="brand/ecommerce-geo.html">How to Optimize E-Commerce for GEO?</a>
+          <a href="brand/b2b-brand-geo.html">How to Do B2B Brand GEO Strategy?</a>
         </div>
-        <span class="count">6 articles</span>
-      </a>
-      <a href="industry-applications.html" class="chapter" style="text-decoration:none">
-        <div class="info">
-          <div class="num">Chapter 7</div>
-          <h2>Industry Applications</h2>
-          <div class="desc">Healthcare, finance, education, legal, local services, manufacturing</div>
+      </div>
+
+      <div class="chapter-group">
+        <h2><a href="industry/healthcare-geo.html">VII. Industry Applications</a></h2>
+        <div class="desc">Healthcare, finance, education, legal, local services, manufacturing</div>
+        <div class="articles">
+          <a href="industry/healthcare-geo.html">How to Do GEO for Healthcare?</a>
+          <a href="industry/finance-geo.html">How to Do GEO for Finance?</a>
+          <a href="industry/education-geo.html">How to Do GEO for Education?</a>
+          <a href="industry/legal-geo.html">How to Do GEO for Legal Services?</a>
+          <a href="industry/local-services-geo.html">How to Do GEO for Local Services?</a>
+          <a href="industry/manufacturing-geo.html">How to Do GEO for Manufacturing?</a>
         </div>
-        <span class="count">6 articles</span>
-      </a>
-      <a href="case-studies.html" class="chapter" style="text-decoration:none">
-        <div class="info">
-          <div class="num">Chapter 8</div>
-          <h2>Case Studies</h2>
-          <div class="desc">Launch roadmap, full-process examples, black-hat prevention, future trends</div>
+      </div>
+
+      <div class="chapter-group">
+        <h2><a href="cases/zero-to-one-roadmap.html">VIII. Case Studies</a></h2>
+        <div class="desc">Launch roadmap, full-process examples, black-hat prevention, future trends</div>
+        <div class="articles">
+          <a href="cases/zero-to-one-roadmap.html">How to Start GEO from Zero? — 3-Month Roadmap</a>
+          <a href="cases/full-process-case.html">Full GEO Case Study — Complete Optimization Journey</a>
+          <a href="cases/black-hat-prevention.html">How to Prevent Black Hat GEO?</a>
+          <a href="cases/geo-future-trends.html">What are GEO Future Trends in 2027-2028?</a>
         </div>
-        <span class="count">4 articles</span>
-      </a>
-      <a href="data-formulas.html" class="chapter" style="text-decoration:none">
-        <div class="info">
-          <div class="num">Chapter 9</div>
-          <h2>Data & Formulas</h2>
-          <div class="desc">Metrics framework, ROI model, data dashboard</div>
+      </div>
+
+      <div class="chapter-group">
+        <h2><a href="data/core-metrics-system.html">IX. Data & Formulas</a></h2>
+        <div class="desc">Core metrics, ROI model, data dashboard</div>
+        <div class="articles">
+          <a href="data/core-metrics-system.html">What are the Core GEO Metrics?</a>
+          <a href="data/roi-calculation.html">How to Calculate GEO ROI?</a>
+          <a href="data/data-dashboard-setup.html">How to Build a GEO Data Dashboard?</a>
         </div>
-        <span class="count">3 articles</span>
-      </a>
+      </div>
     </div>
 
     <div class="footer">
-      <p>GEO Encyclopedia · 45 Articles · 100 Core Knowledge Leaves</p>
+      <p>GEO Encyclopedia · 45 Articles · 10 Glossary Terms</p>
       <p><a href="LLMs.txt">LLMs.txt</a> · <a href="robots.txt">robots.txt</a> · <a href="sitemap.xml">sitemap.xml</a></p>
     </div>
   </div>
@@ -179,20 +310,9 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "GEO Encyclopedia",
-  "alternateName": "GEO Encyclopedia - Brand Growth Guide for the AI Era",
   "url": "https://geo010.com",
   "description": "45 in-depth articles on Generative Engine Optimization, from fundamentals to implementation.",
   "inLanguage": "en"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "GEO Encyclopedia",
-  "url": "https://geo010.com",
-  "description": "The first open-source project to systematically organize GEO knowledge",
-  "foundingDate": "2026"
 }
 </script>
 <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
@@ -213,15 +333,51 @@
         keyLocation:'https://geo010.com/c69d4fc0-5281-44df-ae82-a96dd9be018f.txt',
         urlList:[
           'https://geo010.com/',
-          'https://geo010.com/fundamentals.html',
-          'https://geo010.com/metrics-frameworks.html',
-          'https://geo010.com/models-methods.html',
-          'https://geo010.com/content-strategy.html',
-          'https://geo010.com/technical-implementation.html',
-          'https://geo010.com/brand-strategy.html',
-          'https://geo010.com/industry-applications.html',
-          'https://geo010.com/case-studies.html',
-          'https://geo010.com/data-formulas.html',
+          'https://geo010.com/fundamentals/what-is-geo.html',
+          'https://geo010.com/fundamentals/seo-vs-geo.html',
+          'https://geo010.com/fundamentals/eeat-trust-mechanism.html',
+          'https://geo010.com/fundamentals/llms-txt-guide.html',
+          'https://geo010.com/fundamentals/answer-assetization.html',
+          'https://geo010.com/metrics/citation-share.html',
+          'https://geo010.com/metrics/entity-density.html',
+          'https://geo010.com/metrics/sheep-framework.html',
+          'https://geo010.com/models/3c-optimization-model.html',
+          'https://geo010.com/models/geo-evolution.html',
+          'https://geo010.com/models/source-authority.html',
+          'https://geo010.com/content/eeat-in-geo.html',
+          'https://geo010.com/content/knowledge-entropy.html',
+          'https://geo010.com/content/backlinks-in-geo.html',
+          'https://geo010.com/content/topical-authority.html',
+          'https://geo010.com/content/content-freshness.html',
+          'https://geo010.com/content/multimodal-content.html',
+          'https://geo010.com/content/question-driven-strategy.html',
+          'https://geo010.com/content/local-geo-longtail.html',
+          'https://geo010.com/technical/schema-markup-guide.html',
+          'https://geo010.com/technical/llms-txt-advanced.html',
+          'https://geo010.com/technical/entity-knowledge-graph.html',
+          'https://geo010.com/technical/ai-crawler-management.html',
+          'https://geo010.com/technical/geo-monitoring-tools.html',
+          'https://geo010.com/technical/agenticgeo-tools.html',
+          'https://geo010.com/technical/tech-stack-overview.html',
+          'https://geo010.com/brand/brand-as-source.html',
+          'https://geo010.com/brand/eeat-brand-implementation.html',
+          'https://geo010.com/brand/crisis-pr-geo.html',
+          'https://geo010.com/brand/multi-brand-geo.html',
+          'https://geo010.com/brand/ecommerce-geo.html',
+          'https://geo010.com/brand/b2b-brand-geo.html',
+          'https://geo010.com/industry/healthcare-geo.html',
+          'https://geo010.com/industry/finance-geo.html',
+          'https://geo010.com/industry/education-geo.html',
+          'https://geo010.com/industry/legal-geo.html',
+          'https://geo010.com/industry/local-services-geo.html',
+          'https://geo010.com/industry/manufacturing-geo.html',
+          'https://geo010.com/cases/zero-to-one-roadmap.html',
+          'https://geo010.com/cases/full-process-case.html',
+          'https://geo010.com/cases/black-hat-prevention.html',
+          'https://geo010.com/cases/geo-future-trends.html',
+          'https://geo010.com/data/core-metrics-system.html',
+          'https://geo010.com/data/roi-calculation.html',
+          'https://geo010.com/data/data-dashboard-setup.html',
           'https://geo010.com/glossary/geo.html',
           'https://geo010.com/glossary/seo.html',
           'https://geo010.com/glossary/rag.html',

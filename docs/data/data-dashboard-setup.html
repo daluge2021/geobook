@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8903384789303682" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Build a GEO Data Dashboard? - GEO Encyclopedia</title>
+<meta name="description" content="Build a GEO data dashboard with three-layer design — overview metrics for executives, topic analysis for execution teams, and actionable details for content teams.">
+<link rel="canonical" href="https://geo010.com/data/data-dashboard-setup.html"/>
+<meta property="og:title" content="How to Build a GEO Data Dashboard? - GEO Encyclopedia"/>
+<meta property="og:description" content="Build a GEO data dashboard with three-layer design — overview metrics for executives, topic analysis for execution teams, and actionable details for content teams."/>
+<meta property="og:url" content="https://geo010.com/data/data-dashboard-setup.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="https://geo010.com/og-image.png"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="GEO Encyclopedia"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="How to Build a GEO Data Dashboard? - GEO Encyclopedia"/>
+<meta name="twitter:description" content="Build a GEO data dashboard with three-layer design — overview metrics for executives, topic analysis for execution teams, and actionable details for content teams."/>
+<meta name="twitter:image" content="https://geo010.com/og-image.png"/>
+<meta name="keywords" content="GEO,Generative Engine Optimization,GEO dashboard,data dashboard,GEO monitoring,data visualization,GEO cockpit">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
+  .layout { display: flex; min-height: 100vh; }
+  .sidebar { width: 240px; flex-shrink: 0; background: #1a1a2e; color: #ccc; padding: 32px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+  .sidebar h3 { color: #fff; font-size: 1em; padding: 0 20px; margin-bottom: 20px; }
+  .sidebar a { display: block; padding: 8px 20px; color: #999; text-decoration: none; font-size: 0.9em; transition: all 0.15s; }
+  .sidebar a:hover, .sidebar a.active { color: #fff; background: rgba(255,255,255,0.08); }
+  .sidebar a.active { border-left: 3px solid #4fc3f7; }
+  .sidebar .current { color: #aaa; padding: 8px 20px; font-size: 0.85em; }
+  .sidebar .home-link { margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 12px; font-weight: 500; color: #4fc3f7; }
+  .nav-group-toggle { padding: 8px 20px; color: #aaa; font-size: 0.85em; cursor: pointer; user-select: none; transition: color 0.15s; display: flex; align-items: center; gap: 6px; }
+  .nav-group-toggle:hover { color: #fff; background: rgba(255,255,255,0.05); }
+  .nav-group-links { display: none; }
+  .nav-group.open .nav-group-links { display: block; }
+  .nav-group.open > .nav-group-toggle .arrow { transform: rotate(90deg); }
+  .arrow { display: inline-block; transition: transform 0.2s; font-size: 0.8em; }
+  .main { flex: 1; max-width: 800px; margin: 0 auto; padding: 48px 32px 80px; }
+  .content { background: #fff; border-radius: 12px; padding: 40px 48px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .content .breadcrumb { color: #888; font-size: 0.85em; margin-bottom: 16px; }
+  .content .breadcrumb a { color: #0066cc; text-decoration: none; }
+  .content .breadcrumb a:hover { text-decoration: underline; }
+  .content h1 { font-size: 1.5em; margin: 40px 0 12px; color: #1a1a2e; padding-top: 8px; }
+  .content h1:first-of-type { margin-top: 0; }
+  .content h2 { font-size: 1.4em; margin: 32px 0 16px; color: #1a1a2e; padding-bottom: 8px; border-bottom: 1px solid #f0f0f0; }
+  .content h3 { font-size: 1.15em; margin: 24px 0 12px; color: #333; }
+  .content p { margin-bottom: 16px; color: #333; }
+  .content p:last-child { margin-bottom: 0; }
+  .content strong { color: #111; }
+  .content blockquote { margin: 16px 0; padding: 16px 20px; background: #f8f9ff; border-left: 4px solid #4fc3f7; border-radius: 0 8px 8px 0; color: #555; font-style: normal; }
+  .content blockquote strong { color: #1a1a2e; }
+  .content hr { margin: 32px 0; border: none; border-top: 1px solid #e8e8e8; }
+  .content ul, .content ol { margin: 8px 0 16px 24px; }
+  .content li { margin-bottom: 6px; color: #333; }
+  .content table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.93em; }
+  .content th { background: #f0f2f5; padding: 10px 14px; text-align: left; font-weight: 600; color: #333; border: 1px solid #e0e0e0; }
+  .content td { padding: 8px 14px; border: 1px solid #e8e8e8; color: #444; }
+  .content tr:nth-child(even) td { background: #fafafa; }
+  .content code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: #e74c3c; }
+  .content img { max-width: 100%; border-radius: 8px; margin: 16px 0; }
+  .glossary-section { margin-top: 12px; border-top: 1px solid #333; padding-top: 12px; }
+  .glossary-link { color: #0066cc; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+  .glossary-link:hover { color: #004499; text-decoration-style: solid; }
+  .nav-links { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; }
+  .nav-links a { color: #0066cc; text-decoration: none; font-size: 0.95em; }
+  .nav-links a:hover { text-decoration: underline; }
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 24px 16px; }
+    .content { padding: 24px 20px; border-radius: 8px; }
+    .content h1 { font-size: 1.3em; }
+    .content h2 { font-size: 1.2em; }
+    .nav-links { flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h3>📖 GEO Encyclopedia</h3>
+    <a href="../index.html" class="home-link">🏠 Home</a>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> I. Fundamentals</div>
+      <div class="nav-group-links">
+        <a href="../fundamentals/what-is-geo.html">What is GEO?</a>
+        <a href="../fundamentals/seo-vs-geo.html">Is SEO Dead?</a>
+        <a href="../fundamentals/eeat-trust-mechanism.html">E-E-A-T Trust</a>
+        <a href="../fundamentals/llms-txt-guide.html">LLMs.txt Guide</a>
+        <a href="../fundamentals/answer-assetization.html">Answer Assetization</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> II. Metrics</div>
+      <div class="nav-group-links">
+        <a href="../metrics/citation-share.html">Citation Share</a>
+        <a href="../metrics/entity-density.html">Entity Density</a>
+        <a href="../metrics/sheep-framework.html">SHEEP Framework</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> III. Models</div>
+      <div class="nav-group-links">
+        <a href="../models/3c-optimization-model.html">3C Model</a>
+        <a href="../models/geo-evolution.html">GEO Evolution</a>
+        <a href="../models/source-authority.html">Source Authority</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IV. Content</div>
+      <div class="nav-group-links">
+        <a href="../content/eeat-in-geo.html">E-E-A-T in GEO</a>
+        <a href="../content/knowledge-entropy.html">Knowledge Entropy</a>
+        <a href="../content/backlinks-in-geo.html">Backlinks in GEO</a>
+        <a href="../content/topical-authority.html">Topical Authority</a>
+        <a href="../content/content-freshness.html">Content Freshness</a>
+        <a href="../content/multimodal-content.html">Multimodal Content</a>
+        <a href="../content/question-driven-strategy.html">Question-Driven Strategy</a>
+        <a href="../content/local-geo-longtail.html">Local GEO</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> V. Technical</div>
+      <div class="nav-group-links">
+        <a href="../technical/schema-markup-guide.html">Schema Markup</a>
+        <a href="../technical/llms-txt-advanced.html">LLMs.txt Advanced</a>
+        <a href="../technical/entity-knowledge-graph.html">Entity & Knowledge Graph</a>
+        <a href="../technical/ai-crawler-management.html">AI Crawler Management</a>
+        <a href="../technical/geo-monitoring-tools.html">Monitoring Tools</a>
+        <a href="../technical/agenticgeo-tools.html">AgenticGEO</a>
+        <a href="../technical/tech-stack-overview.html">Tech Stack Overview</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VI. Brand</div>
+      <div class="nav-group-links">
+        <a href="../brand/brand-as-source.html">Brand as Source</a>
+        <a href="../brand/eeat-brand-implementation.html">EEAT Brand</a>
+        <a href="../brand/crisis-pr-geo.html">Crisis PR</a>
+        <a href="../brand/multi-brand-geo.html">Multi-Brand</a>
+        <a href="../brand/ecommerce-geo.html">E-Commerce</a>
+        <a href="../brand/b2b-brand-geo.html">B2B Brand</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VII. Industry</div>
+      <div class="nav-group-links">
+        <a href="../industry/healthcare-geo.html">Healthcare</a>
+        <a href="../industry/finance-geo.html">Finance</a>
+        <a href="../industry/education-geo.html">Education</a>
+        <a href="../industry/legal-geo.html">Legal</a>
+        <a href="../industry/local-services-geo.html">Local Services</a>
+        <a href="../industry/manufacturing-geo.html">Manufacturing</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VIII. Cases</div>
+      <div class="nav-group-links">
+        <a href="../cases/zero-to-one-roadmap.html">Zero to One</a>
+        <a href="../cases/full-process-case.html">Full Case Study</a>
+        <a href="../cases/black-hat-prevention.html">Black Hat Prevention</a>
+        <a href="../cases/geo-future-trends.html">Future Trends</a>
+      </div>
+    </div>
+    <div class="nav-group open">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IX. Data</div>
+      <div class="nav-group-links">
+        <a href="core-metrics-system.html">Core Metrics</a>
+        <a href="roi-calculation.html">ROI Calculator</a>
+        <a href="data-dashboard-setup.html" class="active">Data Dashboard</a>
+      </div>
+    </div>
+    <div class="current glossary-section">📌 Glossary</div>
+    <a href="../glossary/geo.html">GEO</a>
+    <a href="../glossary/seo.html">SEO</a>
+    <a href="../glossary/rag.html">RAG</a>
+    <a href="../glossary/eeat.html">E-E-A-T</a>
+    <a href="../glossary/llms-txt.html">LLMs.txt</a>
+    <a href="../glossary/zero-click.html">Zero-Click Search</a>
+    <a href="../glossary/schema.html">Schema</a>
+    <a href="../glossary/answer-asset.html">Answer Assetization</a>
+    <a href="../glossary/ai-visibility.html">AI Visibility Index</a>
+    <a href="../glossary/ymyl.html">YMYL</a>
+  </nav>
+  <div class="main">
+    <div class="content">
+      <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="data-dashboard-setup.html">IX. Data & Formulas</a> › How to Build a GEO Data Dashboard?</div>
+
+<h1>GEO Data Dashboard Setup — Your GEO "Cockpit"</h1>
+
+<blockquote>Imagine this scenario:</blockquote>
+<blockquote>You walk into the boss's office. He asks, "How's GEO going?"</blockquote>
+<blockquote>You open a page that clearly displays:</blockquote>
+<blockquote>- This month's AI referral rate: 12% (last month 8% ↑)</blockquote>
+<blockquote>- Citation share: 10% (last month 6% ↑)</blockquote>
+<blockquote>- Brand description accuracy: 88% (last month 75% ↑)</blockquote>
+<blockquote>- Estimated monthly value: ¥22,000</blockquote>
+<blockquote>You don't need to memorize any data or hunt for reports — all GEO core status is right there in this "cockpit."</blockquote>
+<blockquote>This is the GEO data dashboard — your GEO "instrument panel."</blockquote>
+
+<hr>
+
+<h2>I. Why Do You Need a GEO Data Dashboard?</h2>
+
+<h3>Three Core Values of a Data Dashboard</h3>
+
+<p><strong>Value 1: See the full GEO picture at a glance.</strong></p>
+<p>No need to toggle between 5 tools to check data, no need to manually compile spreadsheets. A good dashboard puts all key metrics on a single screen.</p>
+
+<p><strong>Value 2: Spot trends and anomalies.</strong></p>
+<p>Citation share declining for 3 consecutive weeks — the dashboard shows it. Efficiency significantly improved — also visible on the dashboard. A data dashboard transforms you from "passive reaction" to "proactive discovery."</p>
+
+<p><strong>Value 3: Reporting to the boss/team.</strong></p>
+<p>The dashboard itself is the best reporting material. No need to prepare presentations — just open the dashboard and walk through it line by line, and everyone is on the same page.</p>
+
+<hr>
+
+<h2>II. "Three-Layer Design" for a GEO Data Dashboard</h2>
+
+<p>A good GEO dashboard should have three layers — from "the numbers that matter most" to "specific details."</p>
+
+<h3>Layer 1: Overview Layer (At-a-Glance)</h3>
+
+<p><strong>This layer holds the 4-6 most critical metrics — for the boss.</strong></p>
+
+<table><thead><tr><th>Metric</th><th>Current Value</th><th>Trend</th><th>Status</th></tr></thead><tbody><tr><td><strong>Brand AI Referral Rate</strong></td><td>12%</td><td>↑ +4%</td><td>🟢 Normal</td></tr><tr><td><strong>Citation Share (Core Topics)</strong></td><td>10%</td><td>↑ +4%</td><td>🟢 Normal</td></tr><tr><td><strong>Brand Description Accuracy</strong></td><td>88%</td><td>↑ +13%</td><td>🟢 Normal</td></tr><tr><td><strong>AI Sentiment</strong></td><td>Positive</td><td>—</td><td>🟢 Positive</td></tr><tr><td><strong>Estimated Monthly GEO Value</strong></td><td>¥22,000</td><td>↑ +8,000</td><td>🟢 Normal</td></tr></tbody></table>
+
+<p><strong>Design Points:</strong></p>
+<ul>
+  <li>Each metric shows "current value," "trend," and "status indicator" (red/yellow/green)</li>
+  <li>Trends show "month-over-month" comparison rather than "year-over-year"</li>
+  <li>Thresholds for red/yellow/green should be set in advance</li>
+</ul>
+
+<h3>Layer 2: Topic Layer (Deep Analysis)</h3>
+
+<p><strong>This layer shows "performance by topic" — for the execution team.</strong></p>
+
+<table><thead><tr><th>Topic</th><th>AI Referral Rate</th><th>Citation Share</th><th>Accuracy</th><th>Priority</th><th>Action</th></tr></thead><tbody><tr><td>CRM Recommendations</td><td>22%</td><td>18%</td><td>92%</td><td>🟢</td><td>Maintain</td></tr><tr><td>CRM Pricing</td><td>15%</td><td>12%</td><td>85%</td><td>🟢</td><td>Maintain</td></tr><tr><td>CRM Selection</td><td>10%</td><td>8%</td><td>80%</td><td>🟡</td><td>Enhance</td></tr><tr><td>CRM vs ERP</td><td>5%</td><td>3%</td><td>70%</td><td>🔴</td><td>Urgent Optimization</td></tr><tr><td>SME CRM</td><td>8%</td><td>5%</td><td>75%</td><td>🟡</td><td>Enhance</td></tr></tbody></table>
+
+<p><strong>Design Points:</strong></p>
+<ul>
+  <li>Each topic on its own row, sortable by "AI Referral Rate" or "Priority"</li>
+  <li>Use "Priority" to quickly identify content that needs optimization</li>
+</ul>
+
+<h3>Layer 3: Detail Layer (Actionable)</h3>
+
+<p><strong>This layer contains the most specific execution data — for the content and technical teams.</strong></p>
+
+<p>Expanding by topic:</p>
+
+<p><strong>Topic: CRM Pricing</strong></p>
+<ul>
+  <li>Current content: 2 articles</li>
+  <li>Content freshness: Last updated 3 months ago</li>
+  <li>Competitor citation sources: 3</li>
+  <li>Recommended action: Add 1 price comparison article + update timestamps on existing 2 articles</li>
+</ul>
+<p><strong>Design Points:</strong></p>
+<ul>
+  <li>Each topic can be expanded to view "optimization suggestions"</li>
+  <li>Optimization suggestions derive from monitoring data (analysis of why AI isn't citing you)</li>
+  <li>Recommended actions can be assigned to responsible persons</li>
+</ul>
+<hr>
+
+<h2>III. GEO Data Dashboard Core Metric Modules</h2>
+
+<h3>Module 1: Outcome Metrics</h3>
+
+<p><code>`</code></p>
+<p>┌────────────────────────────────────────────────────────┐</p>
+<p>│ 📊 Outcome Metrics                                     │</p>
+<p>├─────────────┬──────────┬────────┬─────────┬───────────┤</p>
+<p>│ Metric       │ Current  │ Last   │ Target  │ Status    │</p>
+<p>├─────────────┼──────────┼────────┼─────────┼───────────┤</p>
+<p>│ AI Ref. Rate │   12%    │   8%   │  20%    │ 🟢 On Track│</p>
+<p>│ Citation Sh. │   10%    │   6%   │  15%    │ 🟢 On Track│</p>
+<p>│ Description  │   88%    │  75%   │  95%    │ 🟢 On Track│</p>
+<p>│ Sentiment    │ Positive │ Pos.   │ Positive│ 🟢 Normal │</p>
+<p>└─────────────┴──────────┴────────┴─────────┴───────────┘</p>
+<p><code>`</code></p>
+
+<h3>Module 2: Coverage Metrics</h3>
+
+<p><code>`</code></p>
+<p>┌────────────────────────────────────────────────────────┐</p>
+<p>│ 🌐 Coverage Metrics                                    │</p>
+<p>├─────────────────────┬──────────┬───────────────────────┤</p>
+<p>│ Metric               │ Current  │ Change                │</p>
+<p>├─────────────────────┼──────────┼───────────────────────┤</p>
+<p>│ Semantic Coverage     │   65%    │  ↑ 10% (MoM)         │</p>
+<p>│ Structured Data       │   85%    │  ↑ 15% (MoM)         │</p>
+<p>│ Multi-Platform Count  │   6      │  —                    │</p>
+<p>│ Source Authority       │  45 pts  │  ↑ 8 pts (MoM)       │</p>
+<p>└─────────────────────┴──────────┴───────────────────────┘</p>
+<p><code>`</code></p>
+
+<h3>Module 3: Value Metrics</h3>
+
+<p><code>`</code></p>
+<p>┌────────────────────────────────────────────────────────┐</p>
+<p>│ 💰 Value Metrics                                       │</p>
+<p>├─────────────────────┬──────────┬───────────────────────┤</p>
+<p>│ Metric               │ Current  │ 6-Month Cumulative    │</p>
+<p>├─────────────────────┼──────────┼───────────────────────┤</p>
+<p>│ GEO Total Investment  │ ¥35,000  │ ¥210,000              │</p>
+<p>│ GEO Total Value       │ ¥22,000  │ ¥96,000               │</p>
+<p>│ Cumulative ROI        │    —     │ -54.3% (cumulative)   │</p>
+<p>│ Expected Breakeven    │    —     │ Month 14              │</p>
+<p>└─────────────────────┴──────────┴───────────────────────┘</p>
+<p><code>`</code></p>
+
+<hr>
+
+<h2>IV. Tools for Building a GEO Data Dashboard</h2>
+
+<h3>Option 1: Excel / Google Sheets (Entry-Level)</h3>
+
+<p><strong>Best for:</strong> Small teams just starting GEO with limited data volume</p>
+
+<p><strong>Pros:</strong> Free, familiar, flexible</p>
+<p><strong>Cons:</strong> Requires manual data updates, no real-time refresh</p>
+
+<p><strong>How to set up:</strong></p>
+<ol>
+  <li>Create a Google Sheet</li>
+  <li>Create worksheets organized by "month"</li>
+  <li>Manually input current month's data each time</li>
+  <li>Use conditional formatting for red/yellow/green indicators</li>
+</ol>
+
+<h3>Option 2: Data Visualization Tools (Intermediate)</h3>
+
+<p><strong>Best for:</strong> Teams with moderate data volume</p>
+
+<p><strong>Recommended Tools:</strong></p>
+<ul>
+  <li><strong>Google Data Studio</strong>: Free, great integration with Google ecosystem</li>
+  <li><strong>Tableau Public</strong>: Free version is sufficient, powerful features</li>
+  <li><strong>Power BI</strong>: If the enterprise already uses Microsoft ecosystem</li>
+</ul>
+<p><strong>How to set up:</strong></p>
+<ol>
+  <li>Connect data sources (GEO monitoring tool APIs + web analytics + manual import)</li>
+  <li>Create "three-layer dashboard"</li>
+  <li>Set up auto-refresh (daily or weekly)</li>
+  <li>Configure alerts (email notifications when metrics exceed thresholds)</li>
+</ol>
+
+<h3>Option 3: BI Tools + Custom Development (Enterprise)</h3>
+
+<p><strong>Best for:</strong> Large enterprises with dedicated data teams</p>
+
+<p><strong>Recommended Tools:</strong></p>
+<ul>
+  <li><strong>Metabase</strong>: Open source, customizable</li>
+  <li><strong>Superset</strong>: Same as above</li>
+  <li><strong>Internal system integration</strong>: Embed directly into enterprise CRM or marketing systems</li>
+</ul>
+<hr>
+
+<h2>V. Setting "Red/Yellow/Green" Thresholds</h2>
+
+<p><strong>Referral Rate:</strong></p>
+<ul>
+  <li>🟢 Green: ≥ 80% of monthly target</li>
+  <li>🟡 Yellow: 50-80% of monthly target</li>
+  <li>🔴 Red: &lt; 50% of monthly target</li>
+</ul>
+<p><strong>Description Accuracy:</strong></p>
+<ul>
+  <li>🟢 Green: ≥ 85%</li>
+  <li>🟡 Yellow: 70-85%</li>
+  <li>🔴 Red: &lt; 70%</li>
+</ul>
+<p><strong>Citation Share (Core Topics):</strong></p>
+<ul>
+  <li>🟢 Green: Increased or stable compared to previous period</li>
+  <li>🟡 Yellow: Decreased &lt;20%</li>
+  <li>🔴 Red: Decreased &gt;20%</li>
+</ul>
+<p><strong>AI Sentiment:</strong></p>
+<ul>
+  <li>🟢 Green: Positive evaluation</li>
+  <li>🟡 Yellow: Neutral evaluation (AI starts describing you without positive/negative tone)</li>
+  <li>🔴 Red: Negative evaluation appears</li>
+</ul>
+<hr>
+
+<h2>VI. GEO Data Dashboard "Best Practices"</h2>
+
+<h3>Update Frequency</h3>
+
+<table><thead><tr><th>Metric</th><th>Update Frequency</th><th>Update Method</th></tr></thead><tbody><tr><td>Outcome metrics</td><td>Weekly</td><td>Auto-scrape or manual entry</td></tr><tr><td>Asset metrics</td><td>Monthly</td><td>Manual audit</td></tr><tr><td>Value metrics</td><td>Monthly</td><td>Manual calculation</td></tr><tr><td>Process metrics</td><td>Weekly</td><td>Content team fills in</td></tr></tbody></table>
+
+<h3>Dashboard "Lifecycle"</h3>
+
+<ul>
+  <li>First 3 months: Focus on "baseline" and "trend" — don't over-focus on absolute numbers</li>
+  <li>3-6 months: Start tracking "goal attainment" — check whether you're approaching set targets</li>
+  <li>6+ months: Focus on "ROI" and "efficiency gains" — is GEO "worth the investment"</li>
+</ul>
+
+<h3>Dashboard "Audience"</h3>
+
+<ul>
+  <li><strong>Executive layer (monthly review)</strong>: Only the 4-6 overview metrics + ROI</li>
+  <li><strong>Team layer (weekly sync)</strong>: All three layers + specific optimization recommendations</li>
+  <li><strong>Yourself (daily check)</strong>: Focus on "changes" + "anomalies" → quick adjustments</li>
+</ul>
+<hr>
+
+<p>A GEO data dashboard isn't a "write-it-and-leave-it" document — it's your GEO "cockpit."</p>
+
+<p>Flying without a data dashboard is like piloting a plane without instruments — you know you're flying, but you don't know your altitude, speed, or direction.</p>
+
+<p>With a data dashboard, every optimization decision you make is backed by data — no more relying on "gut feel" to judge what works and what doesn't.</p>
+
+<p><strong>Start building your first version of a GEO data dashboard today. Even just a Google Sheet is better than nothing.</strong></p>
+
+<p><strong>When you can see all GEO core status on a single screen, you've transitioned from "doing GEO" to "managing GEO."</strong></p>
+
+      <div class="nav-links">
+        <a href="roi-calculation.html">← ROI Calculator</a>
+        <a href="../index.html">📖 Contents</a>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</div>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3QR6VvmXkab0M8Cu",ck:"3QR6VvmXkab0M8Cu"})</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Build a GEO Data Dashboard?",
+  "description": "Build a GEO data dashboard with three-layer design — overview metrics for executives, topic analysis for execution teams, and actionable details for content teams.",
+  "author": { "@type": "Organization", "name": "GEO Encyclopedia", "url": "https://geo010.com" },
+  "datePublished": "2026-01-15",
+  "dateModified": "2026-07-28",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/data/data-dashboard-setup.html" },
+  "publisher": { "@type": "Organization", "name": "GEO Encyclopedia", "url": "https://geo010.com" },
+  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://geo010.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "IX. Data & Formulas",
+      "item": "https://geo010.com/data/data-dashboard-setup.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to Build a GEO Data Dashboard?",
+      "item": "https://geo010.com/data/data-dashboard-setup.html"
+    }
+  ]
+}
+</script>
+</body>
+</html>

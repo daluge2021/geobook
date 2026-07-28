@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8903384789303682" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is LLMs.txt — Essential Infrastructure for the AI Crawler Era - GEO Encyclopedia</title>
+<meta name="description" content="Learn what LLMs.txt is, how it differs from sitemap.xml, and how to set up the GEO foundation layer so AI crawlers can access and cite your content.">
+<link rel="canonical" href="https://geo010.com/fundamentals/llms-txt-guide.html"/>
+<meta property="og:title" content="What Is LLMs.txt — Essential Infrastructure for the AI Crawler Era - GEO Encyclopedia"/>
+<meta property="og:description" content="Learn what LLMs.txt is, how it differs from sitemap.xml, and how to set up the GEO foundation layer so AI crawlers can access and cite your content."/>
+<meta property="og:url" content="https://geo010.com/fundamentals/llms-txt-guide.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="https://geo010.com/og-image.png"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="GEO Encyclopedia"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="What Is LLMs.txt — Essential Infrastructure for the AI Crawler Era - GEO Encyclopedia"/>
+<meta name="twitter:description" content="Learn what LLMs.txt is, how it differs from sitemap.xml, and how to set up the GEO foundation layer so AI crawlers can access and cite your content."/>
+<meta name="twitter:image" content="https://geo010.com/og-image.png"/>
+<meta name="keywords" content="LLMs.txt,AI crawlers,GPTBot,ClaudeBot,robots.txt,sitemap.xml,GEO foundation,AI crawlability">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
+  .layout { display: flex; min-height: 100vh; }
+  .sidebar { width: 240px; flex-shrink: 0; background: #1a1a2e; color: #ccc; padding: 32px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+  .sidebar h3 { color: #fff; font-size: 1em; padding: 0 20px; margin-bottom: 20px; }
+  .sidebar a { display: block; padding: 8px 20px; color: #999; text-decoration: none; font-size: 0.9em; transition: all 0.15s; }
+  .sidebar a:hover, .sidebar a.active { color: #fff; background: rgba(255,255,255,0.08); }
+  .sidebar a.active { border-left: 3px solid #4fc3f7; }
+  .sidebar .current { color: #aaa; padding: 8px 20px; font-size: 0.85em; }
+  .sidebar .home-link { margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 12px; font-weight: 500; color: #4fc3f7; }
+  .nav-group-toggle { padding: 8px 20px; color: #aaa; font-size: 0.85em; cursor: pointer; user-select: none; transition: color 0.15s; display: flex; align-items: center; gap: 6px; }
+  .nav-group-toggle:hover { color: #fff; background: rgba(255,255,255,0.05); }
+  .nav-group-links { display: none; }
+  .nav-group.open .nav-group-links { display: block; }
+  .nav-group.open > .nav-group-toggle .arrow { transform: rotate(90deg); }
+  .arrow { display: inline-block; transition: transform 0.2s; font-size: 0.8em; }
+  .main { flex: 1; max-width: 800px; margin: 0 auto; padding: 48px 32px 80px; }
+  .content { background: #fff; border-radius: 12px; padding: 40px 48px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .content .breadcrumb { color: #888; font-size: 0.85em; margin-bottom: 16px; }
+  .content .breadcrumb a { color: #0066cc; text-decoration: none; }
+  .content .breadcrumb a:hover { text-decoration: underline; }
+  .content h1 { font-size: 1.5em; margin: 40px 0 12px; color: #1a1a2e; padding-top: 8px; }
+  .content h1:first-of-type { margin-top: 0; }
+  .content h2 { font-size: 1.4em; margin: 32px 0 16px; color: #1a1a2e; padding-bottom: 8px; border-bottom: 1px solid #f0f0f0; }
+  .content h3 { font-size: 1.15em; margin: 24px 0 12px; color: #333; }
+  .content p { margin-bottom: 16px; color: #333; }
+  .content p:last-child { margin-bottom: 0; }
+  .content strong { color: #111; }
+  .content blockquote { margin: 16px 0; padding: 16px 20px; background: #f8f9ff; border-left: 4px solid #4fc3f7; border-radius: 0 8px 8px 0; color: #555; font-style: normal; }
+  .content blockquote strong { color: #1a1a2e; }
+  .content hr { margin: 32px 0; border: none; border-top: 1px solid #e8e8e8; }
+  .content ul, .content ol { margin: 8px 0 16px 24px; }
+  .content li { margin-bottom: 6px; color: #333; }
+  .content table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.93em; }
+  .content th { background: #f0f2f5; padding: 10px 14px; text-align: left; font-weight: 600; color: #333; border: 1px solid #e0e0e0; }
+  .content td { padding: 8px 14px; border: 1px solid #e8e8e8; color: #444; }
+  .content tr:nth-child(even) td { background: #fafafa; }
+  .content code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: #e74c3c; }
+  .content img { max-width: 100%; border-radius: 8px; margin: 16px 0; }
+  .glossary-section { margin-top: 12px; border-top: 1px solid #333; padding-top: 12px; }
+  .glossary-link { color: #0066cc; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+  .glossary-link:hover { color: #004499; text-decoration-style: solid; }
+  .nav-links { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; }
+  .nav-links a { color: #0066cc; text-decoration: none; font-size: 0.95em; }
+  .nav-links a:hover { text-decoration: underline; }
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 24px 16px; }
+    .content { padding: 24px 20px; border-radius: 8px; }
+    .content h1 { font-size: 1.3em; }
+    .content h2 { font-size: 1.2em; }
+    .nav-links { flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h3>📖 GEO Encyclopedia</h3>
+    <a href="../index.html" class="home-link">🏠 Home</a>
+    <div class="nav-group open">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> I. Fundamentals</div>
+      <div class="nav-group-links">
+        <a href="what-is-geo.html">What is GEO?</a>
+        <a href="seo-vs-geo.html">Is SEO Dead?</a>
+        <a href="eeat-trust-mechanism.html">E-E-A-T Trust</a>
+        <a href="llms-txt-guide.html" class="active">LLMs.txt Guide</a>
+        <a href="answer-assetization.html">Answer Assetization</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> II. Metrics</div>
+      <div class="nav-group-links">
+        <a href="../metrics/citation-share.html">Citation Share</a>
+        <a href="../metrics/entity-density.html">Entity Density</a>
+        <a href="../metrics/sheep-framework.html">SHEEP Framework</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> III. Models</div>
+      <div class="nav-group-links">
+        <a href="../models/3c-optimization-model.html">3C Model</a>
+        <a href="../models/geo-evolution.html">GEO Evolution</a>
+        <a href="../models/source-authority.html">Source Authority</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IV. Content</div>
+      <div class="nav-group-links">
+        <a href="../content/eeat-in-geo.html">E-E-A-T in GEO</a>
+        <a href="../content/knowledge-entropy.html">Knowledge Entropy</a>
+        <a href="../content/backlinks-in-geo.html">Backlinks in GEO</a>
+        <a href="../content/topical-authority.html">Topical Authority</a>
+        <a href="../content/content-freshness.html">Content Freshness</a>
+        <a href="../content/multimodal-content.html">Multimodal Content</a>
+        <a href="../content/question-driven-strategy.html">Question-Driven Strategy</a>
+        <a href="../content/local-geo-longtail.html">Local GEO</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> V. Technical</div>
+      <div class="nav-group-links">
+        <a href="../technical/schema-markup-guide.html">Schema Markup</a>
+        <a href="../technical/llms-txt-advanced.html">LLMs.txt Advanced</a>
+        <a href="../technical/entity-knowledge-graph.html">Entity & Knowledge Graph</a>
+        <a href="../technical/ai-crawler-management.html">AI Crawler Management</a>
+        <a href="../technical/geo-monitoring-tools.html">Monitoring Tools</a>
+        <a href="../technical/agenticgeo-tools.html">AgenticGEO</a>
+        <a href="../technical/tech-stack-overview.html">Tech Stack Overview</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VI. Brand</div>
+      <div class="nav-group-links">
+        <a href="../brand/brand-as-source.html">Brand as Source</a>
+        <a href="../brand/eeat-brand-implementation.html">EEAT Brand</a>
+        <a href="../brand/crisis-pr-geo.html">Crisis PR</a>
+        <a href="../brand/multi-brand-geo.html">Multi-Brand</a>
+        <a href="../brand/ecommerce-geo.html">E-Commerce</a>
+        <a href="../brand/b2b-brand-geo.html">B2B Brand</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VII. Industry</div>
+      <div class="nav-group-links">
+        <a href="../industry/healthcare-geo.html">Healthcare</a>
+        <a href="../industry/finance-geo.html">Finance</a>
+        <a href="../industry/education-geo.html">Education</a>
+        <a href="../industry/legal-geo.html">Legal</a>
+        <a href="../industry/local-services-geo.html">Local Services</a>
+        <a href="../industry/manufacturing-geo.html">Manufacturing</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VIII. Cases</div>
+      <div class="nav-group-links">
+        <a href="../cases/zero-to-one-roadmap.html">Zero to One</a>
+        <a href="../cases/full-process-case.html">Full Case Study</a>
+        <a href="../cases/black-hat-prevention.html">Black Hat Prevention</a>
+        <a href="../cases/geo-future-trends.html">Future Trends</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IX. Data</div>
+      <div class="nav-group-links">
+        <a href="../data/core-metrics-system.html">Core Metrics</a>
+        <a href="../data/roi-calculation.html">ROI Calculator</a>
+        <a href="../data/data-dashboard-setup.html">Data Dashboard</a>
+      </div>
+    </div>
+    <div class="current glossary-section">📌 Glossary</div>
+    <a href="../glossary/geo.html">GEO</a>
+    <a href="../glossary/seo.html">SEO</a>
+    <a href="../glossary/rag.html">RAG</a>
+    <a href="../glossary/eeat.html">E-E-A-T</a>
+    <a href="../glossary/llms-txt.html">LLMs.txt</a>
+    <a href="../glossary/zero-click.html">Zero-Click Search</a>
+    <a href="../glossary/schema.html">Schema</a>
+    <a href="../glossary/answer-asset.html">Answer Assetization</a>
+    <a href="../glossary/ai-visibility.html">AI Visibility Index</a>
+    <a href="../glossary/ymyl.html">YMYL</a>
+  </nav>
+  <div class="main">
+    <div class="content">
+      <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="what-is-geo.html">I. Fundamentals</a> › LLMs.txt Guide</div>
+
+<h1>What Is LLMs.txt — Essential Infrastructure for the AI Crawler Era</h1>
+
+<blockquote>Suppose you spent a month rewriting all your website content to GEO standards — E-E-A-T is in place, Schema markup is complete, and all data citations include sources.</blockquote>
+<blockquote>You confidently test on ChatGPT: "Our brand information should be cited by AI now, right?"</blockquote>
+<blockquote>But AI's answer about you is still wrong and outdated.</blockquote>
+<blockquote>Why? The reason might be very simple, and very brutal:</blockquote>
+<blockquote><strong>AI crawlers couldn't even access your website in the first place.</strong></blockquote>
+
+<hr>
+
+<h2>I. The GEO Foundation Layer: The "Prerequisite Zero" for All Optimization</h2>
+
+<p>Many people make a common mistake when doing GEO: <strong>jumping straight into content.</strong> Researching, writing articles, adding Schema markup, full structured data setup — then discovering AI still doesn't respond.</p>
+
+<p>They overlook the most fundamental question: <strong>can AI "see" your content?</strong></p>
+
+<p>The answer depends on whether your "GEO Foundation Layer" is properly set up.</p>
+
+<p>The GEO Foundation Layer is the <strong>minimum operational level</strong> for all GEO optimization — it doesn't care whether your content is good or whether you have Schema markup. It only cares about one most primitive question: <strong>can AI crawlers successfully access your website and read your content?</strong></p>
+
+<p>If the answer is "no" — all subsequent optimization is wasted effort. Like a house with a locked gate — no matter how luxurious the interior, no one can see it.</p>
+
+<h3>The Three Gates of the GEO Foundation Layer</h3>
+
+<p>AI crawlers must pass three gates to access your website:</p>
+
+<p><strong>Gate 1: Crawl — "Can AI connect to your server?"</strong></p>
+<p>AI crawlers access your website URLs through HTTP requests. If the response is:</p>
+<ul>
+  <li><strong>404</strong> — Page doesn't exist, AI gives up</li>
+  <li><strong>500+</strong> — Server error, AI gives up</li>
+  <li><strong>Request timeout</strong> — Your server responds too slowly, AI gives up waiting</li>
+  <li><strong>Blocked</strong> — robots.txt rejects the AI crawler, AI obediently leaves</li>
+</ul>
+<p>This gate is the "life or death" gate. Fail this, and nothing else matters.</p>
+
+<p><strong>Gate 2: Parse — "Can AI read your page?"</strong></p>
+<p>After obtaining HTML content, AI crawlers need to parse text, links, and structured data. But if your website is a heavily JavaScript-rendered SPA (single-page application), problems arise:</p>
+<ul>
+  <li>AI crawlers' JS engines may not be able to fully render all content</li>
+  <li>Some AI crawlers (like ClaudeBot) have weaker JS support compared to Googlebot</li>
+  <li>If critical content relies on JS dynamic loading, AI might see a blank white page</li>
+</ul>
+<p><strong>Gate 3: Index — "Did AI remember your content?"</strong></p>
+<p>Parsed content is stored by AI into its retrieval index. If the content itself is of insufficient quality or doesn't match AI's retrieval criteria, it may be filtered out during indexing.</p>
+
+<p><strong>The GEO Foundation Layer ensures you "don't fail" at Gate 1 and Gate 2, giving AI the opportunity to see your quality content.</strong></p>
+
+<hr>
+
+<h2>II. LLMs.txt: A "Website Manual" Written for AI</h2>
+
+<p><a href="../glossary/llms-txt.html" class="glossary-link">LLMs.txt</a> is the <strong>highest-ROI action in the GEO Foundation Layer</strong> — 10 minutes to create, potentially massive returns.</p>
+
+<h3>What Is LLMs.txt?</h3>
+
+<p>LLMs.txt is a plain text file placed in the website root directory (e.g., <code>example.com/llms.txt</code>), specifically serving as a "website usage manual" for large language models. It tells AI:</p>
+
+<blockquote><strong>"These are the important pages on my website and what each one covers; those pages are secondary — don't waste time crawling them."</strong></blockquote>
+
+<p>The format is very simple, written in Markdown:</p>
+
+<p><code>`</code>markdown</p>
+<h1>Brand Name</h1>
+
+<h2>Core Products</h2>
+<ul>
+  <li><a href="https://example.com/product-a">Product A - CRM system for SMEs</a></li>
+  <li><a href="https://example.com/product-b">Product B - Data analytics platform</a></li>
+</ul>
+<h2>Frequently Asked Questions</h2>
+<ul>
+  <li><a href="https://example.com/faq/get-started">How to get started with Product A</a></li>
+  <li><a href="https://example.com/pricing">Pricing and plan details</a></li>
+</ul>
+<h2>Authoritative Sources</h2>
+<ul>
+  <li><a href="https://example.com/whitepaper-2026">2026 Industry White Paper - PDF download</a></li>
+</ul>
+<h2>Not Recommended</h2>
+<ul>
+  <li>https://example.com/internal (Internal documentation, no need to cite)</li>
+</ul>
+<p><code>`</code></p>
+
+<h3>The Difference Between LLMs.txt and sitemap.xml</h3>
+
+<p>Many people ask: I already have sitemap.xml, do I still need LLMs.txt?</p>
+
+<table><thead><tr><th>Dimension</th><th>sitemap.xml</th><th>LLMs.txt</th></tr></thead><tbody><tr><td><strong>Target audience</strong></td><td>Traditional search engines (Googlebot, etc.)</td><td>AI large language models (ChatGPT, Perplexity, etc.)</td></tr><tr><td><strong>Format</strong></td><td>XML, machine-readable</td><td>Markdown, human-readable too</td></tr><tr><td><strong>Semantics</strong></td><td>Only URLs and update frequency</td><td>Includes one-sentence descriptions to help AI understand each page's content</td></tr><tr><td><strong>Priority hints</strong></td><td><code>&lt;priority&gt;</code> field (but Google mostly ignores it)</td><td>Natural language ordering (most important placed first)</td></tr><tr><td><strong>Exclusion rules</strong></td><td>Typically doesn't handle exclusions here</td><td>Can directly say "these pages don't need to be cited"</td></tr></tbody></table>
+
+<p><strong>They're not substitutes — they're complementary.</strong> sitemap.xml tells Googlebot "I have these pages"; LLMs.txt tells AI "what each page covers and which are most important."</p>
+
+<h3>A Real-World LLMs.txt Example</h3>
+
+<p>Take Mintlify (a documentation platform) as an example — their LLMs.txt looks like this:</p>
+
+<p><code>`</code>markdown</p>
+<h1>Mintlify Documentation</h1>
+
+<h2>Getting Started</h2>
+<ul>
+  <li><a href="https://mintlify.com/docs/quickstart">Quickstart Guide</a></li>
+  <li><a href="https://mintlify.com/docs/installation">Installation</a></li>
+</ul>
+<h2>Core Concepts</h2>
+<ul>
+  <li><a href="https://mintlify.com/docs/configuration">Configuration</a></li>
+  <li><a href="https://mintlify.com/docs/content">Content Structure</a></li>
+</ul>
+<h2>API Reference</h2>
+<ul>
+  <li><a href="https://mintlify.com/docs/api-reference">REST API</a></li>
+  <li><a href="https://mintlify.com/docs/sdks">SDKs</a></li>
+</ul>
+<h2>Uncrawlable</h2>
+<ul>
+  <li>https://mintlify.com/docs/changelog</li>
+  <li>https://mintlify.com/terms</li>
+</ul>
+<p><code>`</code></p>
+
+<p>Notice it even specifies an "Uncrawlable" section — telling AI these pages aren't worth crawling. This is <strong>proactive resource allocation</strong>: focusing AI's "attention" on the most valuable pages.</p>
+
+<blockquote>
+<strong>Want the complete LLMs.txt format and creation guide?</strong> Read: <a href="../glossary/llms-txt.html">What is LLMs.txt? — Essential Infrastructure for AI Crawlers (Glossary) →</a>
+</blockquote>
+
+<hr>
+
+<h2>III. AI Crawlers vs. Googlebot: Four Key Differences</h2>
+
+<p>Many businesses have a misconception: "My website performs well with Googlebot, so AI crawlers should be fine too, right?"</p>
+
+<p><strong>Not necessarily.</strong> AI crawlers (GPTBot, ClaudeBot, Google-Extended, etc.) differ from Googlebot in several key ways:</p>
+
+<p><strong>Difference 1: Different JS rendering capabilities</strong></p>
+<p>Googlebot's JS rendering engine is highly mature. But AI crawlers — especially newer ones like ClaudeBot — may have much weaker JS rendering. If your critical content loads dynamically through frontend JS, AI might not see it.</p>
+
+<p><strong>Difference 2: Shorter timeout periods</strong></p>
+<p>AI crawlers have less "patience" than Googlebot. Googlebot can wait several seconds; AI crawlers may give up after just a few hundred milliseconds of no response. That's why <strong>website speed is more important in GEO than in SEO</strong>.</p>
+
+<p><strong>Difference 3: Different robots.txt rules</strong></p>
+<p>Many websites block "GPTBot" in robots.txt (due to concerns about OpenAI scraping content for training without authorization). If your robots.txt has <code>Disallow: /</code> for GPTBot, your content is completely invisible in ChatGPT's web search.</p>
+
+<p><strong>Difference 4: Greater variety of types</strong></p>
+<p>Googlebot is essentially one crawler. AI crawlers currently include:</p>
+<ul>
+  <li><strong>GPTBot</strong> — OpenAI's crawler, used for ChatGPT search</li>
+  <li><strong>ClaudeBot</strong> — Anthropic's crawler</li>
+  <li><strong>Google-Extended</strong> — Google's crawler specifically designed for AI search (AI Overviews)</li>
+  <li><strong>PerplexityBot</strong> — Perplexity's crawler</li>
+  <li><strong>CCBot</strong> — Common Crawl, a training data source for many AI models</li>
+</ul>
+<p><strong>You need to check whether your robots.txt is open to all AI crawlers.</strong></p>
+
+<hr>
+
+<h2>IV. Operation Guide: Complete GEO Foundation Layer Setup in 30 Minutes</h2>
+
+<h3>Step 1: Check robots.txt (5 minutes)</h3>
+
+<p>Visit your website's <code>example.com/robots.txt</code> and check for the following rules:</p>
+
+<p><code>`</code>robots.txt</p>
+<h1>If you have the following rule, GPTBot cannot access your site</h1>
+<p>User-agent: GPTBot</p>
+<p>Disallow: /</p>
+
+<h1>Recommended change:</h1>
+<p>User-agent: GPTBot</p>
+<p>Allow: /</p>
+<h1>If you don't want training use but allow search use</h1>
+<h1>Refer to OpenAI's official guidelines</h1>
+<p><code>`</code></p>
+
+<h3>Step 2: Create LLMs.txt (10 minutes)</h3>
+
+<p>Create an <code>llms.txt</code> file in the website root directory. Use the following template:</p>
+
+<p><code>`</code>markdown</p>
+<h1>[Brand Name]</h1>
+
+<h2>One-Line Description</h2>
+<p>[One sentence explaining what the company/product does]</p>
+
+<h2>Core Products/Services</h2>
+<ul>
+  <li><a href="product-link">Product Name - One-line description</a></li>
+  <li><a href="product-link">Product Name - One-line description</a></li>
+</ul>
+<h2>Authoritative Sources</h2>
+<ul>
+  <li><a href="download-link">Industry White Paper - Title, publication date</a></li>
+  <li><a href="case-link">Customer Cases - Which clients use our solutions</a></li>
+</ul>
+<h2>Frequently Asked Questions</h2>
+<ul>
+  <li><a href="faq-link">Question - One-line answer with link</a></li>
+  <li><a href="faq-link">Question - One-line answer with link</a></li>
+</ul>
+<h2>Not Recommended for Crawling</h2>
+<ul>
+  <li>Internal documentation pages</li>
+  <li>Privacy policy</li>
+  <li>Other pages that don't need to be cited</li>
+</ul>
+<p><code>`</code></p>
+
+<h3>Step 3: Test AI Crawlability (10 minutes)</h3>
+
+<p>Use the following tools to test key pages' AI crawlability:</p>
+<ul>
+  <li><strong>Google Search Console</strong> — Test Google-Extended crawl status</li>
+  <li><strong>PageSpeed Insights</strong> — Check load speed (AI crawlers have shorter timeouts — keep core pages under 2 seconds)</li>
+  <li><strong>Manual testing</strong> — Search your brand on Perplexity and see if AI can cite your content</li>
+</ul>
+<h3>Step 4: Check Server Response (5 minutes)</h3>
+
+<p>Ensure key pages return the first byte within 500ms (TTFB) with a 200 status code. AI crawlers are far less tolerant of slow servers than Googlebot.</p>
+
+<hr>
+
+<h2>V. Common Pitfalls</h2>
+
+<p><strong>Pitfall 1: Assuming "AI crawlers will automatically find all important pages"</strong></p>
+<p>They won't. AI crawlers have limited "budget" — if a page is more than 3 link-depths away, they may give up crawling it. LLMs.txt solves this by directly recommending the most important pages to AI.</p>
+
+<p><strong>Pitfall 2: Assuming "If Googlebot can access it, AI crawlers can too"</strong></p>
+<p>JS rendering, timeout settings, and robots rules can all differ. Always test independently for AI crawlers.</p>
+
+<p><strong>Pitfall 3: Creating LLMs.txt but not maintaining it</strong></p>
+<p>AI crawlers periodically re-crawl LLMs.txt. If your content is updated but LLMs.txt isn't, AI may cite outdated descriptions.</p>
+
+<hr>
+
+<h2>VI. Summary</h2>
+
+<p>The logic of the GEO Foundation Layer is actually very simple:</p>
+
+<blockquote><strong>Making AI "able to see you" is the prerequisite for all GEO. Without the foundation layer, even the best content is wasted.</strong></blockquote>
+
+<p>And LLMs.txt is the most efficient action in this foundation layer — 10 minutes to create, zero cost, but significantly improving AI's crawl efficiency for your content. It's like a "map" at your doorstep: telling AI what's on your website, where the most important content is, and what's not worth paying attention to.</p>
+
+<p><strong>You spent tens of thousands on content and optimization. Shouldn't you spend 10 minutes ensuring AI can read it?</strong></p>
+
+<hr>
+
+      <div class="nav-links">
+        <a href="eeat-trust-mechanism.html">← E-E-A-T Trust</a>
+        <a href="../index.html">📖 Contents</a>
+        <a href="answer-assetization.html">Answer Assetization →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3QR6VvmXkab0M8Cu",ck:"3QR6VvmXkab0M8Cu"})</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What Is LLMs.txt — Essential Infrastructure for the AI Crawler Era",
+  "description": "Learn what LLMs.txt is, how it differs from sitemap.xml, and how to set up the GEO foundation layer so AI crawlers can access and cite your content.",
+  "author": { "@type": "Organization", "name": "GEO Encyclopedia", "url": "https://geo010.com" },
+  "datePublished": "2026-01-15",
+  "dateModified": "2026-07-28",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/fundamentals/llms-txt-guide.html" },
+  "publisher": { "@type": "Organization", "name": "GEO Encyclopedia", "url": "https://geo010.com" },
+  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is LLMs.txt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LLMs.txt is a plain text file placed in the website root directory, serving as a website usage manual specifically for AI large language models, informing AI about important pages and content on the site."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does LLMs.txt differ from sitemap.xml?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "sitemap.xml targets traditional search engines and only contains URLs and update frequency. LLMs.txt targets AI language models, includes human-readable descriptions, natural language priority ordering, and can specify exclusion rules."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are AI crawlers different from Googlebot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI crawlers have weaker JS rendering, shorter timeout periods, different robots.txt rules, and come in greater variety (GPTBot, ClaudeBot, Google-Extended, PerplexityBot, CCBot). A website that works well with Googlebot may still be invisible to AI crawlers."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://geo010.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "I. Fundamentals",
+      "item": "https://geo010.com/fundamentals/llms-txt-guide.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "LLMs.txt Guide",
+      "item": "https://geo010.com/fundamentals/llms-txt-guide.html"
+    }
+  ]
+}
+</script>
+</body>
+</html>
