@@ -1,30 +1,26 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8903384789303682"
      crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>零点击搜索 — GEO诞生的底层逻辑 - GEO知识全书</title>
-<meta name="description" content="零点击搜索（Zero-Click Search）是用户搜索问题后在结果页直接获得答案、没有点击任何链接的搜索行为。它是GEO诞生的根本原因。本文详解定义、数据规模、企业挑战及应对策略。">
+<title>What is Zero-Click Search? — The Logic Behind GEO - GEO Encyclopedia</title>
+<meta name="description" content="Zero-Click Search is when users get answers directly on the results page without clicking any links. It is the fundamental reason GEO exists. This article covers definition, data scale, business challenges, and strategies.">
 <link rel="canonical" href="https://geo010.com/glossary/zero-click.html"/>
-<link rel="alternate" hreflang="zh-CN" href="https://geo010.com/glossary/zero-click.html"/>
-<link rel="alternate" hreflang="en" href="https://geo010.com/glossary/en/zero-click.html"/>
-<link rel="alternate" hreflang="x-default" href="https://geo010.com/glossary/zero-click.html"/>
-<meta property="og:title" content="零点击搜索 — GEO诞生的底层逻辑 - GEO知识全书"/>
-<meta property="og:description" content="零点击搜索是GEO诞生的根本原因，60%的Google搜索在零点击情况下结束。"/>
+<meta property="og:title" content="What is Zero-Click Search? — The Logic Behind GEO - GEO Encyclopedia"/>
+<meta property="og:description" content="Zero-Click Search is the fundamental reason GEO exists. 60% of Google searches end without a single click."/>
 <meta property="og:url" content="https://geo010.com/glossary/zero-click.html"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="https://geo010.com/og-image.png"/>
-<meta property="og:locale" content="zh_CN"/>
-<meta property="og:locale:alternate" content="en_US"/>
-<meta property="og:site_name" content="GEO知识全书"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="GEO Encyclopedia"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="零点击搜索 — GEO诞生的底层逻辑 - GEO知识全书"/>
-<meta name="twitter:description" content="零点击搜索是GEO诞生的根本原因，60%的Google搜索在零点击情况下结束。"/>
+<meta name="twitter:title" content="What is Zero-Click Search? — The Logic Behind GEO - GEO Encyclopedia"/>
+<meta name="twitter:description" content="Zero-Click Search is the fundamental reason GEO exists. 60% of Google searches end without a single click."/>
 <meta name="twitter:image" content="https://geo010.com/og-image.png"/>
-<meta name="keywords" content="零点击搜索,Zero-Click Search,AI搜索,GEO,Gartner,SparkToro"/>
+<meta name="keywords" content="Zero-Click Search,GEO,AI Search,Gartner,SparkToro"/>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
@@ -64,10 +60,6 @@
   .answer-box p { margin-bottom: 8px; }
   .answer-box p:last-child { margin-bottom: 0; }
   .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; margin-right: 6px; }
-  .lang-switch { display: flex; gap: 4px; padding: 0 20px; margin-bottom: 16px; }
-  .lang-btn { flex: 1; padding: 6px 12px; text-align: center; border-radius: 6px; font-size: 0.85em; text-decoration: none; color: #999; background: rgba(255,255,255,0.05); transition: all 0.2s; }
-  .lang-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
-  .lang-btn.active { color: #4fc3f7; background: rgba(79,195,247,0.15); }
   @media (max-width: 768px) {
     .sidebar { display: none; }
     .main { padding: 24px 16px; }
@@ -80,87 +72,83 @@
 <body>
 <div class="layout">
   <nav class="sidebar">
-    <h3>📖 GEO知识全书</h3>
-    <div class="lang-switch">
-      <a href="zero-click.html" class="lang-btn active">中文</a>
-      <a href="en/zero-click.html" class="lang-btn">EN</a>
-    </div>
-    <a href="../index-cn.html" class="home-link">🏠 回到首页</a>
-    <a href="../ch01.html">一. 基础概念</a>
-    <a href="../ch02.html">二. 指标与框架</a>
-    <a href="../ch03.html">三. 模型与方法</a>
-    <a href="../ch04.html">四. 内容策略</a>
-    <a href="../ch05.html">五. 技术实施</a>
-    <a href="../ch06.html">六. 品牌战略</a>
-    <a href="../ch07.html">七. 行业应用</a>
-    <a href="../ch08.html">八. 实战案例</a>
-    <a href="../ch09.html">九. 数据与公式</a>
-    <div class="current glossary-section">📌 术语解释</div>
-    <a href="geo.html">GEO生成式引擎优化</a>
-    <a href="seo.html">SEO搜索引擎优化</a>
-    <a href="rag.html">RAG检索增强生成</a>
-    <a href="eeat.html">E-E-A-T信任机制</a>
+    <h3>📖 GEO Encyclopedia</h3>
+    <a href="../index.html" class="home-link">🏠 Home</a>
+    <a href="../fundamentals.html">I. Fundamentals</a>
+    <a href="../metrics-frameworks.html">II. Metrics &amp; Frameworks</a>
+    <a href="../models-methods.html">III. Models &amp; Methods</a>
+    <a href="../content-strategy.html">IV. Content Strategy</a>
+    <a href="../technical-implementation.html">V. Technical Implementation</a>
+    <a href="../brand-strategy.html">VI. Brand Strategy</a>
+    <a href="../industry-applications.html">VII. Industry Applications</a>
+    <a href="../case-studies.html">VIII. Case Studies</a>
+    <a href="../data-formulas.html">IX. Data &amp; Formulas</a>
+    <div class="current glossary-section">📌 Glossary</div>
+    <a href="geo.html">GEO</a>
+    <a href="seo.html">SEO</a>
+    <a href="rag.html">RAG</a>
+    <a href="eeat.html">E-E-A-T</a>
     <a href="llms-txt.html">LLMs.txt</a>
-    <a href="zero-click.html" class="active">零点击搜索</a>
-    <a href="schema.html">Schema结构化数据</a>
-    <a href="answer-asset.html">答案资产化</a>
-    <a href="ai-visibility.html">AI可见度指数</a>
+    <a href="zero-click.html" class="active">Zero-Click Search</a>
+    <a href="schema.html">Schema</a>
+    <a href="answer-asset.html">Answer Assetization</a>
+    <a href="ai-visibility.html">AI Visibility Index</a>
     <a href="ymyl.html">YMYL</a>
   </nav>
   <div class="main">
     <div class="content">
 
-      <span class="tag">术语解释</span>
-      <h1 style="margin-top: 12px;">零点击搜索是什么？——GEO诞生的底层逻辑</h1>
-      <p style="color: #666; font-size: 0.9em; margin-bottom: 24px;">最后更新：2026-07-16 · <a href="../ch01.html">返回第一章</a></p>
+      <span class="tag">Glossary</span>
+      <h1 style="margin-top: 12px;">What is Zero-Click Search? — The Logic Behind GEO</h1>
+      <p style="color: #666; font-size: 0.9em; margin-bottom: 24px;">Last updated: 2026-07-16 · <a href="../fundamentals.html">Back to Chapter 1</a></p>
 
       <div class="answer-box">
-        <p><strong>一句话定义：</strong></p>
-        <p>零点击搜索（Zero-Click Search）是指用户搜索了一个问题，在结果页（或AI界面）直接获得了答案，没有点击任何链接就结束了搜索行为。</p>
+        <p><strong>One-Line Definition:</strong></p>
+        <p>Zero-Click Search is when a user searches a question and gets the answer directly on the results page (or AI interface) without clicking any links — ending the search session right there.</p>
       </div>
 
-      <h2>一、零点击搜索的定义</h2>
-      <p>从字面理解：用户搜索了一个问题，<strong>在结果页直接获得了答案，没有点击任何链接</strong>就结束了这次搜索行为。</p>
-      <p>这个现象其实不是新鲜事。2014年左右，Google就开始在搜索结果页展示"特色摘要"——直接把某些知识类问题的答案提取出来放在顶部。比如搜索"珠穆朗玛峰有多高"，Google直接显示"8848.86米"，用户不需要点击任何网站。</p>
-      <p>但<strong>AI大模型把这个现象推向了极端</strong>。ChatGPT、Gemini、豆包、DeepSeek等AI助手的回答模式，不再是"给你一堆链接让你自己翻"，而是直接生成一段完整的、看似"权威"的答案。</p>
+      <h2>1. Definition of Zero-Click Search</h2>
+      <p>In plain terms: a user searches a question, <strong>gets the answer directly on the results page, and clicks no links</strong> before ending the search session.</p>
+      <p>This phenomenon is not new. Around 2014, Google started showing "Featured Snippets" — extracting answers to certain knowledge-based questions and placing them at the top of the results. For example, searching "how tall is Mount Everest" would show "8,848.86 meters" directly — no click needed.</p>
+      <p>But <strong>AI large language models have pushed this to the extreme</strong>. ChatGPT, Gemini, and other AI assistants no longer give you a list of links to browse. Instead, they generate a complete, seemingly "authoritative" answer on the spot.</p>
 
-      <h2>二、数据规模</h2>
+      <h2>2. Data Scale</h2>
       <ul>
-        <li>2024年，据 SparkToro 研究，Google搜索中约 <strong>60%的搜索在没有点击的情况下结束</strong></li>
-        <li>这还不包括ChatGPT等独立AI平台的使用量</li>
-        <li>AI搜索的渗透率在2024-2026年间从不到10%飙升到超过35%</li>
-        <li>Gartner预测，到2028年，传统搜索引擎的流量将下降50%以上</li>
+        <li>In 2024, according to <strong>SparkToro</strong> research, approximately <strong>60% of Google searches end without a single click</strong></li>
+        <li>This doesn't even include usage from independent AI platforms like ChatGPT</li>
+        <li>AI search penetration surged from under 10% to over 35% between 2024–2026</li>
+        <li><strong>Gartner</strong> predicts that by 2028, traditional search engine traffic will decline by more than 50%</li>
       </ul>
 
-      <h2>三、零点击搜索的演进</h2>
+      <h2>3. Evolution Timeline</h2>
       <table>
-        <tr><th>时期</th><th>特征</th><th>用户行为</th></tr>
-        <tr><td>2010年前</td><td>10个蓝色链接</td><td>点击多个链接比较</td></tr>
-        <tr><td>2014-2020</td><td>特色摘要出现</td><td>部分简单问题不再点击</td></tr>
-        <tr><td>2022-2026</td><td>AI答案普及</td><td>大量问题零点击解决</td></tr>
+        <tr><th>Period</th><th>Characteristics</th><th>User Behavior</th></tr>
+        <tr><td>Before 2010</td><td>10 blue links</td><td>Clicking multiple links to compare</td></tr>
+        <tr><td>2014–2020</td><td>Featured Snippets appear</td><td>Some simple questions no longer require clicks</td></tr>
+        <tr><td>2022–2026</td><td>AI answers become mainstream</td><td>Vast majority of questions resolved without clicks</td></tr>
       </table>
 
-      <h2>四、对企业的挑战</h2>
-      <p>想象一个场景：你是深圳一家做跨境ERP软件的公司。过去5年你花了几十万做 <a href="seo.html">SEO</a>，排到了Google第一页。但现在，当用户在ChatGPT上问"跨境ERP哪家好"时，AI生成的答案里推荐了你的三个竞争对手，<strong>根本没提你的名字</strong>。</p>
-      <p>你说你做 <a href="seo.html">SEO</a> 还有用吗？有用，但远远不够了。</p>
-      <p><strong>这就产生了 <a href="geo.html">GEO</a> 存在的根本理由：在"零点击"成为主流的时代，让品牌在用户"唯一看到的内容"——AI答案中，占据一席之地。</strong></p>
+      <h2>4. Challenges for Businesses</h2>
+      <p>Imagine this scenario: you run a cross-border ERP software company in Shenzhen. For the past five years, you spent hundreds of thousands on <a href="seo.html">SEO</a> and ranked on Google's first page. But now, when a user asks ChatGPT "which cross-border ERP is best?", the AI-generated answer recommends three of your competitors — <strong>without mentioning your name at all</strong>.</p>
+      <p>Is <a href="seo.html">SEO</a> still useful? Yes, but it's far from enough.</p>
+      <p><strong>This is the fundamental reason <a href="geo.html">GEO</a> exists: in an era where "zero-click" is the norm, brands must secure a place in the only content users actually see — AI-generated answers.</strong></p>
 
-      <h2>五、"流量"定义的重写</h2>
-      <p>以前我们说"流量"="网站点击量"。现在，"流量"正在变成"AI答案中的品牌出现次数"。</p>
-      <p><a href="geo.html">GEO</a> 诞生的根本原因就是：在零点击成为主流的时代，传统的 <a href="seo.html">SEO</a> 流量模式正在被重塑，品牌需要在AI生成的答案中占据位置。</p>
+      <h2>5. Redefining "Traffic"</h2>
+      <p>Previously, "traffic" meant "website clicks." Now, "traffic" is becoming "how often your brand appears in AI answers."</p>
+      <p>The core reason <a href="geo.html">GEO</a> was born is that in the zero-click era, traditional <a href="seo.html">SEO</a> traffic models are being reshaped — brands need to occupy positions within AI-generated answers.</p>
 
-      <h2>六、深入阅读</h2>
+      <h2>6. Deep Reading</h2>
       <ul>
-        <li><a href="../ch01.html">第一章 基础概念</a>——零点击搜索与GEO的完整关系</li>
-        <li><a href="geo.html">GEO生成式引擎优化</a>——应对零点击搜索的完整方法论</li>
-        <li><a href="rag.html">RAG检索增强生成</a>——AI如何在零点击场景中生成答案</li>
+        <li><a href="../fundamentals.html">Chapter 1: Fundamentals</a> — The complete relationship between zero-click search and GEO</li>
+        <li><a href="geo.html">GEO (Generative Engine Optimization)</a> — The complete methodology for the zero-click era</li>
+        <li><a href="rag.html">RAG (Retrieval-Augmented Generation)</a> — How AI generates answers in zero-click scenarios</li>
       </ul>
 
     </div>
     <div class="nav-links">
       <span></span>
-      <a href="../index-cn.html">📖 返回目录</a>
-      <a href="../ch01.html">第一章 基础概念 →</a>
+      <a href="../index.html">📖 Back to Index</a>
+      <a href="../fundamentals.html">← Back to Chapter 1</a>
     </div>
   </div>
 </div>
@@ -170,17 +158,17 @@
   "@type": "FAQPage",
   "mainEntity": [{
     "@type": "Question",
-    "name": "零点击搜索是什么？",
+    "name": "What is zero-click search?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "零点击搜索（Zero-Click Search）是指用户搜索了一个问题，在结果页直接获得答案，没有点击任何链接就结束了搜索行为。AI大模型将这种现象推向了极端。"
+      "text": "Zero-Click Search is when a user searches a question and gets the answer directly on the results page without clicking any links, ending the search session. AI large language models have pushed this phenomenon to the extreme."
     }
   },{
     "@type": "Question",
-    "name": "零点击搜索有多大规模？",
+    "name": "How big is the zero-click phenomenon?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "据SparkToro 2024年研究，Google搜索中约60%的搜索在没有点击的情况下结束。Gartner预测到2028年传统搜索引擎流量将下降50%以上。"
+      "text": "According to SparkToro 2024 research, approximately 60% of Google searches end without a single click. Gartner predicts that by 2028, traditional search engine traffic will decline by more than 50%."
     }
   }]
 }
@@ -191,19 +179,19 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "零点击搜索 — GEO诞生的底层逻辑 - GEO知识全书",
-  "description": "零点击搜索（Zero-Click Search）是用户搜索问题后在结果页直接获得答案、没有点击任何链接的搜索行为。它是GEO诞生的根本原因。本文详解定义、数据规模、企业挑战及应对策略。",
+  "headline": "What is Zero-Click Search? — The Logic Behind GEO - GEO Encyclopedia",
+  "description": "Zero-Click Search is when users get answers directly on the results page without clicking any links. It is the fundamental reason GEO exists. This article covers definition, data scale, business challenges, and strategies.",
   "url": "https://geo010.com/glossary/zero-click.html",
   "image": "https://geo010.com/og-image.png",
-  "inLanguage": "zh-CN",
+  "inLanguage": "en",
   "publisher": {
     "@type": "Organization",
-    "name": "GEO知识全书",
+    "name": "GEO Encyclopedia",
     "url": "https://geo010.com"
   },
   "isPartOf": {
     "@type": "WebSite",
-    "name": "GEO知识全书",
+    "name": "GEO Encyclopedia",
     "url": "https://geo010.com"
   }
 }

@@ -1,30 +1,26 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8903384789303682"
      crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI可见度指数 — 如何衡量GEO效果 - GEO知识全书</title>
-<meta name="description" content="AI可见度指数是衡量品牌在AI生成答案中被提及和引用的综合指标。本文详解AI可见度指数的定义、测量方法、三个关键子指标和基线设定方法。">
+<title>What is AI Visibility Index? — Measuring GEO Performance - GEO Encyclopedia</title>
+<meta name="description" content="AI Visibility Index is a comprehensive metric that measures how often a brand is mentioned and cited in AI-generated answers. This article covers definition, measurement methods, three key sub-metrics, and baseline setup.">
 <link rel="canonical" href="https://geo010.com/glossary/ai-visibility.html"/>
-<link rel="alternate" hreflang="zh-CN" href="https://geo010.com/glossary/ai-visibility.html"/>
-<link rel="alternate" hreflang="en" href="https://geo010.com/glossary/en/ai-visibility.html"/>
-<link rel="alternate" hreflang="x-default" href="https://geo010.com/glossary/ai-visibility.html"/>
-<meta property="og:title" content="AI可见度指数 — 如何衡量GEO效果 - GEO知识全书"/>
-<meta property="og:description" content="AI可见度指数是衡量品牌在AI生成答案中被提及和引用的综合指标。"/>
+<meta property="og:title" content="What is AI Visibility Index? — Measuring GEO Performance - GEO Encyclopedia"/>
+<meta property="og:description" content="AI Visibility Index is a comprehensive metric measuring brand mentions and citations in AI-generated answers."/>
 <meta property="og:url" content="https://geo010.com/glossary/ai-visibility.html"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="https://geo010.com/og-image.png"/>
-<meta property="og:locale" content="zh_CN"/>
-<meta property="og:locale:alternate" content="en_US"/>
-<meta property="og:site_name" content="GEO知识全书"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="GEO Encyclopedia"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="AI可见度指数 — 如何衡量GEO效果 - GEO知识全书"/>
-<meta name="twitter:description" content="AI可见度指数是衡量品牌在AI生成答案中被提及和引用的综合指标。"/>
+<meta name="twitter:title" content="What is AI Visibility Index? — Measuring GEO Performance - GEO Encyclopedia"/>
+<meta name="twitter:description" content="AI Visibility Index is a comprehensive metric measuring brand mentions and citations in AI-generated answers."/>
 <meta name="twitter:image" content="https://geo010.com/og-image.png"/>
-<meta name="keywords" content="AI可见度指数,AI Visibility Index,GEO,引用份额,品牌提及,Bing Webmaster Tools"/>
+<meta name="keywords" content="AI Visibility Index,GEO,Citation Share,Brand Mention,Bing Webmaster Tools"/>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
@@ -64,10 +60,6 @@
   .answer-box p { margin-bottom: 8px; }
   .answer-box p:last-child { margin-bottom: 0; }
   .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; margin-right: 6px; }
-  .lang-switch { display: flex; gap: 4px; padding: 0 20px; margin-bottom: 16px; }
-  .lang-btn { flex: 1; padding: 6px 12px; text-align: center; border-radius: 6px; font-size: 0.85em; text-decoration: none; color: #999; background: rgba(255,255,255,0.05); transition: all 0.2s; }
-  .lang-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
-  .lang-btn.active { color: #4fc3f7; background: rgba(79,195,247,0.15); }
   @media (max-width: 768px) {
     .sidebar { display: none; }
     .main { padding: 24px 16px; }
@@ -80,92 +72,88 @@
 <body>
 <div class="layout">
   <nav class="sidebar">
-    <h3>📖 GEO知识全书</h3>
-    <div class="lang-switch">
-      <a href="ai-visibility.html" class="lang-btn active">中文</a>
-      <a href="en/ai-visibility.html" class="lang-btn">EN</a>
-    </div>
-    <a href="../index-cn.html" class="home-link">🏠 回到首页</a>
-    <a href="../ch01.html">一. 基础概念</a>
-    <a href="../ch02.html">二. 指标与框架</a>
-    <a href="../ch03.html">三. 模型与方法</a>
-    <a href="../ch04.html">四. 内容策略</a>
-    <a href="../ch05.html">五. 技术实施</a>
-    <a href="../ch06.html">六. 品牌战略</a>
-    <a href="../ch07.html">七. 行业应用</a>
-    <a href="../ch08.html">八. 实战案例</a>
-    <a href="../ch09.html">九. 数据与公式</a>
-    <div class="current glossary-section">📌 术语解释</div>
-    <a href="geo.html">GEO生成式引擎优化</a>
-    <a href="seo.html">SEO搜索引擎优化</a>
-    <a href="rag.html">RAG检索增强生成</a>
-    <a href="eeat.html">E-E-A-T信任机制</a>
+    <h3>📖 GEO Encyclopedia</h3>
+    <a href="../index.html" class="home-link">🏠 Home</a>
+    <a href="../fundamentals.html">I. Fundamentals</a>
+    <a href="../metrics-frameworks.html">II. Metrics &amp; Frameworks</a>
+    <a href="../models-methods.html">III. Models &amp; Methods</a>
+    <a href="../content-strategy.html">IV. Content Strategy</a>
+    <a href="../technical-implementation.html">V. Technical Implementation</a>
+    <a href="../brand-strategy.html">VI. Brand Strategy</a>
+    <a href="../industry-applications.html">VII. Industry Applications</a>
+    <a href="../case-studies.html">VIII. Case Studies</a>
+    <a href="../data-formulas.html">IX. Data &amp; Formulas</a>
+    <div class="current glossary-section">📌 Glossary</div>
+    <a href="geo.html">GEO</a>
+    <a href="seo.html">SEO</a>
+    <a href="rag.html">RAG</a>
+    <a href="eeat.html">E-E-A-T</a>
     <a href="llms-txt.html">LLMs.txt</a>
-    <a href="zero-click.html">零点击搜索</a>
-    <a href="schema.html">Schema结构化数据</a>
-    <a href="answer-asset.html">答案资产化</a>
-    <a href="ai-visibility.html" class="active">AI可见度指数</a>
+    <a href="zero-click.html">Zero-Click Search</a>
+    <a href="schema.html">Schema</a>
+    <a href="answer-asset.html">Answer Assetization</a>
+    <a href="ai-visibility.html" class="active">AI Visibility Index</a>
     <a href="ymyl.html">YMYL</a>
   </nav>
   <div class="main">
     <div class="content">
 
-      <span class="tag">术语解释</span>
-      <h1 style="margin-top: 12px;">AI可见度指数是什么？——如何衡量GEO效果</h1>
-      <p style="color: #666; font-size: 0.9em; margin-bottom: 24px;">最后更新：2026-07-16 · <a href="../ch01.html">返回第一章</a></p>
+      <span class="tag">Glossary</span>
+      <h1 style="margin-top: 12px;">What is AI Visibility Index? — Measuring GEO Performance</h1>
+      <p style="color: #666; font-size: 0.9em; margin-bottom: 24px;">Last updated: 2026-07-16 · <a href="../fundamentals.html">Back to Chapter 1</a></p>
 
       <div class="answer-box">
-        <p><strong>一句话定义：</strong></p>
-        <p>AI可见度指数是用于衡量品牌在AI生成答案中被提及和引用的综合指标，反映"当AI聊到你所在行业的话题时，你的名字出现在AI答案中的概率有多大"。</p>
+        <p><strong>One-Line Definition:</strong></p>
+        <p>The AI Visibility Index is a comprehensive metric that measures how often a brand is mentioned and cited in AI-generated answers — reflecting "when AI discusses topics in your industry, how likely is your name to appear in the AI's response."</p>
       </div>
 
-      <h2>一、为什么需要新的衡量指标？</h2>
-      <p>传统 <a href="seo.html">SEO</a> 的衡量——"排名第几名"——在 <a href="geo.html">GEO</a> 中不那么适用，因为：</p>
+      <h2>1. Why Are New Metrics Needed?</h2>
+      <p>Traditional <a href="seo.html">SEO</a> metrics — "what rank are you" — don't work well in <a href="geo.html">GEO</a> because:</p>
       <ul>
-        <li>AI的答案有<strong>随机性</strong>（同一个问题问两次，答案可能不完全一样）</li>
-        <li>AI不显示"第1名第2名"，而是生成一段文字</li>
-        <li>不同AI平台（ChatGPT、豆包、Perplexity）的偏好不同</li>
+        <li>AI answers have <strong>randomness</strong> (asking the same question twice may yield different answers)</li>
+        <li>AI doesn't show "1st place, 2nd place" — it generates a block of text</li>
+        <li>Different AI platforms (ChatGPT, Perplexity, etc.) have different preferences</li>
       </ul>
-      <p>所以AI可见度指数是一个<strong>概率化的综合评分</strong>，通常以0-100分呈现。</p>
+      <p>So the AI Visibility Index is a <strong>probability-based composite score</strong>, typically presented as 0–100.</p>
 
-      <h2>二、测量方法</h2>
-      <p>大多数GEO监测工具（如 Profound、SEMrush、BrightEdge）的工作方式：</p>
+      <h2>2. Measurement Method</h2>
+      <p>Most GEO monitoring tools (Profound, SEMrush, BrightEdge, etc.) work this way:</p>
       <ol>
-        <li><strong>选定话题集</strong>——你关心的核心关键词和问题（约20-50个）</li>
-        <li><strong>多元查询</strong>——在多个AI平台（通常5-8个）上反复查询</li>
-        <li><strong>内容分析</strong>——用NLP技术分析AI答案，提取品牌提及、链接引用、上下文情感、出现位置</li>
-        <li><strong>综合评分</strong>——根据上述数据计算综合指数</li>
+        <li><strong>Select a topic set</strong> — Your core keywords and questions (about 20–50)</li>
+        <li><strong>Multi-platform querying</strong> — Repeated queries across multiple AI platforms (typically 5–8)</li>
+        <li><strong>Content analysis</strong> — Using NLP to analyze AI answers, extracting brand mentions, link citations, contextual sentiment, and position</li>
+        <li><strong>Composite scoring</strong> — Calculating a comprehensive index based on the above data</li>
       </ol>
 
-      <h2>三、三个关键子指标</h2>
+      <h2>3. Three Key Sub-Metrics</h2>
       <table>
-        <tr><th>指标</th><th>含义</th><th>来源</th></tr>
-        <tr><td><strong>品牌提及率</strong></td><td>在相关话题的AI答案中，品牌被提及的频率</td><td>基础指标</td></tr>
-        <tr><td><strong>引用份额</strong></td><td>在所有被AI引用的来源中，你的内容占比</td><td>Bing Webmaster Tools 2026年正式提供</td></tr>
-        <tr><td><strong>描述准确度</strong></td><td>AI对品牌的描述是否正确</td><td>内容质量指标</td></tr>
+        <tr><th>Metric</th><th>Meaning</th><th>Source</th></tr>
+        <tr><td><strong>Brand Mention Rate</strong></td><td>How often the brand is mentioned in AI answers about relevant topics</td><td>Basic metric</td></tr>
+        <tr><td><strong>Citation Share</strong></td><td>Your content's share among all sources cited by AI</td><td>Bing Webmaster Tools officially provides this from 2026</td></tr>
+        <tr><td><strong>Description Accuracy</strong></td><td>Whether AI's description of your brand is correct</td><td>Content quality metric</td></tr>
       </table>
 
-      <h2>四、如何设定基线？</h2>
-      <p>建议在企业开始 <a href="geo.html">GEO</a> 优化的<strong>第一天</strong>就做一次基线测量：</p>
+      <h2>4. How to Set a Baseline?</h2>
+      <p>It's recommended to conduct a baseline measurement on the <strong>very first day</strong> of starting <a href="geo.html">GEO</a> optimization:</p>
       <ol>
-        <li>列出10个你最想出现的话题</li>
-        <li>在ChatGPT、豆包、DeepSeek、Kimi、Perplexity上分别查询</li>
-        <li>记录：有没有提到你？怎么说的？提到了几个竞争对手？</li>
-        <li>按月复测，观察变化趋势</li>
+        <li>List 10 topics you most want to appear in</li>
+        <li>Query on ChatGPT, Perplexity, and other AI platforms</li>
+        <li>Record: Were you mentioned? How were you described? How many competitors were mentioned?</li>
+        <li>Re-measure monthly to observe trends</li>
       </ol>
 
-      <h2>五、深入阅读</h2>
+      <h2>5. Deep Reading</h2>
       <ul>
-        <li><a href="../ch01.html">第一章 基础概念</a>——AI可见度指数在GEO中的应用</li>
-        <li><a href="answer-asset.html">答案资产化</a>——提升AI可见度的核心策略</li>
-        <li><a href="geo.html">GEO生成式引擎优化</a>——AI可见度是GEO的输出衡量</li>
+        <li><a href="../fundamentals.html">Chapter 1: Fundamentals</a> — The application of AI Visibility Index in GEO</li>
+        <li><a href="answer-asset.html">Answer Assetization</a> — The core strategy for improving AI visibility</li>
+        <li><a href="geo.html">GEO (Generative Engine Optimization)</a> — AI visibility is GEO's output metric</li>
       </ul>
 
     </div>
     <div class="nav-links">
       <span></span>
-      <a href="../index-cn.html">📖 返回目录</a>
-      <a href="../ch01.html">第一章 基础概念 →</a>
+      <a href="../index.html">📖 Back to Index</a>
+      <a href="../fundamentals.html">← Back to Chapter 1</a>
     </div>
   </div>
 </div>
@@ -175,17 +163,17 @@
   "@type": "FAQPage",
   "mainEntity": [{
     "@type": "Question",
-    "name": "AI可见度指数是什么？",
+    "name": "What is AI Visibility Index?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "AI可见度指数是衡量品牌在AI生成答案中被提及和引用的综合指标，反映当AI聊到你所在行业话题时，你的名字出现在AI答案中的概率。通常以0-100分呈现。"
+      "text": "AI Visibility Index is a comprehensive metric that measures how often a brand is mentioned and cited in AI-generated answers, reflecting how likely your name is to appear when AI discusses topics in your industry. It is typically presented as a 0–100 score."
     }
   },{
     "@type": "Question",
-    "name": "AI可见度指数怎么测量？",
+    "name": "How to measure AI visibility?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "AI可见度指数测量分4步：选定话题集→在多个AI平台多元查询→用NLP分析答案提取品牌提及等数据→综合评分。核心子指标包括品牌提及率、引用份额、描述准确度。"
+      "text": "Measuring AI visibility involves 4 steps: select a topic set → query across multiple AI platforms → use NLP to analyze answers and extract brand mentions, citations, etc. → calculate composite score. Key sub-metrics include Brand Mention Rate, Citation Share, and Description Accuracy."
     }
   }]
 }
@@ -196,19 +184,19 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "AI可见度指数 — 如何衡量GEO效果 - GEO知识全书",
-  "description": "AI可见度指数是衡量品牌在AI生成答案中被提及和引用的综合指标。本文详解AI可见度指数的定义、测量方法、三个关键子指标和基线设定方法。",
+  "headline": "What is AI Visibility Index? — Measuring GEO Performance - GEO Encyclopedia",
+  "description": "AI Visibility Index is a comprehensive metric that measures how often a brand is mentioned and cited in AI-generated answers. This article covers definition, measurement methods, three key sub-metrics, and baseline setup.",
   "url": "https://geo010.com/glossary/ai-visibility.html",
   "image": "https://geo010.com/og-image.png",
-  "inLanguage": "zh-CN",
+  "inLanguage": "en",
   "publisher": {
     "@type": "Organization",
-    "name": "GEO知识全书",
+    "name": "GEO Encyclopedia",
     "url": "https://geo010.com"
   },
   "isPartOf": {
     "@type": "WebSite",
-    "name": "GEO知识全书",
+    "name": "GEO Encyclopedia",
     "url": "https://geo010.com"
   }
 }

@@ -1,30 +1,26 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8903384789303682"
      crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Schema结构化数据 — 让AI读懂你的内容 - GEO知识全书</title>
-<meta name="description" content="Schema结构化数据是用机器可读的标签告诉AI页面上哪段是标题、哪段是FAQ、哪段是评分的技术手段。本文详解Schema的定义、5种最值得的Schema类型和代码示例。">
+<title>What is Schema? — Structured Data for AI Understanding - GEO Encyclopedia</title>
+<meta name="description" content="Schema structured data uses machine-readable tags to tell AI what part of a page is a title, FAQ, or rating. This article covers Schema definition, 5 recommended Schema types, and code examples.">
 <link rel="canonical" href="https://geo010.com/glossary/schema.html"/>
-<link rel="alternate" hreflang="zh-CN" href="https://geo010.com/glossary/schema.html"/>
-<link rel="alternate" hreflang="en" href="https://geo010.com/glossary/en/schema.html"/>
-<link rel="alternate" hreflang="x-default" href="https://geo010.com/glossary/schema.html"/>
-<meta property="og:title" content="Schema结构化数据 — 让AI读懂你的内容 - GEO知识全书"/>
-<meta property="og:description" content="Schema结构化数据是用机器可读的标签告诉AI页面内容结构的技术手段。"/>
+<meta property="og:title" content="What is Schema? — Structured Data for AI Understanding - GEO Encyclopedia"/>
+<meta property="og:description" content="Schema structured data uses machine-readable tags to tell AI the content structure of a page."/>
 <meta property="og:url" content="https://geo010.com/glossary/schema.html"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="https://geo010.com/og-image.png"/>
-<meta property="og:locale" content="zh_CN"/>
-<meta property="og:locale:alternate" content="en_US"/>
-<meta property="og:site_name" content="GEO知识全书"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="GEO Encyclopedia"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Schema结构化数据 — 让AI读懂你的内容 - GEO知识全书"/>
-<meta name="twitter:description" content="Schema结构化数据是用机器可读的标签告诉AI页面内容结构的技术手段。"/>
+<meta name="twitter:title" content="What is Schema? — Structured Data for AI Understanding - GEO Encyclopedia"/>
+<meta name="twitter:description" content="Schema structured data uses machine-readable tags to tell AI the content structure of a page."/>
 <meta name="twitter:image" content="https://geo010.com/og-image.png"/>
-<meta name="keywords" content="Schema,结构化数据,Structured Data,JSON-LD,FAQ Schema,GEO,SEO"/>
+<meta name="keywords" content="Schema,Structured Data,JSON-LD,FAQ Schema,GEO,SEO"/>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
@@ -64,10 +60,6 @@
   .answer-box p { margin-bottom: 8px; }
   .answer-box p:last-child { margin-bottom: 0; }
   .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; margin-right: 6px; }
-  .lang-switch { display: flex; gap: 4px; padding: 0 20px; margin-bottom: 16px; }
-  .lang-btn { flex: 1; padding: 6px 12px; text-align: center; border-radius: 6px; font-size: 0.85em; text-decoration: none; color: #999; background: rgba(255,255,255,0.05); transition: all 0.2s; }
-  .lang-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
-  .lang-btn.active { color: #4fc3f7; background: rgba(79,195,247,0.15); }
   @media (max-width: 768px) {
     .sidebar { display: none; }
     .main { padding: 24px 16px; }
@@ -80,89 +72,85 @@
 <body>
 <div class="layout">
   <nav class="sidebar">
-    <h3>📖 GEO知识全书</h3>
-    <div class="lang-switch">
-      <a href="schema.html" class="lang-btn active">中文</a>
-      <a href="en/schema.html" class="lang-btn">EN</a>
-    </div>
-    <a href="../index-cn.html" class="home-link">🏠 回到首页</a>
-    <a href="../ch01.html">一. 基础概念</a>
-    <a href="../ch02.html">二. 指标与框架</a>
-    <a href="../ch03.html">三. 模型与方法</a>
-    <a href="../ch04.html">四. 内容策略</a>
-    <a href="../ch05.html">五. 技术实施</a>
-    <a href="../ch06.html">六. 品牌战略</a>
-    <a href="../ch07.html">七. 行业应用</a>
-    <a href="../ch08.html">八. 实战案例</a>
-    <a href="../ch09.html">九. 数据与公式</a>
-    <div class="current glossary-section">📌 术语解释</div>
-    <a href="geo.html">GEO生成式引擎优化</a>
-    <a href="seo.html">SEO搜索引擎优化</a>
-    <a href="rag.html">RAG检索增强生成</a>
-    <a href="eeat.html">E-E-A-T信任机制</a>
+    <h3>📖 GEO Encyclopedia</h3>
+    <a href="../index.html" class="home-link">🏠 Home</a>
+    <a href="../fundamentals.html">I. Fundamentals</a>
+    <a href="../metrics-frameworks.html">II. Metrics &amp; Frameworks</a>
+    <a href="../models-methods.html">III. Models &amp; Methods</a>
+    <a href="../content-strategy.html">IV. Content Strategy</a>
+    <a href="../technical-implementation.html">V. Technical Implementation</a>
+    <a href="../brand-strategy.html">VI. Brand Strategy</a>
+    <a href="../industry-applications.html">VII. Industry Applications</a>
+    <a href="../case-studies.html">VIII. Case Studies</a>
+    <a href="../data-formulas.html">IX. Data &amp; Formulas</a>
+    <div class="current glossary-section">📌 Glossary</div>
+    <a href="geo.html">GEO</a>
+    <a href="seo.html">SEO</a>
+    <a href="rag.html">RAG</a>
+    <a href="eeat.html">E-E-A-T</a>
     <a href="llms-txt.html">LLMs.txt</a>
-    <a href="zero-click.html">零点击搜索</a>
-    <a href="schema.html" class="active">Schema结构化数据</a>
-    <a href="answer-asset.html">答案资产化</a>
-    <a href="ai-visibility.html">AI可见度指数</a>
+    <a href="zero-click.html">Zero-Click Search</a>
+    <a href="schema.html" class="active">Schema</a>
+    <a href="answer-asset.html">Answer Assetization</a>
+    <a href="ai-visibility.html">AI Visibility Index</a>
     <a href="ymyl.html">YMYL</a>
   </nav>
   <div class="main">
     <div class="content">
 
-      <span class="tag">术语解释</span>
-      <h1 style="margin-top: 12px;">Schema结构化数据是什么？——让AI读懂你的内容</h1>
-      <p style="color: #666; font-size: 0.9em; margin-bottom: 24px;">最后更新：2026-07-16 · <a href="../ch01.html">返回第一章</a></p>
+      <span class="tag">Glossary</span>
+      <h1 style="margin-top: 12px;">What is Schema? — Structured Data for AI Understanding</h1>
+      <p style="color: #666; font-size: 0.9em; margin-bottom: 24px;">Last updated: 2026-07-16 · <a href="../fundamentals.html">Back to Chapter 1</a></p>
 
       <div class="answer-box">
-        <p><strong>一句话定义：</strong></p>
-        <p>Schema结构化数据是用机器可读的"标签"告诉AI页面上哪段是标题、哪段是作者、哪段是FAQ、哪段是评分的技术手段，为AI建立"理解捷径"。</p>
+        <p><strong>One-Line Definition:</strong></p>
+        <p>Schema structured data uses machine-readable "tags" to tell AI which part of a page is a title, which is an author, which is a FAQ, and which is a rating — creating a "comprehension shortcut" for AI.</p>
       </div>
 
-      <h2>一、为什么需要Schema？</h2>
-      <p>你的内容可能已经具备了高 <a href="eeat.html">E-E-A-T</a>——有经验、有专业、有权威、可信赖。但AI能"看懂"这些信号吗？</p>
-      <p>Schema 的本质是：用机器可读的"标签"告诉AI：<strong>这个页面上哪段是标题、哪段是FAQ、哪段是评分。</strong></p>
-      <p>如果你加了 FAQ Schema 标记，AI直接就能识别出"问题-答案"对，并可能在答案中精确引用其中某一条。这就是结构化数据的价值——<strong>它为AI建立了"理解捷径"。</strong></p>
+      <h2>1. Why Is Schema Needed?</h2>
+      <p>Your content may already have high <a href="eeat.html">E-E-A-T</a> — experience, expertise, authoritativeness, and trustworthiness. But can AI "read" these signals?</p>
+      <p>The essence of Schema is: using machine-readable "tags" to tell AI: <strong>which part of this page is a title, which part is a FAQ, and which part is a rating.</strong></p>
+      <p>If you add FAQ Schema markup, AI can directly identify the "question-answer" pairs and may precisely cite one of them in its response. This is the value of structured data — <strong>it builds a "comprehension shortcut" for AI.</strong></p>
 
-      <h2>二、5种最值得优先实施的Schema</h2>
+      <h2>2. Five Most Valuable Schema Types to Implement First</h2>
 
-      <h3>1. FAQ Schema（常见问题）</h3>
-      <p>最直接的 <a href="geo.html">GEO</a> "提效器"。让AI直接提取问答对，在答案中精确引用你的回答。</p>
+      <h3>1. FAQ Schema (Frequently Asked Questions)</h3>
+      <p>The most direct <a href="geo.html">GEO</a> "efficiency booster." Lets AI directly extract Q&amp;A pairs and precisely cite your answers.</p>
 
-      <h3>2. Article Schema（文章）</h3>
-      <p>标注文章标题、作者、发布日期、特色图片。帮助AI识别文章结构。</p>
+      <h3>2. Article Schema</h3>
+      <p>Tags article title, author, publish date, and featured image. Helps AI identify article structure.</p>
 
-      <h3>3. Person Schema（人物）</h3>
-      <p>标注作者姓名、职位、公司、LinkedIn、教育背景。直接支撑 <a href="eeat.html">E-E-A-T</a> 中的 Expertise。</p>
+      <h3>3. Person Schema</h3>
+      <p>Tags author name, job title, company, LinkedIn, and educational background. Directly supports the Expertise component of <a href="eeat.html">E-E-A-T</a>.</p>
 
-      <h3>4. Product Schema（产品）</h3>
-      <p>标注产品名称、价格、库存状态、评分。在电商 <a href="geo.html">GEO</a> 中必不可少。</p>
+      <h3>4. Product Schema</h3>
+      <p>Tags product name, price, stock status, and ratings. Essential for e-commerce <a href="geo.html">GEO</a>.</p>
 
-      <h3>5. BreadcrumbList（面包屑导航）</h3>
-      <p>标注网站层级结构。帮助AI理解"你在网站的什么位置"。</p>
+      <h3>5. BreadcrumbList (Breadcrumb Navigation)</h3>
+      <p>Tags website hierarchy. Helps AI understand "where you are on the site."</p>
 
-      <h2>三、EEAT与Schema的关系</h2>
+      <h2>3. The Relationship Between E-E-A-T and Schema</h2>
       <blockquote>
-        <strong>AI信任度 = <a href="eeat.html">E-E-A-T</a>（内容质量） × <a href="schema.html">结构化数据</a>（技术表达）</strong>
+        <strong>AI Trust = <a href="eeat.html">E-E-A-T</a> (Content Quality) × <a href="schema.html">Structured Data</a> (Technical Expression)</strong>
       </blockquote>
       <ul>
-        <li><a href="eeat.html">E-E-A-T</a> 决定了你的内容<strong>值不值得被信任</strong></li>
-        <li>结构化数据决定了你的内容<strong>能不能被AI精准理解</strong></li>
-        <li>两者缺一不可——只有EEAT没有Schema，AI可能"看不懂"你有多好；只有Schema没有EEAT，AI看懂了但觉得你不值得引用</li>
+        <li><a href="eeat.html">E-E-A-T</a> determines whether your content is <strong>worthy of trust</strong></li>
+        <li>Structured data determines whether your content <strong>can be precisely understood by AI</strong></li>
+        <li>Both are indispensable — E-E-A-T without Schema means AI may not "see" how good you are; Schema without E-E-A-T means AI understands but doesn't find you worth citing</li>
       </ul>
 
-      <h2>四、深入阅读</h2>
+      <h2>4. Deep Reading</h2>
       <ul>
-        <li><a href="../ch01.html">第一章 基础概念</a>——Schema在GEO中的完整角色</li>
-        <li><a href="eeat.html">E-E-A-T信任机制</a>——Schema如何表达EEAT信号</li>
-        <li><a href="geo.html">GEO生成式引擎优化</a>——Schema是GEO技术实施的核心</li>
+        <li><a href="../fundamentals.html">Chapter 1: Fundamentals</a> — The complete role of Schema in GEO</li>
+        <li><a href="eeat.html">E-E-A-T Trust Mechanism</a> — How Schema expresses E-E-A-T signals</li>
+        <li><a href="geo.html">GEO (Generative Engine Optimization)</a> — Schema is core to GEO technical implementation</li>
       </ul>
 
     </div>
     <div class="nav-links">
       <span></span>
-      <a href="../index-cn.html">📖 返回目录</a>
-      <a href="../ch01.html">第一章 基础概念 →</a>
+      <a href="../index.html">📖 Back to Index</a>
+      <a href="../fundamentals.html">← Back to Chapter 1</a>
     </div>
   </div>
 </div>
@@ -172,17 +160,17 @@
   "@type": "FAQPage",
   "mainEntity": [{
     "@type": "Question",
-    "name": "Schema结构化数据是什么？",
+    "name": "What is Schema structured data?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Schema结构化数据是用机器可读的标签告诉AI页面内容结构的技术手段，为AI建立理解捷径，使其能快速提取FAQ问答、文章结构、产品信息等。"
+      "text": "Schema structured data uses machine-readable tags to tell AI the content structure of a page, creating a comprehension shortcut that enables quick extraction of FAQ pairs, article structure, product information, and more."
     }
   },{
     "@type": "Question",
-    "name": "最值得优先实施的Schema有哪些？",
+    "name": "Which Schema types are most valuable?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "5种最值得优先实施的Schema：FAQ Schema（常见问题）、Article Schema（文章）、Person Schema（人物）、Product Schema（产品）、BreadcrumbList（面包屑导航）。"
+      "text": "The five most valuable Schema types to implement first are: FAQ Schema, Article Schema, Person Schema, Product Schema, and BreadcrumbList."
     }
   }]
 }
@@ -193,19 +181,19 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Schema结构化数据 — 让AI读懂你的内容 - GEO知识全书",
-  "description": "Schema结构化数据是用机器可读的标签告诉AI页面上哪段是标题、哪段是FAQ、哪段是评分的技术手段。本文详解Schema的定义、5种最值得的Schema类型和代码示例。",
+  "headline": "What is Schema? — Structured Data for AI Understanding - GEO Encyclopedia",
+  "description": "Schema structured data uses machine-readable tags to tell AI what part of a page is a title, FAQ, or rating. This article covers Schema definition, 5 recommended Schema types, and code examples.",
   "url": "https://geo010.com/glossary/schema.html",
   "image": "https://geo010.com/og-image.png",
-  "inLanguage": "zh-CN",
+  "inLanguage": "en",
   "publisher": {
     "@type": "Organization",
-    "name": "GEO知识全书",
+    "name": "GEO Encyclopedia",
     "url": "https://geo010.com"
   },
   "isPartOf": {
     "@type": "WebSite",
-    "name": "GEO知识全书",
+    "name": "GEO Encyclopedia",
     "url": "https://geo010.com"
   }
 }

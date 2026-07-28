@@ -1,30 +1,26 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8903384789303682"
      crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LLMs.txt — AI爬虫时代的入门基建 - GEO知识全书</title>
-<meta name="description" content="LLMs.txt是放在网站根目录下专门给大语言模型看的网站说明书，告诉AI哪些页面最重要。本文详解LLMs.txt的定义、与sitemap的区别、真实案例和30分钟操作指南。">
+<title>What is LLMs.txt? — AI Crawler Infrastructure - GEO Encyclopedia</title>
+<meta name="description" content="LLMs.txt is a plain text file placed in a website's root directory specifically for large language models, telling AI which pages are most important. Learn the format, differences from sitemap.xml, and a 30-minute implementation guide.">
 <link rel="canonical" href="https://geo010.com/glossary/llms-txt.html"/>
-<link rel="alternate" hreflang="zh-CN" href="https://geo010.com/glossary/llms-txt.html"/>
-<link rel="alternate" hreflang="en" href="https://geo010.com/glossary/en/llms-txt.html"/>
-<link rel="alternate" hreflang="x-default" href="https://geo010.com/glossary/llms-txt.html"/>
-<meta property="og:title" content="LLMs.txt — AI爬虫时代的入门基建 - GEO知识全书"/>
-<meta property="og:description" content="LLMs.txt是放在网站根目录下专门给大语言模型看的网站说明书，告诉AI哪些页面最重要。"/>
+<meta property="og:title" content="What is LLMs.txt? — AI Crawler Infrastructure - GEO Encyclopedia"/>
+<meta property="og:description" content="LLMs.txt is a plain text file placed in a website's root directory specifically for large language models, telling AI which pages are most important."/>
 <meta property="og:url" content="https://geo010.com/glossary/llms-txt.html"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="https://geo010.com/og-image.png"/>
-<meta property="og:locale" content="zh_CN"/>
-<meta property="og:locale:alternate" content="en_US"/>
-<meta property="og:site_name" content="GEO知识全书"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="GEO Encyclopedia"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="LLMs.txt — AI爬虫时代的入门基建 - GEO知识全书"/>
-<meta name="twitter:description" content="LLMs.txt是放在网站根目录下专门给大语言模型看的网站说明书，告诉AI哪些页面最重要。"/>
+<meta name="twitter:title" content="What is LLMs.txt? — AI Crawler Infrastructure - GEO Encyclopedia"/>
+<meta name="twitter:description" content="LLMs.txt is a plain text file placed in a website's root directory specifically for large language models, telling AI which pages are most important."/>
 <meta name="twitter:image" content="https://geo010.com/og-image.png"/>
-<meta name="keywords" content="LLMs.txt,AI爬虫,ChatGPT,GPTBot,网站优化,GEO"/>
+<meta name="keywords" content="LLMs.txt,AI crawler,ChatGPT,GPTBot,website optimization,GEO"/>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
@@ -64,10 +60,6 @@
   .answer-box p { margin-bottom: 8px; }
   .answer-box p:last-child { margin-bottom: 0; }
   .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; margin-right: 6px; }
-  .lang-switch { display: flex; gap: 4px; padding: 0 20px; margin-bottom: 16px; }
-  .lang-btn { flex: 1; padding: 6px 12px; text-align: center; border-radius: 6px; font-size: 0.85em; text-decoration: none; color: #999; background: rgba(255,255,255,0.05); transition: all 0.2s; }
-  .lang-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
-  .lang-btn.active { color: #4fc3f7; background: rgba(79,195,247,0.15); }
   @media (max-width: 768px) {
     .sidebar { display: none; }
     .main { padding: 24px 16px; }
@@ -80,104 +72,101 @@
 <body>
 <div class="layout">
   <nav class="sidebar">
-    <h3>📖 GEO知识全书</h3>
-    <div class="lang-switch">
-      <a href="llms-txt.html" class="lang-btn active">中文</a>
-      <a href="en/llms-txt.html" class="lang-btn">EN</a>
-    </div>
-    <a href="../index-cn.html" class="home-link">🏠 回到首页</a>
-    <a href="../ch01.html">一. 基础概念</a>
-    <a href="../ch02.html">二. 指标与框架</a>
-    <a href="../ch03.html">三. 模型与方法</a>
-    <a href="../ch04.html">四. 内容策略</a>
-    <a href="../ch05.html">五. 技术实施</a>
-    <a href="../ch06.html">六. 品牌战略</a>
-    <a href="../ch07.html">七. 行业应用</a>
-    <a href="../ch08.html">八. 实战案例</a>
-    <a href="../ch09.html">九. 数据与公式</a>
-    <div class="current glossary-section">📌 术语解释</div>
-    <a href="geo.html">GEO生成式引擎优化</a>
-    <a href="seo.html">SEO搜索引擎优化</a>
-    <a href="rag.html">RAG检索增强生成</a>
-    <a href="eeat.html">E-E-A-T信任机制</a>
+    <h3>📖 GEO Encyclopedia</h3>
+    <a href="../index.html" class="home-link">🏠 Home</a>
+    <a href="../fundamentals.html">I. Basic Concepts</a>
+    <a href="../metrics-frameworks.html">II. Metrics &amp; Frameworks</a>
+    <a href="../models-methods.html">III. Models &amp; Methods</a>
+    <a href="../content-strategy.html">IV. Content Strategy</a>
+    <a href="../technical-implementation.html">V. Technical Implementation</a>
+    <a href="../brand-strategy.html">VI. Brand Strategy</a>
+    <a href="../industry-applications.html">VII. Industry Applications</a>
+    <a href="../case-studies.html">VIII. Case Studies</a>
+    <a href="../data-formulas.html">IX. Data &amp; Formulas</a>
+    <div class="current glossary-section">📌 Glossary</div>
+    <a href="geo.html">GEO</a>
+    <a href="seo.html">SEO</a>
+    <a href="rag.html">RAG</a>
+    <a href="eeat.html">E-E-A-T</a>
     <a href="llms-txt.html" class="active">LLMs.txt</a>
-    <a href="zero-click.html">零点击搜索</a>
-    <a href="schema.html">Schema结构化数据</a>
-    <a href="answer-asset.html">答案资产化</a>
-    <a href="ai-visibility.html">AI可见度指数</a>
+    <a href="zero-click.html">Zero-Click Search</a>
+    <a href="schema.html">Schema Markup</a>
+    <a href="answer-asset.html">Answer Asset</a>
+    <a href="ai-visibility.html">AI Visibility Index</a>
     <a href="ymyl.html">YMYL</a>
   </nav>
   <div class="main">
     <div class="content">
 
-      <span class="tag">术语解释</span>
-      <h1 style="margin-top: 12px;">LLMs.txt是什么？——AI爬虫时代的入门基建</h1>
-      <p style="color: #666; font-size: 0.9em; margin-bottom: 24px;">最后更新：2026-07-16 · <a href="../ch01.html">返回第一章</a></p>
+      <span class="tag">Glossary</span>
+      <h1 style="margin-top: 12px;">What is LLMs.txt? — AI Crawler Infrastructure</h1>
+      <p style="color: #666; font-size: 0.9em; margin-bottom: 24px;">Last updated: 2026-07-16 · <a href="../fundamentals.html">← Back to Chapter 1</a></p>
 
       <div class="answer-box">
-        <p><strong>一句话定义：</strong></p>
-        <p>LLMs.txt 是一个放在网站根目录下的纯文本文件（如 example.com/llms.txt），专门给大语言模型看的"网站使用说明书"，告诉AI哪些页面最重要、分别讲什么内容。</p>
+        <p><strong>One-sentence definition:</strong></p>
+        <p>LLMs.txt is a plain text file placed in a website's root directory (e.g., example.com/llms.txt), serving as a "website user manual" specifically for large language models, telling AI which pages are most important and what each page covers.</p>
       </div>
 
-      <h2>一、GEO 基础层：所有优化的"0号前提"</h2>
-      <p>很多人做 <a href="geo.html">GEO</a> 容易犯一个错误：<strong>一来就直接干内容。</strong> 翻资料、写文章、加上 <a href="schema.html">Schema</a> 标记——然后发现AI还是没反应。</p>
-      <p>他们忽略了一个最基本的问题：<strong>AI能不能"看到"你的内容？</strong></p>
-      <p>GEO基础层要过三关：</p>
+      <h2>1. GEO Foundation Layer: The "Prerequisite Zero" of All Optimization</h2>
+      <p>Many people make a common mistake when doing <a href="geo.html">GEO</a>: <strong>they jump straight into content.</strong> Researching materials, writing articles, adding <a href="schema.html">Schema</a> markup — only to find AI still doesn't respond.</p>
+      <p>They overlook the most fundamental question: <strong>Can AI actually "see" your content?</strong></p>
+      <p>The GEO foundation layer must pass three gates:</p>
       <ul>
-        <li><strong>爬取（Crawl）</strong>——AI能连上你的服务器吗？</li>
-        <li><strong>解析（Parse）</strong>——AI能读懂你的页面吗？</li>
-        <li><strong>索引（Index）</strong>——AI记住了你的内容吗？</li>
+        <li><strong>Crawl</strong> — Can AI connect to your server?</li>
+        <li><strong>Parse</strong> — Can AI understand your pages?</li>
+        <li><strong>Index</strong> — Has AI remembered your content?</li>
       </ul>
 
-      <h2>二、LLMs.txt 和 sitemap.xml 的区别</h2>
+      <h2>2. LLMs.txt vs sitemap.xml</h2>
       <table>
-        <tr><th>维度</th><th>sitemap.xml</th><th>LLMs.txt</th></tr>
-        <tr><td><strong>面向对象</strong></td><td>传统搜索引擎（Googlebot等）</td><td>AI大语言模型（ChatGPT、Perplexity等）</td></tr>
-        <tr><td><strong>格式</strong></td><td>XML，机器可读</td><td>Markdown，人也可读</td></tr>
-        <tr><td><strong>语义</strong></td><td>只有URL和更新频率</td><td>带一句话描述，帮助AI理解每个页面内容</td></tr>
-        <tr><td><strong>优先级提示</strong></td><td>priority字段（但Google基本忽略）</td><td>自然语言排序（最重要的放最前面）</td></tr>
-        <tr><td><strong>排除规则</strong></td><td>通常不做排除</td><td>可以直接说"这些页面不需要被引用"</td></tr>
+        <tr><th>Dimension</th><th>sitemap.xml</th><th>LLMs.txt</th></tr>
+        <tr><td><strong>Target Audience</strong></td><td>Traditional search engines (Googlebot, etc.)</td><td>AI large language models (ChatGPT, Perplexity, etc.)</td></tr>
+        <tr><td><strong>Format</strong></td><td>XML, machine-readable</td><td>Markdown, human-readable too</td></tr>
+        <tr><td><strong>Semantics</strong></td><td>Only URLs and update frequency</td><td>One-sentence descriptions helping AI understand each page</td></tr>
+        <tr><td><strong>Priority Hints</strong></td><td>priority field (but Google mostly ignores it)</td><td>Natural language ordering (most important first)</td></tr>
+        <tr><td><strong>Exclusion Rules</strong></td><td>Typically no exclusions</td><td>Can directly say "these pages don't need to be cited"</td></tr>
       </table>
-      <p><strong>两者不是替代关系，是互补关系。</strong></p>
+      <p><strong>They are not replacements — they are complements.</strong></p>
 
-      <h2>三、LLMs.txt 格式示例</h2>
-      <p>格式非常简单，用 Markdown 写就行：</p>
-      <p><code># 品牌名</code></p>
-      <p><code>## 核心产品</code></p>
-      <p><code>- [产品A - 面向中小企业的CRM系统](https://example.com/product-a)</code></p>
-      <p><code>## 常见问题</code></p>
-      <p><code>- [如何开始使用产品A](https://example.com/faq/get-started)</code></p>
-      <p><code>## 不推荐</code></p>
-      <p><code>- https://example.com/internal（内部文档，不需要被引用）</code></p>
+      <h2>3. LLMs.txt Format Example</h2>
+      <p>The format is very simple, just write in Markdown:</p>
+      <p><code># Brand Name</code></p>
+      <p><code>## Core Products</code></p>
+      <p><code>- [Product A - CRM for SMBs](https://example.com/product-a)</code></p>
+      <p><code>## FAQ</code></p>
+      <p><code>- [How to get started with Product A](https://example.com/faq/get-started)</code></p>
+      <p><code>## Not Recommended</code></p>
+      <p><code>- https://example.com/internal (Internal docs, no need to be cited)</code></p>
 
-      <h2>四、AI爬虫 vs Googlebot：四个关键区别</h2>
+      <h2>4. AI Crawlers vs Googlebot: Four Key Differences</h2>
       <ul>
-        <li><strong>JS渲染能力不同</strong>——AI爬虫的JS引擎可能无法完整渲染所有内容</li>
-        <li><strong>超时时间更短</strong>——AI爬虫可能几百毫秒没响应就跳过了</li>
-        <li><strong>robots.txt规则不同</strong>——需要检查是否对所有AI爬虫开放</li>
-        <li><strong>类型更多样</strong>——GPTBot、ClaudeBot、Google-Extended、PerplexityBot、CCBot</li>
+        <li><strong>Different JS rendering capabilities</strong> — AI crawlers' JS engines may not fully render all content</li>
+        <li><strong>Shorter timeout periods</strong> — AI crawlers may skip if no response within a few hundred milliseconds</li>
+        <li><strong>Different robots.txt rules</strong> — Need to verify all AI crawlers are allowed</li>
+        <li><strong>More crawler types</strong> — GPTBot, ClaudeBot, Google-Extended, PerplexityBot, CCBot</li>
       </ul>
 
-      <h2>五、30分钟操作指南</h2>
+      <h2>5. 30-Minute Implementation Guide</h2>
       <ol>
-        <li><strong>检查robots.txt（5分钟）</strong>——确保对AI爬虫开放</li>
-        <li><strong>创建LLMs.txt（10分钟）</strong>——列出最重要的页面和描述</li>
-        <li><strong>测试AI爬取能力（10分钟）</strong>——在Perplexity上搜索品牌关键词测试</li>
-        <li><strong>检查服务器响应（5分钟）</strong>——确保关键页面500ms内返回</li>
+        <li><strong>Check robots.txt (5 minutes)</strong> — Ensure AI crawlers are allowed</li>
+        <li><strong>Create LLMs.txt (10 minutes)</strong> — List the most important pages with descriptions</li>
+        <li><strong>Test AI crawling capability (10 minutes)</strong> — Search brand keywords on Perplexity to test</li>
+        <li><strong>Check server response (5 minutes)</strong> — Ensure key pages respond within 500ms</li>
       </ol>
 
-      <h2>六、深入阅读</h2>
+      <h2>6. Deep Reading</h2>
       <ul>
-        <li><a href="../ch01.html">第一章 基础概念</a>——LLMs.txt在GEO中的完整角色</li>
-        <li><a href="geo.html">GEO生成式引擎优化</a>——LLMs.txt是GEO基础层最高效的动作</li>
-        <li><a href="rag.html">RAG检索增强生成</a>——AI爬虫如何抓取和使用LLMs.txt</li>
+        <li><a href="../fundamentals.html">Chapter 1: Basic Concepts</a> — LLMs.txt's complete role in GEO</li>
+        <li><a href="geo.html">What is GEO?</a> — LLMs.txt is the most efficient action in the GEO foundation layer</li>
+        <li><a href="rag.html">What is RAG?</a> — How AI crawlers fetch and use LLMs.txt</li>
+        <li><a href="seo.html">What is SEO?</a> — How LLMs.txt complements traditional SEO infrastructure</li>
       </ul>
 
     </div>
     <div class="nav-links">
       <span></span>
-      <a href="../index-cn.html">📖 返回目录</a>
-      <a href="../ch01.html">第一章 基础概念 →</a>
+      <a href="../index.html">📖 Table of Contents</a>
+      <a href="../fundamentals.html">← Back to Chapter 1</a>
     </div>
   </div>
 </div>
@@ -187,17 +176,17 @@
   "@type": "FAQPage",
   "mainEntity": [{
     "@type": "Question",
-    "name": "LLMs.txt是什么？",
+    "name": "What is LLMs.txt?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "LLMs.txt是一个放在网站根目录下的纯文本文件，专门给大语言模型看的网站使用说明书，告诉AI哪些页面最重要、分别讲什么内容。格式使用Markdown编写。"
+      "text": "LLMs.txt is a plain text file placed in a website's root directory, serving as a website user manual specifically for large language models, telling AI which pages are most important and what each page covers. The format uses Markdown."
     }
   },{
     "@type": "Question",
-    "name": "LLMs.txt和sitemap.xml有什么区别？",
+    "name": "What is the difference between LLMs.txt and sitemap.xml?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "sitemap.xml面向传统搜索引擎，格式为XML，只有URL和更新频率。LLMs.txt面向AI大语言模型，格式为Markdown，带一句话描述帮助AI理解内容，两者互补而非替代。"
+      "text": "sitemap.xml targets traditional search engines with XML format containing only URLs and update frequency. LLMs.txt targets AI large language models with Markdown format, including one-sentence descriptions to help AI understand content. They complement each other rather than replace one another."
     }
   }]
 }
@@ -208,19 +197,19 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "LLMs.txt — AI爬虫时代的入门基建 - GEO知识全书",
-  "description": "LLMs.txt是放在网站根目录下专门给大语言模型看的网站说明书，告诉AI哪些页面最重要。本文详解LLMs.txt的定义、与sitemap的区别、真实案例和30分钟操作指南。",
+  "headline": "What is LLMs.txt? — AI Crawler Infrastructure - GEO Encyclopedia",
+  "description": "LLMs.txt is a plain text file placed in a website's root directory specifically for large language models, telling AI which pages are most important. This article covers LLMs.txt definition, differences from sitemap.xml, and a 30-minute implementation guide.",
   "url": "https://geo010.com/glossary/llms-txt.html",
   "image": "https://geo010.com/og-image.png",
-  "inLanguage": "zh-CN",
+  "inLanguage": "en",
   "publisher": {
     "@type": "Organization",
-    "name": "GEO知识全书",
+    "name": "GEO Encyclopedia",
     "url": "https://geo010.com"
   },
   "isPartOf": {
     "@type": "WebSite",
-    "name": "GEO知识全书",
+    "name": "GEO Encyclopedia",
     "url": "https://geo010.com"
   }
 }
