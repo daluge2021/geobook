@@ -308,5 +308,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://geo010.com/"},{"@type":"ListItem","position":2,"name":"V. Technical Implementation","item":"https://geo010.com/technical-implementation.html"},{"@type":"ListItem","position":3,"name":"AgenticGEO","item":"https://geo010.com/technical/agenticgeo-tools.html"}]}
 </script>
+
+<script>
+document.querySelectorAll('.nav-group-toggle').forEach(function(toggle) {
+  toggle.addEventListener('click', function() {
+    this.parentElement.classList.toggle('open');
+  });
+});
+var active = document.querySelector('.sidebar a.active');
+if (active) {
+  var group = active.closest('.nav-group');
+  if (group) { group.classList.add('open'); }
+}
+</script>
 </body>
 </html>
