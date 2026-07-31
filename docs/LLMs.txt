@@ -10,6 +10,11 @@
 - [How Does Answer Assetization Work?](https://geo010.com/fundamentals/answer-assetization.html)
 - [How to Start GEO from Zero? — 3-Month Roadmap](https://geo010.com/cases/zero-to-one-roadmap.html)
 
+## About & Contact
+
+- [About GEO Encyclopedia — Editorial Standards & E-E-A-T](https://geo010.com/about.html)
+- [Contact Us](https://geo010.com/contact.html)
+
 ## I. Fundamentals
 
 - [What is GEO? — How AI Search Changes Digital Marketing](https://geo010.com/fundamentals/what-is-geo.html)

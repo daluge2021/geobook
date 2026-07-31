@@ -6,7 +6,7 @@
   <description>45 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
   <language>en</language>
   <atom:link href="https://geo010.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 28 Jul 2026 00:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0000</lastBuildDate>
   <item>
     <title>What Exactly Is GEO? — The New Marketing Revolution of the AI Era</title>
     <link>https://geo010.com/fundamentals/what-is-geo.html</link>
@@ -335,6 +335,20 @@
     <guid>https://geo010.com/what-is-geo.html</guid>
     <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
     <description>A comprehensive beginner's guide to understanding GEO, its relationship with SEO, and how to get started with Generative Engine Optimization.</description>
+  </item>
+  <item>
+    <title>About GEO Encyclopedia — Editorial Standards &amp; E-E-A-T</title>
+    <link>https://geo010.com/about.html</link>
+    <guid>https://geo010.com/about.html</guid>
+    <pubDate>Fri, 31 Jul 2026 00:00:00 +0000</pubDate>
+    <description>About GEO Encyclopedia: our mission, editorial standards, and the E-E-A-T framework we apply to every article.</description>
+  </item>
+  <item>
+    <title>Contact GEO Encyclopedia</title>
+    <link>https://geo010.com/contact.html</link>
+    <guid>https://geo010.com/contact.html</guid>
+    <pubDate>Fri, 31 Jul 2026 00:00:00 +0000</pubDate>
+    <description>Contact the GEO Encyclopedia editorial team for corrections, feedback, or partnership inquiries.</description>
   </item>
 </channel>
 </rss>

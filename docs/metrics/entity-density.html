@@ -40,6 +40,9 @@
   .main { flex: 1; max-width: 800px; margin: 0 auto; padding: 48px 32px 80px; }
   .content { background: #fff; border-radius: 12px; padding: 40px 48px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
   .content .breadcrumb { color: #888; font-size: 0.85em; margin-bottom: 16px; }
+  .article-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: #888; font-size: 0.88em; margin: 4px 0 16px; }
+  .article-meta a { color: #0066cc; text-decoration: none; }
+  .article-meta a:hover { text-decoration: underline; }
   .content .breadcrumb a { color: #0066cc; text-decoration: none; }
   .content .breadcrumb a:hover { text-decoration: underline; }
   .content h1 { font-size: 1.5em; margin: 40px 0 12px; color: #1a1a2e; padding-top: 8px; }
@@ -182,10 +185,15 @@
     <a href="../glossary/answer-asset.html">Answer Assetization</a>
     <a href="../glossary/ai-visibility.html">AI Visibility Index</a>
     <a href="../glossary/ymyl.html">YMYL</a>
+  <div class="current glossary-section">📄 About</div>
+  <a href="../about.html">About &amp; Editorial Standards</a>
+  <a href="../contact.html">Contact</a>
   </nav>
   <div class="main">
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../metrics-frameworks.html">II. Metrics & Frameworks</a> › Entity Association Density & Content Cross-Verification</div>
+
+<div class="article-meta"><span>By <a href="../about.html">GEO Encyclopedia Editorial Team</a></span><span>·</span><span>Updated: 2026-07-28</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
 
 <h1>Entity Association Density & Content Cross-Verification — Making AI Think You "Know Your Stuff"</h1>
 
@@ -214,19 +222,17 @@
 <p>— Only one core entity, "CRM," appears throughout. No extensions, no connections. AI thinks: "Hmm, this person only knows about CRM."</p>
 
 <p><strong>High entity association density:</strong></p>
-<blockquote>"CRM systems (such as Salesforce, HubSpot) serve as the core tool for customer relationship management, working in conjunction with Marketing Automation (MA), Enterprise Resource Planning (ERP), and other systems. According to Gartner's 2025 report, enterprises adopting AI-driven CRM systems saw an average 22% increase in customer retention. Products like Salesforce's Einstein GPT and HubSpot's Breeze AI are redefining industry standards. But CRM implementation challenges are also significant — Boston Consulting Group research shows that about 40% of CRM projects fail to meet expectations due to employee resistance."</blockquote>
+<blockquote>"CRM systems (such as Salesforce, HubSpot) serve as the core tool for customer relationship management, working in conjunction with Marketing Automation (MA), Enterprise Resource Planning (ERP), and other systems. According to Yext's 2025 analysis of 6.8 million AI citations, 44% of AI citations come from brand-owned websites and 86% from brand-managed sources overall. Products like Salesforce's Einstein GPT and HubSpot's Breeze AI are redefining industry standards. But CRM implementation challenges are also significant — analysts report that a substantial share of CRM projects fail to meet expectations due to employee resistance."</blockquote>
 
-<p>— Entities in this short passage: CRM, Salesforce, HubSpot, Marketing Automation, ERP, Gartner, customer retention rate, Einstein GPT, Breeze AI, Boston Consulting Group. Every entity serves a purpose, supporting the core topic of "CRM" from different angles.</p>
+<p>— Entities in this short passage: CRM, Salesforce, HubSpot, Marketing Automation, ERP, Yext, AI citations, Einstein GPT, Breeze AI. Every entity serves a purpose, supporting the core topic of "CRM" from different angles.</p>
 
 <p><strong>High entity association density gives AI the impression: this author's understanding of CRM is "systematic," not "fragmented."</strong></p>
 
-<h3>Yext's Research Data: What Does 20% Weight Mean?</h3>
+<h3>Yext's Research Data: Citations Cluster Around Authoritative Content</h3>
 
-<p>Yext's analysis of 6.8 million AI citation behaviors found that entity association density is the <strong>third-highest weighted</strong> factor in AI's decision to cite content:</p>
+<p>Yext's analysis of 6.8 million AI citation behaviors found that <strong>86% of all citations come from authoritative, brand-managed sources — websites, listings, and reviews</strong> (<a href="https://www.yext.com/research/article/ai-citations-user-locations-query-context" target="_blank" rel="noopener">full report</a>). Among them, brand-owned websites account for 44% of all citations.</p>
 
-<table><thead><tr><th>Factor</th><th>Weight</th></tr></thead><tbody><tr><td>Source authority</td><td>35%</td></tr><tr><td>Semantic structuring</td><td>30%</td></tr><tr><td>Entity association density</td><td>20%</td></tr><tr><td>Content timeliness</td><td>15%</td></tr></tbody></table>
-
-<p><strong>A 20% weight means: all else being equal, content with double the entity association density could be 20%+ more likely to be cited by AI.</strong></p>
+<p><strong>What does this mean for entity association density? It means AI cites the sources it can "grasp" fastest — and densely structured content is far easier for AI to extract and cross-verify.</strong> A passage that only discusses one isolated concept gives AI little to work with; a passage that connects CRM, Salesforce, HubSpot, and market data lets AI extract a full knowledge cluster from a single article.</p>
 
 <p>Why does AI care so much about entity association density? The underlying logic is: <strong>the lower the information entropy, the higher the citation value.</strong></p>
 
@@ -301,9 +307,9 @@
 
 <p>This is the most direct approach. Annotate data sources next to key arguments:</p>
 
-<blockquote>According to iResearch's "2026 GEO Industry Research Report," China's GEO market growth rate exceeds 200%, with source authority carrying the highest weight (approximately 35%) in AI citation decisions.</blockquote>
+<blockquote>According to Yext's 2025 analysis of 6.8 million AI citations, 86% of the sources AI cites are brand-managed — websites, listings, and reviews.</blockquote>
 
-<p>Once this content is crawled by AI, it can find "iResearch" as a source in its index for cross-verification. If verification passes, AI's confidence in citing this content increases significantly.</p>
+<p>Once this content is crawled by AI, it can find "Yext" as a source in its index for cross-verification. If verification passes, AI's confidence in citing this content increases significantly.</p>
 
 <p><strong>Approach 2: Get authoritative third parties to cite you</strong></p>
 
@@ -397,7 +403,7 @@
   "@type": "Article",
   "headline": "Entity Association Density & Content Cross-Verification — Making AI Think You \"Know Your Stuff\"",
   "description": "Entity association density and content cross-verification — two critical factors that determine whether AI cites your content. Yext research on 6.8 million AI citations.",
-  "author": { "@type": "Organization", "name": "GEO Encyclopedia", "url": "https://geo010.com" },
+  "author": { "@type": "Organization", "name": "GEO Encyclopedia Editorial Team", "url": "https://geo010.com/about.html" },
   "datePublished": "2026-01-15",
   "dateModified": "2026-07-28",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/metrics/entity-density.html" },
