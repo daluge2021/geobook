@@ -1,105 +1,111 @@
 # GEO Encyclopedia
 
-> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 45 in-depth articles across 9 chapters, from fundamentals to real-world case studies.
+> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 45 in-depth articles across 9 chapters, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
 
 ## Quick Answers (AI-Priority Citations)
 
-- [What is GEO? — How AI Search Changes Digital Marketing](https://geo010.com/fundamentals/what-is-geo.html)
-- [Is SEO Dead? — How GEO and SEO Work Together](https://geo010.com/fundamentals/seo-vs-geo.html)
-- [What is E-E-A-T? — The Trust Mechanism AI Uses](https://geo010.com/fundamentals/eeat-trust-mechanism.html)
-- [How Does Answer Assetization Work?](https://geo010.com/fundamentals/answer-assetization.html)
-- [How to Start GEO from Zero? — 3-Month Roadmap](https://geo010.com/cases/zero-to-one-roadmap.html)
+- [What is GEO? — How AI Search Changes Digital Marketing](https://geo010.com/fundamentals/what-is-geo.html): Definition, the Princeton study, and how AI engines pick sources to cite.
+- [Is SEO Dead? — How GEO and SEO Work Together](https://geo010.com/fundamentals/seo-vs-geo.html): When SEO still matters, when GEO takes over, and how the two compound.
+- [What is E-E-A-T? — The Trust Mechanism AI Uses](https://geo010.com/fundamentals/eeat-trust-mechanism.html): How Experience, Expertise, Authoritativeness and Trust shape AI citations.
+- [How Does Answer Assetization Work?](https://geo010.com/fundamentals/answer-assetization.html): Turning search queries into reusable answer assets for AI retrieval.
+- [How to Start GEO from Zero? — 3-Month Roadmap](https://geo010.com/cases/zero-to-one-roadmap.html): A phased 90-day plan covering diagnosis, content, and monitoring.
 
 ## About & Contact
 
-- [About GEO Encyclopedia — Editorial Standards & E-E-A-T](https://geo010.com/about.html)
-- [Contact Us](https://geo010.com/contact.html)
+- [About GEO Encyclopedia — Editorial Standards & E-E-A-T](https://geo010.com/about.html): The site's positioning, editorial standards, and E-E-A-T commitments.
+- [Contact Us](https://geo010.com/contact.html): How to reach the editorial team.
 
 ## I. Fundamentals
 
-- [What is GEO? — How AI Search Changes Digital Marketing](https://geo010.com/fundamentals/what-is-geo.html)
-- [Is SEO Dead? — How GEO and SEO Work Together](https://geo010.com/fundamentals/seo-vs-geo.html)
-- [What is E-E-A-T? — The Trust Mechanism AI Uses](https://geo010.com/fundamentals/eeat-trust-mechanism.html)
-- [What is LLMs.txt? — How to Tell AI About Your Site](https://geo010.com/fundamentals/llms-txt-guide.html)
-- [How Does Answer Assetization Work?](https://geo010.com/fundamentals/answer-assetization.html)
+- [What is GEO?](https://geo010.com/fundamentals/what-is-geo.html): Core definition and evidence from the Princeton Generative Engine Optimization paper.
+- [SEO vs GEO](https://geo010.com/fundamentals/seo-vs-geo.html): Side-by-side comparison of search engine and AI answer engine optimization.
+- [E-E-A-T Trust Mechanism](https://geo010.com/fundamentals/eeat-trust-mechanism.html): Why trust signals determine whether AI cites your content.
+- [LLMs.txt Guide](https://geo010.com/fundamentals/llms-txt-guide.html): How to write an llms.txt and tell AI which pages matter.
+- [Answer Assetization](https://geo010.com/fundamentals/answer-assetization.html): Structuring content so AI can quote and credit your brand.
 
 ## II. Metrics & Frameworks
 
-- [What is Citation Share? — The Core GEO Metric](https://geo010.com/metrics/citation-share.html)
-- [What is Entity Association Density?](https://geo010.com/metrics/entity-density.html)
-- [What is the SHEEP Framework?](https://geo010.com/metrics/sheep-framework.html)
+- [What is Citation Share?](https://geo010.com/metrics/citation-share.html): The core GEO metric measuring how often AI cites your brand.
+- [What is Entity Association Density?](https://geo010.com/metrics/entity-density.html): Measuring how strongly your brand is associated with key entities.
+- [What is the SHEEP Framework?](https://geo010.com/metrics/sheep-framework.html): A five-step framework for evaluating AI-generated search results.
 
 ## III. Models & Methods
 
-- [What is the 3C Optimization Model?](https://geo010.com/models/3c-optimization-model.html)
-- [How Has GEO Evolved?](https://geo010.com/models/geo-evolution.html)
-- [What is Source Authority?](https://geo010.com/models/source-authority.html)
+- [What is the 3C Optimization Model?](https://geo010.com/models/3c-optimization-model.html): Credibility, Clarity, and Context as the three levers of GEO.
+- [How Has GEO Evolved?](https://geo010.com/models/geo-evolution.html): Timeline from the Princeton paper to AutoGEO and AgenticGEO.
+- [What is Source Authority?](https://geo010.com/models/source-authority.html): How AI evaluates source authority and the 86% controllable-citation finding.
 
 ## IV. Content Strategy
 
-- [How to Apply E-E-A-T in GEO Content Strategy?](https://geo010.com/content/eeat-in-geo.html)
-- [What is Knowledge Entropy?](https://geo010.com/content/knowledge-entropy.html)
-- [How Do Backlinks Work in GEO?](https://geo010.com/content/backlinks-in-geo.html)
-- [What is Topical Authority?](https://geo010.com/content/topical-authority.html)
-- [How Important is Content Freshness for GEO?](https://geo010.com/content/content-freshness.html)
-- [How to Optimize Multimodal Content for GEO?](https://geo010.com/content/multimodal-content.html)
-- [How to Build Question-Driven Content for GEO?](https://geo010.com/content/question-driven-strategy.html)
-- [How to Do Local GEO and Long-Tail Content?](https://geo010.com/content/local-geo-longtail.html)
+- [How to Apply E-E-A-T in GEO Content?](https://geo010.com/content/eeat-in-geo.html): Practical content rules that build AI trust signals.
+- [What is Knowledge Entropy?](https://geo010.com/content/knowledge-entropy.html): Why fragmented content loses to consolidated answer assets.
+- [How Do Backlinks Work in GEO?](https://geo010.com/content/backlinks-in-geo.html): How link signals feed AI source selection.
+- [What is Topical Authority?](https://geo010.com/content/topical-authority.html): Building depth so AI treats you as a category authority.
+- [How Important is Content Freshness for GEO?](https://geo010.com/content/content-freshness.html): How updated content improves AI citation likelihood.
+- [How to Optimize Multimodal Content?](https://geo010.com/content/multimodal-content.html): Images, video, and other formats in AI retrieval.
+- [How to Build Question-Driven Content?](https://geo010.com/content/question-driven-strategy.html): Aligning content with the exact questions AI users ask.
+- [How to Do Local GEO and Long-Tail Content?](https://geo010.com/content/local-geo-longtail.html): Winning local and niche AI queries.
 
 ## V. Technical Implementation
 
-- [How to Implement Schema Markup for GEO?](https://geo010.com/technical/schema-markup-guide.html)
-- [How to Configure LLMs.txt and Robots.txt?](https://geo010.com/technical/llms-txt-advanced.html)
-- [What is Entity Recognition & Knowledge Graph?](https://geo010.com/technical/entity-knowledge-graph.html)
-- [How to Manage AI Crawler Access?](https://geo010.com/technical/ai-crawler-management.html)
-- [Which GEO Monitoring Tools to Use?](https://geo010.com/technical/geo-monitoring-tools.html)
-- [What is AgenticGEO?](https://geo010.com/technical/agenticgeo-tools.html)
-- [GEO Tech Stack Overview](https://geo010.com/technical/tech-stack-overview.html)
+- [How to Implement Schema Markup for GEO?](https://geo010.com/technical/schema-markup-guide.html): JSON-LD types that make your pages machine-readable to AI.
+- [How to Configure LLMs.txt and Robots.txt?](https://geo010.com/technical/llms-txt-advanced.html): Advanced configuration of the two orientation files.
+- [What is Entity Recognition & Knowledge Graph?](https://geo010.com/technical/entity-knowledge-graph.html): How AI builds entity graphs and how you signal your brand entity.
+- [How to Manage AI Crawler Access?](https://geo010.com/technical/ai-crawler-management.html): Allowing GPTBot, PerplexityBot, ClaudeBot and friends while staying safe.
+- [Which GEO Monitoring Tools to Use?](https://geo010.com/technical/geo-monitoring-tools.html): Dashboards and metrics for tracking AI visibility.
+- [What is AgenticGEO?](https://geo010.com/technical/agenticgeo-tools.html): How agent-based tools automate GEO workflows.
+- [GEO Tech Stack Overview](https://geo010.com/technical/tech-stack-overview.html): The full toolkit for running a GEO program.
 
 ## VI. Brand Strategy
 
-- [How to Build Brand as an AI-Recognized Source?](https://geo010.com/brand/brand-as-source.html)
-- [How to Implement E-E-A-T Brand Strategy?](https://geo010.com/brand/eeat-brand-implementation.html)
-- [How to Handle Brand Crisis via GEO?](https://geo010.com/brand/crisis-pr-geo.html)
-- [How to Do Multi-Brand GEO Strategy?](https://geo010.com/brand/multi-brand-geo.html)
-- [How to Optimize E-Commerce for GEO?](https://geo010.com/brand/ecommerce-geo.html)
-- [How to Do B2B Brand GEO Strategy?](https://geo010.com/brand/b2b-brand-geo.html)
+- [How to Build Brand as an AI-Recognized Source?](https://geo010.com/brand/brand-as-source.html): Making your brand the named source AI cites.
+- [How to Implement E-E-A-T Brand Strategy?](https://geo010.com/brand/eeat-brand-implementation.html): Aligning brand operations with AI trust requirements.
+- [How to Handle Brand Crisis via GEO?](https://geo010.com/brand/crisis-pr-geo.html): Managing reputation in AI answer engines.
+- [How to Do Multi-Brand GEO Strategy?](https://geo010.com/brand/multi-brand-geo.html): Coordinating GEO across brand portfolios.
+- [How to Optimize E-Commerce for GEO?](https://geo010.com/brand/ecommerce-geo.html): Making products and merchants appear in AI shopping answers.
+- [How to Do B2B Brand GEO Strategy?](https://geo010.com/brand/b2b-brand-geo.html): Winning AI referrals for enterprise brands.
 
 ## VII. Industry Applications
 
-- [How to Do GEO for Healthcare?](https://geo010.com/industry/healthcare-geo.html)
-- [How to Do GEO for Finance?](https://geo010.com/industry/finance-geo.html)
-- [How to Do GEO for Education?](https://geo010.com/industry/education-geo.html)
-- [How to Do GEO for Legal Services?](https://geo010.com/industry/legal-geo.html)
-- [How to Do GEO for Local Services?](https://geo010.com/industry/local-services-geo.html)
-- [How to Do GEO for Manufacturing?](https://geo010.com/industry/manufacturing-geo.html)
+- [How to Do GEO for Healthcare?](https://geo010.com/industry/healthcare-geo.html): Credibility requirements in a high-stakes YMYL vertical.
+- [How to Do GEO for Finance?](https://geo010.com/industry/finance-geo.html): Trust and compliance in financial AI citations.
+- [How to Do GEO for Education?](https://geo010.com/industry/education-geo.html): Building authority in educational AI answers.
+- [How to Do GEO for Legal Services?](https://geo010.com/industry/legal-geo.html): Accuracy and authority for legal AI queries.
+- [How to Do GEO for Local Services?](https://geo010.com/industry/local-services-geo.html): Winning nearby AI recommendations.
+- [How to Do GEO for Manufacturing?](https://geo010.com/industry/manufacturing-geo.html): B2B credibility for industrial AI searches.
 
 ## VIII. Case Studies
 
-- [How to Start GEO from Zero? — 3-Month Roadmap](https://geo010.com/cases/zero-to-one-roadmap.html)
-- [Full GEO Case Study](https://geo010.com/cases/full-process-case.html)
-- [How to Prevent Black Hat GEO?](https://geo010.com/cases/black-hat-prevention.html)
-- [What are GEO Future Trends?](https://geo010.com/cases/geo-future-trends.html)
+- [How to Start GEO from Zero?](https://geo010.com/cases/zero-to-one-roadmap.html): Complete 3-month launch roadmap with milestones.
+- [Full GEO Case Study](https://geo010.com/cases/full-process-case.html): End-to-end GEO project walkthrough with before/after metrics.
+- [How to Prevent Black Hat GEO?](https://geo010.com/cases/black-hat-prevention.html): Detecting manipulation risks and AI spam penalties.
+- [What are GEO Future Trends?](https://geo010.com/cases/geo-future-trends.html): Where AI search and GEO are heading.
 
 ## IX. Data & Formulas
 
-- [What are the Core GEO Metrics?](https://geo010.com/data/core-metrics-system.html)
-- [How to Calculate GEO ROI?](https://geo010.com/data/roi-calculation.html)
-- [How to Build a GEO Data Dashboard?](https://geo010.com/data/data-dashboard-setup.html)
+- [What are the Core GEO Metrics?](https://geo010.com/data/core-metrics-system.html): A unified metrics system for measuring GEO performance.
+- [How to Calculate GEO ROI?](https://geo010.com/data/roi-calculation.html): Formulas for valuing AI citations and referrals.
+- [How to Build a GEO Data Dashboard?](https://geo010.com/data/data-dashboard-setup.html): Setting up tracking infrastructure for GEO KPIs.
 
 ## Glossary
 
-- [What is GEO?](https://geo010.com/glossary/geo.html)
-- [What is SEO?](https://geo010.com/glossary/seo.html)
-- [What is RAG?](https://geo010.com/glossary/rag.html)
-- [What is E-E-A-T?](https://geo010.com/glossary/eeat.html)
-- [What is LLMs.txt?](https://geo010.com/glossary/llms-txt.html)
-- [What is Zero-Click Search?](https://geo010.com/glossary/zero-click.html)
-- [What is Schema?](https://geo010.com/glossary/schema.html)
-- [What is Answer Assetization?](https://geo010.com/glossary/answer-asset.html)
-- [What is AI Visibility Index?](https://geo010.com/glossary/ai-visibility.html)
-- [What is YMYL?](https://geo010.com/glossary/ymyl.html)
+- [What is GEO?](https://geo010.com/glossary/geo.html): Generative Engine Optimization defined, with primary sources.
+- [What is SEO?](https://geo010.com/glossary/seo.html): Search Engine Optimization and its limits in AI search.
+- [What is RAG?](https://geo010.com/glossary/rag.html): Retrieval-Augmented Generation and how AI uses your content.
+- [What is E-E-A-T?](https://geo010.com/glossary/eeat.html): The four trust dimensions AI and Google use.
+- [What is LLMs.txt?](https://geo010.com/glossary/llms-txt.html): The orientation file format for AI crawlers.
+- [What is Zero-Click Search?](https://geo010.com/glossary/zero-click.html): Why most queries end without a click and what it means.
+- [What is Schema?](https://geo010.com/glossary/schema.html): Structured data vocabulary for machine-readable pages.
+- [What is Answer Assetization?](https://geo010.com/glossary/answer-asset.html): Packaging answers so AI can quote you.
+- [What is AI Visibility Index?](https://geo010.com/glossary/ai-visibility.html): Measuring how visible your brand is in AI answers.
+- [What is YMYL?](https://geo010.com/glossary/ymyl.html): Your Money or Your Life content trust requirements.
+
+## Optional
+
+- [Complete Site Map](https://geo010.com/sitemap.xml): Full URL inventory for AI crawlers that need the long tail.
+- [RSS Feed](https://geo010.com/feed.xml): All articles with publication dates.
+- [Robots.txt](https://geo010.com/robots.txt): AI crawler access rules.
 
 ## No Private Pages
 
-- All content is public knowledge. AI crawlers welcome.
+- All content is public knowledge. AI crawlers welcome. Last updated 2026-08-01.

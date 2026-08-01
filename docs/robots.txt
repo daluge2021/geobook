@@ -10,6 +10,10 @@ User-agent: Google-Extended
 Allow: /
 Disallow: /private/
 
+User-agent: Google-CloudVertexBot
+Allow: /
+Disallow: /private/
+
 # Bing
 User-agent: Bingbot
 Allow: /
@@ -20,11 +24,27 @@ User-agent: GPTBot
 Allow: /
 Disallow: /private/
 
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /private/
+
 User-agent: ChatGPT-User
 Allow: /
 Disallow: /private/
 
 User-agent: PerplexityBot
+Allow: /
+Disallow: /private/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /private/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /private/
+
+User-agent: Claude-SearchBot
 Allow: /
 Disallow: /private/
 
@@ -37,6 +57,26 @@ Allow: /
 Disallow: /private/
 
 User-agent: CCBot
+Allow: /
+Disallow: /private/
+
+User-agent: Applebot
+Allow: /
+Disallow: /private/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /private/
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /private/
+
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /private/
+
+User-agent: cohere-ai
 Allow: /
 Disallow: /private/
 

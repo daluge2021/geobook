@@ -1,0 +1,25 @@
+{
+  "specVersion": "1.0",
+  "siteName": "GEO Encyclopedia",
+  "siteUrl": "https://geo010.com",
+  "updated": "2026-08-01",
+  "policies": {
+    "training": "allow",
+    "scraping": "allow",
+    "indexing": "allow",
+    "caching": "allow"
+  },
+  "attribution": {
+    "required": true,
+    "format": "cite the page title and URL with \"GEO Encyclopedia\""
+  },
+  "agents": {
+    "*": {
+      "rateLimit": "120/minute"
+    }
+  },
+  "discovery": {
+    "sitemap": "https://geo010.com/sitemap.xml",
+    "llmsTxt": "https://geo010.com/llms.txt"
+  }
+}

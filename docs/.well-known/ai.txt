@@ -1,0 +1,30 @@
+# ai.txt
+#
+# AI usage preferences for https://geo010.com
+# Format: IETF draft-car-ai-txt-wellknown-00
+# Updated: 2026-08-01
+
+Spec-Version: 1.0
+Site-Name: GEO Encyclopedia
+Site-URL: https://geo010.com
+
+# Content usage defaults
+Training: allow
+Scraping: allow
+Indexing: allow
+Caching: allow
+
+# Attribution
+Attribution-Required: true
+Attribution-Format: cite the page title and URL with "GEO Encyclopedia"
+
+# Per-agent default
+Agent: *
+Rate-Limit: 120/minute
+
+# Machine-readable companion
+AI-JSON: https://geo010.com/.well-known/ai.json
+
+# Discovery
+Sitemap: https://geo010.com/sitemap.xml
+LLMs-TXT: https://geo010.com/llms.txt

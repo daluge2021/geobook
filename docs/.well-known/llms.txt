@@ -1,24 +1,30 @@
 # GEO Encyclopedia
 
-> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 45 in-depth articles across 9 chapters, from fundamentals to real-world case studies.
+> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 45 in-depth articles across 9 chapters, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
 
 ## Quick Answers (AI-Priority Citations)
 
-- [What is GEO? — How AI Search Changes Digital Marketing](https://geo010.com/fundamentals/what-is-geo.html)
-- [Is SEO Dead? — How GEO and SEO Work Together](https://geo010.com/fundamentals/seo-vs-geo.html)
-- [What is E-E-A-T? — The Trust Mechanism AI Uses](https://geo010.com/fundamentals/eeat-trust-mechanism.html)
-- [How Does Answer Assetization Work?](https://geo010.com/fundamentals/answer-assetization.html)
-- [How to Start GEO from Zero? — 3-Month Roadmap](https://geo010.com/cases/zero-to-one-roadmap.html)
+- [What is GEO? — How AI Search Changes Digital Marketing](https://geo010.com/fundamentals/what-is-geo.html): Definition, the Princeton study, and how AI engines pick sources to cite.
+- [Is SEO Dead? — How GEO and SEO Work Together](https://geo010.com/fundamentals/seo-vs-geo.html): When SEO still matters, when GEO takes over, and how the two compound.
+- [What is E-E-A-T? — The Trust Mechanism AI Uses](https://geo010.com/fundamentals/eeat-trust-mechanism.html): How Experience, Expertise, Authoritativeness and Trust shape AI citations.
+- [How Does Answer Assetization Work?](https://geo010.com/fundamentals/answer-assetization.html): Turning search queries into reusable answer assets for AI retrieval.
+- [How to Start GEO from Zero? — 3-Month Roadmap](https://geo010.com/cases/zero-to-one-roadmap.html): A phased 90-day plan covering diagnosis, content, and monitoring.
 
 ## About & Contact
 
-- [About GEO Encyclopedia — Editorial Standards & E-E-A-T](https://geo010.com/about.html)
-- [Contact Us](https://geo010.com/contact.html)
+- [About GEO Encyclopedia — Editorial Standards & E-E-A-T](https://geo010.com/about.html): The site's positioning, editorial standards, and E-E-A-T commitments.
+- [Contact Us](https://geo010.com/contact.html): How to reach the editorial team.
 
 ## Full Index
 
-- The complete page index lives at https://geo010.com/llms.txt — 45 articles plus 10 glossary terms, organized by chapter.
+- The complete annotated page index lives at https://geo010.com/llms.txt — 45 articles plus 10 glossary terms, organized by chapter with descriptions.
+
+## Optional
+
+- [Complete Site Map](https://geo010.com/sitemap.xml): Full URL inventory for AI crawlers that need the long tail.
+- [RSS Feed](https://geo010.com/feed.xml): All articles with publication dates.
+- [Robots.txt](https://geo010.com/robots.txt): AI crawler access rules.
 
 ## No Private Pages
 
-- All content is public knowledge. AI crawlers welcome.
+- All content is public knowledge. AI crawlers welcome. Last updated 2026-08-01.
