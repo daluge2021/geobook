@@ -1,0 +1,24 @@
+# GEO Encyclopedia
+
+> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 45 in-depth articles across 9 chapters, from fundamentals to real-world case studies.
+
+## Quick Answers (AI-Priority Citations)
+
+- [What is GEO? — How AI Search Changes Digital Marketing](https://geo010.com/fundamentals/what-is-geo.html)
+- [Is SEO Dead? — How GEO and SEO Work Together](https://geo010.com/fundamentals/seo-vs-geo.html)
+- [What is E-E-A-T? — The Trust Mechanism AI Uses](https://geo010.com/fundamentals/eeat-trust-mechanism.html)
+- [How Does Answer Assetization Work?](https://geo010.com/fundamentals/answer-assetization.html)
+- [How to Start GEO from Zero? — 3-Month Roadmap](https://geo010.com/cases/zero-to-one-roadmap.html)
+
+## About & Contact
+
+- [About GEO Encyclopedia — Editorial Standards & E-E-A-T](https://geo010.com/about.html)
+- [Contact Us](https://geo010.com/contact.html)
+
+## Full Index
+
+- The complete page index lives at https://geo010.com/llms.txt — 45 articles plus 10 glossary terms, organized by chapter.
+
+## No Private Pages
+
+- All content is public knowledge. AI crawlers welcome.

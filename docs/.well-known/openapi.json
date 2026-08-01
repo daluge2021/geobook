@@ -1,0 +1,46 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "GEO Encyclopedia Index API",
+    "description": "Serves the llms.txt index of GEO Encyclopedia so AI assistants can discover the full list of authoritative articles.",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://geo010.com"
+    }
+  ],
+  "paths": {
+    "/llms.txt": {
+      "get": {
+        "operationId": "getLlmsTxt",
+        "summary": "Get the full site index",
+        "description": "Returns the llms.txt index of all 45 articles and 10 glossary terms. AI should read this to find relevant pages, then fetch the linked HTML page for detailed content.",
+        "responses": {
+          "200": {
+            "description": "The llms.txt index in plain text",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/about.html": {
+      "get": {
+        "operationId": "getAbout",
+        "summary": "Get the about page",
+        "description": "Returns the About page describing GEO Encyclopedia editorial standards and E-E-A-T commitments.",
+        "responses": {
+          "200": {
+            "description": "The about page HTML"
+          }
+        }
+      }
+    }
+  }
+}
