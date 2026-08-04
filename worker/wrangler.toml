@@ -1,0 +1,11 @@
+name = "geo010-crawler-log"
+main = "index.js"
+compatibility_date = "2026-08-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "geo010-crawler-log"
+database_id = "a80440ae-3754-4ace-89b9-847aed8ed289"
+
+[observability]
+enabled = true

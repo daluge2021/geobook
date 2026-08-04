@@ -2,3 +2,7 @@
 server/
 nul
 site-cn/
+token.txt
+.wrangler/
+node_modules/
+

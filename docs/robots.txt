@@ -5,84 +5,104 @@
 User-agent: Googlebot
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 User-agent: Google-Extended
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 User-agent: Google-CloudVertexBot
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 # Bing
 User-agent: Bingbot
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 # AI Crawlers
 User-agent: GPTBot
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 User-agent: ChatGPT-User
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 User-agent: PerplexityBot
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 User-agent: Perplexity-User
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 User-agent: ClaudeBot
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 User-agent: Claude-SearchBot
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 User-agent: Claude-Web
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 User-agent: anthropic-ai
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 User-agent: CCBot
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 User-agent: Applebot
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 User-agent: Applebot-Extended
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 User-agent: Amazonbot
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 User-agent: Meta-ExternalAgent
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 User-agent: cohere-ai
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 # Default
 User-agent: *
 Allow: /
 Disallow: /private/
+Disallow: /stats.html
 
 Sitemap: https://geo010.com/sitemap.xml
