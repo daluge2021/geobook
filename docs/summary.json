@@ -1,0 +1,32 @@
+{
+  "name": "GEO Encyclopedia",
+  "description": "A complete English-language knowledge base on Generative Engine Optimization (GEO): 45 in-depth articles and 10 glossary terms across 9 chapters, covering how AI answer engines select, cite, and recommend brands.",
+  "url": "https://geo010.com",
+  "language": "en",
+  "updated": "2026-08-04",
+  "keywords": [
+    "GEO",
+    "Generative Engine Optimization",
+    "AI search",
+    "AI visibility",
+    "citation share",
+    "answer assetization",
+    "LLMs.txt",
+    "E-E-A-T",
+    "entity density"
+  ],
+  "chapters": [
+    { "number": "I", "title": "Fundamentals", "url": "https://geo010.com/fundamentals/what-is-geo.html", "articleCount": 5 },
+    { "number": "II", "title": "Metrics & Frameworks", "url": "https://geo010.com/metrics/citation-share.html", "articleCount": 3 },
+    { "number": "III", "title": "Models & Methods", "url": "https://geo010.com/models/3c-optimization-model.html", "articleCount": 3 },
+    { "number": "IV", "title": "Content Strategy", "url": "https://geo010.com/content/eeat-in-geo.html", "articleCount": 8 },
+    { "number": "V", "title": "Technical Implementation", "url": "https://geo010.com/technical/schema-markup-guide.html", "articleCount": 7 },
+    { "number": "VI", "title": "Brand Strategy", "url": "https://geo010.com/brand/brand-as-source.html", "articleCount": 6 },
+    { "number": "VII", "title": "Industry Applications", "url": "https://geo010.com/industry/healthcare-geo.html", "articleCount": 6 },
+    { "number": "VIII", "title": "Case Studies", "url": "https://geo010.com/cases/zero-to-one-roadmap.html", "articleCount": 4 },
+    { "number": "IX", "title": "Data & Formulas", "url": "https://geo010.com/data/core-metrics-system.html", "articleCount": 3 }
+  ],
+  "glossary": "https://geo010.com/glossary/geo.html",
+  "feed": "https://geo010.com/feed.xml",
+  "sitemap": "https://geo010.com/sitemap.xml"
+}

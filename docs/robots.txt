@@ -1,4 +1,4 @@
-# GEO知识全书 robots.txt
+# GEO Encyclopedia robots.txt
 # https://geo010.com
 
 # Google

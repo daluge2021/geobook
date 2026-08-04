@@ -268,17 +268,24 @@ async function fetchFile(path) {
 }
 
 const NOT_FOUND_HTML = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="UTF-8"><title>404 — GEO 知识全书</title>
+<html lang="en">
+<head><meta charset="UTF-8"><title>404 — GEO Encyclopedia</title>
 <style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;background:#f5f5f5;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;color:#222}div{text-align:center}p{color:#666;margin-top:8px}a{color:#0066cc}</style>
 </head>
-<body><div><h1>404</h1><p>页面不存在或已被移动。</p><a href="/">返回首页</a></div></body>
+<body><div><h1>404</h1><p>Page not found or has been moved.</p><a href="/">Back to Home</a></div></body>
 </html>`;
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const rawPath = url.pathname;
+
+    // Redirect www -> apex to avoid duplicate content (canonical host is geo010.com)
+    if (url.hostname === 'www.geo010.com') {
+      const target = new URL(request.url);
+      target.host = 'geo010.com';
+      return Response.redirect(target.toString(), 301);
+    }
 
     // Stats page — never logged, never cached
     if (rawPath === STATS_PATH) {

@@ -17,17 +17,17 @@
   <text x="600" y="180" font-family="Arial, sans-serif" font-size="72" fill="#4fc3f7" text-anchor="middle">📖</text>
   
   <!-- Title -->
-  <text x="600" y="280" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#ffffff" text-anchor="middle">GEO知识全书</text>
+  <text x="600" y="280" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#ffffff" text-anchor="middle">GEO Encyclopedia</text>
   
   <!-- Subtitle -->
   <text x="600" y="340" font-family="Arial, sans-serif" font-size="28" fill="#90caf9" text-anchor="middle">Generative Engine Optimization Encyclopedia</text>
   
   <!-- Description -->
-  <text x="600" y="420" font-family="Arial, sans-serif" font-size="24" fill="#b0bec5" text-anchor="middle">45篇深度文章 · 9大章节 · 100个知识树叶</text>
+  <text x="600" y="420" font-family="Arial, sans-serif" font-size="24" fill="#b0bec5" text-anchor="middle">45 In-Depth Articles · 9 Chapters</text>
   
   <!-- Badge -->
   <rect x="400" y="470" width="400" height="50" rx="25" fill="rgba(79,195,247,0.2)"/>
-  <text x="600" y="502" font-family="Arial, sans-serif" font-size="20" fill="#4fc3f7" text-anchor="middle">🤖 对AI爬虫开放 · 欢迎引用</text>
+  <text x="600" y="502" font-family="Arial, sans-serif" font-size="20" fill="#4fc3f7" text-anchor="middle">🤖 Open to AI Crawlers · Welcome to Cite</text>
   
   <!-- URL -->
   <text x="600" y="580" font-family="Arial, sans-serif" font-size="20" fill="#666" text-anchor="middle">geo010.com</text>

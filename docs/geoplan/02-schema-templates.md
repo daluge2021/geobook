@@ -79,7 +79,7 @@
   "description": "GEO的定义、核心机制、与SEO的关系完整解读。",
   "author": {
     "@type": "Person",
-    "name": "GEO知识全书",
+    "name": "GEO Encyclopedia",
     "url": "https://geo010.com"
   },
   "datePublished": "2026-01-15",
@@ -90,7 +90,7 @@
   },
   "publisher": {
     "@type": "Organization",
-    "name": "GEO知识全书",
+    "name": "GEO Encyclopedia",
     "url": "https://geo010.com"
   }
 }
@@ -134,7 +134,7 @@
   "alumniOf": "某某大学",
   "worksFor": {
     "@type": "Organization",
-    "name": "GEO知识全书",
+    "name": "GEO Encyclopedia",
     "url": "https://geo010.com"
   }
 }
@@ -159,8 +159,8 @@
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "GEO知识全书",
-  "alternateName": "GEO知识全书 - AI时代品牌增长指南",
+  "name": "GEO Encyclopedia",
+  "alternateName": "GEO Encyclopedia - AI时代品牌增长指南",
   "url": "https://geo010.com",
   "description": "45篇深度文章讲透Generative Engine Optimization，从入门到实战。",
   "inLanguage": "zh-CN",
@@ -222,7 +222,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "GEO知识全书",
+  "name": "GEO Encyclopedia",
   "url": "https://geo010.com",
   "logo": "https://geo010.com/logo.png",
   "description": "行业首个系统化梳理GEO知识体系的开源项目",
