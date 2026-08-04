@@ -6,11 +6,14 @@
 
 ```
 AI 爬虫 / 用户 → Cloudflare (geo010.com/*) → Worker → raw.githubusercontent.com (docs/ 文件)
-                       ↓
-                    D1 数据库 (crawler_logs)
-                       ↓
-              /stats.html 统计页 (服务端渲染，无 JS)
+                        ↓
+                     D1 数据库 (crawler_logs)
+                        ↓
+               /stats.html 统计页 (服务端渲染，无 JS)
 ```
+
+> **www 归一**：`www.geo010.com/*` 路由绑定同一 Worker，请求会 301 重定向到
+> `geo010.com`（含路径），避免 www/裸域重复内容。
 
 > **源站说明**：Cloudflare Workers 的 `fetch()` 无法覆盖 `Host` 头（运行时强制为
 > URL host），而 GitHub Pages 按 Host 头路由站点（`Host: geo010.com` → 200，其他
