@@ -5,12 +5,22 @@
 ## 架构
 
 ```
-AI 爬虫 / 用户 → Cloudflare (geo010.com/*) → Worker → GitHub Pages 源站
+AI 爬虫 / 用户 → Cloudflare (geo010.com/*) → Worker → raw.githubusercontent.com (docs/ 文件)
                        ↓
                     D1 数据库 (crawler_logs)
                        ↓
               /stats.html 统计页 (服务端渲染，无 JS)
 ```
+
+> **源站说明**：Cloudflare Workers 的 `fetch()` 无法覆盖 `Host` 头（运行时强制为
+> URL host），而 GitHub Pages 按 Host 头路由站点（`Host: geo010.com` → 200，其他
+> → 404）。Origin Rules 的 Host 头覆盖是 Enterprise 计划专属（Free 不可用）。
+> 因此 Worker 直连 `raw.githubusercontent.com`（不校验 Host 头，直接服务仓库
+> `docs/` 文件），并配合 Cloudflare 边缘缓存（`cf.cacheEverything`）缓解限流。
+> GitHub Pages 继续作为仓库内容与部署流程存在。
+>
+> **路径安全**：`sanitizePath()` 拒绝 `..`、`.` 及空段，防止路径穿越读取仓库
+> 内其他文件；无扩展名路径自动 fallback 到 `.html`（友好 URL）。
 
 ## 文件
 
@@ -41,6 +51,11 @@ npx wrangler deploy
 #  pattern: geo010.com/*
 #  pattern: www.geo010.com/*
 ```
+
+> **API 部署（本机 wrangler 不可用时的替代）**：ES module Worker 通过 API 上传时，
+> 代码 part 的 `Content-Type` 必须为 `application/javascript+module`（否则报
+> `Unexpected token 'export'`）；分离的 `POST .../versions` + 部署端点需要额外的
+> Deployment 权限，直接 `PUT .../workers/scripts/{name}`（上传即部署）最省权限。
 
 ## 环境变量
 

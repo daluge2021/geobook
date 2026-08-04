@@ -1,15 +1,22 @@
 /**
  * GEO Encyclopedia — AI Crawler Access Logger
  *
- * Sits in front of the GitHub Pages origin on geo010.com.
+ * Sits in front of the static content of geo010.com.
  * 1. Classifies each request by User-Agent (AI crawler vs. human).
  * 2. Writes one row per HTML page request into D1.
  * 3. Serves /stats.html (rendered server-side, no client JS).
- * 4. Forwards everything else to the GitHub Pages origin.
+ * 4. Forwards everything else to raw.githubusercontent.com (serves the docs/
+ *    files directly — this origin does not validate the Host header, unlike
+ *    GitHub Pages, whose custom-domain routing requires Host: geo010.com).
+ *
+ * Note: Cloudflare Workers fetch() cannot override the Host header, and the
+ * Host-header override via Origin Rules is an Enterprise-only feature, so a
+ * direct GitHub Pages origin was not possible on the Free plan.
  */
 
-const ORIGIN = 'https://daluge2021.github.io';
+const ORIGIN = 'https://raw.githubusercontent.com/daluge2021/geobook/main/docs';
 const STATS_PATH = '/stats.html';
+const CACHE_TTL = 300;
 
 const AI_CRAWLERS = [
   { name: 'GPTBot', re: /GPTBot/i },
@@ -43,7 +50,28 @@ const AI_CRAWLERS = [
   { name: 'FacebookBot', re: /facebookexternalhit|Facebot/i },
 ];
 
-const STATIC_EXT = /\.(ico|png|jpe?g|gif|svg|webp|css|js|json|xml|txt|woff2?|map)(\?.*)?$/i;
+const STATIC_EXT = /\.(ico|png|jpe?g|gif|svg|webp|css|js|json|xml|txt|woff2?|map|md)(\?.*)?$/i;
+
+const MIME = {
+  '.html': 'text/html; charset=utf-8',
+  '.htm': 'text/html; charset=utf-8',
+  '.xml': 'application/xml; charset=utf-8',
+  '.txt': 'text/plain; charset=utf-8',
+  '.md': 'text/plain; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.js': 'application/javascript; charset=utf-8',
+  '.json': 'application/json; charset=utf-8',
+  '.svg': 'image/svg+xml',
+  '.ico': 'image/x-icon',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.gif': 'image/gif',
+  '.webp': 'image/webp',
+  '.woff': 'font/woff',
+  '.woff2': 'font/woff2',
+  '.pdf': 'application/pdf',
+};
 
 function classifyCrawler(ua) {
   if (!ua) return null;
@@ -197,57 +225,100 @@ async function handleStats(env) {
   });
 }
 
+/** Normalize a URL path, blocking traversal. Returns null if unsafe. */
+function sanitizePath(raw) {
+  let p;
+  try {
+    p = decodeURIComponent(raw);
+  } catch (e) {
+    return null;
+  }
+  if (p === '' || p === '/') return '/index.html';
+  const segs = p.split('/').filter((s) => s !== '');
+  for (const s of segs) {
+    if (s === '.' || s === '..') return null;
+  }
+  return '/' + segs.join('/');
+}
+
+function contentTypeFor(path) {
+  const idx = path.lastIndexOf('.');
+  if (idx === -1) return 'application/octet-stream';
+  return MIME[path.slice(idx).toLowerCase()] || 'application/octet-stream';
+}
+
+async function fetchFile(path) {
+  const url = ORIGIN + path;
+  const init = {
+    headers: { 'User-Agent': 'geo010-crawler-log/1.0 (geo010.com private stats)' },
+    cf: { cacheEverything: true, cacheTtl: CACHE_TTL, cacheKey: url },
+  };
+  let res = await fetch(url, init);
+  let served = path;
+  // Friendly URL fallback: /foo -> /foo.html
+  if (res.status === 404 && !path.includes('.')) {
+    const alt = ORIGIN + path + '.html';
+    res = await fetch(alt, {
+      ...init,
+      cf: { cacheEverything: true, cacheTtl: CACHE_TTL, cacheKey: alt },
+    });
+    if (res.status === 200) served = path + '.html';
+  }
+  return { res, served };
+}
+
+const NOT_FOUND_HTML = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><title>404 — GEO 知识全书</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;background:#f5f5f5;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;color:#222}div{text-align:center}p{color:#666;margin-top:8px}a{color:#0066cc}</style>
+</head>
+<body><div><h1>404</h1><p>页面不存在或已被移动。</p><a href="/">返回首页</a></div></body>
+</html>`;
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    const path = url.pathname;
+    const rawPath = url.pathname;
 
     // Stats page — never logged, never cached
-    if (path === STATS_PATH) {
+    if (rawPath === STATS_PATH) {
       return handleStats(env);
     }
 
-    // Forward everything to the origin first
-    const origUrl = new URL(url);
-    origUrl.host = new URL(ORIGIN).host;
-    origUrl.protocol = 'https:';
-
-    // GitHub Pages routes by Host header — keep the geo010.com host so the
-    // CNAME'd pages site resolves correctly on the shared github.io edge.
-    const headers = new Headers(request.headers);
-    headers.set('Host', 'geo010.com');
-
-    let status = 0;
-    try {
-      const upstream = await fetch(origUrl.toString(), {
-        method: request.method,
-        headers,
-        redirect: 'manual',
-      });
-      status = upstream.status;
-
-      // Record (HTML pages only)
-      const ua = request.headers.get('user-agent') || '';
-      const crawler = classifyCrawler(ua);
-      const isHtml = !STATIC_EXT.test(path);
-      if (isHtml) {
-        await logRequest(env, {
-          ts: new Date().toISOString().replace('T', 'T').slice(0, 19) + 'Z',
-          ua,
-          crawler,
-          path,
-          status,
-          isHtml,
-        });
-      }
-
-      return new Response(upstream.body, {
-        status: upstream.status,
-        headers: upstream.headers,
-      });
-    } catch (e) {
-      console.error('origin fetch failed:', e.message);
-      return new Response('Origin fetch failed', { status: 502 });
+    const clean = sanitizePath(rawPath);
+    if (!clean) {
+      return new Response('Bad request', { status: 400 });
     }
+
+    let { res, served } = await fetchFile(clean);
+    let status = res.status;
+    let body = res.body;
+
+    if (status === 404) {
+      body = NOT_FOUND_HTML;
+      status = 404;
+    }
+
+    // Record (HTML pages only)
+    const ua = request.headers.get('user-agent') || '';
+    const crawler = classifyCrawler(ua);
+    const isHtml = !STATIC_EXT.test(rawPath);
+    if (isHtml) {
+      await logRequest(env, {
+        ts: new Date().toISOString().slice(0, 19) + 'Z',
+        ua,
+        crawler,
+        path: rawPath,
+        status,
+        isHtml,
+      });
+    }
+
+    const headers = new Headers(res.headers);
+    headers.set('Content-Type', status === 404 ? 'text/html; charset=utf-8' : contentTypeFor(served));
+    headers.set('Cache-Control', `public, max-age=${CACHE_TTL}`);
+    if (status === 404) headers.set('X-Robots-Tag', 'noindex, nofollow');
+
+    return new Response(body, { status, headers });
   },
 };
