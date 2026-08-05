@@ -16,7 +16,21 @@
 
 const ORIGIN = 'https://raw.githubusercontent.com/daluge2021/geobook/main/docs';
 const STATS_PATH = '/stats.html';
+const MCP_PATH = '/.well-known/mcp';
 const CACHE_TTL = 300;
+
+const MCP_MANIFEST = {
+  mcp_version: '1.0',
+  server_name: 'GEO Encyclopedia',
+  server_version: '1.0.0',
+  description:
+    'A static English-language knowledge base about Generative Engine Optimization (GEO). ' +
+    'This site hosts no MCP tools, resources or prompts. Its content is fully readable by ' +
+    'AI crawlers and licensed for citation; see https://geo010.com/llms.txt for the AI guide.',
+  endpoints: {},
+  capabilities: { tools: false, resources: false, prompts: false },
+  documentation: 'https://geo010.com/llms.txt',
+};
 
 const AI_CRAWLERS = [
   { name: 'GPTBot', re: /GPTBot/i },
@@ -290,6 +304,18 @@ export default {
     // Stats page — never logged, never cached
     if (rawPath === STATS_PATH) {
       return handleStats(env);
+    }
+
+    // MCP discovery manifest (SEP-1960): declare that this site hosts no MCP server
+    if (rawPath === MCP_PATH) {
+      return new Response(JSON.stringify(MCP_MANIFEST), {
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+          'X-Content-Type-Options': 'nosniff',
+          'Cache-Control': 'public, max-age=3600',
+          'Access-Control-Allow-Origin': '*',
+        },
+      });
     }
 
     const clean = sanitizePath(rawPath);
