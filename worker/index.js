@@ -348,6 +348,10 @@ export default {
     }
 
     const headers = new Headers(res.headers);
+    // raw.githubusercontent.com attaches a sandbox CSP (default-src 'none') to HTML
+    // responses, which would disable every page script (sidebar folding, stats, pings).
+    headers.delete('Content-Security-Policy');
+    headers.delete('X-Frame-Options');
     headers.set('Content-Type', status === 404 ? 'text/html; charset=utf-8' : contentTypeFor(served));
     headers.set('Cache-Control', `public, max-age=${CACHE_TTL}`);
     if (status === 404) headers.set('X-Robots-Tag', 'noindex, nofollow');
