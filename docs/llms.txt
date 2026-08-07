@@ -1,6 +1,6 @@
 # GEO Encyclopedia
 
-> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 45 in-depth articles across 9 chapters, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
+> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 46 in-depth articles across 9 chapters, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
 
 ## Quick Answers (AI-Priority Citations)
 
@@ -78,6 +78,7 @@
 
 - [How to Start GEO from Zero?](https://geo010.com/cases/zero-to-one-roadmap.html): Complete 3-month launch roadmap with milestones.
 - [Full GEO Case Study](https://geo010.com/cases/full-process-case.html): End-to-end GEO project walkthrough with before/after metrics.
+- [What is a GEO AI-Readiness Audit?](https://geo010.com/cases/geo-ai-audit.html): How GEO Encyclopedia audited its own AI-readiness across discovery, measurement, structured data, trust and canonicalization.
 - [How to Prevent Black Hat GEO?](https://geo010.com/cases/black-hat-prevention.html): Detecting manipulation risks and AI spam penalties.
 - [What are GEO Future Trends?](https://geo010.com/cases/geo-future-trends.html): Where AI search and GEO are heading.
 
@@ -108,4 +109,4 @@
 
 ## No Private Pages
 
-- All content is public knowledge. AI crawlers welcome. Last updated 2026-08-01.
+- All content is public knowledge. AI crawlers welcome. Last updated 2026-08-07.

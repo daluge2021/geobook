@@ -3,7 +3,7 @@
 <channel>
   <title>GEO Encyclopedia</title>
   <link>https://geo010.com</link>
-  <description>45 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
+  <description>46 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
   <language>en</language>
   <atom:link href="https://geo010.com/feed.xml" rel="self" type="application/rss+xml"/>
   <lastBuildDate>Tue, 04 Aug 2026 00:00:00 +0000</lastBuildDate>
@@ -286,6 +286,13 @@
     <guid>https://geo010.com/cases/full-process-case.html</guid>
     <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
     <description>A detailed case study of a brand's complete GEO journey from zero visibility to becoming an AI-cited authority in their niche.</description>
+  </item>
+  <item>
+    <title>GEO AI-Readiness Audit — A Knowledge Site's Own GEO Walkthrough</title>
+    <link>https://geo010.com/cases/geo-ai-audit.html</link>
+    <guid>https://geo010.com/cases/geo-ai-audit.html</guid>
+    <pubDate>Fri, 07 Aug 2026 00:00:00 +0000</pubDate>
+    <description>A real GEO case study: how GEO Encyclopedia audited its own AI-readiness — llms.txt, ai.txt, MCP discovery, AI crawler logging, structured data, E-E-A-T and canonicalization.</description>
   </item>
   <item>
     <title>Identifying and Preventing Black Hat GEO — Protecting Your Brand's Integrity</title>
