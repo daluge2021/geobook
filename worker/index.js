@@ -95,14 +95,42 @@ function classifyCrawler(ua) {
   return null;
 }
 
-async function logRequest(env, { ts, ua, crawler, path, status, isHtml }) {
+// Referral-source tracking. The DB schema predates the referer_host column, so we
+// migrate it lazily: PRAGMA tells us the columns once, then we ALTER if missing.
+let schemaChecked = false;
+async function ensureRefererColumn(env) {
+  if (schemaChecked) return;
+  try {
+    const { results } = await env.DB.prepare('PRAGMA table_info(crawler_logs)').all();
+    const cols = (results || []).map((r) => r.name);
+    if (!cols.includes('referer_host')) {
+      await env.DB.prepare('ALTER TABLE crawler_logs ADD COLUMN referer_host TEXT').run();
+    }
+  } catch (e) {
+    console.error('referer migration failed:', e.message);
+  }
+  schemaChecked = true;
+}
+
+/** Extract hostname from a Referer header, or null when absent/invalid/same-site. */
+function refererHost(raw) {
+  if (!raw) return null;
+  try {
+    const h = new URL(raw).hostname.toLowerCase();
+    return h === 'geo010.com' || h === 'www.geo010.com' ? null : h;
+  } catch (e) {
+    return null;
+  }
+}
+
+async function logRequest(env, { ts, ua, crawler, path, status, isHtml, refHost }) {
   if (!isHtml) return; // skip static assets entirely
   try {
     await env.DB.prepare(
-      `INSERT INTO crawler_logs (ts, date, ua, crawler_name, path, status, is_html)
-       VALUES (?, ?, ?, ?, ?, ?, ?)`
+      `INSERT INTO crawler_logs (ts, date, ua, crawler_name, path, status, is_html, referer_host)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
     )
-      .bind(ts, ts.slice(0, 10), ua, crawler, path, status, isHtml ? 1 : 0)
+      .bind(ts, ts.slice(0, 10), ua, crawler, path, status, isHtml ? 1 : 0, refHost || null)
       .run();
   } catch (e) {
     // logging must never break the site
@@ -111,7 +139,7 @@ async function logRequest(env, { ts, ua, crawler, path, status, isHtml }) {
 }
 
 function renderStatsPage(data) {
-  const { totals, byCrawler, byDate, byPath, recent } = data;
+  const { totals, byCrawler, byDate, byPath, byReferrer, recent } = data;
   const rows = (arr) =>
     arr
       .map(
@@ -160,6 +188,7 @@ a { color: #0066cc; }
         <div class="kpi"><div class="num">${totals.total}</div><div class="lbl">总请求</div></div>
         <div class="kpi"><div class="num">${totals.ai}</div><div class="lbl">AI 爬虫请求</div></div>
         <div class="kpi"><div class="num">${totals.aiPct}%</div><div class="lbl">AI 占比</div></div>
+        <div class="kpi"><div class="num">${totals.clicks}</div><div class="lbl">外部来源点击</div></div>
       </div>
 
       <h2>按爬虫统计</h2>
@@ -180,13 +209,19 @@ a { color: #0066cc; }
         ${rows(byPath)}
       </table></div>
 
+      <h2>外部来源点击 Top</h2>
+      <div class="card"><table>
+        <tr><th>来源域名</th><th>点击数</th></tr>
+        ${rows(byReferrer)}
+      </table></div>
+
       <h2>最近 20 条记录</h2>
       <div class="card"><table>
-        <tr><th>时间</th><th>爬虫</th><th>路径</th><th>状态</th></tr>
+        <tr><th>时间</th><th>爬虫</th><th>路径</th><th>状态</th><th>来源</th></tr>
         ${recent
           .map(
             (r) =>
-              `<tr><td>${r.ts}</td><td>${r.crawler_name || r.ua || '—'}</td><td>${r.path}</td><td>${r.status}</td></tr>`
+              `<tr><td>${r.ts}</td><td>${r.crawler_name || r.ua || '—'}</td><td>${r.path}</td><td>${r.status}</td><td>${r.referer_host || '—'}</td></tr>`
           )
           .join('')}
       </table></div>
@@ -200,10 +235,12 @@ a { color: #0066cc; }
 }
 
 async function handleStats(env) {
-  const [totals, byCrawler, byDate, byPath, recent] = await Promise.all([
+  await ensureRefererColumn(env);
+  const [totals, byCrawler, byDate, byPath, byReferrer, recent] = await Promise.all([
     env.DB.prepare(
       `SELECT COUNT(*) AS total,
-              SUM(CASE WHEN crawler_name IS NOT NULL THEN 1 ELSE 0 END) AS ai
+              SUM(CASE WHEN crawler_name IS NOT NULL THEN 1 ELSE 0 END) AS ai,
+              SUM(CASE WHEN referer_host IS NOT NULL THEN 1 ELSE 0 END) AS clicks
        FROM crawler_logs`
     ).first(),
     env.DB.prepare(
@@ -220,18 +257,25 @@ async function handleStats(env) {
        GROUP BY path ORDER BY n DESC LIMIT 30`
     ).all(),
     env.DB.prepare(
-      `SELECT ts, crawler_name, ua, path, status FROM crawler_logs
+      `SELECT referer_host AS label, COUNT(*) AS n FROM crawler_logs
+       WHERE referer_host IS NOT NULL AND referer_host != ''
+       GROUP BY referer_host ORDER BY n DESC LIMIT 30`
+    ).all(),
+    env.DB.prepare(
+      `SELECT ts, crawler_name, ua, path, status, referer_host FROM crawler_logs
        ORDER BY id DESC LIMIT 20`
     ).all(),
   ]);
 
   const total = totals?.total || 0;
   const ai = totals?.ai || 0;
+  const clicks = totals?.clicks || 0;
   const data = {
-    totals: { total, ai, aiPct: total ? Math.round((ai / total) * 100) : 0 },
+    totals: { total, ai, clicks, aiPct: total ? Math.round((ai / total) * 100) : 0 },
     byCrawler: byCrawler?.results || [],
     byDate: byDate?.results || [],
     byPath: byPath?.results || [],
+    byReferrer: byReferrer?.results || [],
     recent: recent?.results || [],
   };
   return new Response(renderStatsPage(data), {
@@ -337,6 +381,7 @@ export default {
     const crawler = classifyCrawler(ua);
     const isHtml = !STATIC_EXT.test(rawPath);
     if (isHtml) {
+      await ensureRefererColumn(env);
       await logRequest(env, {
         ts: new Date().toISOString().slice(0, 19) + 'Z',
         ua,
@@ -344,6 +389,7 @@ export default {
         path: rawPath,
         status,
         isHtml,
+        refHost: refererHost(request.headers.get('Referer')),
       });
     }
 
