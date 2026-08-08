@@ -2,7 +2,7 @@
 #
 # AI usage preferences for https://geo010.com
 # Format: IETF draft-car-ai-txt-wellknown-00
-# Updated: 2026-08-01
+# Updated: 2026-08-08
 
 Spec-Version: 1.0
 Site-Name: GEO Encyclopedia
