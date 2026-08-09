@@ -17,7 +17,20 @@
 const ORIGIN = 'https://raw.githubusercontent.com/daluge2021/geobook/main/docs';
 const STATS_PATH = '/stats.html';
 const MCP_PATH = '/.well-known/mcp';
+const COMMENTS_API_PATH = '/api/comments';
+const ADMIN_COMMENTS_PATH = '/admin/comments.html';
 const CACHE_TTL = 300;
+
+// Comment pages must look like a real site page (/foo.html or /section/foo.html),
+// never an API, admin, stats or well-known path.
+const COMMENT_PAGE_RE = /^\/([a-z0-9-]+\.html|[a-z0-9-]+\/[a-z0-9-]+\.html)$/i;
+const COMMENT_DENY = ['/stats.html', '/monitor.html', ADMIN_COMMENTS_PATH];
+function isCommentablePage(p) {
+  if (!COMMENT_PAGE_RE.test(p)) return false;
+  if (COMMENT_DENY.includes(p)) return false;
+  if (p.startsWith('/.well-known/') || p.startsWith('/api/') || p.startsWith('/admin/')) return false;
+  return true;
+}
 
 const MCP_MANIFEST = {
   mcp_version: '1.0',
@@ -121,6 +134,207 @@ function refererHost(raw) {
   } catch (e) {
     return null;
   }
+}
+
+// ---------- Comments (Community) ----------
+
+function json(obj, status = 200) {
+  return new Response(JSON.stringify(obj), {
+    status,
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Cache-Control': 'no-store',
+      'X-Content-Type-Options': 'nosniff',
+    },
+  });
+}
+
+function safeEq(a, b) {
+  if (typeof a !== 'string' || typeof b !== 'string' || a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
+}
+
+function escapeHtml(s) {
+  return String(s ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+let commentsChecked = false;
+async function ensureCommentsTable(env) {
+  if (commentsChecked) return;
+  try {
+    await env.DB.prepare(
+      `CREATE TABLE IF NOT EXISTS comments (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        page TEXT NOT NULL,
+        author TEXT NOT NULL,
+        email TEXT,
+        body TEXT NOT NULL,
+        status TEXT NOT NULL DEFAULT 'pending',
+        ts TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ', 'now')),
+        ip TEXT
+      )`
+    ).run();
+  } catch (e) {
+    console.error('comments table init failed:', e.message);
+  }
+  commentsChecked = true;
+}
+
+async function handleCommentPost(request, env) {
+  await ensureCommentsTable(env);
+  let data;
+  try {
+    data = await request.json();
+  } catch (e) {
+    return json({ error: 'Invalid JSON body.' }, 400);
+  }
+  const page = String(data.page || '').trim();
+  const author = String(data.author || '').trim();
+  const email = String(data.email || '').trim();
+  const body = String(data.body || '').trim();
+
+  if (!isCommentablePage(page)) return json({ error: 'Comments are only accepted on site pages.' }, 400);
+  if (!author || author.length > 40) return json({ error: 'Please enter a name (max 40 characters).' }, 400);
+  if (body.length < 2 || body.length > 1000) return json({ error: 'Message must be 2–1000 characters.' }, 400);
+  if (/<[a-z/!][^>]*>/i.test(body)) return json({ error: 'HTML is not allowed in comments.' }, 400);
+  if (email && (email.length > 80 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) {
+    return json({ error: 'Invalid email address.' }, 400);
+  }
+
+  const ip =
+    request.headers.get('CF-Connecting-IP') ||
+    (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() ||
+    'unknown';
+
+  const recent = await env.DB.prepare(
+    `SELECT COUNT(*) AS n FROM comments WHERE ip = ? AND ts > datetime('now', '-5 minutes')`
+  )
+    .bind(ip)
+    .first();
+  if ((recent?.n || 0) >= 1) {
+    return json({ error: 'Please wait a few minutes before posting again.' }, 429);
+  }
+
+  try {
+    await env.DB.prepare(
+      `INSERT INTO comments (page, author, email, body, status, ip) VALUES (?, ?, ?, ?, ?, ?)`
+    )
+      .bind(page, author, email || null, body, 'pending', ip)
+      .run();
+  } catch (e) {
+    console.error('comment insert failed:', e.message);
+    return json({ error: 'Could not save your comment.' }, 500);
+  }
+  return json({ ok: true, message: 'Thanks! Your comment is awaiting approval.' });
+}
+
+async function handleCommentsApi(request, env) {
+  if (request.method === 'POST') return handleCommentPost(request, env);
+  await ensureCommentsTable(env);
+  const url = new URL(request.url);
+  const params = url.searchParams;
+
+  const action = params.get('action');
+  if (action) return handleAdminAction(params, env);
+
+  const page = params.get('page') || '';
+  if (!page) return json({ error: 'Missing page.' }, 400);
+  const { results } = await env.DB.prepare(
+    `SELECT id, author, substr(ts, 1, 10) AS date, body
+     FROM comments WHERE page = ? AND status = 'approved'
+     ORDER BY id ASC`
+  )
+    .bind(page)
+    .all();
+  return json({ comments: results || [] });
+}
+
+async function handleAdminAction(params, env) {
+  const key = params.get('key') || '';
+  if (!env.COMMENTS_ADMIN_KEY || !safeEq(key, env.COMMENTS_ADMIN_KEY)) {
+    return json({ error: 'Forbidden.' }, 403);
+  }
+  const action = params.get('action');
+  const id = parseInt(params.get('id') || '', 10);
+  if (!id) return json({ error: 'Missing id.' }, 400);
+  if (action === 'approve') {
+    await env.DB.prepare(`UPDATE comments SET status = 'approved' WHERE id = ?`).bind(id).run();
+  } else if (action === 'delete') {
+    await env.DB.prepare(`UPDATE comments SET status = 'deleted' WHERE id = ?`).bind(id).run();
+  } else {
+    return json({ error: 'Unknown action.' }, 400);
+  }
+  return json({ ok: true });
+}
+
+async function handleAdminComments(request, env) {
+  await ensureCommentsTable(env);
+  const url = new URL(request.url);
+  const key = url.searchParams.get('key') || '';
+  if (!env.COMMENTS_ADMIN_KEY || !safeEq(key, env.COMMENTS_ADMIN_KEY)) {
+    return new Response('Forbidden', { status: 403 });
+  }
+  const [pending, recent] = await Promise.all([
+    env.DB.prepare(
+      `SELECT id, page, author, substr(ts,1,16) AS date, body FROM comments WHERE status = 'pending' ORDER BY id DESC`
+    ).all(),
+    env.DB.prepare(
+      `SELECT id, page, author, status, substr(ts,1,16) AS date FROM comments ORDER BY id DESC LIMIT 50`
+    ).all(),
+  ]);
+  const pendingRows = (pending?.results || [])
+    .map(
+      (r) =>
+        `<tr><td>${r.id}</td><td>${escapeHtml(r.page)}</td><td>${escapeHtml(r.author)}</td><td>${r.date}</td><td>${escapeHtml(r.body)}</td><td><a href="/api/comments?action=approve&amp;id=${r.id}&amp;key=${encodeURIComponent(key)}">Approve</a> · <a href="/api/comments?action=delete&amp;id=${r.id}&amp;key=${encodeURIComponent(key)}">Delete</a></td></tr>`
+    )
+    .join('') || '<tr><td colspan="6">No pending comments.</td></tr>';
+  const recentRows = (recent?.results || [])
+    .map(
+      (r) =>
+        `<tr><td>${r.id}</td><td>${escapeHtml(r.page)}</td><td>${escapeHtml(r.author)}</td><td>${escapeHtml(r.status)}</td><td>${r.date}</td></tr>`
+    )
+    .join('') || '<tr><td colspan="5">No comments yet.</td></tr>';
+
+  return new Response(
+    `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="robots" content="noindex, nofollow">
+<title>Comments Admin — GEO Encyclopedia</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; background: #f5f5f5; line-height: 1.7; color: #222; }
+.main { max-width: 1000px; margin: 0 auto; padding: 32px 20px; }
+h1 { font-size: 24px; margin-bottom: 8px; }
+h2 { font-size: 18px; margin: 28px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #4fc3f7; }
+table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; font-size: 14px; }
+th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #eee; vertical-align: top; }
+th { background: #1a1a2e; color: #fff; }
+tr.alt td { background: #f8f9fb; }
+a { color: #0066cc; }
+.sub { color: #666; font-size: 14px; margin-bottom: 20px; }
+</style>
+</head>
+<body>
+<div class="main">
+<h1>Comments Admin</h1>
+<p class="sub">geo010.com · moderation queue</p>
+<h2>Pending (${(pending?.results || []).length})</h2>
+<table><tr><th>ID</th><th>Page</th><th>Author</th><th>Date</th><th>Body</th><th>Action</th></tr>${pendingRows}</table>
+<h2>Recent 50</h2>
+<table><tr><th>ID</th><th>Page</th><th>Author</th><th>Status</th><th>Date</th></tr>${recentRows}</table>
+</div>
+</body>
+</html>`,
+    {
+      headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' },
+    }
+  );
 }
 
 async function logRequest(env, { ts, ua, crawler, path, status, isHtml, refHost }) {
@@ -360,6 +574,14 @@ export default {
           'Access-Control-Allow-Origin': '*',
         },
       });
+    }
+
+    // Community comments: public read + moderated write, plus a key-protected admin page
+    if (rawPath === COMMENTS_API_PATH || rawPath === COMMENTS_API_PATH + '/') {
+      return handleCommentsApi(request, env);
+    }
+    if (rawPath === ADMIN_COMMENTS_PATH) {
+      return handleAdminComments(request, env);
     }
 
     const clean = sanitizePath(rawPath);

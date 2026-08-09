@@ -315,6 +315,19 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- Community -->
+  <url>
+    <loc>https://geo010.com/community.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://geo010.com/community/what-is-json-ld.html</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Glossary -->
   <url>
     <loc>https://geo010.com/glossary/geo.html</loc>

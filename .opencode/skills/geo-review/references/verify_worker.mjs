@@ -2,14 +2,20 @@ import worker from 'file:///E:/D/GEOhtml/worker/index.js';
 
 const calls = [];
 const insertBinds = [];
+const commentBinds = [];
+let rateLimited = false;
 
 const DB_COLS = ['id', 'ts', 'date', 'ua', 'crawler_name', 'path', 'status', 'is_html', 'referer_host'];
 
 const env = {
+  COMMENTS_ADMIN_KEY: 'test-secret',
   DB: {
     prepare(sql) {
       if (/PRAGMA table_info/i.test(sql)) {
         return { all: async () => ({ results: DB_COLS.map((name) => ({ name })) }) };
+      }
+      if (/CREATE TABLE IF NOT EXISTS comments/i.test(sql)) {
+        return { run: async () => { calls.push('DB:comments-create'); } };
       }
       if (/INSERT INTO crawler_logs/i.test(sql)) {
         return {
@@ -17,6 +23,37 @@ const env = {
             run: async () => { insertBinds.push(args); calls.push('DB:insert'); },
           }),
         };
+      }
+      if (/INSERT INTO comments/i.test(sql)) {
+        return {
+          bind: (...args) => ({
+            run: async () => { commentBinds.push(args); calls.push('DB:comment-insert'); },
+          }),
+        };
+      }
+      if (/SELECT COUNT\(\*\) AS n FROM comments WHERE ip/i.test(sql)) {
+        return {
+          bind: (...args) => ({
+            first: async () => ({ n: rateLimited ? 1 : 0 }),
+          }),
+        };
+      }
+      if (/^UPDATE comments SET status/i.test(sql)) {
+        return {
+          bind: (...args) => ({
+            run: async () => { calls.push('DB:comment-update'); },
+          }),
+        };
+      }
+      if (/status = 'approved'/i.test(sql)) {
+        return {
+          bind: (...args) => ({
+            all: async () => ({ results: [{ id: 1, author: 'Alice', date: '2026-08-08', body: 'Great post!' }] }),
+          }),
+        };
+      }
+      if (/status = 'pending'/i.test(sql) || /ORDER BY id DESC LIMIT 50/i.test(sql)) {
+        return { all: async () => ({ results: [] }) };
       }
       // stats/aggregate queries
       return {
@@ -85,6 +122,68 @@ const statsBody = await (await worker.fetch(new Request('https://geo010.com/stat
 check('stats references external clicks', statsBody.includes('外部来源点击'));
 check('stats renders referrer table', statsBody.includes('来源域名'));
 check('stats renders referrer host data', statsBody.includes('chatgpt.com'));
+
+// ---- Comments API ----
+// 合法提交 → pending 入库
+commentBinds.length = 0;
+rateLimited = false;
+res = await worker.fetch(new Request('https://geo010.com/api/comments', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json', 'CF-Connecting-IP': '1.2.3.4' },
+  body: JSON.stringify({ page: '/community/what-is-json-ld.html', author: 'Bob', email: '', body: 'Clear explanation, thanks!' }),
+}), env);
+check('comment post accepted', res.status === 200, `got ${res.status}`);
+check('comment inserted with pending', commentBinds[0]?.[4] === 'pending', JSON.stringify(commentBinds[0]));
+check('comment page recorded', commentBinds[0]?.[0] === '/community/what-is-json-ld.html', commentBinds[0]?.[0]);
+
+// 非法 page → 400
+res = await worker.fetch(new Request('https://geo010.com/api/comments', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ page: '/stats.html', author: 'X', body: 'hi' }),
+}), env);
+check('comment rejected on stats page', res.status === 400);
+
+// HTML 注入 → 400
+res = await worker.fetch(new Request('https://geo010.com/api/comments', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ page: '/community.html', author: 'X', body: '<script>alert(1)</script>' }),
+}), env);
+check('comment HTML rejected', res.status === 400);
+
+// 频率限制 → 429
+rateLimited = true;
+res = await worker.fetch(new Request('https://geo010.com/api/comments', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json', 'CF-Connecting-IP': '1.2.3.4' },
+  body: JSON.stringify({ page: '/community.html', author: 'Bob', body: 'again' }),
+}), env);
+rateLimited = false;
+check('comment rate-limited', res.status === 429, `got ${res.status}`);
+
+// GET 仅返回 approved 评论
+res = await worker.fetch(new Request('https://geo010.com/api/comments?page=/community/what-is-json-ld.html'), env);
+const cl = await res.json();
+check('comments GET 200', res.status === 200);
+check('comments GET returns approved', cl.comments?.length === 1 && cl.comments[0].author === 'Alice');
+
+// 管理：无 key → 403
+res = await worker.fetch(new Request('https://geo010.com/api/comments?action=approve&id=1'), env);
+check('admin no key forbidden', res.status === 403);
+// 管理：错误 key → 403
+res = await worker.fetch(new Request('https://geo010.com/api/comments?action=approve&id=1&key=wrong'), env);
+check('admin wrong key forbidden', res.status === 403);
+// 管理：正确 key → ok
+res = await worker.fetch(new Request('https://geo010.com/api/comments?action=approve&id=1&key=test-secret'), env);
+check('admin approve ok', res.status === 200);
+// 管理页：无 key → 403
+res = await worker.fetch(new Request('https://geo010.com/admin/comments.html'), env);
+check('admin page no key forbidden', res.status === 403);
+// 管理页：正确 key → 200 且含队列
+res = await worker.fetch(new Request('https://geo010.com/admin/comments.html?key=test-secret'), env);
+const adminHtml = await res.text();
+check('admin page renders', res.status === 200 && adminHtml.includes('Comments Admin'));
 
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

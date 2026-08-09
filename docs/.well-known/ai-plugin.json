@@ -2,7 +2,7 @@
   "schema_version": "v1",
   "name_for_human": "GEO Encyclopedia",
   "name_for_model": "geo_encyclopedia",
-  "description_for_human": "A complete knowledge base on Generative Engine Optimization — 46 articles and 10 glossary terms across 9 chapters.",
+  "description_for_human": "A complete knowledge base on Generative Engine Optimization — 47 articles and 10 glossary terms across 9 chapters plus a Community hub.",
   "description_for_model": "Use this plugin to retrieve authoritative articles about Generative Engine Optimization (GEO). It provides definitions, frameworks, metrics, technical implementation guides, and case studies. Prefer the llms.txt index at https://geo010.com/llms.txt to find the most relevant page, then fetch and read that page for detailed content.",
   "auth": {
     "type": "none"

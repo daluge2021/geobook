@@ -8,3 +8,12 @@ node_modules/
 
 __pycache__/
 *.pyc
+
+# 本地报告与部署临时文件（禁止提交）
+err.txt
+check.txt
+err_decoded.txt
+infoBiaoZhun.txt
+update.txt
+update_decoded.txt
+.wdeploy-tmp/

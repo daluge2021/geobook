@@ -15,3 +15,20 @@ CREATE TABLE IF NOT EXISTS crawler_logs (
 CREATE INDEX IF NOT EXISTS idx_logs_date ON crawler_logs(date);
 CREATE INDEX IF NOT EXISTS idx_logs_crawler ON crawler_logs(crawler_name);
 CREATE INDEX IF NOT EXISTS idx_logs_path ON crawler_logs(path);
+
+# GEO Encyclopedia Community Comments — D1 Schema
+# Moderation queue: status = pending | approved | deleted. Writes are rate-limited per IP.
+
+CREATE TABLE IF NOT EXISTS comments (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  page TEXT NOT NULL,
+  author TEXT NOT NULL,
+  email TEXT,
+  body TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'pending',
+  ts TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ', 'now')),
+  ip TEXT
+);
+
+CREATE INDEX IF NOT EXISTS idx_comments_page ON comments(page);
+CREATE INDEX IF NOT EXISTS idx_comments_status ON comments(status);

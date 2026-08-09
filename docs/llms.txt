@@ -1,6 +1,6 @@
 # GEO Encyclopedia
 
-> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 46 in-depth articles across 9 chapters, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
+> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 47 in-depth articles across 9 chapters plus a Community hub, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
 
 ## Quick Answers (AI-Priority Citations)
 
@@ -87,6 +87,10 @@
 - [What are the Core GEO Metrics?](https://geo010.com/data/core-metrics-system.html): A unified metrics system for measuring GEO performance.
 - [How to Calculate GEO ROI?](https://geo010.com/data/roi-calculation.html): Formulas for valuing AI citations and referrals.
 - [How to Build a GEO Data Dashboard?](https://geo010.com/data/data-dashboard-setup.html): Setting up tracking infrastructure for GEO KPIs.
+
+## 💬 Community
+
+- [What is JSON-LD?](https://geo010.com/community/what-is-json-ld.html): Structured data format for GEO — the JSON-LD vs Microdata comparison and homepage schema breakdown.
 
 ## Glossary
 
