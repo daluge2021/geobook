@@ -91,6 +91,7 @@
 ## 💬 Community
 
 - [What is JSON-LD?](https://geo010.com/community/what-is-json-ld.html): Structured data format for GEO — the JSON-LD vs Microdata comparison and homepage schema breakdown.
+- [The GEO Content Template](https://geo010.com/community/geo-content-template.html): How we structure every article for AI citation — scenario opening, question H2s, answer-first blocks, comparison tables, FAQPage JSON-LD, and the pre-publish checklist.
 
 ## Glossary
 

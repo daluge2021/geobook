@@ -6,7 +6,7 @@
   <description>47 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
   <language>en</language>
   <atom:link href="https://geo010.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 09 Aug 2026 00:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 10 Aug 2026 00:00:00 +0000</lastBuildDate>
   <item>
     <title>What Exactly Is GEO? — The New Marketing Revolution of the AI Era</title>
     <link>https://geo010.com/fundamentals/what-is-geo.html</link>
@@ -356,6 +356,13 @@
     <guid>https://geo010.com/contact.html</guid>
     <pubDate>Fri, 31 Jul 2026 00:00:00 +0000</pubDate>
     <description>Contact the GEO Encyclopedia editorial team for corrections, feedback, or partnership inquiries.</description>
+  </item>
+  <item>
+    <title>The GEO Content Template — How We Structure Every Article So AI Cites Us</title>
+    <link>https://geo010.com/community/geo-content-template.html</link>
+    <guid>https://geo010.com/community/geo-content-template.html</guid>
+    <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+    <description>A GEO content template built from real pages on GEO Encyclopedia: scenario opening, question H2s, answer-first blocks, comparison tables, FAQPage JSON-LD, and the pre-publish checklist.</description>
   </item>
   <item>
     <title>What is JSON-LD? — Structured Data Explained for GEO</title>

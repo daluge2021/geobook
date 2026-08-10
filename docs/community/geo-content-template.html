@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1911889082930844" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The GEO Content Template — How We Structure Every Article So AI Cites Us - GEO Encyclopedia</title>
+<meta name="description" content="A GEO content template built from real pages on GEO Encyclopedia: scenario opening, question H2s, answer-first blocks, comparison tables, FAQPage JSON-LD, and the pre-publish checklist we run on all 47 articles.">
+<link rel="canonical" href="https://geo010.com/community/geo-content-template.html"/>
+<link rel="alternate" type="application/rss+xml" title="GEO Encyclopedia RSS" href="https://geo010.com/feed.xml">
+<meta property="og:title" content="The GEO Content Template — How We Structure Every Article So AI Cites Us - GEO Encyclopedia"/>
+<meta property="og:description" content="A GEO content template built from real pages on GEO Encyclopedia: scenario opening, question H2s, answer-first blocks, comparison tables, FAQPage JSON-LD, and the pre-publish checklist."/>
+<meta property="og:url" content="https://geo010.com/community/geo-content-template.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="https://geo010.com/og-image.png"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="GEO Encyclopedia"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="The GEO Content Template — How We Structure Every Article So AI Cites Us - GEO Encyclopedia"/>
+<meta name="twitter:description" content="A GEO content template built from real pages on GEO Encyclopedia: scenario opening, question H2s, answer-first blocks, comparison tables, FAQPage JSON-LD, and the pre-publish checklist."/>
+<meta name="twitter:image" content="https://geo010.com/og-image.png"/>
+<meta name="keywords" content="GEO content template,GEO article structure,question H2,answer asset,RAG retrieval,FAQPage JSON-LD,AI citation,Generative Engine Optimization,answer-first,E-E-A-T,content freshness">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
+  .layout { display: flex; min-height: 100vh; }
+  .sidebar { width: 240px; flex-shrink: 0; background: #1a1a2e; color: #ccc; padding: 32px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+  .sidebar h3 { color: #fff; font-size: 1em; padding: 0 20px; margin-bottom: 20px; }
+  .sidebar a { display: block; padding: 8px 20px; color: #999; text-decoration: none; font-size: 0.9em; transition: all 0.15s; }
+  .sidebar a:hover, .sidebar a.active { color: #fff; background: rgba(255,255,255,0.08); }
+  .sidebar a.active { border-left: 3px solid #4fc3f7; }
+  .sidebar .current { color: #aaa; padding: 8px 20px; font-size: 0.85em; }
+  .sidebar .home-link { margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 12px; font-weight: 500; color: #4fc3f7; }
+  .nav-group-toggle { padding: 8px 20px; color: #aaa; font-size: 0.85em; cursor: pointer; user-select: none; transition: color 0.15s; display: flex; align-items: center; gap: 6px; }
+  .nav-group-toggle:hover { color: #fff; background: rgba(255,255,255,0.05); }
+  .nav-group-links { display: none; }
+  .nav-group.open .nav-group-links { display: block; }
+  .nav-group.open > .nav-group-toggle .arrow { transform: rotate(90deg); }
+  .arrow { display: inline-block; transition: transform 0.2s; font-size: 0.8em; }
+  .glossary-section { margin-top: 12px; border-top: 1px solid #333; padding-top: 12px; }
+  .main { flex: 1; max-width: 800px; margin: 0 auto; padding: 48px 32px 80px; }
+  .content { background: #fff; border-radius: 12px; padding: 40px 48px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .content .breadcrumb { color: #888; font-size: 0.85em; margin-bottom: 16px; }
+  .article-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: #888; font-size: 0.88em; margin: 4px 0 16px; }
+  .article-meta a { color: #0066cc; text-decoration: none; }
+  .article-meta a:hover { text-decoration: underline; }
+  .content .breadcrumb a { color: #0066cc; text-decoration: none; }
+  .content .breadcrumb a:hover { text-decoration: underline; }
+  .content h1 { font-size: 1.5em; margin: 40px 0 12px; color: #1a1a2e; padding-top: 8px; }
+  .content h1:first-of-type { margin-top: 0; }
+  .content h2 { font-size: 1.4em; margin: 32px 0 16px; color: #1a1a2e; padding-bottom: 8px; border-bottom: 1px solid #f0f0f0; }
+  .content h3 { font-size: 1.15em; margin: 24px 0 12px; color: #333; }
+  .content p { margin-bottom: 16px; color: #333; }
+  .content p:last-child { margin-bottom: 0; }
+  .content strong { color: #111; }
+  .content blockquote { margin: 16px 0; padding: 16px 20px; background: #f8f9ff; border-left: 4px solid #4fc3f7; border-radius: 0 8px 8px 0; color: #555; font-style: normal; }
+  .content blockquote strong { color: #1a1a2e; }
+  .content hr { margin: 32px 0; border: none; border-top: 1px solid #e8e8e8; }
+  .content ul, .content ol { margin: 8px 0 16px 24px; }
+  .content li { margin-bottom: 6px; color: #333; }
+  .content table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.93em; }
+  .content th { background: #f0f2f5; padding: 10px 14px; text-align: left; font-weight: 600; color: #333; border: 1px solid #e0e0e0; }
+  .content td { padding: 8px 14px; border: 1px solid #e8e8e8; color: #444; }
+  .content tr:nth-child(even) td { background: #fafafa; }
+  .content code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: #e74c3c; }
+  .content pre { background: #1a1a2e; color: #e6e6e6; border-radius: 8px; padding: 16px 20px; overflow-x: auto; margin: 16px 0 24px; font-size: 0.85em; line-height: 1.6; }
+  .content pre code { background: none; color: inherit; padding: 0; font-size: 1em; }
+  .content img { max-width: 100%; border-radius: 8px; margin: 16px 0; }
+  .glossary-link { color: #0066cc; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+  .glossary-link:hover { color: #004499; text-decoration-style: solid; }
+  .nav-links { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; }
+  .nav-links a { color: #0066cc; text-decoration: none; font-size: 0.95em; }
+  .nav-links a:hover { text-decoration: underline; }
+  .comments { margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; }
+  .comments h2 { font-size: 1.3em; margin-bottom: 16px; }
+  .comment-item { background: #fafbfc; border: 1px solid #eee; border-radius: 8px; padding: 14px 18px; margin-bottom: 12px; }
+  .comment-item .c-meta { color: #666; font-size: 0.85em; margin-bottom: 4px; }
+  .comment-item .c-body { color: #333; font-size: 0.95em; white-space: pre-wrap; word-break: break-word; }
+  .comment-empty { color: #999; font-size: 0.9em; margin-bottom: 12px; }
+  #comment-form { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+  #comment-form input, #comment-form textarea { font-family: inherit; font-size: 0.95em; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; background: #fff; color: #333; }
+  #comment-form textarea { min-height: 90px; resize: vertical; }
+  #comment-form button { align-self: flex-start; background: #1a1a2e; color: #fff; border: none; border-radius: 6px; padding: 10px 22px; font-size: 0.95em; cursor: pointer; }
+  #comment-form button:hover { background: #2a2a44; }
+  .comment-msg { font-size: 0.9em; margin-top: 4px; }
+  .comment-msg.ok { color: #2e7d32; }
+  .comment-msg.err { color: #c62828; }
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 24px 16px; }
+    .content { padding: 24px 20px; border-radius: 8px; }
+    .content h1 { font-size: 1.3em; }
+    .content h2 { font-size: 1.2em; }
+    .nav-links { flex-direction: column; gap: 12px; }
+  }
+</style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The GEO Content Template — How We Structure Every Article So AI Cites Us",
+  "description": "A GEO content template built from real pages on GEO Encyclopedia: scenario opening, question H2s, answer-first blocks, comparison tables, FAQPage JSON-LD, and the pre-publish checklist we run on all 47 articles.",
+  "author": { "@type": "Organization", "name": "GEO Encyclopedia Editorial Team", "url": "https://geo010.com/about.html" },
+  "datePublished": "2026-08-10",
+  "dateModified": "2026-08-10",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/community/geo-content-template.html" },
+  "publisher": { "@type": "Organization", "name": "GEO Encyclopedia", "url": "https://geo010.com" },
+  "inLanguage": "en"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://geo010.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Community",
+      "item": "https://geo010.com/community.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "The GEO Content Template",
+      "item": "https://geo010.com/community/geo-content-template.html"
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I reuse this template for non-GEO content?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The skeleton — scenario opening, question H2s, answer-first paragraphs, comparison tables and FAQPage — works for any informational page. It matters most when you want your content retrieved and quoted by AI assistants, which is exactly what a GEO strategy optimizes for."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is JSON-LD mandatory in the template?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not strictly, but cheap wins are mandatory if you care about AI citations: at minimum an Article block with datePublished and dateModified in the head, plus a BreadcrumbList. FAQPage JSON-LD adds a chance of being quoted verbatim as an answer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do numbered H2s stop working?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Our earlier articles with numbered H2s still get crawled and cited; a definition block right after the H2 does the heavy lifting. Question H2s simply match how users actually ask, which makes RAG retrieval slightly easier. Both work — questions are the safer default."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I update dateModified?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every substantive edit. Keep datePublished as the creation date and set dateModified to the last real content change, and keep the sitemap lastmod in sync. Freshness is a trust signal for AI: an answer that says it was updated last month beats one that looks two years old."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h3>📖 GEO Encyclopedia</h3>
+    <a href="../index.html" class="home-link">🏠 Home</a>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> I. Fundamentals</div>
+      <div class="nav-group-links">
+        <a href="../fundamentals/what-is-geo.html">What is GEO?</a>
+        <a href="../fundamentals/seo-vs-geo.html">Is SEO Dead?</a>
+        <a href="../fundamentals/eeat-trust-mechanism.html">E-E-A-T Trust</a>
+        <a href="../fundamentals/llms-txt-guide.html">LLMs.txt Guide</a>
+        <a href="../fundamentals/answer-assetization.html">Answer Assetization</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> II. Metrics</div>
+      <div class="nav-group-links">
+        <a href="../metrics/citation-share.html">Citation Share</a>
+        <a href="../metrics/entity-density.html">Entity Density</a>
+        <a href="../metrics/sheep-framework.html">SHEEP Framework</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> III. Models</div>
+      <div class="nav-group-links">
+        <a href="../models/3c-optimization-model.html">3C Model</a>
+        <a href="../models/geo-evolution.html">GEO Evolution</a>
+        <a href="../models/source-authority.html">Source Authority</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IV. Content</div>
+      <div class="nav-group-links">
+        <a href="../content/eeat-in-geo.html">E-E-A-T in GEO</a>
+        <a href="../content/knowledge-entropy.html">Knowledge Entropy</a>
+        <a href="../content/backlinks-in-geo.html">Backlinks in GEO</a>
+        <a href="../content/topical-authority.html">Topical Authority</a>
+        <a href="../content/content-freshness.html">Content Freshness</a>
+        <a href="../content/multimodal-content.html">Multimodal Content</a>
+        <a href="../content/question-driven-strategy.html">Question-Driven Strategy</a>
+        <a href="../content/local-geo-longtail.html">Local GEO</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> V. Technical</div>
+      <div class="nav-group-links">
+        <a href="../technical/schema-markup-guide.html">Schema Markup</a>
+        <a href="../technical/llms-txt-advanced.html">LLMs.txt Advanced</a>
+        <a href="../technical/entity-knowledge-graph.html">Entity & Knowledge Graph</a>
+        <a href="../technical/ai-crawler-management.html">AI Crawler Management</a>
+        <a href="../technical/geo-monitoring-tools.html">Monitoring Tools</a>
+        <a href="../technical/agenticgeo-tools.html">AgenticGEO</a>
+        <a href="../technical/tech-stack-overview.html">Tech Stack Overview</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VI. Brand</div>
+      <div class="nav-group-links">
+        <a href="../brand/brand-as-source.html">Brand as Source</a>
+        <a href="../brand/eeat-brand-implementation.html">EEAT Brand</a>
+        <a href="../brand/crisis-pr-geo.html">Crisis PR</a>
+        <a href="../brand/multi-brand-geo.html">Multi-Brand</a>
+        <a href="../brand/ecommerce-geo.html">E-Commerce</a>
+        <a href="../brand/b2b-brand-geo.html">B2B Brand</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VII. Industry</div>
+      <div class="nav-group-links">
+        <a href="../industry/healthcare-geo.html">Healthcare</a>
+        <a href="../industry/finance-geo.html">Finance</a>
+        <a href="../industry/education-geo.html">Education</a>
+        <a href="../industry/legal-geo.html">Legal</a>
+        <a href="../industry/local-services-geo.html">Local Services</a>
+        <a href="../industry/manufacturing-geo.html">Manufacturing</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VIII. Cases</div>
+      <div class="nav-group-links">
+        <a href="../cases/zero-to-one-roadmap.html">Zero to One</a>
+        <a href="../cases/full-process-case.html">Full Case Study</a>
+        <a href="../cases/geo-ai-audit.html">AI-Readiness Audit</a>
+        <a href="../cases/black-hat-prevention.html">Black Hat Prevention</a>
+        <a href="../cases/geo-future-trends.html">Future Trends</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IX. Data</div>
+      <div class="nav-group-links">
+        <a href="../data/core-metrics-system.html">Core Metrics</a>
+        <a href="../data/roi-calculation.html">ROI Calculator</a>
+        <a href="../data/data-dashboard-setup.html">Data Dashboard</a>
+      </div>
+    </div>
+    <div class="nav-group open">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> 💬 Community</div>
+      <div class="nav-group-links">
+        <a href="../community.html">Community Home</a>
+        <a href="what-is-json-ld.html">What is JSON-LD?</a>
+        <a href="geo-content-template.html" class="active">GEO Content Template</a>
+      </div>
+    </div>
+    <div class="current glossary-section">📌 Glossary</div>
+    <a href="../glossary/geo.html">GEO</a>
+    <a href="../glossary/seo.html">SEO</a>
+    <a href="../glossary/rag.html">RAG</a>
+    <a href="../glossary/eeat.html">E-E-A-T</a>
+    <a href="../glossary/llms-txt.html">LLMs.txt</a>
+    <a href="../glossary/zero-click.html">Zero-Click Search</a>
+    <a href="../glossary/schema.html">Schema</a>
+    <a href="../glossary/answer-asset.html">Answer Assetization</a>
+    <a href="../glossary/ai-visibility.html">AI Visibility Index</a>
+    <a href="../glossary/ymyl.html">YMYL</a>
+  <div class="current glossary-section">📄 About</div>
+  <a href="../about.html">About &amp; Editorial Standards</a>
+  <a href="../contact.html">Contact</a>
+  </nav>
+  <div class="main">
+    <div class="content">
+      <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../community.html">Community</a> › The GEO Content Template</div>
+
+<div class="article-meta"><span>By <a href="../about.html">GEO Encyclopedia Editorial Team</a></span><span>·</span><span>Updated: 2026-08-10</span><span>·</span><span>Every example below is a live page on this site</span></div>
+
+<h1>The GEO Content Template — How We Structure Every Article So AI Cites Us</h1>
+
+<blockquote>Suppose you publish a well-researched article about Generative Engine Optimization (GEO). You promote it, wait a few weeks, then ask ChatGPT about the topic — and it quotes a competitor instead of you.</blockquote>
+<blockquote>That gap is what this template closes. We have written 47 articles on this site, watched what AI actually retrieves and quotes, and distilled it into one repeatable structure.</blockquote>
+<blockquote>Every example in this article is a real page on GEO Encyclopedia. Open it in a new tab and verify — then copy the skeleton, not just the advice.</blockquote>
+
+<hr>
+
+<h2>What Is a GEO Content Template?</h2>
+
+<blockquote><strong>A GEO content template is a repeatable page structure engineered for the way AI answer engines retrieve, extract, and cite content — not for how humans scan a blog post.</strong></blockquote>
+
+<p>Traditional article templates optimize for readability, headings and clicks. A GEO template optimizes for <a href="../glossary/rag.html" class="glossary-link">RAG</a> pipelines: the AI finds your page, pulls out a quote-sized fragment, and decides whether to name you as a source.</p>
+
+<p>On this site the template is used everywhere — every article in the nine chapters follows the same skeleton, and the newer ones refine it. It rests on three principles:</p>
+
+<ul>
+  <li><strong>Answer first.</strong> The conclusion of each section appears in its first sentence, not its last.</li>
+  <li><strong>Structure for extraction.</strong> Definitions sit in quote blocks, comparisons live in tables, questions carry their own H2s.</li>
+  <li><strong>Be machine-readable.</strong> JSON-LD, dates, canonical URLs and sources are first-class citizens, not afterthoughts.</li>
+</ul>
+
+<p>If a page does not do these three things, it can still rank in a search engine. It is far less likely to be <em>quoted</em> inside an AI answer.</p>
+
+<h2>Why Do Answer Engines Quote Some Pages and Skip Others?</h2>
+
+<p>AI answer engines work in three stages, and a page must pass all of them to earn a citation:</p>
+
+<ol>
+  <li><strong>Retrieve.</strong> The engine searches a corpus for fragments that match the user's question semantically.</li>
+  <li><strong>Extract.</strong> It cuts a candidate fragment out of your page — usually a heading plus the sentences right after it.</li>
+  <li><strong>Cite.</strong> It weighs trust signals and decides whether to name the source.</li>
+</ol>
+
+<p>The table below is the practical difference between a page that gets quoted and one that gets skipped.</p>
+
+<table><thead><tr><th>Stage</th><th>Quoted pages</th><th>Skipped pages</th></tr></thead><tbody>
+<tr><td><strong>Retrieve</strong></td><td>H2s match how users actually ask</td><td>H2s are noun phrases or numbers</td></tr>
+<tr><td><strong>Extract</strong></td><td>Answer sits in the first sentence after the H2</td><td>Answer is buried three paragraphs deep</td></tr>
+<tr><td><strong>Extract</strong></td><td>Key definition is a standalone quote block</td><td>Definition is inline, easy to cut mid-sentence</td></tr>
+<tr><td><strong>Cite</strong></td><td>Has author, dates, sources and structured data</td><td>No dates, no sources, no JSON-LD</td></tr>
+</tbody></table>
+
+<p>Notice how the middle two rows are about <strong>fragment shape</strong>, not writing quality. A brilliant essay with a vague structure is a poor retrieval target; a decent page with sharp structure is a great one.</p>
+
+<h2>What Does a Real GEO Page Look Like Here?</h2>
+
+<p>Open <a href="../metrics/citation-share.html">our Citation Share article</a> — it is one of the clearest implementations of the template. It opens with a scenario, not a greeting:</p>
+
+<pre><code>&lt;blockquote&gt;Suppose you're the marketing director of a CRM brand.
+You've already done some GEO optimization…&lt;/blockquote&gt;</code></pre>
+
+<p>The scenario makes a promise ("this is about a situation like yours"), then the article defines the metric with a standalone quote block:</p>
+
+<pre><code>&lt;blockquote&gt;&lt;strong&gt;Of all the AI responses on a given topic,
+the proportion of citations that come from your brand.&lt;/strong&gt;&lt;/blockquote&gt;</code></pre>
+
+<p>That quote block is exactly the shape a RAG pipeline loves: short, self-contained, and quotable without context. Every H2 in the article is followed by one of these definition blocks — the answer comes before the explanation.</p>
+
+<p>Two comparison tables do the same work for the <em>semantic coverage</em> section: <strong>Keyword Coverage vs Semantic Coverage</strong> is a table, not a paragraph. When AI needs a crisp contrast to quote, a table gives it one.</p>
+
+<h2>Why Did We Switch From Numbered H2s to Question H2s?</h2>
+
+<p>Our older articles use numbered H2s. Look at the actual headings of <a href="../fundamentals/what-is-geo.html">What is GEO?</a>:</p>
+
+<pre><code>I. From "Blue Links" to "AI Answers"
+II. Zero-Click Search: The Underlying Logic Behind GEO's Birth
+III. GEO's Core Mechanism: How to Get AI to "Name-Drop" You?</code></pre>
+
+<p>Our newest articles use question H2s. The headings of <a href="../community/what-is-json-ld.html">What is JSON-LD?</a>:</p>
+
+<pre><code>What is JSON-LD?
+Why Do AI Engines Care?
+Three Blocks on Our Homepage</code></pre>
+
+<p>The numbered headings are not wrong — those pages still get crawled and cited. But question H2s map directly onto how a user asks. A RAG query is a question; a heading that is already a question is the most direct match possible.</p>
+
+<table><thead><tr><th>H2 style</th><th>Older articles</th><th>Newer articles</th></tr></thead><tbody>
+<tr><td><strong>Format</strong></td><td>I. / II. / 1. / 2. + noun phrase</td><td>What / Why / How / Which question</td></tr>
+<tr><td><strong>Retrieval match</strong></td><td>Matches keywords and meaning</td><td>Matches the query shape directly</td></tr>
+<tr><td><strong>Extraction</strong></td><td>Works when answer is first</td><td>Works, plus fragment reads like an answer</td></tr>
+<tr><td><strong>Maintenance</strong></td><td>Renumbering on insert/delete</td><td>No numbering to maintain</td></tr>
+<tr><td><strong>Verdict</strong></td><td>Still effective</td><td>Safer default for new content</td></tr>
+</tbody></table>
+
+<p>We did not delete the old style or rewrite 40 pages — that would be churn, not progress. New articles simply start from questions.</p>
+
+<h2>How Do You Write an H2 That RAG Retrieves?</h2>
+
+<p>Start the heading with a question word, make it specific, and keep it under one line.</p>
+
+<ul>
+  <li><strong>What is…</strong> — for definitions and concepts.</li>
+  <li><strong>Why do / Why is…</strong> — for mechanisms and motivation.</li>
+  <li><strong>How do you…</strong> — for process and tactics.</li>
+  <li><strong>Which…</strong> — for comparisons and choices.</li>
+  <li><strong>Do I need / Does it…</strong> — for common dilemmas readers actually type.</li>
+</ul>
+
+<p>Then do the work before the H2 pays off: the first paragraph after it must answer the question in two or three sentences. The rest of the section elaborates. Our <a href="../content/question-driven-strategy.html">Question-Driven Strategy</a> article explains how to source those questions from real user intent rather than guessing.</p>
+
+<p>A practical test: if you delete everything after the second sentence of a section, does a reader still get a correct answer? If not, the answer is not first.</p>
+
+<h2>Which Structured Blocks Does the Template Use?</h2>
+
+<p>The template is built from a small set of HTML blocks, each chosen for a reason:</p>
+
+<table><thead><tr><th>Block</th><th>Job</th><th>Example on this site</th></tr></thead><tbody>
+<tr><td><strong>blockquote (scenario)</strong></td><td>Opens with a situation the reader is in</td><td>Citation Share opening</td></tr>
+<tr><td><strong>blockquote strong (definition)</strong></td><td>Answer in a self-contained quotable shape</td><td>Every section of Citation Share</td></tr>
+<tr><td><strong>table with th</strong></td><td>Contrasts and data AI can cite directly</td><td>JSON-LD vs Microdata vs RDFa</td></tr>
+<tr><td><strong>FAQ + FAQPage JSON-LD</strong></td><td>Q&amp;A pairs that can be quoted verbatim</td><td>What is JSON-LD? FAQ section</td></tr>
+<tr><td><strong>Article JSON-LD</strong></td><td>Author, publisher and dates for trust</td><td>Every article head</td></tr>
+<tr><td><strong>BreadcrumbList JSON-LD</strong></td><td>Tells crawlers where the page sits</td><td>Every article head</td></tr>
+</tbody></table>
+
+<p>Here is the FAQPage JSON-LD shape we use, copied and simplified from <a href="../community/what-is-json-ld.html">our JSON-LD article</a>:</p>
+
+<pre><code>{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is JSON-LD mandatory in the template?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not strictly, but dates and an Article block are cheap trust wins."
+      }
+    }
+  ]
+}</code></pre>
+
+<p>Three rules keep these blocks honest: the FAQ questions must match visible H2s on the page, the JSON-LD lives in the <code>&lt;head&gt;</code>, and the visible content must never contradict the structured data.</p>
+
+<h2>How Do We Handle Trust, Dates, and Sources?</h2>
+
+<p>Citations are a trust decision. Three signals decide most of it: where the claim comes from, who stands behind it, and how fresh it is.</p>
+
+<p><strong>Sources.</strong> Data and studies get a link, not a claim. Our <a href="../content/eeat-in-geo.html">E-E-A-T in GEO</a> article details how experience, expertise, authoritativeness and trust translate into citations; every figure on this site traces back to a named origin.</p>
+
+<p><strong>Entity consistency.</strong> The same organization name, logo and URLs appear across every page. A knowledge graph that sees one stable entity trusts you more than one that sees fragments.</p>
+
+<p><strong>Dates.</strong> <code>datePublished</code> is the creation day and never changes. <code>dateModified</code> updates on every substantive edit, and the <code>&lt;lastmod&gt;</code> in <a href="../sitemap.xml">sitemap.xml</a> stays in sync. Freshness is a quiet but real signal — AI prefers an answer that looks maintained.</p>
+
+<h2>What Does the Final Pre-Publish Checklist Look Like?</h2>
+
+<p>Before any article ships, it has to pass this list:</p>
+
+<ol>
+  <li>H1 is short, specific and under 100 characters.</li>
+  <li>H2s are questions (<code>What</code>, <code>Why</code>, <code>How</code>, <code>Which</code>) with the answer in the first paragraph.</li>
+  <li>Opening blockquote sets a scenario or stakes.</li>
+  <li>Key definitions are standalone <code>&lt;blockquote&gt;&lt;strong&gt;</code> blocks.</li>
+  <li>Comparisons are tables with header rows.</li>
+  <li>Article, BreadcrumbList and (where relevant) FAQPage JSON-LD are in the <code>&lt;head&gt;</code>.</li>
+  <li>Canonical URL and RSS alternate link are present; analytics script is untouched.</li>
+  <li><code>datePublished</code> is the creation date; <code>dateModified</code> and sitemap <code>&lt;lastmod&gt;</code> are today.</li>
+  <li>Sources are linked inline; internal links point to related chapters.</li>
+  <li>A one-line takeaway closes the article — the fragment AI likes to quote as "in short".</li>
+</ol>
+
+<p>If you are starting from scratch, this article itself follows the checklist. Read its headings again — they are the template.</p>
+
+<h2>FAQ</h2>
+
+<h3>Can I reuse this template for non-GEO content?</h3>
+<p>Yes. The skeleton — scenario opening, question H2s, answer-first paragraphs, comparison tables and FAQPage — works for any informational page. It matters most when you want your content retrieved and quoted by AI assistants, which is exactly what a <a href="../glossary/geo.html" class="glossary-link">GEO</a> strategy optimizes for.</p>
+
+<h3>Is JSON-LD mandatory in the template?</h3>
+<p>Not strictly, but cheap wins are mandatory if you care about AI citations: at minimum an <code>Article</code> block with <code>datePublished</code> and <code>dateModified</code> in the head, plus a <code>BreadcrumbList</code>. <code>FAQPage</code> JSON-LD adds a chance of being quoted verbatim as an answer.</p>
+
+<h3>Do numbered H2s stop working?</h3>
+<p>No. Our earlier articles with numbered H2s still get crawled and cited; a definition block right after the H2 does the heavy lifting. Question H2s simply match how users actually ask, which makes RAG retrieval slightly easier. Both work — questions are the safer default.</p>
+
+<h3>How often should I update dateModified?</h3>
+<p>Every substantive edit. Keep <code>datePublished</code> as the creation date and set <code>dateModified</code> to the last real content change, and keep the sitemap <code>&lt;lastmod&gt;</code> in sync. Freshness is a trust signal for AI: an answer that says it was updated last month beats one that looks two years old.</p>
+
+      <div class="nav-links">
+        <a href="../community.html">← Community</a>
+        <a href="what-is-json-ld.html">📖 What is JSON-LD?</a>
+        <a href="../content/question-driven-strategy.html">Question-Driven Strategy →</a>
+      </div>
+
+      <div class="comments" id="comments" data-page="/community/geo-content-template.html">
+        <h2>Discussion</h2>
+        <div id="comments-list"><p class="comment-empty">Loading comments…</p></div>
+        <form id="comment-form" autocomplete="off">
+          <input type="text" name="author" placeholder="Your name" maxlength="40" required>
+          <input type="email" name="email" placeholder="Email (optional, never displayed)" maxlength="80">
+          <textarea name="body" placeholder="Share your thoughts or ask a question…" maxlength="1000" required></textarea>
+          <button type="submit">Post comment</button>
+          <div class="comment-msg" id="comment-msg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3QR6VvmXkab0M8Cu",ck:"3QR6VvmXkab0M8Cu"})</script>
+
+
+<script>
+(function(){
+  var box = document.getElementById('comments');
+  if (!box) return;
+  var list = document.getElementById('comments-list');
+  var form = document.getElementById('comment-form');
+  var msg = document.getElementById('comment-msg');
+  function esc(s){ var d=document.createElement('div'); d.textContent=s||''; return d.innerHTML; }
+  function load(){
+    fetch('/api/comments?page=' + encodeURIComponent(box.getAttribute('data-page')))
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        var items = data.comments || [];
+        if (!items.length) { list.innerHTML = '<p class="comment-empty">No comments yet. Start the discussion below.</p>'; return; }
+        list.innerHTML = items.map(function(c){
+          return '<div class="comment-item"><div class="c-meta">' + esc(c.author) + ' · ' + esc(c.date) + '</div><div class="c-body">' + esc(c.body) + '</div></div>';
+        }).join('');
+      })
+      .catch(function(){ list.innerHTML = '<p class="comment-empty">Comments unavailable right now.</p>'; });
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    msg.className = 'comment-msg';
+    msg.textContent = '';
+    var body = form.body.value.trim();
+    if (body.length < 2) { msg.className = 'comment-msg err'; msg.textContent = 'Please write at least 2 characters.'; return; }
+    fetch('/api/comments', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ page: box.getAttribute('data-page'), author: form.author.value.trim(), email: form.email.value.trim(), body: body })
+    })
+    .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); })
+    .then(function(res){
+      if (res.ok) {
+        msg.className = 'comment-msg ok';
+        msg.textContent = res.j.message || 'Thanks! Your comment is awaiting approval.';
+        form.reset();
+        load();
+      } else {
+        msg.className = 'comment-msg err';
+        msg.textContent = (res.j && res.j.error) || 'Could not post your comment.';
+      }
+    })
+    .catch(function(){ msg.className = 'comment-msg err'; msg.textContent = 'Network error — please try again.'; });
+  });
+  load();
+})();
+</script>
+<script>
+document.querySelectorAll('.nav-group-toggle').forEach(function(toggle) {
+  toggle.addEventListener('click', function() {
+    this.parentElement.classList.toggle('open');
+  });
+});
+var active = document.querySelector('.sidebar a.active');
+if (active) {
+  var group = active.closest('.nav-group');
+  if (group) { group.classList.add('open'); }
+}
+</script>
+</body>
+</html>
