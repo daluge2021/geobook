@@ -53,6 +53,19 @@ curl -sk --resolve geo010.com:443:$IP -o /dev/null -w "mcp=%{http_code}\n" https
 - [ ] `what-is-geo.html` canonical 指向 `fundamentals/...` 完整版（避免重复页）
 - [ ] RSS 发现链接 `<link rel="alternate" .../feed.xml>` 位于 canonical 之后
 
+## 3. 内容更新时间同步（防回归）
+
+**历史问题**：全站 44+ 篇文章的 `dateModified` 与 `sitemap.xml` lastmod 曾长期停留在批量拆分日（07-28），07-29/07-31/08-04/08-05 历次内容优化均未回写 → 站点新鲜度信号失真（commit `f6695d1` 已批量修复）。之后每次新建或修改文章都要同步日期。
+
+- [ ] 修改/新增文章后：`dateModified` 更新为修改当天；`datePublished` 保持创建日不变
+- [ ] `sitemap.xml` 对应 `<lastmod>` 同步更新
+- [ ] 已提交的文件用格式校验脚本自动核对（会比对 git 最后修改日 / 工作区改动）：
+  ```bash
+  node .opencode/skills/geo-content-format/references/check_content_format.mjs docs/你改的文章.html
+  # 未提交改动时出现 FAIL "dateModified 已更新为本次修改日" = 改了正文但日期没回写；
+  # 已提交后出现 FAIL "dateModified 与 git 最后修改日一致" = 日期落后于真实修改日
+  ```
+
 ## 四、Worker 部署流程（防止 binding 丢失）
 
 1. 改 `worker/index.js`

@@ -61,6 +61,7 @@ node .opencode/skills/geo-content-format/references/check_content_format.mjs doc
 - [ ] 结尾一句话总结（AI 常引作 "in short"）
 - [ ] `.nav-links` 上篇/下篇
 - [ ] JSON-LD（Article + BreadcrumbList）在 `<head>`，含 datePublished/dateModified
+- [ ] `dateModified` 更新为本次修改日，`datePublished` 保持创建日；`sitemap.xml` 对应 `<lastmod>` 同步（脚本自动比对 git 最后修改日与工作区改动）
 - [ ] canonical + RSS alternate link 齐全；51.la 统计脚本在 body 尾部（R2，不删改）
 
 ## 4. 站内格式参考（最优实例）
@@ -82,5 +83,5 @@ node .opencode/skills/geo-content-format/references/check_content_format.mjs doc
 2. 逐节写：答案前置一句 → 展开（短段落/列表/表格）→ 定义块
 3. 补来源链接、结尾总结
 4. 跑第 1 节脚本 + 第 2 节人工清单
-5. 通过后同步索引：`index.html`、`llms.txt`、`sitemap.xml`、`feed.xml`、`summary.json`（必要时 `.well-known/`）
+5. 同步时间戳与索引：本文 `dateModified` 与 `sitemap.xml` 对应 `<lastmod>` 更新为当天（`datePublished` 保持创建日）；再同步 `index.html`、`llms.txt`、`sitemap.xml`、`feed.xml`、`summary.json`（必要时 `.well-known/`）
 6. 发布前再跑 `geo-review` 回归清单（R1/R2/51.la/无中文/品牌一致性）

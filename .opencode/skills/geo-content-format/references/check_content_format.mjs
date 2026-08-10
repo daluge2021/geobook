@@ -11,9 +11,77 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 
 const args = process.argv.slice(2);
 const roots = args.length ? args : ['docs'];
+
+const gitModCache = new Map();
+function gitLastMod(file) {
+  if (gitModCache.has(file)) return gitModCache.get(file);
+  let date = null;
+  try {
+    const out = execFileSync(
+      'git', ['log', '-1', '--date=short', '--format=%ad', '--', file],
+      { encoding: 'utf8' }
+    ).trim();
+    date = out || null;
+  } catch {
+    date = null;
+  }
+  gitModCache.set(file, date);
+  return date;
+}
+
+// 最后一次提交是否只回写了 dateModified（未改正文）→ 视为已同步。
+// 兼容多行与单行压缩 JSON-LD：成对比较 -/+ 行，去掉 dateModified 值后其余相同即视为纯日期回写。
+function pureDateRewrite(removed, added) {
+  if (!removed.length || removed.length !== added.length) return false;
+  const norm = (s) => s.replace(/"dateModified"\s*:\s*"[^"]*"/g, '"dateModified":""');
+  return removed.every((s, i) => norm(s) === norm(added[i]));
+}
+
+const gitShowCache = new Map();
+function isPureDateRewrite(file) {
+  if (gitShowCache.has(file)) return gitShowCache.get(file);
+  let pure = false;
+  try {
+    const diff = execFileSync('git', ['show', '-U0', '--format=', '--', file], { encoding: 'utf8' });
+    const removed = [];
+    const added = [];
+    for (const l of diff.split('\n')) {
+      if (l.startsWith('-') && !l.startsWith('--')) removed.push(l.slice(1));
+      else if (l.startsWith('+') && !l.startsWith('++')) added.push(l.slice(1));
+    }
+    pure = pureDateRewrite(removed, added);
+  } catch {
+    pure = false;
+  }
+  gitShowCache.set(file, pure);
+  return pure;
+}
+
+// 工作区相对 HEAD 的改动（含未提交/已暂存），用于抓「改了正文但没更新日期」
+function gitDiffHead(file) {
+  try {
+    const diff = execFileSync('git', ['diff', 'HEAD', '-U0', '--', file], { encoding: 'utf8' });
+    const removed = [];
+    const added = [];
+    for (const l of diff.split('\n')) {
+      if (l.startsWith('-') && !l.startsWith('--')) removed.push(l.slice(1));
+      else if (l.startsWith('+') && !l.startsWith('++')) added.push(l.slice(1));
+    }
+    return { removed, added };
+  } catch {
+    return null;
+  }
+}
+
+function todayLocal() {
+  const d = new Date();
+  const p = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+}
 
 // 已知例外（有意跳过，勿当质量问题）：
 // - monitor.html / stats.html：隐私统计页，故意无 JSON-LD 与 51.la 脚本（三重保护）
@@ -106,6 +174,30 @@ function check(file) {
     // 术语页（/glossary/）可无面包屑，降为提示项
     add(head.includes('BreadcrumbList'), '文章页含 BreadcrumbList JSON-LD', '', /\/glossary\//.test(rel));
     add(/datePublished/.test(head) && /dateModified/.test(head), 'Article 含 datePublished/dateModified');
+    // 更新时间同步：dateModified ≥ datePublished；已提交文件应与 git 最后修改日一致
+    const dp = (head.match(/"datePublished":\s*"(\d{4}-\d{2}-\d{2})"/) || [])[1];
+    const dm = (head.match(/"dateModified":\s*"(\d{4}-\d{2}-\d{2})"/) || [])[1];
+    if (dp && dm) {
+      add(dm >= dp, 'dateModified 不早于 datePublished', `${dp} → ${dm}`);
+      const git = gitLastMod(file);
+      if (git) {
+        const wd = gitDiffHead(file);
+        const hasWd = wd && (wd.removed.length > 0 || wd.added.length > 0);
+        if (hasWd && !pureDateRewrite(wd.removed, wd.added)) {
+          // 工作区有内容改动（未提交）：dateModified 应更新为本次修改日
+          const today = todayLocal();
+          add(dm === today, 'dateModified 已更新为本次修改日', `今天=${today} / 页面=${dm}`);
+        } else if (hasWd) {
+          add(true, 'dateModified 与修改日期一致', '（仅日期回写）');
+        } else {
+          // 工作区干净：比对 git 最后修改日，HEAD 提交若只是日期回写则视为同步
+          const sync = dm === git || isPureDateRewrite(file);
+          add(sync, 'dateModified 与 git 最后修改日一致', `git=${git} / 页面=${dm}${dm !== git && sync ? '（仅日期回写）' : ''}`);
+        }
+      } else {
+        add(true, 'dateModified 同步', '新文件未提交，跳过 git 对比', true);
+      }
+    }
   }
 
   // 51.la 统计（R2）
