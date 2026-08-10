@@ -1,4 +1,6 @@
 # GEO Encyclopedia AI Crawler Log — D1 Schema
+# 记录范围：全部 HTML 页面 + AI 爬虫访问的入口文件（llms/robots/sitemap/feed/.well-known）。
+# is_html=1 表示 HTML 页面，is_html=0 且 crawler_name 非空 表示 AI 入口文件访问。
 
 CREATE TABLE IF NOT EXISTS crawler_logs (
   id INTEGER PRIMARY KEY AUTOINCREMENT,

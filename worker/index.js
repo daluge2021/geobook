@@ -79,6 +79,21 @@ const AI_CRAWLERS = [
 
 const STATIC_EXT = /\.(ico|png|jpe?g|gif|svg|webp|css|js|json|xml|txt|woff2?|map|md)(\?.*)?$/i;
 
+// AI 爬虫进入站点的关键入口文件。静态扩展默认不记录，但这些路径是 GEO 的
+// 核心观测点（AI 是否读取 robots/llms/sitemap/feed/well-known），爬虫访问需单独记录。
+const AI_ENTRY_FILES = new Set([
+  '/llms.txt',
+  '/robots.txt',
+  '/sitemap.xml',
+  '/feed.xml',
+  '/summary.json',
+  '/.well-known/ai.txt',
+  '/.well-known/ai.json',
+  '/.well-known/llms.txt',
+  '/.well-known/ai-plugin.json',
+  '/.well-known/openapi.json',
+]);
+
 const MIME = {
   '.html': 'text/html; charset=utf-8',
   '.htm': 'text/html; charset=utf-8',
@@ -338,7 +353,6 @@ a { color: #0066cc; }
 }
 
 async function logRequest(env, { ts, ua, crawler, path, status, isHtml, refHost }) {
-  if (!isHtml) return; // skip static assets entirely
   try {
     await env.DB.prepare(
       `INSERT INTO crawler_logs (ts, date, ua, crawler_name, path, status, is_html, referer_host)
@@ -353,7 +367,7 @@ async function logRequest(env, { ts, ua, crawler, path, status, isHtml, refHost 
 }
 
 function renderStatsPage(data) {
-  const { totals, byCrawler, byDate, byPath, byReferrer, recent } = data;
+  const { totals, byCrawler, byDate, byPath, byReferrer, byEntry, recent } = data;
   const rows = (arr) =>
     arr
       .map(
@@ -423,6 +437,12 @@ a { color: #0066cc; }
         ${rows(byPath)}
       </table></div>
 
+      <h2>AI 入口文件访问（llms/robots/sitemap/feed/well-known）</h2>
+      <div class="card"><table>
+        <tr><th>路径</th><th>AI 爬虫访问数</th></tr>
+        ${rows(byEntry)}
+      </table></div>
+
       <h2>外部来源点击 Top</h2>
       <div class="card"><table>
         <tr><th>来源域名</th><th>点击数</th></tr>
@@ -450,7 +470,8 @@ a { color: #0066cc; }
 
 async function handleStats(env) {
   await ensureRefererColumn(env);
-  const [totals, byCrawler, byDate, byPath, byReferrer, recent] = await Promise.all([
+  const entryPlaceholders = [...AI_ENTRY_FILES].map(() => '?').join(',');
+  const [totals, byCrawler, byDate, byPath, byReferrer, byEntry, recent] = await Promise.all([
     env.DB.prepare(
       `SELECT COUNT(*) AS total,
               SUM(CASE WHEN crawler_name IS NOT NULL THEN 1 ELSE 0 END) AS ai,
@@ -476,6 +497,13 @@ async function handleStats(env) {
        GROUP BY referer_host ORDER BY n DESC LIMIT 30`
     ).all(),
     env.DB.prepare(
+      `SELECT path AS label, COUNT(*) AS n FROM crawler_logs
+       WHERE crawler_name IS NOT NULL AND path IN (${entryPlaceholders})
+       GROUP BY path ORDER BY n DESC LIMIT 30`
+    )
+      .bind(...AI_ENTRY_FILES)
+      .all(),
+    env.DB.prepare(
       `SELECT ts, crawler_name, ua, path, status, referer_host FROM crawler_logs
        ORDER BY id DESC LIMIT 20`
     ).all(),
@@ -490,6 +518,7 @@ async function handleStats(env) {
     byDate: byDate?.results || [],
     byPath: byPath?.results || [],
     byReferrer: byReferrer?.results || [],
+    byEntry: byEntry?.results || [],
     recent: recent?.results || [],
   };
   return new Response(renderStatsPage(data), {
@@ -566,6 +595,20 @@ export default {
 
     // MCP discovery manifest (SEP-1960): declare that this site hosts no MCP server
     if (rawPath === MCP_PATH) {
+      const ua = request.headers.get('user-agent') || '';
+      const crawler = classifyCrawler(ua);
+      if (crawler) {
+        await ensureRefererColumn(env);
+        await logRequest(env, {
+          ts: new Date().toISOString().slice(0, 19) + 'Z',
+          ua,
+          crawler,
+          path: rawPath,
+          status: 200,
+          isHtml: false,
+          refHost: refererHost(request.headers.get('Referer')),
+        });
+      }
       return new Response(JSON.stringify(MCP_MANIFEST), {
         headers: {
           'Content-Type': 'application/json; charset=utf-8',
@@ -598,11 +641,11 @@ export default {
       status = 404;
     }
 
-    // Record (HTML pages only)
+    // Record: HTML pages, plus AI-crawler hits on key entry files (llms/robots/sitemap/feed/well-known)
     const ua = request.headers.get('user-agent') || '';
     const crawler = classifyCrawler(ua);
     const isHtml = !STATIC_EXT.test(rawPath);
-    if (isHtml) {
+    if (isHtml || (crawler && AI_ENTRY_FILES.has(rawPath))) {
       await ensureRefererColumn(env);
       await logRequest(env, {
         ts: new Date().toISOString().slice(0, 19) + 'Z',

@@ -57,6 +57,10 @@ const env = {
       }
       // stats/aggregate queries
       return {
+        bind: () => ({
+          all: async () => ({ results: [{ label: 'chatgpt.com', n: 12 }] }),
+          first: async () => ({ total: 100, ai: 30, clicks: 9 }),
+        }),
         all: async () => ({ results: [{ label: 'chatgpt.com', n: 12 }] }),
         first: async () => ({ total: 100, ai: 30, clicks: 9 }),
       };
@@ -94,6 +98,46 @@ check('CSP stripped (R1!)', res.headers.get('Content-Security-Policy') === null,
   '→ 未删会被浏览器禁脚本，菜单无法展开');
 check('X-Frame-Options stripped', res.headers.get('X-Frame-Options') === null);
 
+// ---- AI 入口文件记录（llms/robots/sitemap/feed/well-known） ----
+insertBinds.length = 0;
+res = await worker.fetch(new Request('https://geo010.com/llms.txt', {
+  headers: { 'user-agent': 'GPTBot/1.0' },
+}), env);
+check('entry file served', res.status === 200);
+check('AI entry file recorded', insertBinds.length === 1, `got ${insertBinds.length}`);
+check('entry crawler stored', insertBinds[0]?.[3] === 'GPTBot', insertBinds[0]?.[3]);
+check('entry is_html=0', insertBinds[0]?.[6] === 0, String(insertBinds[0]?.[6]));
+
+// 非 AI 用户访问入口文件 → 不记录
+insertBinds.length = 0;
+res = await worker.fetch(new Request('https://geo010.com/robots.txt', {
+  headers: { 'user-agent': 'Mozilla/5.0' },
+}), env);
+check('human entry file not recorded', insertBinds.length === 0, `got ${insertBinds.length}`);
+
+// AI 访问 sitemap 也要记录
+insertBinds.length = 0;
+res = await worker.fetch(new Request('https://geo010.com/sitemap.xml', {
+  headers: { 'user-agent': 'Googlebot/2.1' },
+}), env);
+check('sitemap recorded for AI', insertBinds.length === 1, `got ${insertBinds.length}`);
+
+// 普通静态资源（AI 也访问但非入口文件）→ 仍不记录
+insertBinds.length = 0;
+res = await worker.fetch(new Request('https://geo010.com/favicon.svg', {
+  headers: { 'user-agent': 'GPTBot/1.0' },
+}), env);
+check('ordinary static asset not recorded', insertBinds.length === 0, `got ${insertBinds.length}`);
+
+// AI 访问 MCP manifest → 记录
+insertBinds.length = 0;
+res = await worker.fetch(new Request('https://geo010.com/.well-known/mcp', {
+  headers: { 'user-agent': 'ClaudeBot/1.0' },
+}), env);
+check('mcp AI hit recorded', insertBinds.length === 1, `got ${insertBinds.length}`);
+check('mcp recorded path', insertBinds[0]?.[4] === '/.well-known/mcp', insertBinds[0]?.[4]);
+check('mcp still 200 + json', res.status === 200 && (res.headers.get('Content-Type') || '').includes('application/json'));
+
 // Referrer tracking: 8 binds, 外部 host 被记录
 insertBinds.length = 0;
 await worker.fetch(new Request('https://geo010.com/index.html', {
@@ -122,6 +166,7 @@ const statsBody = await (await worker.fetch(new Request('https://geo010.com/stat
 check('stats references external clicks', statsBody.includes('外部来源点击'));
 check('stats renders referrer table', statsBody.includes('来源域名'));
 check('stats renders referrer host data', statsBody.includes('chatgpt.com'));
+check('stats renders AI entry files section', statsBody.includes('AI 入口文件访问'));
 
 // ---- Comments API ----
 // 合法提交 → pending 入库
