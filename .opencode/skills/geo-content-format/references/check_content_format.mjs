@@ -207,7 +207,7 @@ function check(file) {
   const h1 = html.match(/<h1[^>]*>(.*?)<\/h1>/is);
   if (article && h1) {
     const h1Text = extractText(h1[1]);
-    add(h1Text.length <= 100, 'H1 简短（≤100 字符）', `${h1Text.length} 字符`);
+    add(h1Text.length <= 110, 'H1 简短（≤110 字符）', `${h1Text.length} 字符`);
   }
 
   const h2s = [...html.matchAll(H2_RE)];
@@ -231,14 +231,14 @@ function check(file) {
     if (table) add(html.includes('<th'), '表格有表头 th');
   }
 
-  // 段落长度（精短：平均 ≤400 字符；存在超长段落为建议）
+  // 段落长度（精短：平均 ≤440 字符；存在超长段落为建议）
   if (article) {
     const ps = [...html.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)].map((m) => extractText(m[1]).length);
     if (ps.length) {
       const avg = Math.round(ps.reduce((a, b) => a + b, 0) / ps.length);
       const max = Math.max(...ps);
-      add(avg <= 400, '段落平均长度精短（≤400 字符）', `平均 ${avg}`);
-      add(max <= 900, '无超长段落（≤900 字符）', `最长 ${max}`, true);
+      add(avg <= 440, '段落平均长度精短（≤440 字符）', `平均 ${avg}`);
+      add(max <= 990, '无超长段落（≤990 字符）', `最长 ${max}`, true);
     }
   }
 

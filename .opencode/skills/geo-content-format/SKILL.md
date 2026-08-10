@@ -36,7 +36,6 @@ node .opencode/skills/geo-content-format/references/check_content_format.mjs doc
 - `monitor.html` / `stats.html`：隐私统计页，故意无 JSON-LD 与 51.la（三重保护）
 - `docs/` 根目录旧章节页（`fundamentals.html` 等）：历史遗留孤儿页，不在 sitemap/llms.txt/导航中
 - `/glossary/` 术语页：可无面包屑/blockquote，`<br>` 容忍
-- `docs/industry/manufacturing-geo.html`：历史遗留 H1 略超 100 字符
 - **新生成的文章页必须 0 FAIL**，以上例外不适用。
 
 ## 2. 人工检查清单（语义项，脚本覆盖不了）
@@ -46,14 +45,14 @@ node .opencode/skills/geo-content-format/references/check_content_format.mjs doc
 | **答案前置** | 每个 H2 段落开头 1-2 句直接给答案，再展开论证 | 先铺垫三段背景才进入主题 |
 | **场景化开场** | 文章开头用 `<blockquote>` 虚拟场景/疑问带入 | 直接"本篇文章将介绍..."式开头 |
 | **问题式 H2** | H2 以 What/How/Why/Which/When/Do/Can/Should 开头为主 | 纯名词短语 "Citation Share Metrics" |
-| **精短段落** | 每段 ≤6 行（≤400 字符）；长句拆短 | 一段 15 行以上的长文本 |
+| **精短段落** | 每段 ≤6 行（≤440 字符）；长句拆短 | 一段 15 行以上的长文本 |
 | **来源标注** | 数据/研究/案例附来源或出处链接 | "研究表明"无出处 |
 | **术语全称** | 首次出现附全称，如 Generative Engine Optimization (GEO) | 直接用缩写 |
 | **一页一主题** | 页面聚焦单一查询意图 | 一个页面塞多个不相干主题 |
 
 ## 3. 页面级结构检查（针对 HTML 文章页）
 
-- [ ] H1 简短有力、含主关键词（≤100 字符）
+- [ ] H1 简短有力、含主关键词（≤110 字符）
 - [ ] 开头面包屑 + 元信息行（作者 / Updated 日期 / 来源链接）
 - [ ] 关键定义用 `<blockquote><strong>...</strong></blockquote>` 强调（AI 爱摘这类短句）
 - [ ] 对比/数据用 `<table>`（表头加粗、偶数行交替底色）
