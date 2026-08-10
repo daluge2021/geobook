@@ -94,6 +94,42 @@ const AI_ENTRY_FILES = new Set([
   '/.well-known/openapi.json',
 ]);
 
+// 站点安全响应头。raw.githubusercontent.com 附带的沙箱 CSP
+// (default-src 'none'; sandbox) 会禁用页面全部脚本，必须删除；但删后要换成
+// 允许内联脚本/样式与 51.la 的自定义 CSP，避免整站无 CSP 防护（防 XSS）。
+// R1 约束：script-src 必须含 'unsafe-inline' 与 sdk.51.la，否则侧边栏折叠/
+// 51.la 统计/评论前端会被禁用。
+const CSP_HEADER = [
+  "default-src 'none'",
+  "script-src 'unsafe-inline' https://sdk.51.la",
+  "style-src 'unsafe-inline'",
+  "img-src 'self' data: https:",
+  "font-src 'self' data:",
+  "connect-src 'self' https:",
+  "frame-ancestors 'none'",
+  "base-uri 'none'",
+  "form-action 'self'",
+  "object-src 'none'",
+].join('; ');
+const SECURITY_HEADERS = {
+  'Content-Security-Policy': CSP_HEADER,
+  'X-Frame-Options': 'DENY',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=(), usb=()',
+  'Strict-Transport-Security': 'max-age=31536000',
+};
+
+/** 删除 raw 源的沙箱头，并应用站点自定义安全头。html=true 时附加 CSP。 */
+function applySecurityHeaders(headers, html = true) {
+  headers.delete('Content-Security-Policy');
+  headers.delete('X-Frame-Options');
+  if (html) headers.set('Content-Security-Policy', SECURITY_HEADERS['Content-Security-Policy']);
+  headers.set('X-Frame-Options', SECURITY_HEADERS['X-Frame-Options']);
+  headers.set('Referrer-Policy', SECURITY_HEADERS['Referrer-Policy']);
+  headers.set('Permissions-Policy', SECURITY_HEADERS['Permissions-Policy']);
+  headers.set('Strict-Transport-Security', SECURITY_HEADERS['Strict-Transport-Security']);
+}
+
 const MIME = {
   '.html': 'text/html; charset=utf-8',
   '.htm': 'text/html; charset=utf-8',
@@ -154,14 +190,13 @@ function refererHost(raw) {
 // ---------- Comments (Community) ----------
 
 function json(obj, status = 200) {
-  return new Response(JSON.stringify(obj), {
-    status,
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Cache-Control': 'no-store',
-      'X-Content-Type-Options': 'nosniff',
-    },
+  const headers = new Headers({
+    'Content-Type': 'application/json; charset=utf-8',
+    'Cache-Control': 'no-store',
+    'X-Content-Type-Options': 'nosniff',
   });
+  applySecurityHeaders(headers, false);
+  return new Response(JSON.stringify(obj), { status, headers });
 }
 
 function safeEq(a, b) {
@@ -293,7 +328,9 @@ async function handleAdminComments(request, env) {
   const url = new URL(request.url);
   const key = url.searchParams.get('key') || '';
   if (!env.COMMENTS_ADMIN_KEY || !safeEq(key, env.COMMENTS_ADMIN_KEY)) {
-    return new Response('Forbidden', { status: 403 });
+    const headers = new Headers({ 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' });
+    applySecurityHeaders(headers, false);
+    return new Response('Forbidden', { status: 403, headers });
   }
   const [pending, recent] = await Promise.all([
     env.DB.prepare(
@@ -347,7 +384,11 @@ a { color: #0066cc; }
 </body>
 </html>`,
     {
-      headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' },
+      headers: (() => {
+        const h = new Headers({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' });
+        applySecurityHeaders(h, true);
+        return h;
+      })(),
     }
   );
 }
@@ -522,7 +563,14 @@ async function handleStats(env) {
     recent: recent?.results || [],
   };
   return new Response(renderStatsPage(data), {
-    headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' },
+    headers: (() => {
+      const h = new Headers({
+        'Content-Type': 'text/html; charset=utf-8',
+        'Cache-Control': 'no-store',
+      });
+      applySecurityHeaders(h, true);
+      return h;
+    })(),
   });
 }
 
@@ -610,12 +658,16 @@ export default {
         });
       }
       return new Response(JSON.stringify(MCP_MANIFEST), {
-        headers: {
-          'Content-Type': 'application/json; charset=utf-8',
-          'X-Content-Type-Options': 'nosniff',
-          'Cache-Control': 'public, max-age=3600',
-          'Access-Control-Allow-Origin': '*',
-        },
+        headers: (() => {
+          const h = new Headers({
+            'Content-Type': 'application/json; charset=utf-8',
+            'X-Content-Type-Options': 'nosniff',
+            'Cache-Control': 'public, max-age=3600',
+            'Access-Control-Allow-Origin': '*',
+          });
+          applySecurityHeaders(h, false);
+          return h;
+        })(),
       });
     }
 
@@ -659,10 +711,7 @@ export default {
     }
 
     const headers = new Headers(res.headers);
-    // raw.githubusercontent.com attaches a sandbox CSP (default-src 'none') to HTML
-    // responses, which would disable every page script (sidebar folding, stats, pings).
-    headers.delete('Content-Security-Policy');
-    headers.delete('X-Frame-Options');
+    applySecurityHeaders(headers, true);
     headers.set('Content-Type', status === 404 ? 'text/html; charset=utf-8' : contentTypeFor(served));
     headers.set('Cache-Control', `public, max-age=${CACHE_TTL}`);
     if (status === 404) headers.set('X-Robots-Tag', 'noindex, nofollow');

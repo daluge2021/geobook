@@ -34,7 +34,7 @@ curl -sk --resolve geo010.com:443:$IP -o /dev/null -w "mcp=%{http_code}\n" https
 
 - [ ] `stats.html` = 200（≥300 立即查 bindings）
 - [ ] 首页 = 200；`.well-known/mcp` = 200（SEP-1960 manifest）且 `Content-Type: application/json`
-- [ ] 响应**没有** `Content-Security-Policy` 头（`curl -skI` 检查）
+- [ ] 响应**有**自定义 `Content-Security-Policy` 头（`curl -skI` 检查）：含 `sdk.51.la` 与 `'unsafe-inline'`，且**不含** `sandbox`；另有 `X-Frame-Options: DENY`、`Referrer-Policy`、`Permissions-Policy`
 - [ ] 统计页 `stats.html` 应能反映到 D1：改后查 `SELECT COUNT(*) FROM crawler_logs` 有新增
 
 ## 1. err.txt / 检查报告误报项（已修复或本就存在，勿重复修）

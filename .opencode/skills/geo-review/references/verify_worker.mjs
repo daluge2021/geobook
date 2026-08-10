@@ -81,6 +81,8 @@ check('mcp json content-type', (res.headers.get('Content-Type') || '').includes(
 check('mcp nosniff', res.headers.get('X-Content-Type-Options') === 'nosniff');
 check('mcp CORS', res.headers.get('Access-Control-Allow-Origin') === '*');
 check('mcp cache 3600', (res.headers.get('Cache-Control') || '').includes('3600'));
+check('mcp no CSP on json', res.headers.get('Content-Security-Policy') === null);
+check('mcp X-Frame-Options DENY', res.headers.get('X-Frame-Options') === 'DENY');
 const m = JSON.parse(body);
 check('mcp server_name', m.server_name === 'GEO Encyclopedia');
 
@@ -88,15 +90,21 @@ res = await worker.fetch(new Request('https://www.geo010.com/x.html'), env);
 check('www 301 apex', res.status === 301);
 check('location strip www', res.headers.get('Location') === 'https://geo010.com/x.html');
 
-// CSP 沙箱头必须被删除（否则侧边栏脚本被禁用）
+// CSP 沙箱头必须被删除并换成站点自定义 CSP（否则侧边栏脚本被禁用）
 globalThis.fetch = async (url) => new Response('<html></html>', {
   status: 200,
   headers: { 'Content-Security-Policy': 'default-src \'none\'; sandbox', 'X-Frame-Options': 'deny' },
 });
 res = await worker.fetch(new Request('https://geo010.com/index.html', { headers: { 'user-agent': 'x' } }), env);
-check('CSP stripped (R1!)', res.headers.get('Content-Security-Policy') === null,
-  '→ 未删会被浏览器禁脚本，菜单无法展开');
-check('X-Frame-Options stripped', res.headers.get('X-Frame-Options') === null);
+const csp = res.headers.get('Content-Security-Policy') || '';
+check('custom CSP applied (R1!)', csp.includes("default-src 'none'") && !csp.includes('sandbox'),
+  '→ 沙箱 CSP 未替换，页面脚本会被禁用');
+check('CSP allows 51.la', csp.includes('https://sdk.51.la'), '→ 51.la 统计会被禁');
+check('CSP allows inline script', csp.includes("'unsafe-inline'"), '→ 侧边栏脚本会被禁');
+check('X-Frame-Options DENY', res.headers.get('X-Frame-Options') === 'DENY');
+check('Referrer-Policy set', res.headers.get('Referrer-Policy') === 'strict-origin-when-cross-origin');
+check('Permissions-Policy set', (res.headers.get('Permissions-Policy') || '').includes('geolocation=()'));
+check('HSTS set', (res.headers.get('Strict-Transport-Security') || '').includes('max-age'));
 
 // ---- AI 入口文件记录（llms/robots/sitemap/feed/well-known） ----
 insertBinds.length = 0;
@@ -162,8 +170,11 @@ await worker.fetch(new Request('https://geo010.com/index.html', {
 check('missing referer is null', insertBinds[0]?.[7] === null);
 
 // stats 页含来源统计区块
-const statsBody = await (await worker.fetch(new Request('https://geo010.com/stats.html'), env)).text();
+const statsRes = await worker.fetch(new Request('https://geo010.com/stats.html'), env);
+const statsBody = await statsRes.text();
 check('stats references external clicks', statsBody.includes('外部来源点击'));
+check('stats has CSP', (statsRes.headers.get('Content-Security-Policy') || '').includes('sdk.51.la'));
+check('stats X-Frame-Options DENY', statsRes.headers.get('X-Frame-Options') === 'DENY');
 check('stats renders referrer table', statsBody.includes('来源域名'));
 check('stats renders referrer host data', statsBody.includes('chatgpt.com'));
 check('stats renders AI entry files section', statsBody.includes('AI 入口文件访问'));
@@ -225,10 +236,13 @@ check('admin approve ok', res.status === 200);
 // 管理页：无 key → 403
 res = await worker.fetch(new Request('https://geo010.com/admin/comments.html'), env);
 check('admin page no key forbidden', res.status === 403);
+check('admin 403 X-Frame-Options DENY', res.headers.get('X-Frame-Options') === 'DENY');
 // 管理页：正确 key → 200 且含队列
 res = await worker.fetch(new Request('https://geo010.com/admin/comments.html?key=test-secret'), env);
 const adminHtml = await res.text();
 check('admin page renders', res.status === 200 && adminHtml.includes('Comments Admin'));
+check('admin page has CSP', (res.headers.get('Content-Security-Policy') || '').includes('sdk.51.la'));
+check('admin page X-Frame-Options DENY', res.headers.get('X-Frame-Options') === 'DENY');
 
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
