@@ -1,0 +1,20 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "GEO Encyclopedia Knowledge Base",
+  "serviceType": ["Knowledge Base", "Digital Publication", "GEO Education"],
+  "url": "https://geo010.com",
+  "description": "An open, English-language knowledge base on Generative Engine Optimization: 47 in-depth articles across 9 chapters, 10 glossary terms, and a Community hub, covering how AI answer engines select, cite, and recommend brands.",
+  "areaServed": "Worldwide",
+  "availableLanguage": "en",
+  "provider": {
+    "@type": "Organization",
+    "name": "GEO Encyclopedia",
+    "url": "https://geo010.com",
+    "logo": { "@type": "ImageObject", "url": "https://geo010.com/favicon.svg" },
+    "email": "my360930109@gmail.com",
+    "contactPoint": { "@type": "ContactPoint", "email": "my360930109@gmail.com", "contactType": "customer support" }
+  },
+  "termsOfService": "Free to read and link. Editorial corrections and feedback are welcome via the contact page.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+}

@@ -1,0 +1,88 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "GEO Encyclopedia — Frequently Asked Questions",
+  "url": "https://geo010.com/ai/faq.json",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What exactly is GEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generative Engine Optimization (GEO) is the practice of structuring content so AI answer engines such as ChatGPT, Perplexity, Google AI Overviews, and Claude can find, understand, and cite it when users ask questions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does GEO differ from SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SEO targets search engine rankings and click-through rates; GEO targets being quoted as a source inside AI-generated answers. The two overlap and compound: strong technical SEO foundations remain prerequisites for GEO."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is SEO dead?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. GEO and SEO overlap and compound. Technical SEO basics such as crawlability, clear hierarchy, and clean URLs still matter, while GEO adds answer-engine-specific signals like question H2s, structured data, and llms.txt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is citation share?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Citation share is the share of AI-generated answers in your market that cite your brand as a source. It is the core GEO performance metric, tracked alongside AI visibility and answer assetization."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I start GEO from zero?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Follow a phased roadmap: audit your current AI visibility, fix crawlability and orientation (robots.txt, llms.txt, sitemap), add structured data, create question-driven answer content, then measure citation share and iterate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is llms.txt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "llms.txt is a plain-text file at the root of a site that lists key pages with short summaries, giving AI crawlers an orientation layer, similar to how sitemap.xml helps search engines."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does structured data help AI trust content?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSON-LD markup such as Article, FAQPage, Organization, and BreadcrumbList disambiguates entities and facts, so AI engines can extract clean, confident answers instead of inferring them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is E-E-A-T and why does it matter for GEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) is the trust mechanism AI engines use to decide which sources to cite. Published credentials, consistent brand identity, cited sources, and accurate data all raise E-E-A-T signals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is answer assetization?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Answer assetization is pre-writing structured, data-rich answers to frequent questions and publishing them as reusable assets that AI engines can crawl and quote directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is RAG and how does it relate to GEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Retrieval-Augmented Generation (RAG) is how answer engines fetch relevant passages and generate answers from them. GEO is the discipline of making sure those passages are your content: clear, quotable, and structured."
+      }
+    }
+  ]
+}
