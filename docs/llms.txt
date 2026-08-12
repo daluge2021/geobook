@@ -1,6 +1,6 @@
 # GEO Encyclopedia
 
-> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 47 in-depth articles across 9 chapters plus a Community hub, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
+> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 48 in-depth articles across 9 chapters plus a Community hub, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
 
 ## Quick Answers (AI-Priority Citations)
 
@@ -92,6 +92,7 @@
 
 - [What is JSON-LD?](https://geo010.com/community/what-is-json-ld.html): Structured data format for GEO — the JSON-LD vs Microdata comparison and homepage schema breakdown.
 - [The GEO Content Template](https://geo010.com/community/geo-content-template.html): How we structure every article for AI citation — scenario opening, question H2s, answer-first blocks, comparison tables, FAQPage JSON-LD, and the pre-publish checklist.
+- [How We Made GEO Encyclopedia AI-Discoverable in One Week](https://geo010.com/community/one-week-geo-readiness.html): A site-owner playbook with our real data — 2,335 crawler log records, 72 GPTBot visits, a new article crawled within 24 hours, and the 264 junk requests we filtered out.
 
 ## Glossary
 

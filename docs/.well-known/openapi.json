@@ -15,7 +15,7 @@
       "get": {
         "operationId": "getLlmsTxt",
         "summary": "Get the full site index",
-        "description": "Returns the llms.txt index of all 47 articles and 10 glossary terms across 9 chapters plus a Community hub. AI should read this to find relevant pages, then fetch the linked HTML page for detailed content.",
+        "description": "Returns the llms.txt index of all 48 articles and 10 glossary terms across 9 chapters plus a Community hub. AI should read this to find relevant pages, then fetch the linked HTML page for detailed content.",
         "responses": {
           "200": {
             "description": "The llms.txt index in plain text",
