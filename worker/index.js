@@ -590,6 +590,16 @@ function sanitizePath(raw) {
   return '/' + segs.join('/');
 }
 
+// 敏感路径探测防护：常见的 secret/config 字典扫描路径一律不转发源站。
+// 命中即 404（保持与源站一致的外观，不暴露拦截意图）。
+const SUSPICIOUS_PATH_RE =
+  /\.(env|git|svn|bak|old|log|ini|conf|cfg|config|yaml|yml|json|sql|sh|py|key|pem|crt|tfstate)(\.|$)|\.(git|svn|hg)\/|\.aws\/|\.ssh\/|\.npmrc|\.boto|\.s3cfg|\.rclone\.conf|wp-(admin|login|json|content)|xmlrpc\.php|(^|\/)\.env(\b|\.)|settings\.py|web\.config|terraform|composer\.lock|\.env\.|storage\/logs|(^|\/)server\.key|graphql(\b|$)/i;
+
+function isSuspiciousPath(p) {
+  if (SUSPICIOUS_PATH_RE.test(p)) return true;
+  return false;
+}
+
 function contentTypeFor(path) {
   const idx = path.lastIndexOf('.');
   if (idx === -1) return 'application/octet-stream';
@@ -682,6 +692,19 @@ export default {
     const clean = sanitizePath(rawPath);
     if (!clean) {
       return new Response('Bad request', { status: 400 });
+    }
+
+    // Block secret/config path-scanning before it reaches the origin.
+    if (isSuspiciousPath(clean)) {
+      return new Response(NOT_FOUND_HTML, {
+        status: 404,
+        headers: (() => {
+          const h = new Headers({ 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' });
+          applySecurityHeaders(h, true);
+          h.set('X-Robots-Tag', 'noindex, nofollow');
+          return h;
+        })(),
+      });
     }
 
     let { res, served } = await fetchFile(clean);
