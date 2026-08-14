@@ -74,6 +74,7 @@ GEOhtml/
 - 格式: `类型: 简短说明`（如 `feat: 新增第X章内容`、`fix: 修正错别字`、`style: 调整样式`）
 - 不要提交 `docs/` 之外的无关文件；**绝不提交 token.txt**（.gitignore 已忽略）
 - .gitignore 已忽略 `公众号文章` 目录，不要追踪此目录
+- **geoplan/ 下新增的规划文档（如 `06-ai-platform-test-suite.md`）仅本地提交，不推送 `origin/main`**；如需推送另行明确说明
 
 ### 工作流程
 
