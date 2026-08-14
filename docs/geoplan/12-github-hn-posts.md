@@ -17,33 +17,75 @@
 
 ### 推荐优先做：`ai-robots-txt/ai.robots.txt`
 
-**为什么选它**：①贡献门槛最低——只需在 `robots.json` 中补条目，GitHub Action 自动生成其余文件；②我们有**独家真实观测数据**（本站 D1 日志记录了各爬虫的完整 UA、访问次数、时间分布）；③该项目被大量站点用于防 AI 爬取，我们的数据有真实价值。
+**为什么选它**：①我们的观测数据真实有用——本站 D1 日志记录了各爬虫的完整 UA 和访问次数；②已核对：**我们观测到的所有爬虫（GPTBot/ClaudeBot/PerplexityBot/Amazonbot/Googlebot/bingbot/YandexBot/SemrushBot/MJ12bot/SERankingBacklinksBot 等）都已在 robots.json 列表里**，所以贡献方式是**在 `table-of-bot-metrics.md` 表格中补一行"本站实测访问数据"**（该项目目前没有实测频率数据，正好是缺口），或者给某个爬虫的 `frequency` 字段补充我们观测到的真实值。
 
-**贡献内容草案**：
+---
 
-```
-PR 标题：Add observed user-agent strings for GPTBot/ClaudeBot/PerplexityBot from live crawl logs
+### 零基础操作教程（全程网页操作，不需要本地装 git）
 
-正文：
-I run a small site that logs every crawler request (user agent, path, status, timestamp) 
-in a D1 database via a Cloudflare Worker. Adding the exact user-agent strings we've 
-observed over the past two weeks, as of 2026-08-14:
+> 教程用到的两个概念先解释清楚：
+> - **Fork（分叉/复制）**：原项目 `ai-robots-txt/ai.robots.txt` 属于别人，你无法直接改。Fork 就是在**你自己的 GitHub 账号下复制一份**（变成 `你的名字/ai.robots.txt`），你在这份副本上随便改，改完再请求原项目"采纳你的改动"。
+> - **PR（Pull Request，合并请求）**：把你副本里的改动"提交"给原项目，原项目维护者审核后点击合并，你的改动就进入原项目。整个过程在 GitHub 网页上完成。
 
-- GPTBot: Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.4; +https://openai.com/gptbot)  (69 hits)
-- ClaudeBot: Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0; +claudebot@anthropic.com)  (101 hits)
-- PerplexityBot: Mozilla/5.0 (compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)  (13 hits)
-- Amazonbot: Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Amazonbot/0.1; +https://developer.amazon.com/support/amazonbot) Chrome/119.0.6045.214 Safari/537.36  (19 hits)
-- Googlebot (smartphone): Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 ... (compatible; Googlebot/2.1; ...)  (81 hits)
+**第 0 步：确认有 GitHub 账号**
+- 打开 https://github.com ，若没有账号先注册（需要邮箱验证），右上角头像确认已登录。
+- 我们自己的仓库在 `daluge2021/geobook`，所以账号已有，登录即可。
 
-Crawler log source: https://geo010.com  (see community/one-week-geo-readiness.html for the methodology)
-```
+**第 1 步：Fork 原项目**
+1. 打开 https://github.com/ai-robots-txt/ai.robots.txt
+2. 点页面右上角的 **"Fork"** 按钮（在 Star 旁边）
+3. 弹出窗口直接点绿色的 **"Create fork"**（不用改任何选项）
+4. 完成后浏览器会跳到 `https://github.com/<你的名字>/ai.robots.txt` —— 这就是你的副本
 
-**执行步骤**：
-1. GitHub 注册账号（若用旧账号，先确认邮箱已验证）
-2. Fork `ai-robots-txt/ai.robots.txt`
-3. 编辑 `robots.json` 增加上述 UA 条目（遵循项目现有结构，注意 JSON 格式）
-4. 发起 PR，正文用上面的草案（已包含 `https://geo010.com` 链接）
-5. 若被合入，README 的贡献者列表 + PR 记录页都会出现该 URL
+**第 2 步：在网页上直接编辑文件（不需要下载到本地）**
+> GitHub 网页自带在线编辑器，直接在浏览器里改文件，改动会自动保存到你的 fork 副本。**不需要**在本地创建任何文件，也不需要安装 git。
+
+1. 在你的副本仓库里，点击 `table-of-bot-metrics.md` 文件（在文件列表里）
+2. 点击文件内容右上角的 **铅笔图标**（Edit this file）——进入在线编辑模式
+3. 找到 `| GPTBot |` 开头的行，格式是：
+   `| 爬虫名 | 运营商 | 是否尊重robots | 功能 | 频率 | 描述 |`
+4. 把 `GPTBot` 那一行的**频率**列（第 5 列）从 `No information.` 改成我们实测的值，例如：
+   `| GPTBot | [OpenAI](https://openai.com) | Yes | Scrapes data to train OpenAI's products. | 72 requests in 7 days (observed 2026-08-14) | ...（描述保持不变）...`
+   - ⚠️ 只改频率那一格，**其余列保持原样**，别碰表格其他部分，否则容易造成格式错误被拒绝
+5. 页面下方有 **"Commit changes"** 区域：
+   - 第一个输入框写提交说明（英文），如：`Add observed crawl frequency for GPTBot`
+   - 下面留空
+   - 单选按钮选 **"Commit directly to the main branch"**（直接提交到你的副本）
+   - 点绿色按钮 **"Commit changes"**
+
+**第 3 步：发起 PR（把改动请求发回原项目）**
+1. 改完后，GitHub 会在你的副本仓库顶部显示一条黄色横幅，写着
+   "This branch is X commits ahead of ai-robots-txt:main" 和按钮 **"Contribute"**
+2. 点 **"Contribute"** → 点 **"Open pull request"**（绿色）
+3. 页面出现 PR 创建界面，核对：
+   - 左边是 `ai-robots-txt:main`（原项目）
+   - 右边是 `<你的名字>:main`（你的副本）
+   - 箭头方向应该是 副本 → 原项目
+4. **标题**填：`Add observed crawl frequency for GPTBot (72 requests in 7 days)`
+5. **正文**填（这是放外链的地方）：
+
+   ```
+   I run a small site that logs every crawler request (user agent, path, status, timestamp)
+   in a D1 database via a Cloudflare Worker. We observed GPTBot hitting our site 72 times
+   over 7 days (2026-08-14). Adding the observed frequency to the table.
+
+   Crawler log methodology: https://geo010.com/community/one-week-geo-readiness.html
+   ```
+
+6. 点绿色 **"Create pull request"**
+7. 大功告成。页面会显示 PR 编号（如 `#123`），等维护者审核合并。
+   - 若显示红色 **"Can't automatically merge"**（冲突），在 PR 页点 **"Resolve conflicts"** 按提示逐条处理，或告诉我们
+   - 若合并后，你的 GitHub 账号主页 **contributions 记录**和该 PR 页面都会带上 `geo010.com` 链接
+
+**第 4 步（可选）：也改 ClaudeBot**
+- 重复第 2 步，把 `| ClaudeBot |` 行的频率列改为 `101 requests in 7 days (observed 2026-08-14)`，然后走第 3 步发第二个 PR
+- 一次 PR 只改一处更易通过；两个独立 PR 就是两个 contribution 记录
+
+**第 5 步：发布后回报**
+- 把 PR 链接 + 合并状态（open/merged）回填到 `08-p0-weekly-plan.md` 任务 3.3
+- 合并后检查：`geo010.com` 是否出现在该 PR 页面
+
+---
 
 ### 备选：`AnswerDotAI/llms-txt` 案例提交
 
@@ -163,7 +205,8 @@ similar, and whether you've noticed new agents appearing recently.
 
 ## 三、执行清单
 
-- [ ] GitHub 注册/确认账号 → fork `ai-robots-txt/ai.robots.txt` → 编辑 `robots.json` → PR（正文用上文草案）
+- [ ] GitHub 登录 → 按上方零基础教程：Fork `ai-robots-txt/ai.robots.txt` → 网页编辑 `table-of-bot-metrics.md`（GPTBot 频率列改实测值）→ 发 PR（正文带 geo010.com 链接）
+- [ ] 可选：同上再发一个 ClaudeBot 的 PR（独立贡献记录）
 - [ ] 若有精力：`AnswerDotAI/llms-txt` Discussions 发实施经验帖（可选）
 - [ ] Indie Hackers 发布实战帖（标题 + 正文用上文的 IH 版本）
 - [ ] HN 发布（标题 + 正文用上文的 HN 版本，注意美东时段）
