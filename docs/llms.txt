@@ -26,7 +26,7 @@
 ## II. Metrics & Frameworks
 
 - [What is Citation Share?](https://geo010.com/metrics/citation-share.html): The core GEO metric measuring how often AI cites your brand.
-- [What is Entity Association Density?](https://geo010.com/metrics/entity-density.html): Measuring how strongly your brand is associated with key entities.
+- [What is Entity Association Density?](https://geo010.com/metrics/entity-density.html): The GEO metric measuring how interconnected and cross-referenced the entities in your content are — whether an article presents one isolated concept or a web of related knowledge. Backed by Yext's 6.8-million-citation study (86% of citations from brand-managed sources).
 - [What is the SHEEP Framework?](https://geo010.com/metrics/sheep-framework.html): A five-step framework for evaluating AI-generated search results.
 
 ## III. Models & Methods
