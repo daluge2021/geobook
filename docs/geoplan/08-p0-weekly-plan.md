@@ -32,7 +32,7 @@
 | 2.1 | 把实体密度页核心内容改写成 1 篇 800 词英文短文（定义 + Yext 数据 + CRM/Salesforce 例子 + 3 条改进清单）→ 草稿在 `09-entity-density-draft.md` | 90 分钟 | ✅ 已就绪 |
 | 2.2 | **Medium 用 Import 工具发布 + 设 canonical 指向原站**（保护原站权重，只 1-2 个链接） | 30 分钟 | ✅ 已发布，含外链 |
 | 2.3 | 发布精简版到 **LinkedIn 文章** | 20 分钟 | ✅ 已发布，含外链 |
-| 2.4 | **Reddit r/GenEngineOptimization**：先查版规；披露 "I run GEO Encyclopedia"；正文自足 | 15 分钟 | ✅ 已发布，**无外链**（⚠️ 待确认原因） |
+| 2.4 | **Reddit r/GenEngineOptimization**：先查版规；披露 "I run GEO Encyclopedia"；正文自足 | 15 分钟 | ✅ 已发布，**主动未放外链**（谨慎考虑，Reddit 仅作曝光/AI 引用渠道，不纳入外链计数） |
 | 2.5 | 三篇都回链 `geo010.com/metrics/entity-density.html`，正文点名 "GEO Encyclopedia" | 随写作完成 | ✅ Medium/LinkedIn 已回链 |
 | 2.6 | 发布后各平台间互链（Medium→LinkedIn→Reddit）形成三角佐证 | 15 分钟 | 部分完成 |
 
@@ -64,7 +64,7 @@
 ## 验收（下周一）
 
 - [ ] "entity association density" 题：Grok 能找到定义；Claude 主动引用
-- [ ] geo010.com 外部引用域名 ≥5（优先 DEV.to / Hashnode / GitHub / IndieHackers / 目录站）
+- [ ] geo010.com 外部引用域名 ≥5（已有 Medium/LinkedIn/DEV.to/Hashnode = 4，还差 ≥1 个：GitHub / IndieHackers / HN / 目录站）
 - [ ] 12 题主动引用 ≥2
 
 ---
