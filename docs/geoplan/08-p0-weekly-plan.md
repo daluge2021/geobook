@@ -27,14 +27,14 @@
 - **Indie Hackers**：产品推广友好社区，发实战帖带链接是常规操作。
 - **Hacker News**：对推广帖最敏感，易被 flag/降权 → 标题突出数据钩子（如 one-week 抓取数）而非品牌名，正文不提推广。
 
-| 步骤 | 动作 | 时长 |
-|------|------|------|
-| 2.1 | 把实体密度页核心内容改写成 1 篇 800 词英文短文（定义 + Yext 数据 + CRM/Salesforce 例子 + 3 条改进清单）→ 草稿在 `09-entity-density-draft.md` ✅ | 90 分钟 |
-| 2.2 | **Medium 用 Import 工具发布 + 设 canonical 指向原站**（保护原站权重，只 1-2 个链接） | 30 分钟 |
-| 2.3 | 发布精简版到 **LinkedIn 文章** | 20 分钟 |
-| 2.4 | **Reddit r/GenEngineOptimization**：先查版规；披露 "I run GEO Encyclopedia"；正文自足 | 15 分钟 |
-| 2.5 | 三篇都回链 `geo010.com/metrics/entity-density.html`，正文点名 "GEO Encyclopedia" | 随写作完成 |
-| 2.6 | 发布后各平台间互链（Medium→LinkedIn→Reddit）形成三角佐证 | 15 分钟 |
+| 步骤 | 动作 | 时长 | 状态 |
+|------|------|------|------|
+| 2.1 | 把实体密度页核心内容改写成 1 篇 800 词英文短文（定义 + Yext 数据 + CRM/Salesforce 例子 + 3 条改进清单）→ 草稿在 `09-entity-density-draft.md` | 90 分钟 | ✅ 已就绪 |
+| 2.2 | **Medium 用 Import 工具发布 + 设 canonical 指向原站**（保护原站权重，只 1-2 个链接） | 30 分钟 | ✅ 已发布，含外链 |
+| 2.3 | 发布精简版到 **LinkedIn 文章** | 20 分钟 | ✅ 已发布，含外链 |
+| 2.4 | **Reddit r/GenEngineOptimization**：先查版规；披露 "I run GEO Encyclopedia"；正文自足 | 15 分钟 | ✅ 已发布，**无外链**（⚠️ 待确认原因） |
+| 2.5 | 三篇都回链 `geo010.com/metrics/entity-density.html`，正文点名 "GEO Encyclopedia" | 随写作完成 | ✅ Medium/LinkedIn 已回链 |
+| 2.6 | 发布后各平台间互链（Medium→LinkedIn→Reddit）形成三角佐证 | 15 分钟 | 部分完成 |
 
 ## 任务 3：建外链（打破"零外部引用"）
 
@@ -42,24 +42,24 @@
 
 **关键发现（2026-08 调研）：** **DEV.to 与 Hashnode** 外链为 `dofollow`（Medium 是 nofollow），且 AI 引用率高——比 Medium 更适合"建外链"目标，优先列入本任务。
 
-| 步骤 | 动作 | 时长 |
-|------|------|------|
-| 3.1 | **DEV.to 发布短文**（外链 dofollow、AI 引用率高，可用 canonical_url 字段指向原站） | 30 分钟 |
-| 3.2 | **Hashnode 发布短文**（dofollow；优先用 "are you republishing?" 字段设置 canonical） | 30 分钟 |
-| 3.3 | GitHub 上给 GEO 相关开源项目（llms.txt 规范、AI crawler 工具）提交文档/代码贡献，README 或 issue 中自然链接站点 | 2 小时 |
-| 3.4 | 在 Indie Hackers、Hacker News 发布 one-week 实战经验帖（HN 用数据钩子标题、避免品牌化推广；Indie Hackers 直接发） | 45 分钟 |
-| 3.5 | 向 DuckDuckGo 和几个 AI 工具目录站提交站点收录 | 30 分钟 |
-| 3.6 | 在 about.html / contact.html 加"引用本站"说明（含引用格式示例，方便第三方引用） | 30 分钟 |
+| 步骤 | 动作 | 时长 | 状态 |
+|------|------|------|------|
+| 3.1 | **DEV.to 发布短文**（外链 dofollow、AI 引用率高，可用 canonical_url 字段指向原站） | 30 分钟 | ✅ 已发布，含外链 |
+| 3.2 | **Hashnode 发布短文**（dofollow；优先用 "are you republishing?" 字段设置 canonical） | 30 分钟 | ✅ 已发布，含外链 |
+| 3.3 | GitHub 上给 GEO 相关开源项目（llms.txt 规范、AI crawler 工具）提交文档/代码贡献，README 或 issue 中自然链接站点 | 2 小时 | ⬜ 待执行 |
+| 3.4 | 在 Indie Hackers、Hacker News 发布 one-week 实战经验帖（HN 用数据钩子标题、避免品牌化推广；Indie Hackers 直接发） | 45 分钟 | ⬜ 待执行 |
+| 3.5 | 向 DuckDuckGo 和几个 AI 工具目录站提交站点收录 | 30 分钟 | ⬜ 待执行 |
+| 3.6 | 在 about.html / contact.html 加"引用本站"说明（含引用格式示例，方便第三方引用） | 30 分钟 | ⬜ 待执行 |
 
 ## 时间安排（本周）
 
-| 天 | 任务 | 交付 |
-|----|------|------|
-| 周一 | 任务 2.1（写短文）✅ 草稿已就绪 | 800 词文章（`09-entity-density-draft.md`） |
-| 周二 | 任务 2.2-2.6（Medium/Import+canonical、LinkedIn、Reddit 三平台发布+互链） | 3 个外链平台 |
-| 周三 | 任务 3.1-3.4（DEV.to、Hashnode、GitHub、IndieHackers/HN） | 4-5 个新外链 |
-| 周四 | 任务 3.5-3.6 + 复核 | 目录收录 + about 页引用说明 |
-| 周五 | 重跑 06 清单 12 题 | 对比首周数据 |
+| 天 | 任务 | 交付 | 状态 |
+|----|------|------|------|
+| 周一 | 任务 2.1（写短文） | 800 词文章（`09-entity-density-draft.md`） | ✅ 已完成 |
+| 周二 | 任务 2.2-2.6（Medium/Import+canonical、LinkedIn、Reddit 三平台发布+互链） | 3 个外链平台 | ✅ 已发布（Reddit 无外链） |
+| 周三 | 任务 3.1-3.4（DEV.to、Hashnode、GitHub、IndieHackers/HN） | 4-5 个新外链 | 🔶 3.1-3.2 已发布，3.3-3.4 待执行 |
+| 周四 | 任务 3.5-3.6 + 复核 | 目录收录 + about 页引用说明 | ⬜ 待执行 |
+| 周五 | 重跑 06 清单 12 题 | 对比首周数据 | ⬜ 待执行 |
 
 ## 验收（下周一）
 
