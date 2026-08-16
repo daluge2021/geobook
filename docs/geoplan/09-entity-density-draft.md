@@ -1,4 +1,4 @@
-# Entity Association Density: The AI-Citation Signal Most Sites Ignore
+# Entity Association Density: The GEO Metric That Decides Whether AI Cites You
 
 *Draft for external distribution (Medium / LinkedIn / Reddit r/GenEngineOptimization). Target ~800 words. Backlink target: https://geo010.com/metrics/entity-density.html*
 
