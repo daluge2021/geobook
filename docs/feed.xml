@@ -3,10 +3,17 @@
 <channel>
   <title>GEO Encyclopedia</title>
   <link>https://geo010.com</link>
-  <description>49 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
+  <description>50 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
   <language>en</language>
   <atom:link href="https://geo010.com/feed.xml" rel="self" type="application/rss+xml"/>
 <lastBuildDate>Sun, 16 Aug 2026 00:00:00 +0000</lastBuildDate>
+  <item>
+    <title>What GEO Work Actually Moves AI Crawlers? Our Data, and a New-Site Launch Checklist</title>
+    <link>https://geo010.com/community/geo-impact-attribution-new-site.html</link>
+    <guid>https://geo010.com/community/geo-impact-attribution-new-site.html</guid>
+    <pubDate>Sun, 16 Aug 2026 00:00:00 +0000</pubDate>
+    <description>We attributed two weeks of AI crawler traffic to nine GEO measures on geo010.com. Real numbers show which ones matter, which did nothing, and the exact checklist to build first on a new site — plus the two earlier conclusions we corrected with the logs.</description>
+  </item>
   <item>
     <title>What Actually Gets Your Site Crawled by AI? Our Two-Week Data, and the Mistake We Retired</title>
     <link>https://geo010.com/community/two-week-crawler-data.html</link>

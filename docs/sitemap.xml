@@ -346,6 +346,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://geo010.com/community/geo-impact-attribution-new-site.html</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Glossary -->
   <url>
     <loc>https://geo010.com/glossary/geo.html</loc>
