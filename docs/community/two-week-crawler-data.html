@@ -5,22 +5,22 @@
 <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1911889082930844" crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What is JSON-LD? — The Structured Data That Gets AI to Cite You - GEO Encyclopedia</title>
-<meta name="description" content="A practical explanation of JSON-LD for GEO: what the three tags mean, why AI answer engines care, how our homepage's WebSite, Organization and ItemList blocks work, and the mistakes that silently kill structured data.">
-<link rel="canonical" href="https://geo010.com/community/what-is-json-ld.html"/>
+<title>What Actually Gets Your Site Crawled by AI? Our Two-Week Data, and the Mistake We Retired - GEO Encyclopedia</title>
+<meta name="description" content="Real crawl data from two weeks on geo010.com: which GEO changes drove AI crawler traffic, which ones did nothing, and how to spot fake crawl spikes from scanner bots.">
+<link rel="canonical" href="https://geo010.com/community/two-week-crawler-data.html"/>
 <link rel="alternate" type="application/rss+xml" title="GEO Encyclopedia RSS" href="https://geo010.com/feed.xml">
-<meta property="og:title" content="What is JSON-LD? — The Structured Data That Gets AI to Cite You - GEO Encyclopedia"/>
-<meta property="og:description" content="A practical explanation of JSON-LD for GEO: the three tags, why AI engines care, how our homepage's schema blocks work, and the mistakes that silently kill structured data."/>
-<meta property="og:url" content="https://geo010.com/community/what-is-json-ld.html"/>
+<meta property="og:title" content="What Actually Gets Your Site Crawled by AI? Our Two-Week Data, and the Mistake We Retired - GEO Encyclopedia"/>
+<meta property="og:description" content="Real crawl data from two weeks: which GEO changes drove AI crawler traffic, which did nothing, and how to spot fake spikes from scanner bots."/>
+<meta property="og:url" content="https://geo010.com/community/two-week-crawler-data.html"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="https://geo010.com/og-image.png"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="GEO Encyclopedia"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="What is JSON-LD? — The Structured Data That Gets AI to Cite You - GEO Encyclopedia"/>
-<meta name="twitter:description" content="A practical explanation of JSON-LD for GEO: the three tags, why AI engines care, and the mistakes that silently kill structured data."/>
+<meta name="twitter:title" content="What Actually Gets Your Site Crawled by AI? Our Two-Week Data, and the Mistake We Retired - GEO Encyclopedia"/>
+<meta name="twitter:description" content="Real crawl data from two weeks: which GEO changes drove AI crawler traffic, which did nothing, and how to spot fake spikes from scanner bots."/>
 <meta name="twitter:image" content="https://geo010.com/og-image.png"/>
-<meta name="keywords" content="JSON-LD,structured data,Schema.org,WebSite schema,Organization schema,ItemList,BreadcrumbList,FAQPage,GEO,machine-readable,AI citation,entity recognition">
+<meta name="keywords" content="GEO case study,crawler logs,AI crawlers,GPTBot,ClaudeBot,Amazonbot,scanning attack,false spike,content freshness,FAQPage,structured data,Generative Engine Optimization,content strategy">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
@@ -100,12 +100,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "What is JSON-LD? — The Structured Data That Gets AI to Cite You",
-  "description": "A practical explanation of JSON-LD for GEO: what the three tags mean, why AI answer engines care, how our homepage's WebSite, Organization and ItemList blocks work, and the mistakes that silently kill structured data.",
+  "headline": "What Actually Gets Your Site Crawled by AI? Our Two-Week Data, and the Mistake We Retired",
+  "description": "Real crawl data from two weeks on geo010.com: which GEO changes drove AI crawler traffic, which ones did nothing, and how to spot fake crawl spikes from scanner bots.",
   "author": { "@type": "Organization", "name": "GEO Encyclopedia Editorial Team", "url": "https://geo010.com/about.html" },
-  "datePublished": "2026-08-08",
+  "datePublished": "2026-08-16",
   "dateModified": "2026-08-16",
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/community/what-is-json-ld.html" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/community/two-week-crawler-data.html" },
   "publisher": { "@type": "Organization", "name": "GEO Encyclopedia", "url": "https://geo010.com" },
   "inLanguage": "en"
 }
@@ -130,8 +130,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "What is JSON-LD?",
-      "item": "https://geo010.com/community/what-is-json-ld.html"
+      "name": "What Actually Gets Your Site Crawled by AI?",
+      "item": "https://geo010.com/community/two-week-crawler-data.html"
     }
   ]
 }
@@ -143,34 +143,34 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Do I need JSON-LD if I already have an llms.txt?",
+      "name": "Which GEO changes actually increase AI crawler traffic?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No — llms.txt and JSON-LD do different jobs. llms.txt is a plain-text orientation file that tells an LLM what the site covers; JSON-LD is semantic metadata that tells crawlers and search engines what each page is. They compound: llms.txt helps AI discover you, JSON-LD helps AI understand and trust you."
+        "text": "In our two weeks of logs, publishing new articles drove the biggest real spikes — new pages were crawled 6-10 times on launch day and revisited for days. Freshness alignment (dateModified matching sitemap lastmod) and FAQPage structured data also correlated with crawler activity. Infrastructure files like /ai/summary.json were never requested by any crawler."
       }
     },
     {
       "@type": "Question",
-      "name": "Will JSON-LD get my site cited by ChatGPT or Perplexity?",
+      "name": "How do you tell a real crawl spike from a scanner attack?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Structured data alone does not guarantee citations, but it is a strong clarity and trust signal, and it unlocks answer-engine features like FAQ rich results that can be extracted and quoted directly. Treat JSON-LD as a prerequisite, not a magic switch."
+        "text": "Check the requested paths, not just the count. A genuine crawl hits your real URLs; a scanner probes /.env.production, /debug, /admin/config, /telescope/requests and similar sensitive paths using a borrowed crawler user agent. We saw a 778-request day that looked like growth but was actually ChatGPT-User and Amazonbot scanning for exposed files."
       }
     },
     {
       "@type": "Question",
-      "name": "Where should JSON-LD live on the page?",
+      "name": "Do AI discovery endpoints like /ai/summary.json get crawled?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "In the <head>, near your other metadata — never at the bottom of the <body>. The head placement tells crawlers this is page-level metadata, and it keeps the markup cleanly separated from visible content."
+        "text": "Not in our two-week window. GPTBot, ClaudeBot, PerplexityBot and OAI-SearchBot visited /robots.txt and /sitemap.xml almost every day but never requested /ai/summary.json, /ai/faq.json, /.well-known/ai.txt or /.well-known/ai.json. Those files help human-oriented audit tools, but today's crawlers find content through robots and sitemap."
       }
     },
     {
       "@type": "Question",
-      "name": "Is JSON-LD hard to maintain?",
+      "name": "What should a site owner prioritize for AI visibility: new content or technical fixes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On a static site it is straightforward: each HTML file carries its own JSON-LD block, and static-site generators can output it for you. Start with Article plus Organization plus BreadcrumbList, then add page-specific types like FAQPage or HowTo as you grow."
+        "text": "New content first, then structured data. In our data, content additions produced immediate, repeated crawler visits, while infrastructure endpoints produced zero. Keep robots.txt and sitemap.xml complete and healthy, keep dates fresh, add FAQPage markup — then spend the remaining effort publishing answers that warrant a citation."
       }
     }
   ]
@@ -277,174 +277,126 @@
       <div class="nav-group-toggle"><span class="arrow">▸</span> 💬 Community</div>
       <div class="nav-group-links">
         <a href="../community.html">Community Home</a>
-        <a href="what-is-json-ld.html" class="active">What is JSON-LD?</a>
+        <a href="what-is-json-ld.html">What is JSON-LD?</a>
         <a href="geo-content-template.html">The GEO Content Template</a>
         <a href="one-week-geo-readiness.html">One-Week GEO Readiness</a>
+        <a href="two-week-crawler-data.html" class="active">Two-Week Crawler Data</a>
       </div>
     </div>
-    <div class="current glossary-section">📌 Glossary</div>
-    <a href="../glossary/geo.html">GEO</a>
-    <a href="../glossary/seo.html">SEO</a>
-    <a href="../glossary/rag.html">RAG</a>
-    <a href="../glossary/eeat.html">E-E-A-T</a>
-    <a href="../glossary/llms-txt.html">LLMs.txt</a>
-    <a href="../glossary/zero-click.html">Zero-Click Search</a>
-    <a href="../glossary/schema.html">Schema</a>
-    <a href="../glossary/answer-asset.html">Answer Assetization</a>
-    <a href="../glossary/ai-visibility.html">AI Visibility Index</a>
-    <a href="../glossary/ymyl.html">YMYL</a>
+  <div class="current glossary-section">📌 Glossary</div>
+  <a href="../glossary/geo.html">GEO</a>
+  <a href="../glossary/seo.html">SEO</a>
+  <a href="../glossary/rag.html">RAG</a>
+  <a href="../glossary/eeat.html">E-E-A-T</a>
+  <a href="../glossary/llms-txt.html">LLMs.txt</a>
+  <a href="../glossary/zero-click.html">Zero-Click Search</a>
+  <a href="../glossary/schema.html">Schema</a>
+  <a href="../glossary/answer-asset.html">Answer Assetization</a>
+  <a href="../glossary/ai-visibility.html">AI Visibility Index</a>
+  <a href="../glossary/ymyl.html">YMYL</a>
   <div class="current glossary-section">📄 About</div>
   <a href="../about.html">About &amp; Editorial Standards</a>
   <a href="../contact.html">Contact</a>
   </nav>
   <div class="main">
     <div class="content">
-      <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../community.html">Community</a> › What is JSON-LD?</div>
+      <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../community.html">Community</a> › What Actually Gets Your Site Crawled by AI?</div>
 
-<div class="article-meta"><span>By <a href="../about.html">GEO Encyclopedia Editorial Team</a></span><span>·</span><span>Updated: 2026-08-08</span><span>·</span><span>All code shown below is live on <a href="https://geo010.com/">our homepage</a></span></div>
+<div class="article-meta"><span>By <a href="../about.html">GEO Encyclopedia Editorial Team</a></span><span>·</span><span>Updated: 2026-08-16</span><span>·</span><span>All numbers are live crawl logs from geo010.com, August 4-16, 2026</span></div>
 
-<h1>What is JSON-LD? — The Structured Data That Gets AI to Cite You</h1>
+<h1>What Actually Gets Your Site Crawled by AI? Our Two-Week Data, and the Mistake We Retired</h1>
 
-<blockquote>JSON-LD is the language machines read before they read your words.</blockquote>
-<blockquote>Three tags — <code>@context</code>, <code>@type</code> and properties — tell AI what your page is, who publishes it, and what it covers.</blockquote>
-<blockquote>This article decodes the three JSON-LD blocks on our own homepage and why each one matters for being cited by AI answer engines.</blockquote>
-<blockquote>If your structured data is missing or malformed, AI can still read your page — it just has less reason to trust it, and less reason to quote it.</blockquote>
+<blockquote>You spend a week adding AI discovery endpoints, refreshing every date on the site, and wiring up structured data. Your dashboard then shows a 778-request day — a win, right? Then you look closer and half the traffic is a scanner probing <code>/.env.production</code>.</blockquote>
+<blockquote>This is the honest two-week readout from GEO Encyclopedia: the daily crawl numbers, which of our own changes produced real AI crawler visits, which produced nothing, and how we learned to tell a real spike from an attack wearing a crawler's name.</blockquote>
 
 <hr>
 
-<h2>What is JSON-LD?</h2>
+<h2>What Did Two Weeks of Crawl Logs Show?</h2>
 
-<p><strong>JSON-LD</strong> (JavaScript Object Notation for Linked Data) is a JSON-based format for describing a page's meaning to machines. It uses <a href="../glossary/schema.html" class="glossary-link">Schema.org</a> as a shared vocabulary, so any crawler, search engine or answer engine that understands Schema.org can read it.</p>
+<blockquote><strong>Content additions produced the real crawl spikes; infrastructure endpoints produced zero requests. Almost every daily spike we saw was either a new article launch or a scanner attack — rarely an infrastructure win.</strong></blockquote>
 
-<p>Every JSON-LD block is built from three elements:</p>
+<p>We log every request through our Cloudflare Worker into a D1 database, tagging crawlers by user agent and recording path, status and page type. Here is the day-by-day picture since logging went live:</p>
 
-<ul>
-  <li><strong><code>@context</code></strong> — declares the vocabulary you are using (<code>https://schema.org</code>).</li>
-  <li><strong><code>@type</code></strong> — declares what the object is (<code>WebSite</code>, <code>Organization</code>, <code>Article</code>…).</li>
-  <li><strong>Properties</strong> — the fields that type allows (<code>name</code>, <code>url</code>, <code>logo</code>, <code>datePublished</code>…).</li>
-</ul>
-
-<p>It lives inside a <code>&lt;script type="application/ld+json"&gt;</code> tag in the page <code>&lt;head&gt;</code>. Because it is separate from the visible HTML, it is called "Linked Data" — the structure and the presentation stay independent.</p>
-
-<p>Why does the separation matter? A human sees your headline, images and buttons. A machine sees the same page as a stream of tokens. JSON-LD hands that machine a <strong>pre-digested summary</strong> of what the page is — which is exactly what an AI answer engine needs when it decides whether to cite you.</p>
-
-<h2>Why Do AI Engines Care?</h2>
-
-<p>AI answer engines do not read your page the way a person does. They parse it, extract entities, and weigh trust signals. Structured data makes that parsing dramatically easier and more reliable.</p>
-
-<table><thead><tr><th>What AI needs</th><th>What JSON-LD provides</th><th>GEO impact</th></tr></thead><tbody>
-<tr><td>Entity recognition</td><td><code>Organization</code> / <code>Person</code> with a stable <code>@id</code></td><td>AI knows who you are and can attach your content to one entity</td></tr>
-<tr><td>Citation and source trust</td><td><code>Article</code> with author, publisher and dates</td><td>AI has concrete reasons to cite you as authoritative and current</td></tr>
-<tr><td>Site structure understanding</td><td><code>ItemList</code>, <code>BreadcrumbList</code></td><td>AI finds and navigates your content faster</td></tr>
-<tr><td>Answer extraction</td><td><code>FAQPage</code>, <code>HowTo</code> content</td><td>AI can quote you directly — the heart of <a href="../fundamentals/answer-assetization.html">answer assetization</a></td></tr>
+<table><thead><tr><th>Date</th><th>Total</th><th>Bot</th><th>Notable events</th></tr></thead><tbody>
+<tr><td>08-04</td><td>303</td><td>90</td><td>Worker logging goes live; baseline set</td></tr>
+<tr><td>08-05</td><td>59</td><td>18</td><td>Origin switched to raw fetch; CSP sandbox fix</td></tr>
+<tr><td>08-08</td><td>281</td><td>122</td><td><strong>GPTBot 59 requests</strong>; freshness refresh shipped</td></tr>
+<tr><td>08-09</td><td>172</td><td>28</td><td>Community module + two JSON-LD articles launch</td></tr>
+<tr><td>08-10</td><td>459</td><td>97</td><td>Content template articles; security headers; checker script</td></tr>
+<tr><td>08-11</td><td><strong>778</strong></td><td><strong>559</strong></td><td><strong>⚠️ Scanner spike</strong> — ChatGPT-User and Amazonbot probing sensitive paths</td></tr>
+<tr><td>08-12</td><td>356</td><td>70</td><td>New article crawled 10× on launch day; homepage FAQPage</td></tr>
+<tr><td>08-13</td><td>502</td><td>182</td><td><strong>GPTBot 95</strong>; includes a spoofed-GPTBot attack blocked by our Worker</td></tr>
+<tr><td>08-14</td><td>222</td><td>148</td><td>Entity-density definition moved above the fold</td></tr>
+<tr><td>08-15</td><td>187</td><td>127</td><td>Amazonbot 82 — 67 of them 404s from its own URL-parsing bug</td></tr>
 </tbody></table>
 
-<p>This maps to the five-step GEO loop from <a href="../cases/geo-ai-audit.html">our own audit</a>: make AI <strong>find</strong> you, <strong>measure</strong> how it behaves, make itself <strong>understandable</strong>, earn <strong>trust</strong>, then stay <strong>canonical</strong>. Structured data is the "understandable" and "trust" layers.</p>
+<p>Two things jump out. First, the biggest "success" day — 778 requests — was mostly noise. Second, our single biggest real day for legitimate crawlers was not infrastructure work at all; it was the day a new article went live and GPTBot and ClaudeBot visited that exact URL 10 times.</p>
 
-<h2>Three Blocks on Our Homepage</h2>
+<h2>Which Changes Actually Drove Real Crawls?</h2>
 
-<p>Our homepage ships three JSON-LD blocks, each serving a different job. Here is what they actually look like and what each one does.</p>
+<p>We grouped our two weeks of commits into categories and measured each against the logs. The pattern was consistent and repeatable:</p>
 
-<h3>1. WebSite — the site's identity card</h3>
-
-<p>The <code>WebSite</code> block tells machines this is a website, what it is called, what language it uses, and who publishes it. It also declares the site's search capability.</p>
-
-<pre><code>{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "GEO Encyclopedia",
-  "url": "https://geo010.com",
-  "inLanguage": "en",
-  "publisher": { "@id": "https://geo010.com/#organization" },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": { "@type": "EntryPoint",
-      "urlTemplate": "https://geo010.com/index.html?q={search_term_string}" },
-    "query-input": "required name=search_term_string"
-  }
-}</code></pre>
-
-<p>Two details matter here. First, <code>publisher</code> uses an <strong><code>@id</code> anchor</strong> — <code>#organization</code> — that points at the second block on the page. That anchor is how JSON-LD "links" objects together. Second, <code>potentialAction</code> declares site search, the signal behind Sitelinks-style search boxes in rich results.</p>
-
-<h3>2. Organization — the entity behind the site</h3>
-
-<p>The <code>Organization</code> block is the entity card: logo, contact point, founding date and identity links. Its <code>@id</code> matches the anchor used by <code>WebSite.publisher</code>, so a crawler resolves both blocks into <strong>one</strong> entity — not two strangers.</p>
-
-<pre><code>{
-  "@context": "https://schema.org",
-  "@id": "https://geo010.com/#organization",
-  "@type": "Organization",
-  "name": "GEO Encyclopedia",
-  "logo": { "@type": "ImageObject", "url": "https://geo010.com/favicon.svg" },
-  "email": "my360930109@gmail.com",
-  "foundingDate": "2025",
-  "sameAs": ["https://geo010.com/feed.xml"],
-  "contactPoint": { "@type": "ContactPoint", "contactType": "customer support" }
-}</code></pre>
-
-<p>This is the schema that <a href="../technical/entity-knowledge-graph.html">entity recognition</a> leans on. A clear, consistent entity card is a direct E-E-A-T trust signal — and it is exactly what an auditor means when it checks for "Organization schema."</p>
-
-<h3>3. ItemList — the site map for machines</h3>
-
-<p>The <code>ItemList</code> block numbers the nine chapters of this encyclopedia in order, each with its URL. It is effectively a <strong>semantic site map</strong> that lives alongside the human navigation.</p>
-
-<pre><code>{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "GEO Encyclopedia Chapters",
-  "numberOfItems": 9,
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "I. Fundamentals",
-      "url": "https://geo010.com/fundamentals/what-is-geo.html" }
-    // ... positions 2 through 9
-  ]
-}</code></pre>
-
-<p>Where sitemap.xml tells crawlers <em>which</em> URLs exist, <code>ItemList</code> tells machines <em>what each one is</em> and in what order. The two compound.</p>
-
-<h2>JSON-LD vs Microdata vs RDFa</h2>
-
-<p>JSON-LD is not the only structured-data syntax, but it is the one Google recommends and the one static sites can maintain most easily.</p>
-
-<table><thead><tr><th>Format</th><th>Placement</th><th>Readability</th><th>Where it shines</th></tr></thead><tbody>
-<tr><td><strong>JSON-LD</strong></td><td>One block in <code>&lt;head&gt;</code></td><td>Clean JSON, JS-friendly</td><td>Static sites, easy to generate and update</td></tr>
-<tr><td>Microdata</td><td>Attributes inside HTML elements</td><td>Mixed with visible markup</td><td>Legacy pages, CMS plugins</td></tr>
-<tr><td>RDFa</td><td>Attributes inside HTML elements</td><td>Verbose, harder to read</td><td>Legacy enterprise publishing</td></tr>
+<table><thead><tr><th>Change</th><th>Result</th><th>Evidence</th></tr></thead><tbody>
+<tr><td><strong>New articles</strong></td><td>Immediate, repeated crawls</td><td>New pages hit 6-10 times on launch day, revisited for days after</td></tr>
+<tr><td><strong>Definition-first layout</strong> (answer before the fold)</td><td>Higher share of crawled content pages</td><td>The entity-density page became one of the most-crawled content URLs</td></tr>
+<tr><td><strong>FAQPage markup</strong> on metrics/case pages</td><td>New visits to those pages</td><td>ClaudeBot and OAI-SearchBot hit the six pages within a day of markup</td></tr>
+<tr><td><strong>Freshness alignment</strong> (dateModified ↔ lastmod)</td><td>Correlated with crawler activity</td><td>Peak legitimate crawler days followed freshness passes</td></tr>
+<tr><td><strong><code>/ai/summary.json</code>, <code>/.well-known/ai.txt</code></strong></td><td><strong>Zero requests</strong></td><td>No crawler ever requested any AI-facing endpoint in the window</td></tr>
+<tr><td><strong>Security headers (CSP)</strong></td><td>No crawl impact</td><td>Defensive only; never expected a positive crawl effect</td></tr>
 </tbody></table>
 
-<p>Because JSON-LD lives in its own block, adding or fixing it never touches the visible content — which makes it the safest choice for a site that treats structured data as a first-class deliverable.</p>
+<p>The lesson we took away: <strong>crawlers find content through <a href="../glossary/llms-txt.html" class="glossary-link">llms.txt</a>, robots.txt and sitemap.xml — not through custom AI endpoints.</strong> GPTBot and ClaudeBot visited robots.txt and sitemap.xml almost every single day. They never requested a single AI JSON endpoint.</p>
 
-<h2>Five Common Mistakes</h2>
+<h2>How Do You Tell a Real Spike from a Scanner Attack?</h2>
+
+<p>The 08-11 spike taught us a rule we now apply to every "win": <strong>look at the paths, not the totals.</strong> A real crawl requests your real URLs. A scanner requests things you never wrote.</p>
 
 <ul>
-  <li><strong>Putting JSON-LD in the <code>&lt;body&gt;</code></strong> instead of the <code>&lt;head&gt;</code>. It still validates, but it signals the wrong thing and breaks the convention crawlers expect.</li>
-  <li><strong>Forgetting <code>@context</code>.</strong> Without it, a parser cannot know your vocabulary — the whole block becomes guesswork.</li>
-  <li><strong>Using the wrong <code>@type</code>.</strong> A product page marked as <code>Article</code> confuses entity extraction instead of helping it.</li>
-  <li><strong>Omitting dates on <code>Article</code>.</strong> <code>datePublished</code> / <code>dateModified</code> are freshness signals; without them, AI cannot judge if your answer is current.</li>
-  <li><strong>Creating duplicate entities.</strong> Two <code>Organization</code> blocks without a shared <code>@id</code> look like two different companies to a knowledge graph.</li>
+  <li><strong>ChatGPT-User on 08-11 (117 requests):</strong> probing <code>/debug</code>, <code>/.env.production</code>, <code>/api/ping</code>, <code>/telescope/requests</code>, <code>/web/.env</code>.</li>
+  <li><strong>Amazonbot on 08-11 (148 requests):</strong> probing <code>/wp/.env</code>, <code>/admin/config</code>, <code>/var/www/html/.env</code>, <code>/fetch</code>.</li>
+  <li><strong>Spoofed GPTBot on 08-13 (94 requests):</strong> concentrated in a single early-morning burst scanning for <code>.env</code> and <code>.git</code>, blocked by our Worker's sensitive-path filter.</li>
 </ul>
+
+<p>Scanner bots borrow well-known crawler names because many firewalls whitelist those names. Your log then shows "ChatGPT is reading my site a lot!" — when the assistant's real crawler never touched you. Filter by <code>status</code> and <code>path</code> before you celebrate.</p>
+
+<h2>Did the AI Discovery Endpoints Fail, or Just Not Get Used Yet?</h2>
+
+<p>We added <code>/ai/summary.json</code>, <code>/ai/faq.json</code>, <code>/.well-known/ai.txt</code> and related files during the first week — and in two weeks of logs, <strong>zero crawlers requested them</strong>. That is not proof they are useless; it is proof they are not the current entry point.</p>
+
+<p>Today's answer engines discover content the classical way: robots.txt, sitemap.xml, then the content itself. The AI-facing endpoints are a bet on where tooling is heading, not where it is today. We keep them maintained (they help audit tools like GeoReady and future agents), but we stopped counting on them for crawl growth and moved that effort to content.</p>
+
+<h2>What Should a Site Owner Do With This Data?</h2>
+
+<blockquote><strong>Prioritize in this order: publish new answerable content, keep robots and sitemap healthy, keep dates fresh, add FAQPage markup — and treat infrastructure endpoints as a low-cost hedge, not a growth driver.</strong></blockquote>
+
+<ol>
+  <li><strong>Publish new content first.</strong> It is the only change in our data that produced immediate, repeated crawler visits.</li>
+  <li><strong>Keep robots.txt and sitemap.xml complete and current.</strong> They are the actual entry points crawlers use.</li>
+  <li><strong>Align freshness signals.</strong> Match <code>dateModified</code> to sitemap <code>lastmod</code> after every edit.</li>
+  <li><strong>Add FAQPage markup to metrics and case pages.</strong> It turns ordinary pages into directly quotable answer surfaces.</li>
+  <li><strong>Keep AI endpoints but don't depend on them.</strong> They cost little and may matter later.</li>
+  <li><strong>Filter attacks before reading your dashboard.</strong> Separate scanner probes from real crawls in your logging.</li>
+</ol>
+
+<p>Every site is different — our sample is one site, twelve days. But the ordering matches the <a href="../fundamentals/answer-assetization.html">answer-assetization</a> principle: AI visibility follows content that can be quoted, not configuration that can be probed.</p>
 
 <h2>FAQ</h2>
 
-<h3>Do I need JSON-LD if I already have an llms.txt?</h3>
-<p>No — llms.txt and JSON-LD do different jobs. <a href="../fundamentals/llms-txt-guide.html" class="glossary-link">llms.txt</a> is a plain-text orientation file that tells an LLM what the site covers; JSON-LD is semantic metadata that tells crawlers and search engines what each page is. They compound: llms.txt helps AI discover you, JSON-LD helps AI understand and trust you.</p>
+<p><strong>Which GEO changes actually increase AI crawler traffic?</strong> Publishing new articles drove the biggest real spikes — new pages were crawled 6-10 times on launch day and revisited for days. Freshness alignment and FAQPage markup also correlated with crawler activity. Infrastructure files like <code>/ai/summary.json</code> were never requested by any crawler.</p>
 
-<h3>Will JSON-LD get my site cited by ChatGPT or Perplexity?</h3>
-<p>Structured data alone does not guarantee citations, but it is a strong clarity and trust signal, and it unlocks answer-engine features like FAQ rich results that can be extracted and quoted directly. Treat JSON-LD as a prerequisite, not a magic switch.</p>
+<p><strong>How do you tell a real crawl spike from a scanner attack?</strong> Check the requested paths, not just the count. A genuine crawl hits your real URLs; a scanner probes <code>/.env.production</code>, <code>/debug</code>, <code>/admin/config</code> and similar sensitive paths using a borrowed crawler user agent.</p>
 
-<h3>Where should JSON-LD live on the page?</h3>
-<p>In the <code>&lt;head&gt;</code>, near your other metadata — never at the bottom of the <code>&lt;body&gt;</code>. The head placement tells crawlers this is page-level metadata, and it keeps the markup cleanly separated from visible content.</p>
+<p><strong>Do AI discovery endpoints like <code>/ai/summary.json</code> get crawled?</strong> Not in our two-week window. GPTBot, ClaudeBot, PerplexityBot and OAI-SearchBot visited robots.txt and sitemap.xml almost every day but never requested any AI-facing endpoint.</p>
 
-<h3>Is JSON-LD hard to maintain?</h3>
-<p>On a static site it is straightforward: each HTML file carries its own JSON-LD block, and static-site generators can output it for you. Start with <code>Article</code> plus <code>Organization</code> plus <code>BreadcrumbList</code>, then add page-specific types like <code>FAQPage</code> or <code>HowTo</code> as you grow.</p>
+<p><strong>What should a site owner prioritize for AI visibility: new content or technical fixes?</strong> New content first, then structured data. Content additions produced immediate, repeated crawler visits in our data, while infrastructure endpoints produced zero.</p>
 
       <div class="nav-links">
-        <a href="../community.html">← Community</a>
-        <a href="../technical/schema-markup-guide.html">📖 Schema Markup Guide</a>
-        <a href="../technical/entity-knowledge-graph.html">Entity Recognition →</a>
+        <a href="one-week-geo-readiness.html">← One-Week GEO Readiness</a>
+        <a href="../community.html">📖 Community</a>
+        <a href="../content/question-driven-strategy.html">Question-Driven Strategy →</a>
       </div>
 
-      <div class="comments" id="comments" data-page="/community/what-is-json-ld.html">
+      <div class="comments" id="comments" data-page="/community/two-week-crawler-data.html">
         <h2>Discussion</h2>
         <div id="comments-list"><p class="comment-empty">Loading comments…</p></div>
         <form id="comment-form" autocomplete="off">

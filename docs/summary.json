@@ -1,9 +1,9 @@
 {
   "name": "GEO Encyclopedia",
-  "description": "A complete English-language knowledge base on Generative Engine Optimization (GEO): 48 in-depth articles and 10 glossary terms across 9 chapters plus a Community hub, covering how AI answer engines select, cite, and recommend brands.",
+  "description": "A complete English-language knowledge base on Generative Engine Optimization (GEO): 49 in-depth articles and 10 glossary terms across 9 chapters plus a Community hub, covering how AI answer engines select, cite, and recommend brands.",
   "url": "https://geo010.com",
   "language": "en",
-  "updated": "2026-08-12",
+  "updated": "2026-08-16",
   "keywords": [
     "GEO",
     "Generative Engine Optimization",
@@ -25,7 +25,7 @@
     { "number": "VII", "title": "Industry Applications", "url": "https://geo010.com/industry/healthcare-geo.html", "articleCount": 6 },
     { "number": "VIII", "title": "Case Studies", "url": "https://geo010.com/cases/zero-to-one-roadmap.html", "articleCount": 5 },
     { "number": "IX", "title": "Data & Formulas", "url": "https://geo010.com/data/core-metrics-system.html", "articleCount": 3 },
-    { "title": "Community", "url": "https://geo010.com/community.html", "articleCount": 3 }
+    { "title": "Community", "url": "https://geo010.com/community.html", "articleCount": 4 }
   ],
   "glossary": "https://geo010.com/glossary/geo.html",
   "feed": "https://geo010.com/feed.xml",
