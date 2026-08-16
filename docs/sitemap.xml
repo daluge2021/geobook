@@ -20,7 +20,7 @@
   </url>
   <url>
     <loc>https://geo010.com/about.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -64,19 +64,19 @@
   <!-- Metrics -->
   <url>
     <loc>https://geo010.com/metrics/citation-share.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://geo010.com/metrics/entity-density.html</loc>
-    <lastmod>2026-08-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://geo010.com/metrics/sheep-framework.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -268,7 +268,7 @@
   <!-- Cases -->
   <url>
     <loc>https://geo010.com/cases/zero-to-one-roadmap.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -280,7 +280,7 @@
   </url>
   <url>
     <loc>https://geo010.com/cases/geo-ai-audit.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
