@@ -7,19 +7,19 @@
 
 - **本站 URL（canonical）**: https://geo010.com/community/geo-impact-attribution-new-site.html
 - **H1 / 平台统一标题**: What GEO Work Actually Moves AI Crawlers? Our Data, and a New-Site Launch Checklist
-- **核心论点**: 我们给 geo010.com 的 9 类 GEO 措施逐一做了两周爬虫流量归因——真正起作用的只有 robots.txt + sitemap.xml + 首页 + 真实内容；llms.txt 只有 GPTBot 关注；FAQPage 与 AI 发现端点对"抓取"零作用。由此给出新站冷启动清单（先做三件套 + 3-5 篇真文章），并修正了两条此前写错的结论。
-- **发布日期**: 2026-08-16（与 two-week-crawler-data 同日）
-- **文章计数**: 全站 49 → 50（所有索引已同步）
+- **核心论点**: 我们给 geo010.com 的 9 类 GEO 措施逐一做了 15 天爬虫流量归因——真正起作用的只有 robots.txt + sitemap.xml + 首页 + 真实内容；llms.txt 只有 GPTBot 关注；FAQPage 与 AI 发现端点对"抓取"零作用。由此给出新站冷启动清单（先做三件套 + 3-5 篇真文章），并修正了两条此前写错的结论。新增 Aug 17–19 三日验证数据（GPTBot 全站遍历 60 页实证）。
+- **发布日期**: 2026-08-19（已推送 2bee9c7）
+- **文章计数**: 全站 50 篇（所有索引已同步）
 
 ## 二、核心数据表（各平台共享）
 
 | 措施 | 关键证据 | 影响评级 |
 |------|---------|---------|
-| robots.txt | ClaudeBot 68、Googlebot 19、OAI-SearchBot 18、Bingbot 12 | 最高 |
-| sitemap.xml | ClaudeBot 68、Bingbot 8、GPTBot 6 | 最高 |
-| 首页 / | GPTBot 17、PerplexityBot 12、OAI-SearchBot 10、ClaudeBot 8 | 高 |
-| 新内容页 | GPTBot 66/83 次请求为内容页 | 高 |
-| freshness | 08-08/08-12 爬虫访问高峰随 freshness 刷新 | 中 |
+| robots.txt | ClaudeBot 104、Googlebot 32、OAI-SearchBot 26、Bingbot 17 | 最高 |
+| sitemap.xml | ClaudeBot 104、Bingbot 11、GPTBot 9 | 最高 |
+| 首页 / | GPTBot 21、PerplexityBot 12、OAI-SearchBot 10、ClaudeBot 8 | 高 |
+| 新内容页 | GPTBot 121 内容页（含08-17全站遍历60页） | 高 |
+| freshness | 08-08/08-12/08-17 爬虫访问高峰随 freshness 刷新 | 中 |
 | llms.txt | 4 次（GPTBot 2、Amazonbot 1、Googlebot 1） | 低 |
 | 定义前置 | entity-density 页被 7+ 爬虫触达 | 低-中 |
 | FAQPage | 补全后 6 页 0 次主流 AI 爬虫访问 | 无（引用层） |
@@ -29,9 +29,9 @@
 
 | 行为 | GPTBot | ClaudeBot |
 |------|--------|-----------|
-| robots.txt | 1 次 | 68 次 |
-| sitemap.xml | 6 次 | 68 次 |
-| 内容页 | 66/83 | 极少 |
+| robots.txt | 1 次 | 104 次 |
+| sitemap.xml | 9 次 | 104 次 |
+| 内容页 | 121 页（含08-17全站遍历） | 极少 |
 | 策略 | 全站遍历 | 严格走入口 |
 
 修正的两条旧结论（重要卖点，体现数据诚意）：
@@ -45,13 +45,13 @@
 - 副标题（导入原文链接）: 原文发布在 GEO Encyclopedia —— https://geo010.com/community/geo-impact-attribution-new-site.html
 - 首图: https://geo010.com/og-image.png（新增计数已是 50）
 - 文末固定链接段（必加，否则与站内文章重复率过高）:
-  > *This article was originally published on the GEO Encyclopedia (geo010.com). We log every AI crawler request on our own site and write about what the data shows. The full index of articles — including the launch-time checklist and the two-week crawler data it builds on — is at [geo010.com/community.html](https://geo010.com/community.html).*
+  > *This article was originally published on the GEO Encyclopedia (geo010.com). We log every AI crawler request on our own site and write about what the data shows. The full index of articles — including the launch-time checklist and the 15-day crawler data it builds on — is at [geo010.com/community.html](https://geo010.com/community.html).*
 - 标签: #GEO #AI #GenerativeEngineOptimization #DigitalMarketing #ContentStrategy #SEO
 
 ### 2. LinkedIn（文章）
 - 标题: What GEO Work Actually Moves AI Crawlers? Our Data, and a New-Site Launch Checklist
 - 摘要（约 60 词）:
-  "We attributed two weeks of AI crawler traffic to nine GEO measures on geo010.com. Result: robots.txt + sitemap.xml + the homepage + real content produced nearly all real crawler traffic. llms.txt helped only GPTBot. FAQPage and AI discovery endpoints produced zero crawl visits — and we corrected two of our own earlier conclusions. Full data and a new-site launch checklist in the article."
+  "We attributed 15 days of AI crawler traffic to nine GEO measures on geo010.com. Result: robots.txt + sitemap.xml + the homepage + real content produced nearly all real crawler traffic. llms.txt helped only GPTBot. FAQPage and AI discovery endpoints produced zero crawl visits — and we corrected two of our own earlier conclusions. Full data and a new-site launch checklist in the article."
 - 链接: https://geo010.com/community/geo-impact-attribution-new-site.html
 - 标签: #GEO #AI #ContentStrategy #DigitalMarketing
 
