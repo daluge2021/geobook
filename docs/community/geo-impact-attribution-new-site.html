@@ -6,11 +6,11 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1911889082930844" crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>What GEO Work Actually Moves AI Crawlers? Our Data, and a New-Site Launch Checklist - GEO Encyclopedia</title>
-<meta name="description" content="We attributed two weeks of AI crawler traffic to nine GEO measures on geo010.com. Real numbers show which ones matter, which ones did nothing, and the exact checklist to build first on a new site.">
+<meta name="description" content="We attributed 15 days of AI crawler traffic to nine GEO measures on geo010.com. Real numbers show which ones matter, which ones did nothing, and the exact checklist to build first on a new site.">
 <link rel="canonical" href="https://geo010.com/community/geo-impact-attribution-new-site.html"/>
 <link rel="alternate" type="application/rss+xml" title="GEO Encyclopedia RSS" href="https://geo010.com/feed.xml">
 <meta property="og:title" content="What GEO Work Actually Moves AI Crawlers? Our Data, and a New-Site Launch Checklist - GEO Encyclopedia"/>
-<meta property="og:description" content="We attributed two weeks of AI crawler traffic to nine GEO measures. Real numbers show which matter, which did nothing, and the checklist to build first on a new site."/>
+<meta property="og:description" content="We attributed 15 days of AI crawler traffic to nine GEO measures. Real numbers show which matter, which did nothing, and the checklist to build first on a new site."/>
 <meta property="og:url" content="https://geo010.com/community/geo-impact-attribution-new-site.html"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="https://geo010.com/og-image.png"/>
@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="GEO Encyclopedia"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="What GEO Work Actually Moves AI Crawlers? Our Data, and a New-Site Launch Checklist - GEO Encyclopedia"/>
-<meta name="twitter:description" content="We attributed two weeks of AI crawler traffic to nine GEO measures. Real numbers show which matter, which did nothing, and the checklist to build first on a new site."/>
+<meta name="twitter:description" content="We attributed 15 days of AI crawler traffic to nine GEO measures. Real numbers show which matter, which did nothing, and the checklist to build first on a new site."/>
 <meta name="twitter:image" content="https://geo010.com/og-image.png"/>
 <meta name="keywords" content="GEO case study,crawler attribution,robots.txt,sitemap.xml,GPTBot,ClaudeBot,AI crawler behavior,new site checklist,llms.txt,FAQPage,Generative Engine Optimization,launch strategy">
 <style>
@@ -101,10 +101,10 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "What GEO Work Actually Moves AI Crawlers? Our Data, and a New-Site Launch Checklist",
-  "description": "We attributed two weeks of AI crawler traffic to nine GEO measures on geo010.com. Real numbers show which ones matter, which ones did nothing, and the exact checklist to build first on a new site.",
+  "description": "We attributed 15 days of AI crawler traffic to nine GEO measures on geo010.com. Real numbers show which ones matter, which ones did nothing, and the exact checklist to build first on a new site.",
   "author": { "@type": "Organization", "name": "GEO Encyclopedia Editorial Team", "url": "https://geo010.com/about.html" },
   "datePublished": "2026-08-16",
-  "dateModified": "2026-08-16",
+  "dateModified": "2026-08-19",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/community/geo-impact-attribution-new-site.html" },
   "publisher": { "@type": "Organization", "name": "GEO Encyclopedia", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -154,7 +154,7 @@
       "name": "Do AI discovery endpoints like /ai/summary.json help AI crawlers?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not in our two weeks of logs. GPTBot, ClaudeBot, PerplexityBot and OAI-SearchBot visited robots.txt and sitemap.xml almost every day but never requested /ai/summary.json, /ai/faq.json, /.well-known/ai.txt or ai-plugin.json. Audit tools probe those files; today's crawlers do not."
+        "text": "Not in our 15 days of logs. GPTBot, ClaudeBot, PerplexityBot and OAI-SearchBot visited robots.txt and sitemap.xml almost every day but never requested /ai/summary.json, /ai/faq.json, /.well-known/ai.txt or ai-plugin.json. Audit tools probe those files; today's crawlers do not."
       }
     },
     {
@@ -162,7 +162,7 @@
       "name": "Why do GPTBot and ClaudeBot behave differently?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "ClaudeBot follows the classic crawl path: it hits robots.txt and sitemap.xml repeatedly (68 times each in two weeks) but barely visits content pages. GPTBot ignores robots.txt almost entirely and instead traverses the whole site — 66 of its 83 requests hit content pages, typically each page once per pass."
+        "text": "ClaudeBot follows the classic crawl path: it hits robots.txt and sitemap.xml repeatedly (104 times each in 15 days) but barely visits content pages. GPTBot ignores robots.txt almost entirely and instead traverses the whole site — 121 of its requests hit content pages, typically each page once per pass."
       }
     },
     {
@@ -303,12 +303,12 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../community.html">Community</a> › What GEO Work Actually Moves AI Crawlers?</div>
 
-<div class="article-meta"><span>By <a href="../about.html">GEO Encyclopedia Editorial Team</a></span><span>·</span><span>Updated: 2026-08-16</span><span>·</span><span>All numbers are live crawl logs from geo010.com, August 4-16, 2026</span></div>
+<div class="article-meta"><span>By <a href="../about.html">GEO Encyclopedia Editorial Team</a></span><span>·</span><span>Updated: 2026-08-19</span><span>·</span><span>All numbers are live crawl logs from geo010.com, August 4–19, 2026</span></div>
 
 <h1>What GEO Work Actually Moves AI Crawlers? Our Data, and a New-Site Launch Checklist</h1>
 
 <blockquote>You are about to launch a new site and the advice keeps multiplying: add <code>/ai/summary.json</code>, wire up <code>llms.txt</code>, sprinkle FAQPage markup, build a discovery layer. But which of these does an AI crawler actually care about?</blockquote>
-<blockquote>We run a Cloudflare Worker that logs every request to geo010.com and tags it by crawler, so we could answer that question with data instead of opinion. This article attributes two weeks of AI crawler traffic to nine GEO measures, shows which ones changed nothing, and turns the results into a launch checklist for a new site.</blockquote>
+<blockquote>We run a Cloudflare Worker that logs every request to geo010.com and tags it by crawler, so we could answer that question with data instead of opinion. This article attributes 15 days of AI crawler traffic to nine GEO measures, shows which ones changed nothing, and turns the results into a launch checklist for a new site.</blockquote>
 
 <hr>
 
@@ -324,16 +324,16 @@
 
 <p>Here is the full attribution table, ranked by how much real crawler traffic each measure produced:</p>
 
-<table><thead><tr><th>GEO measure</th><th>Which crawlers</th><th>Evidence (Aug 4-16)</th><th>Impact</th></tr></thead><tbody>
-<tr><td><strong>robots.txt</strong></td><td>ClaudeBot, Googlebot, OAI-SearchBot, Bingbot, FacebookBot</td><td>ClaudeBot 68, Googlebot 19, OAI-SearchBot 18, Bingbot 12</td><td><strong>Highest</strong> — nearly daily entry point</td></tr>
-<tr><td><strong>sitemap.xml</strong></td><td>ClaudeBot, Bingbot, GPTBot</td><td>ClaudeBot 68, Bingbot 8, GPTBot 6</td><td><strong>Highest</strong> — ClaudeBot reads it religiously</td></tr>
-<tr><td><strong>Homepage <code>/</code></strong></td><td>GPTBot, PerplexityBot, OAI-SearchBot, ClaudeBot, Claude-SearchBot, Applebot</td><td>GPTBot 17, PerplexityBot 12, OAI-SearchBot 10, ClaudeBot 8</td><td><strong>High</strong> — visited by every major crawler daily</td></tr>
-<tr><td><strong>New content pages</strong></td><td>GPTBot (primary), ClaudeBot, PerplexityBot</td><td>GPTBot 66 of 83 requests hit content pages</td><td><strong>High</strong> — GPTBot traverses all pages</td></tr>
-<tr><td><strong>Freshness alignment</strong></td><td>All (indirect)</td><td>Crawler bursts on 08-08 and 08-12 followed freshness passes</td><td><strong>Medium</strong> — sustains re-visits</td></tr>
+<table><thead><tr><th>GEO measure</th><th>Which crawlers</th><th>Evidence (Aug 4–19)</th><th>Impact</th></tr></thead><tbody>
+<tr><td><strong>robots.txt</strong></td><td>ClaudeBot, Googlebot, OAI-SearchBot, Bingbot, FacebookBot</td><td>ClaudeBot 104, Googlebot 32, OAI-SearchBot 26, Bingbot 17</td><td><strong>Highest</strong> — nearly daily entry point</td></tr>
+<tr><td><strong>sitemap.xml</strong></td><td>ClaudeBot, Bingbot, GPTBot</td><td>ClaudeBot 104, Bingbot 11, GPTBot 9</td><td><strong>Highest</strong> — ClaudeBot reads it religiously</td></tr>
+<tr><td><strong>Homepage <code>/</code></strong></td><td>GPTBot, PerplexityBot, OAI-SearchBot, ClaudeBot, Claude-SearchBot, Applebot</td><td>GPTBot 21, PerplexityBot 12, OAI-SearchBot 10, ClaudeBot 8</td><td><strong>High</strong> — visited by every major crawler daily</td></tr>
+<tr><td><strong>New content pages</strong></td><td>GPTBot (primary), ClaudeBot, PerplexityBot</td><td>GPTBot 121 content pages; ClaudeBot 2 community articles</td><td><strong>High</strong> — GPTBot traverses all pages</td></tr>
+<tr><td><strong>Freshness alignment</strong></td><td>All (indirect)</td><td>Crawler bursts on 08-08, 08-12 and 08-17 followed freshness passes</td><td><strong>Medium</strong> — sustains re-visits</td></tr>
 <tr><td><strong>llms.txt</strong></td><td>GPTBot, Amazonbot, Googlebot</td><td>4 total requests, GPTBot 2</td><td><strong>Low</strong> — only GPTBot treats it as an entry</td></tr>
 <tr><td><strong>Definition-first layout</strong></td><td>GPTBot, ClaudeBot, Bingbot, others</td><td>Entity-density page reached by 7+ crawlers</td><td><strong>Low-medium</strong> — quality, not quantity</td></tr>
 <tr><td><strong>FAQPage markup</strong></td><td>None (AI)</td><td>0 visits from major AI crawlers after shipping</td><td><strong>None (crawl)</strong> — a citation-layer lever</td></tr>
-<tr><td><strong>AI discovery endpoints (<code>/ai/</code>, ai.txt, plugins)</strong></td><td>None</td><td>0 requests in two weeks</td><td><strong>None</strong> — not used by today's crawlers</td></tr>
+<tr><td><strong>AI discovery endpoints (<code>/ai/</code>, ai.txt, plugins)</strong></td><td>None</td><td>0 requests in 15 days</td><td><strong>None</strong> — not used by today's crawlers</td></tr>
 </tbody></table>
 
 <p>The ranking surprised us. The "boring" infrastructure files — robots.txt and sitemap.xml — produced more genuine crawler traffic than every shiny AI feature combined.</p>
@@ -343,13 +343,13 @@
 <p>The two most important AI crawlers could not be more different in behavior, and the difference determines what to build first:</p>
 
 <table><thead><tr><th>Behavior</th><th>GPTBot</th><th>ClaudeBot</th></tr></thead><tbody>
-<tr><td>Reads robots.txt</td><td>Rarely (1 request)</td><td>Religiously (68 requests)</td></tr>
-<tr><td>Reads sitemap.xml</td><td>Sometimes (6)</td><td>Every day (68)</td></tr>
-<tr><td>Visits content pages</td><td><strong>Yes — 66 of 83 requests</strong></td><td>Rarely (a handful total)</td></tr>
+<tr><td>Reads robots.txt</td><td>Rarely (1 request)</td><td>Religiously (104 requests)</td></tr>
+<tr><td>Reads sitemap.xml</td><td>Occasionally (9)</td><td>Every day (104)</td></tr>
+<tr><td>Visits content pages</td><td><strong>Yes — 121 pages, including a full-site pass on Aug 17</strong></td><td>Rarely (a handful total)</td></tr>
 <tr><td>Entry strategy</td><td>Traverses the whole site per pass</td><td>Follows robots → sitemap, then mostly home</td></tr>
 </tbody></table>
 
-<p><strong>ClaudeBot is a disciplined path-follower.</strong> It checks your robots and your sitemap almost daily, but it barely descends into content unless something in that sitemap or homepage directs it. <strong>GPTBot is a deep scanner.</strong> It skips robots, reads llms.txt occasionally, and walks the entire site, hitting every page roughly once per pass.</p>
+<p><strong>ClaudeBot is a disciplined path-follower.</strong> It checks your robots and your sitemap almost daily, but it barely descends into content unless something in that sitemap or homepage directs it. <strong>GPTBot is a deep scanner.</strong> It skips robots, reads llms.txt occasionally, and walks the entire site — on Aug 17 it made a single pass touching 60 pages, each one once.</p>
 
 <p>The practical consequence: <strong>if your robots.txt or sitemap.xml is broken, you hurt the crawler that reads them daily (ClaudeBot). If your content is shallow, you waste the crawler that reads everything (GPTBot).</strong></p>
 
@@ -364,6 +364,20 @@
 </ul>
 
 <p>None of those measures are useless. They just do their work at a different layer: <strong>FAQPage helps a page be quoted once AI is already considering it; llms.txt helps GPTBot orient; discovery endpoints may help future tooling.</strong> The mistake was measuring them against crawl counts at all.</p>
+
+<h2>What Three More Days Confirmed</h2>
+
+<p>When we first published this article, the data window was 12 days. Three more days (Aug 17–19) gave us a live test of the same predictions:</p>
+
+<table><thead><tr><th>Date</th><th>What happened</th><th>What it proved</th></tr></thead><tbody>
+<tr><td>Aug 17</td><td>GPTBot hit 60 pages in a single pass — the first full-site traversal since launch</td><td>Content pages are discovered <strong>via sitemap</strong>, not via AI endpoints. GPTBot never touched <code>/ai/summary.json</code>.</td></tr>
+<tr><td>Aug 17</td><td>ClaudeBot made 23 requests: all robots.txt + sitemap.xml + homepage</td><td>ClaudeBot has not changed its entry-only behavior in three weeks. Sitemap quality matters more than content quantity for this crawler.</td></tr>
+<tr><td>Aug 17</td><td>Total requests 1,066; only 371 returned 200</td><td>Scanner noise persists — the same path-spam pattern (old PHP paths, <code>/api/v1/validate/code</code>) returns daily. Noise filtering is ongoing work.</td></tr>
+<tr><td>Aug 18</td><td>Bingbot made 51 requests (highest single-day for Bing); Meta-ExternalAgent appeared for the first time with 8 requests</td><td>Not all crawlers behave the same. Bingbot probes old/cached paths; Meta-ExternalAgent is a new entrant worth monitoring.</td></tr>
+<tr><td>Aug 18–19</td><td>Both community articles (the crawler-data post and this one) each got 1 GPTBot visit + 1 ClaudeBot visit</td><td>New content is indexed once per crawler type — not burst-on-publish. The "crawled 6-10 times on launch day" claim from earlier articles was definitely noise.</td></tr>
+</tbody></table>
+
+<p>The extra data made the picture sharper, not murkier: <strong>robots + sitemap + homepage are the crawl foundation; everything else is a citation-layer optimization you add later.</strong></p>
 
 <h2>What Should a New Site Build First?</h2>
 
@@ -383,7 +397,7 @@
 <p>Skip these until the foundations above exist. Our logs show they contribute nothing to crawl, however good they look on a roadmap:</p>
 
 <ul>
-  <li><strong>AI discovery endpoints</strong> (<code>/ai/summary.json</code>, <code>/.well-known/ai.txt</code>, <code>ai-plugin.json</code>, <code>openapi.json</code>) — zero crawler requests in two weeks. Audit tools like them; crawlers ignore them.</li>
+  <li><strong>AI discovery endpoints</strong> (<code>/ai/summary.json</code>, <code>/.well-known/ai.txt</code>, <code>ai-plugin.json</code>, <code>openapi.json</code>) — zero crawler requests in 15 days. Audit tools like them; crawlers ignore them.</li>
   <li><strong>FAQPage markup on every page</strong> — no crawl effect in our data. Add it later, on pages that are already candidates for citation.</li>
   <li><strong>A monitoring dashboard</strong> — start with your server logs or platform analytics for the first week; you only need to know whether crawlers are arriving and what they hit.</li>
   <li><strong>Freshness plumbing</strong> — worth building, but only once you have content and dates to keep honest.</li>
@@ -395,9 +409,9 @@
 
 <p><strong>What should a brand-new site build first for AI crawlers?</strong> A correct robots.txt, a sitemap.xml where every URL returns 200, and a server-rendered homepage with a one-line statement of what the site is plus a few real articles. Those were the only entry points every AI crawler used in our logs.</p>
 
-<p><strong>Do AI discovery endpoints like <code>/ai/summary.json</code> help AI crawlers?</strong> Not in our two weeks of logs. GPTBot, ClaudeBot, PerplexityBot and OAI-SearchBot visited robots.txt and sitemap.xml almost every day but never requested any AI-facing endpoint.</p>
+<p><strong>Do AI discovery endpoints like <code>/ai/summary.json</code> help AI crawlers?</strong> Not in our 15 days of logs. GPTBot, ClaudeBot, PerplexityBot and OAI-SearchBot visited robots.txt and sitemap.xml almost every day but never requested any AI-facing endpoint.</p>
 
-<p><strong>Why do GPTBot and ClaudeBot behave differently?</strong> ClaudeBot follows the classic crawl path — robots.txt and sitemap.xml daily, but barely any content. GPTBot ignores robots, reads llms.txt occasionally, and traverses the entire site — 66 of 83 requests hit content pages.</p>
+<p><strong>Why do GPTBot and ClaudeBot behave differently?</strong> ClaudeBot follows the classic crawl path — robots.txt and sitemap.xml daily, but barely any content. GPTBot ignores robots, reads llms.txt occasionally, and traverses the entire site — 121 content pages touched, including a single full-site pass on Aug 17.</p>
 
 <p><strong>Does adding FAQPage markup get a page crawled more?</strong> In our data, no measurable crawl effect. It improves how a page is quoted once AI is already considering it — it is a citation-layer lever, not a crawl driver.</p>
 
