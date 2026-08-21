@@ -3,16 +3,58 @@
 <channel>
   <title>GEO Encyclopedia</title>
   <link>https://geo010.com</link>
-  <description>50 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
+  <description>55 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
   <language>en</language>
   <atom:link href="https://geo010.com/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Sun, 16 Aug 2026 00:00:00 +0000</lastBuildDate>
+<lastBuildDate>Thu, 21 Aug 2026 00:00:00 +0000</lastBuildDate>
+  <item>
+    <title>How to Do GEO for SaaS Companies? - Winning AI Recommendations</title>
+    <link>https://geo010.com/industry/saas-geo.html</link>
+    <guid>https://geo010.com/industry/saas-geo.html</guid>
+    <pubDate>Thu, 21 Aug 2026 00:00:00 +0000</pubDate>
+    <description>Complete GEO guide for SaaS companies - how to win AI search recommendations, optimize product pages, and build authority for AI-driven lead generation.</description>
+  </item>
+  <item>
+    <title>AI Search vs Traditional Search - Key Differences Explained</title>
+    <link>https://geo010.com/fundamentals/ai-vs-traditional-search.html</link>
+    <guid>https://geo010.com/fundamentals/ai-vs-traditional-search.html</guid>
+    <pubDate>Thu, 21 Aug 2026 00:00:00 +0000</pubDate>
+    <description>Comprehensive comparison of AI search vs traditional search - how ranking works, user behavior shifts, zero-click trends, and what it means for content strategy.</description>
+  </item>
+  <item>
+    <title>How to Track AI Citations - GEO Performance Measurement Guide</title>
+    <link>https://geo010.com/technical/track-ai-citations.html</link>
+    <guid>https://geo010.com/technical/track-ai-citations.html</guid>
+    <pubDate>Thu, 21 Aug 2026 00:00:00 +0000</pubDate>
+    <description>Step-by-step guide to tracking when AI models cite your content - server log analysis, crawler monitoring, brand mention tracking, and attribution methods.</description>
+  </item>
+  <item>
+    <title>Multilingual GEO Strategy - Get Cited by AI in Every Language</title>
+    <link>https://geo010.com/content/multilingual-geo.html</link>
+    <guid>https://geo010.com/content/multilingual-geo.html</guid>
+    <pubDate>Thu, 21 Aug 2026 00:00:00 +0000</pubDate>
+    <description>Complete guide to multilingual GEO - how AI models handle different languages, hreflang for AI, content localization vs translation, and getting cited in non-English markets.</description>
+  </item>
+  <item>
+    <title>GEO for E-commerce Product Pages - AI Product Recommendations</title>
+    <link>https://geo010.com/industry/ecommerce-product-geo.html</link>
+    <guid>https://geo010.com/industry/ecommerce-product-geo.html</guid>
+    <pubDate>Thu, 21 Aug 2026 00:00:00 +0000</pubDate>
+    <description>Optimize e-commerce product pages for AI search - structured data, comparison content, review integration, and answer-first product descriptions that get cited by AI.</description>
+  </item>
+  <item>
+    <title>GEO Tools &amp; Software Review �?What Actually Works in 2026</title>
+    <link>https://geo010.com/technical/geo-tools-review.html</link>
+    <guid>https://geo010.com/technical/geo-tools-review.html</guid>
+    <pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate>
+    <description>An honest map of the GEO tool market in 2026: AI visibility trackers (Profound, Otterly.ai, AIRadar), schema generators vs manual JSON-LD, content optimizers adapting to GEO, DIY crawler monitoring with a Cloudflare Worker, and a budget-based selection framework.</description>
+  </item>
   <item>
     <title>What GEO Work Actually Moves AI Crawlers? Our Data, and a New-Site Launch Checklist</title>
     <link>https://geo010.com/community/geo-impact-attribution-new-site.html</link>
     <guid>https://geo010.com/community/geo-impact-attribution-new-site.html</guid>
     <pubDate>Sun, 16 Aug 2026 00:00:00 +0000</pubDate>
-    <description>We attributed two weeks of AI crawler traffic to nine GEO measures on geo010.com. Real numbers show which ones matter, which did nothing, and the exact checklist to build first on a new site — plus the two earlier conclusions we corrected with the logs.</description>
+    <description>We attributed two weeks of AI crawler traffic to nine GEO measures on geo010.com. Real numbers show which ones matter, which did nothing, and the exact checklist to build first on a new site �?plus the two earlier conclusions we corrected with the logs.</description>
   </item>
   <item>
     <title>What Actually Gets Your Site Crawled by AI? Our Two-Week Data, and the Mistake We Retired</title>
@@ -22,28 +64,28 @@
     <description>Two weeks of crawl logs from geo010.com, stripped of scanner noise: which GEO changes drove real AI crawler visits, why our AI discovery endpoints got zero requests, and how to tell a genuine spike from an attack wearing a crawler's name.</description>
   </item>
   <item>
-    <title>How We Made GEO Encyclopedia AI-Discoverable in One Week — a Site-Owner Playbook</title>
+    <title>How We Made GEO Encyclopedia AI-Discoverable in One Week �?a Site-Owner Playbook</title>
     <link>https://geo010.com/community/one-week-geo-readiness.html</link>
     <guid>https://geo010.com/community/one-week-geo-readiness.html</guid>
     <pubDate>Wed, 12 Aug 2026 00:00:00 +0000</pubDate>
-    <description>Our week of building AI crawler visibility with the real numbers: 2,335 log records, 72 GPTBot visits, a new article crawled within 24 hours, and 264 junk requests filtered out — turned into a copyable step-by-step playbook for any site owner.</description>
+    <description>Our week of building AI crawler visibility with the real numbers: 2,335 log records, 72 GPTBot visits, a new article crawled within 24 hours, and 264 junk requests filtered out �?turned into a copyable step-by-step playbook for any site owner.</description>
   </item>
   <item>
-    <title>The GEO Content Template — How We Structure Every Article So AI Cites Us</title>
+    <title>The GEO Content Template �?How We Structure Every Article So AI Cites Us</title>
     <link>https://geo010.com/community/geo-content-template.html</link>
     <guid>https://geo010.com/community/geo-content-template.html</guid>
     <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
     <description>A GEO content template built from real pages on GEO Encyclopedia: scenario opening, question H2s, answer-first blocks, comparison tables, FAQPage JSON-LD, and the pre-publish checklist.</description>
   </item>
   <item>
-    <title>What is JSON-LD? — Structured Data Explained for GEO</title>
+    <title>What is JSON-LD? �?Structured Data Explained for GEO</title>
     <link>https://geo010.com/community/what-is-json-ld.html</link>
     <guid>https://geo010.com/community/what-is-json-ld.html</guid>
     <pubDate>Sat, 08 Aug 2026 00:00:00 +0000</pubDate>
     <description>A practical GEO guide to JSON-LD structured data: what it is, why it matters for AI visibility, JSON-LD vs Microdata, and how the GEO Encyclopedia homepage uses WebSite, Organization, and ItemList schemas.</description>
   </item>
   <item>
-    <title>GEO Encyclopedia Community — Share Knowledge, Ask Questions</title>
+    <title>GEO Encyclopedia Community �?Share Knowledge, Ask Questions</title>
     <link>https://geo010.com/community.html</link>
     <guid>https://geo010.com/community.html</guid>
     <pubDate>Sat, 08 Aug 2026 00:00:00 +0000</pubDate>

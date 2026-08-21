@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1911889082930844" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Track AI Citations - GEO Performance Measurement Guide - GEO Encyclopedia</title>
+<meta name="description" content="Step-by-step guide to tracking when AI models cite your content - server log analysis, crawler monitoring, brand mention tracking, and attribution methods.">
+<link rel="canonical" href="https://geo010.com/technical/track-ai-citations.html"/>
+<link rel="alternate" type="application/rss+xml" title="GEO Encyclopedia RSS" href="https://geo010.com/feed.xml">
+<meta property="og:title" content="How to Track AI Citations - GEO Performance Measurement Guide - GEO Encyclopedia"/>
+<meta property="og:description" content="Step-by-step guide to tracking when AI models cite your content - server log analysis, crawler monitoring, brand mention tracking, and attribution methods."/>
+<meta property="og:url" content="https://geo010.com/technical/track-ai-citations.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="https://geo010.com/og-image.png"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="GEO Encyclopedia"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="How to Track AI Citations - GEO Performance Measurement Guide - GEO Encyclopedia"/>
+<meta name="twitter:description" content="Step-by-step guide to tracking when AI models cite your content - server log analysis, crawler monitoring, brand mention tracking, and attribution methods."/>
+<meta name="twitter:image" content="https://geo010.com/og-image.png"/>
+<meta name="keywords" content="AI citation tracking,GEO monitoring,track AI mentions,crawler log analysis,AI search analytics">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
+  .layout { display: flex; min-height: 100vh; }
+  .sidebar { width: 240px; flex-shrink: 0; background: #1a1a2e; color: #ccc; padding: 32px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+  .sidebar h3 { color: #fff; font-size: 1em; padding: 0 20px; margin-bottom: 20px; }
+  .sidebar a { display: block; padding: 8px 20px; color: #999; text-decoration: none; font-size: 0.9em; transition: all 0.15s; }
+  .sidebar a:hover, .sidebar a.active { color: #fff; background: rgba(255,255,255,0.08); }
+  .sidebar a.active { border-left: 3px solid #4fc3f7; }
+  .sidebar .current { color: #aaa; padding: 8px 20px; font-size: 0.85em; }
+  .sidebar .home-link { margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 12px; font-weight: 500; color: #4fc3f7; }
+  .nav-group-toggle { padding: 8px 20px; color: #aaa; font-size: 0.85em; cursor: pointer; user-select: none; transition: color 0.15s; display: flex; align-items: center; gap: 6px; }
+  .nav-group-toggle:hover { color: #fff; background: rgba(255,255,255,0.05); }
+  .nav-group-links { display: none; }
+  .nav-group.open .nav-group-links { display: block; }
+  .nav-group.open > .nav-group-toggle .arrow { transform: rotate(90deg); }
+  .arrow { display: inline-block; transition: transform 0.2s; font-size: 0.8em; }
+  .main { flex: 1; max-width: 800px; margin: 0 auto; padding: 48px 32px 80px; }
+  .content { background: #fff; border-radius: 12px; padding: 40px 48px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .content .breadcrumb { color: #888; font-size: 0.85em; margin-bottom: 16px; }
+  .article-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: #888; font-size: 0.88em; margin: 4px 0 16px; }
+  .article-meta a { color: #0066cc; text-decoration: none; }
+  .article-meta a:hover { text-decoration: underline; }
+  .content .breadcrumb a { color: #0066cc; text-decoration: none; }
+  .content .breadcrumb a:hover { text-decoration: underline; }
+  .content h1 { font-size: 1.5em; margin: 40px 0 12px; color: #1a1a2e; padding-top: 8px; }
+  .content h1:first-of-type { margin-top: 0; }
+  .content h2 { font-size: 1.4em; margin: 32px 0 16px; color: #1a1a2e; padding-bottom: 8px; border-bottom: 1px solid #f0f0f0; }
+  .content h3 { font-size: 1.15em; margin: 24px 0 12px; color: #333; }
+  .content p { margin-bottom: 16px; color: #333; }
+  .content p:last-child { margin-bottom: 0; }
+  .content strong { color: #111; }
+  .content blockquote { margin: 16px 0; padding: 16px 20px; background: #f8f9ff; border-left: 4px solid #4fc3f7; border-radius: 0 8px 8px 0; color: #555; font-style: normal; }
+  .content blockquote strong { color: #1a1a2e; }
+  .content hr { margin: 32px 0; border: none; border-top: 1px solid #e8e8e8; }
+  .content ul, .content ol { margin: 8px 0 16px 24px; }
+  .content li { margin-bottom: 6px; color: #333; }
+  .content table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.93em; }
+  .content th { background: #f0f2f5; padding: 10px 14px; text-align: left; font-weight: 600; color: #333; border: 1px solid #e0e0e0; }
+  .content td { padding: 8px 14px; border: 1px solid #e8e8e8; color: #444; }
+  .content tr:nth-child(even) td { background: #fafafa; }
+  .content code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: #e74c3c; }
+  .content pre { background: #1a1a2e; color: #e6e6e6; border-radius: 8px; padding: 16px 20px; overflow-x: auto; margin: 16px 0 24px; font-size: 0.85em; line-height: 1.6; }
+  .content pre code { background: none; color: inherit; padding: 0; font-size: 1em; }
+  .content img { max-width: 100%; border-radius: 8px; margin: 16px 0; }
+  .glossary-section { margin-top: 12px; border-top: 1px solid #333; padding-top: 12px; }
+  .glossary-link { color: #0066cc; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+  .glossary-link:hover { color: #004499; text-decoration-style: solid; }
+  .nav-links { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; }
+  .nav-links a { color: #0066cc; text-decoration: none; font-size: 0.95em; }
+  .nav-links a:hover { text-decoration: underline; }
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 24px 16px; }
+    .content { padding: 24px 20px; border-radius: 8px; }
+    .content h1 { font-size: 1.3em; }
+    .content h2 { font-size: 1.2em; }
+    .nav-links { flex-direction: column; gap: 12px; }
+  }
+</style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Track AI Citations — A Practical Guide to Measuring Your GEO Performance",
+  "description": "Step-by-step guide to tracking when AI models cite your content - server log analysis, crawler monitoring, brand mention tracking, and attribution methods.",
+  "author": { "@type": "Organization", "name": "GEO Encyclopedia Editorial Team", "url": "https://geo010.com/about.html" },
+  "datePublished": "2026-08-21",
+  "dateModified": "2026-08-21",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/technical/track-ai-citations.html" },
+  "publisher": { "@type": "Organization", "name": "GEO Encyclopedia", "url": "https://geo010.com" },
+  "inLanguage": "en"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I know if AI models are citing my content?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Combine three methods: analyze server logs to confirm AI crawlers visited your pages, manually test your target queries on ChatGPT, Claude, and Perplexity each week and record whether you are cited, and filter Google Analytics 4 referrals from AI platforms such as chatgpt.com and perplexity.ai. No single source is complete, so treat them as a triangle of evidence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which user agents should I monitor for AI crawler tracking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At minimum monitor GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-User, PerplexityBot, Perplexity-User, and Google-Extended. Classifying each incoming request by user-agent in a server log or an edge worker gives you a first-party record of which AI system read which page, when, and with what HTTP status."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I test whether AI platforms cite my brand?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Test weekly for your 10-20 priority queries across at least three AI platforms, always opening fresh sessions to reduce personalization bias. Run a deeper monthly review that adds competitor comparison, description accuracy checks, and trend lines for citation share."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why doesn't ChatGPT show up as referral traffic in my analytics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browser-based AI often opens links inside its own app without sending a referer header, so those visits appear as direct traffic, and API-based retrieval sends no browser at all. Treat referral analytics as a lower bound and combine it with log data plus manual citation testing for full attribution."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://geo010.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "V. Technical Implementation",
+      "item": "https://geo010.com/technical-implementation.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Track AI Citations",
+      "item": "https://geo010.com/technical/track-ai-citations.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h3>📖 GEO Encyclopedia</h3>
+    <a href="../index.html" class="home-link">🏠 Home</a>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> I. Fundamentals</div>
+      <div class="nav-group-links">
+        <a href="../fundamentals/what-is-geo.html">What is GEO?</a>
+        <a href="../fundamentals/seo-vs-geo.html">Is SEO Dead?</a>
+        <a href="../fundamentals/eeat-trust-mechanism.html">E-E-A-T Trust</a>
+        <a href="../fundamentals/llms-txt-guide.html">LLMs.txt Guide</a>
+        <a href="../fundamentals/answer-assetization.html">Answer Assetization</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> II. Metrics</div>
+      <div class="nav-group-links">
+        <a href="../metrics/citation-share.html">Citation Share</a>
+        <a href="../metrics/entity-density.html">Entity Density</a>
+        <a href="../metrics/sheep-framework.html">SHEEP Framework</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> III. Models</div>
+      <div class="nav-group-links">
+        <a href="../models/3c-optimization-model.html">3C Model</a>
+        <a href="../models/geo-evolution.html">GEO Evolution</a>
+        <a href="../models/source-authority.html">Source Authority</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IV. Content</div>
+      <div class="nav-group-links">
+        <a href="../content/eeat-in-geo.html">E-E-A-T in GEO</a>
+        <a href="../content/knowledge-entropy.html">Knowledge Entropy</a>
+        <a href="../content/backlinks-in-geo.html">Backlinks in GEO</a>
+        <a href="../content/topical-authority.html">Topical Authority</a>
+        <a href="../content/content-freshness.html">Content Freshness</a>
+        <a href="../content/multimodal-content.html">Multimodal Content</a>
+        <a href="../content/question-driven-strategy.html">Question-Driven Strategy</a>
+        <a href="../content/local-geo-longtail.html">Local GEO</a>
+      </div>
+    </div>
+    <div class="nav-group open">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> V. Technical</div>
+      <div class="nav-group-links">
+        <a href="schema-markup-guide.html">Schema Markup</a>
+        <a href="llms-txt-advanced.html">LLMs.txt Advanced</a>
+        <a href="entity-knowledge-graph.html">Entity & Knowledge Graph</a>
+        <a href="ai-crawler-management.html">AI Crawler Management</a>
+        <a href="geo-monitoring-tools.html">Monitoring Tools</a>
+        <a href="track-ai-citations.html" class="active">Track AI Citations</a>
+        <a href="agenticgeo-tools.html">AgenticGEO</a>
+        <a href="tech-stack-overview.html">Tech Stack Overview</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VI. Brand</div>
+      <div class="nav-group-links">
+        <a href="../brand/brand-as-source.html">Brand as Source</a>
+        <a href="../brand/eeat-brand-implementation.html">EEAT Brand</a>
+        <a href="../brand/crisis-pr-geo.html">Crisis PR</a>
+        <a href="../brand/multi-brand-geo.html">Multi-Brand</a>
+        <a href="../brand/ecommerce-geo.html">E-Commerce</a>
+        <a href="../brand/b2b-brand-geo.html">B2B Brand</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VII. Industry</div>
+      <div class="nav-group-links">
+        <a href="../industry/healthcare-geo.html">Healthcare</a>
+        <a href="../industry/finance-geo.html">Finance</a>
+        <a href="../industry/education-geo.html">Education</a>
+        <a href="../industry/legal-geo.html">Legal</a>
+        <a href="../industry/local-services-geo.html">Local Services</a>
+        <a href="../industry/manufacturing-geo.html">Manufacturing</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VIII. Cases</div>
+      <div class="nav-group-links">
+        <a href="../cases/zero-to-one-roadmap.html">Zero to One</a>
+        <a href="../cases/full-process-case.html">Full Case Study</a>
+        <a href="../cases/black-hat-prevention.html">Black Hat Prevention</a>
+        <a href="../cases/geo-future-trends.html">Future Trends</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IX. Data</div>
+      <div class="nav-group-links">
+        <a href="../data/core-metrics-system.html">Core Metrics</a>
+        <a href="../data/roi-calculation.html">ROI Calculator</a>
+        <a href="../data/data-dashboard-setup.html">Data Dashboard</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> 💬 Community</div>
+      <div class="nav-group-links">
+        <a href="../community.html">Community Home</a>
+        <a href="../community/what-is-json-ld.html">What is JSON-LD?</a>
+        <a href="../community/geo-content-template.html">The GEO Content Template</a>
+        <a href="../community/one-week-geo-readiness.html">One-Week GEO Readiness</a>
+        <a href="../community/two-week-crawler-data.html">Two-Week Crawler Data</a>
+        <a href="../community/geo-impact-attribution-new-site.html">Crawler Impact &amp; Launch Checklist</a>
+      </div>
+    </div>
+    <div class="current glossary-section">📌 Glossary</div>
+    <a href="../glossary/geo.html">GEO</a>
+    <a href="../glossary/seo.html">SEO</a>
+    <a href="../glossary/rag.html">RAG</a>
+    <a href="../glossary/eeat.html">E-E-A-T</a>
+    <a href="../glossary/llms-txt.html">LLMs.txt</a>
+    <a href="../glossary/zero-click.html">Zero-Click Search</a>
+    <a href="../glossary/schema.html">Schema</a>
+    <a href="../glossary/answer-asset.html">Answer Assetization</a>
+    <a href="../glossary/ai-visibility.html">AI Visibility Index</a>
+    <a href="../glossary/ymyl.html">YMYL</a>
+  <div class="current glossary-section">📄 About</div>
+  <a href="../about.html">About &amp; Editorial Standards</a>
+  <a href="../contact.html">Contact</a>
+  </nav>
+  <div class="main">
+    <div class="content">
+      <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../technical-implementation.html">V. Technical</a> › Track AI Citations</div>
+
+<div class="article-meta"><span>By <a href="../about.html">GEO Encyclopedia Editorial Team</a></span><span>·</span><span>Updated: 2026-08-21</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
+
+<h1>How to Track AI Citations — A Practical Guide to Measuring Your GEO Performance</h1>
+
+<blockquote>You published twenty articles optimized for AI search. AI crawlers visit every week.</blockquote>
+<blockquote>But when someone asks ChatGPT a question in your niche — does your site get cited? Which page? On which platform?</blockquote>
+<blockquote>There is no "Search Console" for AI answers. No platform will email you a citations report.</blockquote>
+<blockquote>This guide shows you how to build the measurement system yourself: server log analysis, crawler monitoring, brand mention tracking, and honest attribution.</blockquote>
+
+<hr>
+
+<h2>I. Why Tracking AI Citations Matters</h2>
+
+<p><strong>If you can't measure it, you can't improve it</strong> — and in Generative Engine Optimization (GEO), measurement starts with citations. GEO without tracking is guessing: you publish, you wait, and you hope.</p>
+
+<blockquote><strong>An AI citation is any reference to your brand, content, or URL inside an AI-generated answer — with a link, or without one.</strong></blockquote>
+
+<p>In traditional SEO you get impressions, clicks, and rankings from Google Search Console. In AI search you get none of that. The answer appears, the user reads it, and the moment is gone unless you measured it yourself.</p>
+
+<p>That is why <strong>AI citation share is the new organic traffic</strong> — it is the headline number that tells you whether AI engines consider you a source worth quoting (<a href="../metrics/citation-share.html">see our citation share metric guide</a>). Three practical reasons to start measuring today:</p>
+
+<ul>
+  <li><strong>Budget justification:</strong> "Citations grew from 3% to 18% of tested answers" defends your GEO budget far better than intuition.</li>
+  <li><strong>Direction:</strong> Tracking reveals which pages and platforms respond to optimization, so effort goes where it compounds.</li>
+  <li><strong>Early warning:</strong> Models update monthly. Without a baseline, you cannot see a citation collapse until it has already cost you a quarter.</li>
+</ul>
+
+<hr>
+
+<h2>II. Server Log Analysis: The Foundation</h2>
+
+<p><strong>Your server logs are the only first-party, real-time record of which AI systems read your content.</strong> AI platforms offer site owners no dashboard, so the request log — not a third-party estimator — is where credible measurement begins.</p>
+
+<h3>What to Record for Every Request</h3>
+
+<table><thead><tr><th>Field</th><th>Why It Matters</th></tr></thead><tbody><tr><td><strong>Timestamp</strong></td><td>Crawl frequency and trends over time</td></tr><tr><td><strong>Crawler name</strong></td><td>Which AI platform visited (from User-Agent)</td></tr><tr><td><strong>Path</strong></td><td>Which page was read — your content inventory as AI sees it</td></tr><tr><td><strong>Status code</strong></td><td>200 vs. 404/403 — a blocked or broken page is a wasted crawl</td></tr><tr><td><strong>Referer host</strong></td><td>Rare for crawlers, but valuable for human click-through later</td></tr></tbody></table>
+
+<h3>The Cloudflare Worker Approach</h3>
+
+<p>This is exactly how we measure geo010.com: a small Cloudflare Worker sits in front of the static site, classifies each request by User-Agent, and writes one row per page request into a Cloudflare D1 database. We shared what two weeks of that data looked like in <a href="../community/two-week-crawler-data.html">our crawler data experiment</a> and <a href="../community/geo-impact-attribution-new-site.html">the follow-up attribution study</a>.</p>
+
+<p>Start with a table that stores path, crawler, status, and time:</p>
+
+<pre><code>CREATE TABLE IF NOT EXISTS crawler_logs (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  ts TEXT NOT NULL,
+  date TEXT NOT NULL,
+  ua TEXT,
+  crawler_name TEXT,
+  path TEXT NOT NULL,
+  status INTEGER NOT NULL
+);</code></pre>
+
+<p>Then classify the User-Agent and log only what matters:</p>
+
+<pre><code>const AI_CRAWLERS = [
+  { name: 'GPTBot', re: /GPTBot/i },
+  { name: 'OAI-SearchBot', re: /OAI-SearchBot/i },
+  { name: 'ClaudeBot', re: /ClaudeBot/i },
+  { name: 'PerplexityBot', re: /PerplexityBot/i }
+];
+
+function classifyCrawler(ua) {
+  if (!ua) return null;
+  for (const c of AI_CRAWLERS) {
+    if (c.re.test(ua)) return c.name;
+  }
+  return null;
+}
+
+async function logIfCrawler(env, request, status) {
+  const ua = request.headers.get('user-agent') || '';
+  const crawler = classifyCrawler(ua);
+  if (!crawler) return; // human traffic: skip
+  const now = new Date().toISOString();
+  await env.DB.prepare(
+    'INSERT INTO crawler_logs (ts, date, ua, crawler_name, path, status) VALUES (?, ?, ?, ?, ?, ?)'
+  ).bind(now, now.slice(0, 10), ua, crawler,
+         new URL(request.url).pathname, status).run();
+}</code></pre>
+
+<p>Keep the list current: OpenAI and Anthropic both publish official bot documentation, and new crawlers appear regularly. For the full access-control picture, pair logging with the rules described in <a href="ai-crawler-management.html">AI crawler management</a>.</p>
+
+<h3>Read the Log Like an Analyst</h3>
+
+<ul>
+  <li><strong>Frequency:</strong> a bot that visited daily and suddenly stops signals a discovery or blocking problem.</li>
+  <li><strong>Status codes:</strong> clusters of 404s mean the crawler is following dead links — fix or redirect them.</li>
+  <li><strong>Entry files:</strong> hits on <code>robots.txt</code>, <code>llms.txt</code>, and <code>sitemap.xml</code> tell you bots are actively discovering; log these separately.</li>
+</ul>
+
+<hr>
+
+<h2>III. Crawler Behavior Patterns by AI Platform</h2>
+
+<p><strong>Every AI platform crawls differently — and each difference tells you what to fix.</strong> Treating all bots alike wastes effort; matching fixes to behavior is what makes log data actionable.</p>
+
+<table><thead><tr><th>Crawler</th><th>Operated By</th><th>Crawl Pattern</th><th>What It Means for You</th></tr></thead><tbody><tr><td><strong>GPTBot</strong></td><td>OpenAI</td><td>Deep crawl, largely sitemap-driven; feeds training and retrieval corpora</td><td>Keep <code>sitemap.xml</code> current so new pages enter the queue fast</td></tr><tr><td><strong>OAI-SearchBot</strong></td><td>OpenAI</td><td>Selective; fetches pages surfaced by ChatGPT Search</td><td>A visit is a strong signal ChatGPT Search may cite that page</td></tr><tr><td><strong>ClaudeBot</strong></td><td>Anthropic</td><td>Enters via robots.txt permissions plus sitemap entries</td><td>Verify ClaudeBot is allowed and key pages are listed in the sitemap</td></tr><tr><td><strong>PerplexityBot</strong></td><td>Perplexity</td><td>Content page crawler focused on answer-ready text</td><td>Question-style headings and answer-first paragraphs pay off directly</td></tr><tr><td><strong>Googlebot</strong></td><td>Google</td><td>Frequent, comprehensive crawling</td><td>Feeds AI Overviews and Gemini grounding — classic SEO hygiene still counts</td></tr></tbody></table>
+
+<p>Three behavioral differences matter most in practice:</p>
+
+<ul>
+  <li><strong>Discovery path:</strong> sitemap-driven bots (GPTBot, ClaudeBot) punish a stale sitemap; if they never arrive, check discovery files before blaming content quality.</li>
+  <li><strong>Selectivity:</strong> OAI-SearchBot fetching one deep page is a compliment — it means a real user question surfaced that URL.</li>
+  <li><strong>Appetite:</strong> comprehensive crawlers like Googlebot mask problems; judge your GEO health on the selective bots' behavior, not the greedy ones.</li>
+</ul>
+
+<p>Watch the patterns for a few weeks and you can attribute most "mystery" citation drops to one of these three causes.</p>
+
+<hr>
+
+<h2>IV. Brand Mention Tracking Across AI Platforms</h2>
+
+<p><strong>Log files prove crawlers came; only asking the AI proves it cites you.</strong> Manual brand mention testing is the second pillar — unglamorous, cheap, and impossible to outsource fully.</p>
+
+<h3>The Testing Routine</h3>
+
+<ol>
+  <li><strong>Fix your query set:</strong> choose the 10–20 questions your customers actually ask, phrased the way they ask them.</li>
+  <li><strong>Use fresh sessions:</strong> start a new conversation on ChatGPT, Claude, and Perplexity each time to limit personalization bias.</li>
+  <li><strong>Record what happens:</strong> mentioned or not, page cited or not, link included or not, position within the answer.</li>
+  <li><strong>Repeat weekly</strong> for key terms; go deeper monthly with competitor comparisons and description-accuracy checks.</li>
+</ol>
+
+<p>Weekly cadence is deliberate: models update frequently, and a monthly-only rhythm hides swings that weekly sampling catches early. Ten minutes per week is enough once the routine is set.</p>
+
+<h3>A Minimal Tracking Spreadsheet</h3>
+
+<table><thead><tr><th>Date</th><th>Platform</th><th>Query Tested</th><th>Mentioned?</th><th>Page Cited</th><th>Linked?</th><th>Position</th><th>Notes</th></tr></thead><tbody><tr><td>2026-08-14</td><td>ChatGPT</td><td>how do i track ai citations</td><td>Yes</td><td>/technical/track-ai-citations.html</td><td>Yes</td><td>#1 source</td><td>fresh session</td></tr><tr><td>2026-08-14</td><td>Perplexity</td><td>how do i track ai citations</td><td>No</td><td>—</td><td>—</td><td>—</td><td>competitor cited</td></tr><tr><td>2026-08-21</td><td>Claude</td><td>geo performance metrics</td><td>Yes</td><td>/metrics/citation-share.html</td><td>No</td><td>mid-answer</td><td>mention w/o link</td></tr></tbody></table>
+
+<blockquote><strong>A mention without a link still counts.</strong> AI often names a source inline while omitting the URL — recording "mentioned, not linked" separately keeps your numbers honest (more on this in Section VI).</blockquote>
+
+<hr>
+
+<h2>V. Building a GEO Dashboard</h2>
+
+<p><strong>A useful GEO dashboard needs five numbers, not fifty.</strong> Together they cover the full funnel: discovered → crawled → cited → recommended → clicked.</p>
+
+<table><thead><tr><th>Metric</th><th>Data Source</th><th>Healthy Signal</th></tr></thead><tbody><tr><td><strong>Crawler visits by bot</strong></td><td>D1 log / Cloudflare Analytics</td><td>Steady weekly visits from 3+ AI crawlers</td></tr><tr><td><strong>Content pages crawled</strong></td><td>D1 <code>GROUP BY path</code></td><td>Priority answer pages crawled at least monthly</td></tr><tr><td><strong>AI citation frequency</strong></td><td>Weekly manual tests</td><td>Citations trending up on priority queries</td></tr><tr><td><strong>Brand mention rate</strong></td><td>Weekly manual tests</td><td>Mentioned in a rising share of tracked answers</td></tr><tr><td><strong>Referral traffic from AI platforms</strong></td><td>GA4 referral filters</td><td>Growing clicks despite missing referers</td></tr></tbody></table>
+
+<h3>Tooling Options</h3>
+
+<ul>
+  <li><strong>Cloudflare Analytics:</strong> free request-level overview; good for spotting spikes, too coarse for per-bot detail.</li>
+  <li><strong>Custom D1 queries:</strong> the geo010.com approach — two SQL statements produce the whole report:</li>
+</ul>
+
+<pre><code>-- Crawler visits by bot, last 30 days
+SELECT crawler_name AS bot, COUNT(*) AS visits
+FROM crawler_logs
+WHERE date &gt;= '2026-07-22'
+GROUP BY crawler_name ORDER BY visits DESC;
+
+-- Most-crawled pages by AI bots
+SELECT path, COUNT(*) AS visits
+FROM crawler_logs
+WHERE crawler_name IS NOT NULL AND date &gt;= '2026-07-22'
+GROUP BY path ORDER BY visits DESC LIMIT 20;</code></pre>
+
+<ul>
+  <li><strong>Google Analytics 4 referral filters:</strong> build a segment or report filter for sessions with source <code>chatgpt.com</code>, <code>perplexity.ai</code>, and <code>copilot.microsoft.com</code>. Expect undercounting — treat it as a floor, not a total (see <a href="../data/data-dashboard-setup.html">data dashboard setup</a>).</li>
+</ul>
+
+<p>Put all five metrics on one page with last month's values beside them. If a number has no owner and no action, cut it — dashboards die of clutter.</p>
+
+<hr>
+
+<h2>VI. Common Attribution Challenges</h2>
+
+<p><strong>Even with perfect logging, some citations will stay invisible — the gaps are structural, not bugs.</strong> Plan around them instead of chasing perfect data.</p>
+
+<h3>Challenge 1: Browser-Based AI Sends No Referer</h3>
+
+<p>When a user clicks a link inside ChatGPT's web or mobile app, the browser frequently opens the page without a referer header. Your analytics then records the visit as direct traffic, and the AI platform gets zero credit.</p>
+
+<h3>Challenge 2: API-Based AI Has No User-Agent</h3>
+
+<p>Retrieval backends sometimes fetch pages with generic HTTP clients rather than their branded crawler. Those requests look like anonymous humans in your logs and cannot be classified by User-Agent matching alone.</p>
+
+<h3>Challenge 3: Partial Credit — Mentions Without Links</h3>
+
+<p>AI may describe your product, quote your phrasing, or recommend you by name while citing a different URL entirely — or none. Log-based and referral-based measures both miss this; only manual testing sees it.</p>
+
+<h3>The Workaround: Triangulate Three Sources</h3>
+
+<blockquote><strong>Treat every single source as a lower bound. Make decisions when at least two sources agree — logs, manual tests, and referral analysis are checks on each other, not substitutes.</strong></blockquote>
+
+<ul>
+  <li><strong>Logs</strong> answer "who read my pages?" — objective, instant, but blind to citations.</li>
+  <li><strong>Manual tests</strong> answer "who cited me?" — ground truth, but sampled and subjective at the edges.</li>
+  <li><strong>Referral analysis</strong> answers "who sent visitors?" — proof of end impact, but heavily undercounted.</li>
+</ul>
+
+<p>When all three move together, you have a real trend. When they disagree, investigate before celebrating either direction.</p>
+
+<hr>
+
+<h2>VII. From Data to Action</h2>
+
+<p><strong>Data becomes GEO progress only when it changes next month's plan.</strong> Close every month with a 30-minute review against this checklist:</p>
+
+<ul>
+  <li>[ ] Which pages were crawled most — and which priority pages were skipped?</li>
+  <li>[ ] Which AI platforms cite us, and did the platform mix shift this month?</li>
+  <li>[ ] Where are the content gaps: crawled by bots but never cited?</li>
+  <li>[ ] Which currently cited pages are over 90 days old and due for a refresh?</li>
+  <li>[ ] Which competitors gained citations on our priority queries — and on which exact questions?</li>
+</ul>
+
+<p>The most diagnostic line item is <strong>crawled but not cited</strong>. It isolates content quality from discoverability: the bots found the page, read it, and chose not to use it. That combination calls for structural edits — question-style headings, answer-first openings, stronger entity signals — the pattern we document in <a href="../community/geo-content-template.html">the GEO content template</a>.</p>
+
+<p>The opposite gap — cited but rarely crawled — points back to Section III: fix discovery with a fresh sitemap, clear robots rules, and internal links before touching the prose.</p>
+
+<blockquote><strong>In short: log every crawler visit, test your key queries weekly, and turn the numbers into next month's edits — measurement is what turns GEO from guesswork into a compounding system.</strong></blockquote>
+
+      <div class="nav-links">
+        <a href="geo-monitoring-tools.html">← Monitoring Tools</a>
+        <a href="../index.html">📖 Contents</a>
+        <a href="agenticgeo-tools.html">AgenticGEO →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3QR6VvmXkab0M8Cu",ck:"3QR6VvmXkab0M8Cu"})</script>
+
+
+
+
+<script>
+document.querySelectorAll('.nav-group-toggle').forEach(function(toggle) {
+  toggle.addEventListener('click', function() {
+    this.parentElement.classList.toggle('open');
+  });
+});
+var active = document.querySelector('.sidebar a.active');
+if (active) {
+  var group = active.closest('.nav-group');
+  if (group) { group.classList.add('open'); }
+}
+</script>
+</body>
+</html>

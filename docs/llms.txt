@@ -1,6 +1,6 @@
 # GEO Encyclopedia
 
-> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 50 in-depth articles across 9 chapters plus a Community hub, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
+> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 54 in-depth articles across 9 chapters plus a Community hub, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
 
 ## Quick Answers (AI-Priority Citations)
 
@@ -31,6 +31,7 @@
 - [E-E-A-T Trust Mechanism](https://geo010.com/fundamentals/eeat-trust-mechanism.html): Why trust signals determine whether AI cites your content.
 - [LLMs.txt Guide](https://geo010.com/fundamentals/llms-txt-guide.html): How to write an llms.txt and tell AI which pages matter.
 - [Answer Assetization](https://geo010.com/fundamentals/answer-assetization.html): Structuring content so AI can quote and credit your brand.
+- [AI Search vs Traditional Search](https://geo010.com/fundamentals/ai-vs-traditional-search.html): How ranking, results, and user behavior differ between AI and traditional search engines.
 
 ## II. Metrics & Frameworks
 
@@ -54,6 +55,7 @@
 - [How to Optimize Multimodal Content?](https://geo010.com/content/multimodal-content.html): Images, video, and other formats in AI retrieval.
 - [How to Build Question-Driven Content?](https://geo010.com/content/question-driven-strategy.html): Aligning content with the exact questions AI users ask.
 - [How to Do Local GEO and Long-Tail Content?](https://geo010.com/content/local-geo-longtail.html): Winning local and niche AI queries.
+- [Multilingual GEO Strategy](https://geo010.com/content/multilingual-geo.html): Getting cited by AI in every language — translation vs localization, hreflang for AI, and measuring multilingual performance.
 
 ## V. Technical Implementation
 
@@ -62,8 +64,10 @@
 - [What is Entity Recognition & Knowledge Graph?](https://geo010.com/technical/entity-knowledge-graph.html): How AI builds entity graphs and how you signal your brand entity.
 - [How to Manage AI Crawler Access?](https://geo010.com/technical/ai-crawler-management.html): Allowing GPTBot, PerplexityBot, ClaudeBot and friends while staying safe.
 - [Which GEO Monitoring Tools to Use?](https://geo010.com/technical/geo-monitoring-tools.html): Dashboards and metrics for tracking AI visibility.
+- [How to Track AI Citations](https://geo010.com/technical/track-ai-citations.html): Server log analysis, crawler monitoring, and brand mention tracking to measure GEO performance.
 - [What is AgenticGEO?](https://geo010.com/technical/agenticgeo-tools.html): How agent-based tools automate GEO workflows.
 - [GEO Tech Stack Overview](https://geo010.com/technical/tech-stack-overview.html): The full toolkit for running a GEO program.
+- [GEO Tools & Software Review](https://geo010.com/technical/geo-tools-review.html): Honest review of AI visibility trackers, schema generators, content optimizers, and DIY crawler monitoring.
 
 ## VI. Brand Strategy
 
@@ -82,6 +86,8 @@
 - [How to Do GEO for Legal Services?](https://geo010.com/industry/legal-geo.html): Accuracy and authority for legal AI queries.
 - [How to Do GEO for Local Services?](https://geo010.com/industry/local-services-geo.html): Winning nearby AI recommendations.
 - [How to Do GEO for Manufacturing?](https://geo010.com/industry/manufacturing-geo.html): B2B credibility for industrial AI searches.
+- [How to Do GEO for SaaS Companies?](https://geo010.com/industry/saas-geo.html): Winning AI recommendations in competitive SaaS markets.
+- [GEO for E-commerce Product Pages](https://geo010.com/industry/ecommerce-product-geo.html): Getting AI to recommend your products — product schema, comparison content, and review integration.
 
 ## VIII. Case Studies
 
@@ -126,4 +132,4 @@
 
 ## No Private Pages
 
-- All content is public knowledge. AI crawlers welcome. Last updated 2026-08-16.
+- All content is public knowledge. AI crawlers welcome. Last updated 2026-08-21.
