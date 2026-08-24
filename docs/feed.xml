@@ -3,10 +3,10 @@
 <channel>
   <title>GEO Encyclopedia</title>
   <link>https://geo010.com</link>
-  <description>55 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
+  <description>57 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
   <language>en</language>
   <atom:link href="https://geo010.com/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Thu, 21 Aug 2026 00:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Sun, 24 Aug 2026 00:00:00 +0000</lastBuildDate>
   <item>
     <title>How to Do GEO for SaaS Companies? - Winning AI Recommendations</title>
     <link>https://geo010.com/industry/saas-geo.html</link>
@@ -43,49 +43,371 @@
     <description>Optimize e-commerce product pages for AI search - structured data, comparison content, review integration, and answer-first product descriptions that get cited by AI.</description>
   </item>
   <item>
-    <title>GEO Tools &amp; Software Review �?What Actually Works in 2026</title>
+    <title>GEO Tools &amp; Software Review - What Actually Works in 2026</title>
     <link>https://geo010.com/technical/geo-tools-review.html</link>
     <guid>https://geo010.com/technical/geo-tools-review.html</guid>
-    <pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate>
-    <description>An honest map of the GEO tool market in 2026: AI visibility trackers (Profound, Otterly.ai, AIRadar), schema generators vs manual JSON-LD, content optimizers adapting to GEO, DIY crawler monitoring with a Cloudflare Worker, and a budget-based selection framework.</description>
+    <pubDate>Thu, 21 Aug 2026 00:00:00 +0000</pubDate>
+    <description>An honest map of the GEO tool market in 2026: AI visibility trackers, schema generators, content optimizers, DIY crawler monitoring, and a budget-based selection framework.</description>
   </item>
   <item>
-    <title>What GEO Work Actually Moves AI Crawlers? Our Data, and a New-Site Launch Checklist</title>
+    <title>What GEO Work Actually Moves AI Crawlers?</title>
     <link>https://geo010.com/community/geo-impact-attribution-new-site.html</link>
     <guid>https://geo010.com/community/geo-impact-attribution-new-site.html</guid>
     <pubDate>Sun, 16 Aug 2026 00:00:00 +0000</pubDate>
-    <description>We attributed two weeks of AI crawler traffic to nine GEO measures on geo010.com. Real numbers show which ones matter, which did nothing, and the exact checklist to build first on a new site �?plus the two earlier conclusions we corrected with the logs.</description>
+    <description>Per-measure attribution of two weeks of AI crawler traffic to nine GEO changes, plus the exact launch checklist for a new site.</description>
   </item>
   <item>
-    <title>What Actually Gets Your Site Crawled by AI? Our Two-Week Data, and the Mistake We Retired</title>
+    <title>What Actually Gets Your Site Crawled by AI?</title>
     <link>https://geo010.com/community/two-week-crawler-data.html</link>
     <guid>https://geo010.com/community/two-week-crawler-data.html</guid>
     <pubDate>Sun, 16 Aug 2026 00:00:00 +0000</pubDate>
-    <description>Two weeks of crawl logs from geo010.com, stripped of scanner noise: which GEO changes drove real AI crawler visits, why our AI discovery endpoints got zero requests, and how to tell a genuine spike from an attack wearing a crawler's name.</description>
+    <description>Two weeks of crawl logs stripped of scanner noise - which GEO changes drove real AI crawler visits, why AI discovery endpoints got zero requests.</description>
   </item>
   <item>
-    <title>How We Made GEO Encyclopedia AI-Discoverable in One Week �?a Site-Owner Playbook</title>
+    <title>How We Made GEO Encyclopedia AI-Discoverable in One Week</title>
     <link>https://geo010.com/community/one-week-geo-readiness.html</link>
     <guid>https://geo010.com/community/one-week-geo-readiness.html</guid>
     <pubDate>Wed, 12 Aug 2026 00:00:00 +0000</pubDate>
-    <description>Our week of building AI crawler visibility with the real numbers: 2,335 log records, 72 GPTBot visits, a new article crawled within 24 hours, and 264 junk requests filtered out �?turned into a copyable step-by-step playbook for any site owner.</description>
+    <description>A site-owner playbook with real data - 2,335 crawler log records, 72 GPTBot visits, a new article crawled within 24 hours, and 264 junk requests filtered out.</description>
   </item>
   <item>
-    <title>The GEO Content Template �?How We Structure Every Article So AI Cites Us</title>
+    <title>The GEO Content Template</title>
     <link>https://geo010.com/community/geo-content-template.html</link>
     <guid>https://geo010.com/community/geo-content-template.html</guid>
     <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
-    <description>A GEO content template built from real pages on GEO Encyclopedia: scenario opening, question H2s, answer-first blocks, comparison tables, FAQPage JSON-LD, and the pre-publish checklist.</description>
+    <description>A GEO content template built from real pages: scenario opening, question H2s, answer-first blocks, comparison tables, FAQPage JSON-LD, and the pre-publish checklist.</description>
   </item>
   <item>
-    <title>What is JSON-LD? �?Structured Data Explained for GEO</title>
+    <title>What is JSON-LD? - Structured Data Explained for GEO</title>
     <link>https://geo010.com/community/what-is-json-ld.html</link>
     <guid>https://geo010.com/community/what-is-json-ld.html</guid>
     <pubDate>Sat, 08 Aug 2026 00:00:00 +0000</pubDate>
-    <description>A practical GEO guide to JSON-LD structured data: what it is, why it matters for AI visibility, JSON-LD vs Microdata, and how the GEO Encyclopedia homepage uses WebSite, Organization, and ItemList schemas.</description>
+    <description>A practical GEO guide to JSON-LD structured data: what it is, why it matters for AI visibility, and how the homepage uses WebSite, Organization, and ItemList schemas.</description>
   </item>
   <item>
-    <title>GEO Encyclopedia Community �?Share Knowledge, Ask Questions</title>
+    <title>GEO AI-Readiness Audit</title>
+    <link>https://geo010.com/cases/geo-ai-audit.html</link>
+    <guid>https://geo010.com/cases/geo-ai-audit.html</guid>
+    <pubDate>Fri, 07 Aug 2026 00:00:00 +0000</pubDate>
+    <description>A real case study of auditing AI-readiness: llms.txt, ai.txt, MCP discovery, AI crawler logging, structured data, E-E-A-T, CSP headers and canonicalization.</description>
+  </item>
+  <item>
+    <title>How to Apply E-E-A-T in GEO Content Strategy?</title>
+    <link>https://geo010.com/content/eeat-in-geo.html</link>
+    <guid>https://geo010.com/content/eeat-in-geo.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>E-E-A-T is even more important in the GEO era. Learn the two evolution dimensions that upgrade E-E-A-T for AI citation.</description>
+  </item>
+  <item>
+    <title>What is Knowledge Entropy?</title>
+    <link>https://geo010.com/content/knowledge-entropy.html</link>
+    <guid>https://geo010.com/content/knowledge-entropy.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Learn about knowledge entropy and content temperature - the invisible rulers of GEO content. Discover why AI prefers low-entropy, room-temperature content.</description>
+  </item>
+  <item>
+    <title>How Do Backlinks Work in GEO?</title>
+    <link>https://geo010.com/content/backlinks-in-geo.html</link>
+    <guid>https://geo010.com/content/backlinks-in-geo.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Backlinks' role has shifted from 'ranking votes' to 'trust endorsements' in GEO. Learn why quality matters more than quantity.</description>
+  </item>
+  <item>
+    <title>What is Topical Authority?</title>
+    <link>https://geo010.com/content/topical-authority.html</link>
+    <guid>https://geo010.com/content/topical-authority.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Topical Authority is your 'professional label' in AI's eyes. Learn how to build it through deep content clusters and expertise recognition.</description>
+  </item>
+  <item>
+    <title>How Important is Content Freshness for GEO?</title>
+    <link>https://geo010.com/content/content-freshness.html</link>
+    <guid>https://geo010.com/content/content-freshness.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Content freshness directly impacts AI citation share. Learn the expiration dates of different content types and the Four Quadrant Method.</description>
+  </item>
+  <item>
+    <title>How to Optimize Multimodal Content for GEO?</title>
+    <link>https://geo010.com/content/multimodal-content.html</link>
+    <guid>https://geo010.com/content/multimodal-content.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>AI doesn't just consume text - it also 'sees' images and videos. Learn multimodal GEO strategies for text, images, and video.</description>
+  </item>
+  <item>
+    <title>How to Build a Question-Driven Content Strategy?</title>
+    <link>https://geo010.com/content/question-driven-strategy.html</link>
+    <guid>https://geo010.com/content/question-driven-strategy.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Stop being a 'content producer' - become a 'question answerer.' Learn how to collect, prioritize, and answer real user questions for GEO.</description>
+  </item>
+  <item>
+    <title>How to Do Local GEO and Long-Tail Content?</title>
+    <link>https://geo010.com/content/local-geo-longtail.html</link>
+    <guid>https://geo010.com/content/local-geo-longtail.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Going deep in a 'small niche' beats going shallow across a 'large territory.' Learn localized GEO and long-tail content strategies.</description>
+  </item>
+  <item>
+    <title>Structured Data for GEO - The Complete Guide to Schema Markup</title>
+    <link>https://geo010.com/technical/schema-markup-guide.html</link>
+    <guid>https://geo010.com/technical/schema-markup-guide.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Complete guide to Schema structured data for GEO. Learn the 7 most important Schema types, implementation formats, and deployment roadmap.</description>
+  </item>
+  <item>
+    <title>Advanced LLMs.txt Applications and Robots.txt Strategy</title>
+    <link>https://geo010.com/technical/llms-txt-advanced.html</link>
+    <guid>https://geo010.com/technical/llms-txt-advanced.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Learn how to use LLMs.txt and Robots.txt to manage AI crawlers' first impression of your brand. Includes deployment strategies and verification tips.</description>
+  </item>
+  <item>
+    <title>Entity Recognition and Knowledge Graph Integration</title>
+    <link>https://geo010.com/technical/entity-knowledge-graph.html</link>
+    <guid>https://geo010.com/technical/entity-knowledge-graph.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Learn how AI recognizes brands through entity recognition and knowledge graphs. Covers encyclopedia entries, Organization Schema, and entity health scoring.</description>
+  </item>
+  <item>
+    <title>AI Crawler Management and Crawl Optimization</title>
+    <link>https://geo010.com/technical/ai-crawler-management.html</link>
+    <guid>https://geo010.com/technical/ai-crawler-management.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Learn how to manage AI crawlers including GPTBot, Google-Extended, PerplexityBot. Covers the 4 core differences from search crawlers.</description>
+  </item>
+  <item>
+    <title>GEO Monitoring Tool Selection and Usage</title>
+    <link>https://geo010.com/technical/geo-monitoring-tools.html</link>
+    <guid>https://geo010.com/technical/geo-monitoring-tools.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Comprehensive guide to GEO monitoring tools. Compare free and paid options including Profound, SEMrush, BrightEdge. Covers tool feature matrix and common pitfalls.</description>
+  </item>
+  <item>
+    <title>AgenticGEO Tool Introduction</title>
+    <link>https://geo010.com/technical/agenticgeo-tools.html</link>
+    <guid>https://geo010.com/technical/agenticgeo-tools.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Introduction to AgenticGEO - the autonomous driving for GEO. Learn about AI Agent systems that automate monitoring, analysis, optimization, and iteration.</description>
+  </item>
+  <item>
+    <title>GEO Tech Stack Overview</title>
+    <link>https://geo010.com/technical/tech-stack-overview.html</link>
+    <guid>https://geo010.com/technical/tech-stack-overview.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Complete GEO tech stack overview covering the four-layer architecture: infrastructure, optimization, monitoring, and automation.</description>
+  </item>
+  <item>
+    <title>How to Build Your Brand as an AI-Recognized Source?</title>
+    <link>https://geo010.com/brand/brand-as-source.html</link>
+    <guid>https://geo010.com/brand/brand-as-source.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Learn how to build Brand as Source - when your brand itself becomes an authoritative information source that AI cites automatically.</description>
+  </item>
+  <item>
+    <title>How to Implement E-E-A-T Brand Strategy for GEO?</title>
+    <link>https://geo010.com/brand/eeat-brand-implementation.html</link>
+    <guid>https://geo010.com/brand/eeat-brand-implementation.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Transform E-E-A-T from an SEO checklist into a brand strategy framework. Learn how to make your brand the embodiment of high E-E-A-T.</description>
+  </item>
+  <item>
+    <title>How to Handle Brand Crisis Through a GEO Lens?</title>
+    <link>https://geo010.com/brand/crisis-pr-geo.html</link>
+    <guid>https://geo010.com/brand/crisis-pr-geo.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Re-examine crisis PR through a GEO lens. Learn how AI perceives brand crises and the critical 24-hour window for AI-level crisis response.</description>
+  </item>
+  <item>
+    <title>How to Do Multi-Brand GEO Strategy?</title>
+    <link>https://geo010.com/brand/multi-brand-geo.html</link>
+    <guid>https://geo010.com/brand/multi-brand-geo.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Master multi-brand GEO strategy - the relationship between master brand, sub-brand, and product brand in the AI ecosystem.</description>
+  </item>
+  <item>
+    <title>How to Optimize E-Commerce Brands for GEO?</title>
+    <link>https://geo010.com/brand/ecommerce-geo.html</link>
+    <guid>https://geo010.com/brand/ecommerce-geo.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Learn how to optimize e-commerce brands for GEO - making AI your super shopping assistant with product structured data and comparison content.</description>
+  </item>
+  <item>
+    <title>How to Do B2B Brand GEO Strategy?</title>
+    <link>https://geo010.com/brand/b2b-brand-geo.html</link>
+    <guid>https://geo010.com/brand/b2b-brand-geo.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Master B2B brand GEO strategy - becoming AI's recommended choice for procurement decisions with whitepapers, case studies, and authority building.</description>
+  </item>
+  <item>
+    <title>How to Do GEO for Healthcare?</title>
+    <link>https://geo010.com/industry/healthcare-geo.html</link>
+    <guid>https://geo010.com/industry/healthcare-geo.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Master healthcare GEO strategy - high authority requirements, compliance risks, and trust building for medical brands in AI search.</description>
+  </item>
+  <item>
+    <title>How to Do GEO for Finance?</title>
+    <link>https://geo010.com/industry/finance-geo.html</link>
+    <guid>https://geo010.com/industry/finance-geo.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Master finance GEO strategy - balancing compliance, trust, and competition for financial brands in AI search.</description>
+  </item>
+  <item>
+    <title>How to Do GEO for Education?</title>
+    <link>https://geo010.com/industry/education-geo.html</link>
+    <guid>https://geo010.com/industry/education-geo.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Master education GEO strategy - making AI your course consultant for schools, training institutions, and online learning platforms.</description>
+  </item>
+  <item>
+    <title>How to Do GEO for Legal Services?</title>
+    <link>https://geo010.com/industry/legal-geo.html</link>
+    <guid>https://geo010.com/industry/legal-geo.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Master legal services GEO strategy - becoming AI's trusted attorney through legal knowledge base, personal branding, and compliance.</description>
+  </item>
+  <item>
+    <title>How to Do GEO for Local Services?</title>
+    <link>https://geo010.com/industry/local-services-geo.html</link>
+    <guid>https://geo010.com/industry/local-services-geo.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Master local services GEO strategy - making AI your local recommender for restaurants, salons, gyms, and neighborhood businesses.</description>
+  </item>
+  <item>
+    <title>How to Do GEO for Manufacturing and B2B?</title>
+    <link>https://geo010.com/industry/manufacturing-geo.html</link>
+    <guid>https://geo010.com/industry/manufacturing-geo.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Master manufacturing and B2B GEO strategy - from supply chain behind the scenes to AI recommendation center stage.</description>
+  </item>
+  <item>
+    <title>The Zero-to-One GEO Launch Roadmap</title>
+    <link>https://geo010.com/cases/zero-to-one-roadmap.html</link>
+    <guid>https://geo010.com/cases/zero-to-one-roadmap.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>A complete 3-month GEO roadmap: from zero foundation to AI citation. Week-by-week plan covering infrastructure, content, monitoring, and iteration.</description>
+  </item>
+  <item>
+    <title>Full-Process GEO Optimization Case Study</title>
+    <link>https://geo010.com/cases/full-process-case.html</link>
+    <guid>https://geo010.com/cases/full-process-case.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>A complete GEO case study: how a CRM brand went from zero AI visibility to being stably cited by AI in 3 months.</description>
+  </item>
+  <item>
+    <title>Identifying and Preventing Black Hat GEO</title>
+    <link>https://geo010.com/cases/black-hat-prevention.html</link>
+    <guid>https://geo010.com/cases/black-hat-prevention.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Learn how to identify and prevent black hat GEO tactics. Covers content injection, fake authority citations, and white hat GEO best practices.</description>
+  </item>
+  <item>
+    <title>GEO Future Trends 2027-2028</title>
+    <link>https://geo010.com/cases/geo-future-trends.html</link>
+    <guid>https://geo010.com/cases/geo-future-trends.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Explore GEO future trends: full-modal optimization, platform-specific strategies, AI-driven automation, and pre-emptive embedding.</description>
+  </item>
+  <item>
+    <title>Citation Share &amp; Semantic Coverage - The Two Core Metrics of GEO</title>
+    <link>https://geo010.com/metrics/citation-share.html</link>
+    <guid>https://geo010.com/metrics/citation-share.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Citation share and semantic coverage are the two core quantitative metrics in GEO. Learn how to measure and improve your brand's visibility in AI answers.</description>
+  </item>
+  <item>
+    <title>Entity Association Density &amp; Content Cross-Verification</title>
+    <link>https://geo010.com/metrics/entity-density.html</link>
+    <guid>https://geo010.com/metrics/entity-density.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Entity Association Density measures how interconnected the entities in your content are. Learn the definition, Yext's 6.8M-citation research, and how to improve AI citations.</description>
+  </item>
+  <item>
+    <title>SHEEP Framework</title>
+    <link>https://geo010.com/metrics/sheep-framework.html</link>
+    <guid>https://geo010.com/metrics/sheep-framework.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>The SHEEP framework is a five-step GEO implementation methodology: Semantic Coverage, Human Trust Signals, Evidence Structuring, Ecosystem Integration, Performance Monitoring.</description>
+  </item>
+  <item>
+    <title>What is the 3C Optimization Model?</title>
+    <link>https://geo010.com/models/3c-optimization-model.html</link>
+    <guid>https://geo010.com/models/3c-optimization-model.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Learn the 3C Optimization Model (Content, Credibility, Coverage) - GEO's three-layer priority framework for systematic AI citation optimization.</description>
+  </item>
+  <item>
+    <title>How Has GEO Evolved?</title>
+    <link>https://geo010.com/models/geo-evolution.html</link>
+    <guid>https://geo010.com/models/geo-evolution.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Trace the three generations of GEO evolution - from manual operations to AutoGEO tools to AgenticGEO autonomous agents.</description>
+  </item>
+  <item>
+    <title>What is Source Authority?</title>
+    <link>https://geo010.com/models/source-authority.html</link>
+    <guid>https://geo010.com/models/source-authority.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Source Authority is the single most important factor in GEO. Learn what it is, why AI values it, and how to build it.</description>
+  </item>
+  <item>
+    <title>GEO Core Metrics System</title>
+    <link>https://geo010.com/data/core-metrics-system.html</link>
+    <guid>https://geo010.com/data/core-metrics-system.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>The complete GEO metrics framework - from outcome metrics to asset metrics to process metrics. Learn the three-layer metrics system.</description>
+  </item>
+  <item>
+    <title>How to Calculate GEO ROI?</title>
+    <link>https://geo010.com/data/roi-calculation.html</link>
+    <guid>https://geo010.com/data/roi-calculation.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>The complete GEO ROI calculation model - traffic value method, brand exposure method, and conversion value method.</description>
+  </item>
+  <item>
+    <title>How to Build a GEO Data Dashboard?</title>
+    <link>https://geo010.com/data/data-dashboard-setup.html</link>
+    <guid>https://geo010.com/data/data-dashboard-setup.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Build a GEO data dashboard with three-layer design - overview metrics for executives, topic analysis for execution teams, and actionable details for content teams.</description>
+  </item>
+  <item>
+    <title>What is GEO? - Generative Engine Optimization Explained</title>
+    <link>https://geo010.com/fundamentals/what-is-geo.html</link>
+    <guid>https://geo010.com/fundamentals/what-is-geo.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Core definition and evidence from the Princeton Generative Engine Optimization paper. Learn what GEO is and how AI engines pick sources to cite.</description>
+  </item>
+  <item>
+    <title>Is SEO Dead? What Exactly Is GEO and SEO?</title>
+    <link>https://geo010.com/fundamentals/seo-vs-geo.html</link>
+    <guid>https://geo010.com/fundamentals/seo-vs-geo.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Is SEO dead in 2026? Learn how GEO and SEO work together, understand RAG technology, and discover why SEO is evolving rather than disappearing.</description>
+  </item>
+  <item>
+    <title>Why Should AI Trust You? - E-E-A-T for GEO</title>
+    <link>https://geo010.com/fundamentals/eeat-trust-mechanism.html</link>
+    <guid>https://geo010.com/fundamentals/eeat-trust-mechanism.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Understand how E-E-A-T determines whether AI will cite your content, and how to build AI trust.</description>
+  </item>
+  <item>
+    <title>What Is LLMs.txt - Essential Infrastructure for AI Crawlers</title>
+    <link>https://geo010.com/fundamentals/llms-txt-guide.html</link>
+    <guid>https://geo010.com/fundamentals/llms-txt-guide.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Learn what LLMs.txt is, how it differs from sitemap.xml, and how to set up the GEO foundation layer so AI crawlers can access your content.</description>
+  </item>
+  <item>
+    <title>What Is Answer Assetization?</title>
+    <link>https://geo010.com/fundamentals/answer-assetization.html</link>
+    <guid>https://geo010.com/fundamentals/answer-assetization.html</guid>
+    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Learn what answer assetization is, how to build an answer asset library, and how to measure AI visibility.</description>
+  </item>
+  <item>
+    <title>GEO Encyclopedia Community</title>
     <link>https://geo010.com/community.html</link>
     <guid>https://geo010.com/community.html</guid>
     <pubDate>Sat, 08 Aug 2026 00:00:00 +0000</pubDate>

@@ -36,6 +36,49 @@ curl -sk --resolve geo010.com:443:$IP -o /dev/null -w "mcp=%{http_code}\n" https
 - [ ] 首页 = 200；`.well-known/mcp` = 200（SEP-1960 manifest）且 `Content-Type: application/json`
 - [ ] 响应**有**自定义 `Content-Security-Policy` 头（`curl -skI` 检查）：含 `sdk.51.la` 与 `'unsafe-inline'`，且**不含** `sandbox`；另有 `X-Frame-Options: DENY`、`Referrer-Policy`、`Permissions-Policy`
 - [ ] 统计页 `stats.html` 应能反映到 D1：改后查 `SELECT COUNT(*) FROM crawler_logs` 有新增
+- [ ] **sitemap.xml 线上可访问且条目正确**（新增/修改页面后必检）：
+  ```bash
+  IP=104.21.40.133
+  curl -sk --resolve geo010.com:443:$IP -o /dev/null -w "sitemap=%{http_code} " https://geo010.com/sitemap.xml
+  curl -sk --resolve geo010.com:443:$IP https://geo010.com/sitemap.xml | grep -c "<loc>"
+  # sitemap=200 且 <loc> 数量 = docs/ 下 HTML 文件数（当前 72）
+  # 常见问题：插入条目时产生嵌套 <url> 标签（多一个 <url> 开标签），Google Search Console 会报"无法阅读"
+  ```
+
+## 1b. SEO 基础设施检查（新增/修改文章后必检）
+
+- [ ] **首页 meta description 文章数与实际一致**：
+  ```bash
+  # 首页 description 中的文章计数 = sitemap <loc> 条目数
+  grep 'meta name="description"' docs/index.html  # 检查数字
+  grep -c '<loc>' docs/sitemap.xml                 # 实际条目数
+  ```
+- [ ] **feed.xml RSS 条目覆盖所有文章**：
+  ```bash
+  grep -c '<item>' docs/feed.xml   # RSS item 数
+  grep -c '<loc>' docs/sitemap.xml # sitemap 条目数（不含 index/about/contact/stats/community.html）
+  # feed.xml item 数应 ≥ sitemap 条目数 - 5（排除非文章页）
+  ```
+- [ ] **llms.txt 文章计数与站点一致**：
+  ```bash
+  head -3 docs/llms.txt  # 检查描述中的文章数
+  grep -c '<loc>' docs/sitemap.xml  # 实际条目数
+  ```
+- [ ] **新增文章必须同步的索引文件**（新增文章后逐项核对）：
+  1. `sitemap.xml` — 添加 `<url>` 条目
+  2. `feed.xml` — 添加 `<item>` 条目
+  3. `llms.txt` — 在对应章节下添加链接 + 更新顶部计数
+  4. `index.html` — 侧边栏添加链接
+  5. `summary.json` — 更新对应章节 `articleCount` + 总描述中的文章数
+- [ ] **线上验证**（推送后）：
+  ```bash
+  IP=104.21.40.133
+  curl -sk --resolve geo010.com:443:$IP -o /dev/null -w "home=%{http_code} " https://geo010.com/
+  curl -sk --resolve geo010.com:443:$IP -o /dev/null -w "sitemap=%{http_code} " https://geo010.com/sitemap.xml
+  curl -sk --resolve geo010.com:443:$IP -o /dev/null -w "feed=%{http_code} " https://geo010.com/feed.xml
+  curl -sk --resolve geo010.com:443:$IP -o /dev/null -w "llms=%{http_code}\n" https://geo010.com/llms.txt
+  # 全部应为 200
+  ```
 
 ## 1. err.txt / 检查报告误报项（已修复或本就存在，勿重复修）
 
@@ -84,3 +127,4 @@ curl -sk --resolve geo010.com:443:$IP -o /dev/null -w "mcp=%{http_code}\n" https
 - `worker/index.js` 中 `www.geo010.com` → `geo010.com` 301 逻辑勿删，否则 www 裸域重复内容。
 - `stats.html` 三重保护（robots Disallow + meta noindex + 不进 sitemap/llms.txt)勿动。
 - 报告文件 `err.txt`/`check.txt`/`*.txt` 等是否跟踪；如无必要不提交它们，避免误把报告快照进 git。
+- **sitemap.xml 嵌套 `<url>` 标签**：用字符串替换插入新条目时，如果 replace 的 oldString 末尾包含 `<url>` 开标签，新旧拼接会产生 `<url>\n  <url>` 嵌套 → Google Search Console 报"无法识别的标记"。插入后务必检查目标行附近无重复开标签。
