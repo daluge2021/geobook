@@ -3,10 +3,17 @@
 <channel>
   <title>GEO Encyclopedia</title>
   <link>https://geo010.com</link>
-  <description>57 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
+  <description>58 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
   <language>en</language>
   <atom:link href="https://geo010.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 24 Aug 2026 00:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Tue, 01 Sep 2026 00:00:00 +0000</lastBuildDate>
+  <item>
+    <title>GEO Quick Start Checklist - 15-Minute Setup for AI Visibility</title>
+    <link>https://geo010.com/fundamentals/geo-quick-start-checklist.html</link>
+    <guid>https://geo010.com/fundamentals/geo-quick-start-checklist.html</guid>
+    <pubDate>Tue, 01 Sep 2026 00:00:00 +0000</pubDate>
+    <description>Actionable GEO checklist you can implement in 15 minutes - llms.txt, Schema markup, answer-first content, and Bing Webmaster Tools setup.</description>
+  </item>
   <item>
     <title>How to Do GEO for SaaS Companies? - Winning AI Recommendations</title>
     <link>https://geo010.com/industry/saas-geo.html</link>

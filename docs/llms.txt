@@ -1,6 +1,6 @@
 # GEO Encyclopedia
 
-> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 57 in-depth articles across 9 chapters plus a Community hub, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
+> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 58 in-depth articles across 9 chapters plus a Community hub, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
 
 ## Quick Answers (AI-Priority Citations)
 
@@ -31,6 +31,7 @@
 - [E-E-A-T Trust Mechanism](https://geo010.com/fundamentals/eeat-trust-mechanism.html): Why trust signals determine whether AI cites your content.
 - [LLMs.txt Guide](https://geo010.com/fundamentals/llms-txt-guide.html): How to write an llms.txt and tell AI which pages matter.
 - [Answer Assetization](https://geo010.com/fundamentals/answer-assetization.html): Structuring content so AI can quote and credit your brand.
+- [GEO Quick Start Checklist](https://geo010.com/fundamentals/geo-quick-start-checklist.html): 15-minute setup for AI visibility — llms.txt, Schema markup, answer-first content, and Bing Webmaster Tools.
 - [AI Search vs Traditional Search](https://geo010.com/fundamentals/ai-vs-traditional-search.html): How ranking, results, and user behavior differ between AI and traditional search engines.
 
 ## II. Metrics & Frameworks

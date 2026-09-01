@@ -1,9 +1,9 @@
 {
   "name": "GEO Encyclopedia",
-  "description": "A complete English-language knowledge base on Generative Engine Optimization (GEO): 57 in-depth articles and 10 glossary terms across 9 chapters plus a Community hub, covering how AI answer engines select, cite, and recommend brands.",
+  "description": "A complete English-language knowledge base on Generative Engine Optimization (GEO): 58 in-depth articles and 10 glossary terms across 9 chapters plus a Community hub, covering how AI answer engines select, cite, and recommend brands.",
   "url": "https://geo010.com",
   "language": "en",
-  "updated": "2026-08-21",
+  "updated": "2026-09-01",
   "keywords": [
     "GEO",
     "Generative Engine Optimization",
@@ -16,7 +16,7 @@
     "entity density"
   ],
   "chapters": [
-    { "number": "I", "title": "Fundamentals", "url": "https://geo010.com/fundamentals/what-is-geo.html", "articleCount": 6 },
+    { "number": "I", "title": "Fundamentals", "url": "https://geo010.com/fundamentals/what-is-geo.html", "articleCount": 7 },
     { "number": "II", "title": "Metrics & Frameworks", "url": "https://geo010.com/metrics/citation-share.html", "articleCount": 3 },
     { "number": "III", "title": "Models & Methods", "url": "https://geo010.com/models/3c-optimization-model.html", "articleCount": 3 },
     { "number": "IV", "title": "Content Strategy", "url": "https://geo010.com/content/eeat-in-geo.html", "articleCount": 9 },

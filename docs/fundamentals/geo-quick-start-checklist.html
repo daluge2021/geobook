@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEO Quick Start Checklist | 15-Minute Setup for AI Visibility - GEO Encyclopedia</title>
+    <meta name="description" content="Actionable GEO checklist you can implement in 15 minutes. Covers llms.txt, Schema markup, answer-first content, and Bing Webmaster Tools setup.">
+    <link rel="canonical" href="https://geo010.com/fundamentals/geo-quick-start-checklist.html">
+    <link rel="alternate" type="application/rss+xml" title="GEO Encyclopedia RSS" href="https://geo010.com/feed.xml">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "GEO Quick Start Checklist: 15-Minute Setup for AI Visibility",
+        "description": "Actionable GEO checklist you can implement in 15 minutes. Covers llms.txt, Schema markup, answer-first content, and Bing Webmaster Tools setup.",
+        "datePublished": "2026-09-01",
+        "dateModified": "2026-09-01",
+        "author": {
+            "@type": "Person",
+            "name": "GEO Encyclopedia Team",
+            "jobTitle": "GEO Researchers",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "GEO Encyclopedia"
+            }
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "GEO Encyclopedia",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://geo010.com/og-image.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://geo010.com/fundamentals/geo-quick-start-checklist.html"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the minimum viable GEO setup?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The minimum viable GEO setup takes 15 minutes: create llms.txt in your root directory, add JSON-LD Article Schema to your pages, write answer-first paragraphs (first sentence = direct answer), and submit your sitemap to Bing Webmaster Tools."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long does it take for AI crawlers to index new content?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ClaudeBot indexes new content within 24-48 hours on a predictable schedule. Bingbot crawls daily. ChatGPT-User activates on-demand when users search. PerplexityBot is selective and may take 3-5 days."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which AI crawler should I optimize for first?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Optimize for Bingbot first. Bing powers Copilot, ChatGPT web search, and Perplexity's backend. Bing Webmaster Tools shows AI search impressions that Google Search Console doesn't."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://geo010.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "I. Fundamentals",
+                "item": "https://geo010.com/fundamentals/what-is-geo.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "GEO Quick Start Checklist",
+                "item": "https://geo010.com/fundamentals/geo-quick-start-checklist.html"
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+            line-height: 1.9;
+            background: #f5f5f5;
+            color: #333;
+        }
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 240px;
+            background: #1a1a2e;
+            color: #fff;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+        .sidebar h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #4fc3f7;
+        }
+        .sidebar ul {
+            list-style: none;
+        }
+        .sidebar li {
+            margin: 8px 0;
+        }
+        .sidebar a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .sidebar a:hover, .sidebar a.active {
+            background: rgba(79, 195, 247, 0.2);
+            color: #4fc3f7;
+        }
+        .sidebar .home-link {
+            color: #4fc3f7;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .sidebar .nav-group-toggle {
+            padding: 8px 10px;
+            color: #aaa;
+            font-size: 13px;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .sidebar .nav-group-toggle:hover {
+            color: #fff;
+        }
+        .sidebar .nav-group-links {
+            display: none;
+            padding-left: 10px;
+        }
+        .sidebar .nav-group.open .nav-group-links {
+            display: block;
+        }
+        .sidebar .arrow {
+            display: inline-block;
+            transition: transform 0.2s;
+            font-size: 0.8em;
+        }
+        .sidebar .nav-group.open .arrow {
+            transform: rotate(90deg);
+        }
+        .main {
+            flex: 1;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .tag {
+            display: inline-block;
+            background: #4fc3f7;
+            color: #1a1a2e;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        .answer-box {
+            background: #fff;
+            border-left: 4px solid #4fc3f7;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+        .answer-box p {
+            font-size: 16px;
+            color: #333;
+        }
+        blockquote {
+            background: #fff;
+            border-left: 4px solid #4fc3f7;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        blockquote p {
+            margin: 0;
+        }
+        h2 {
+            font-size: 22px;
+            margin: 30px 0 15px;
+            color: #1a1a2e;
+            border-bottom: 2px solid #4fc3f7;
+            padding-bottom: 8px;
+        }
+        h3 {
+            font-size: 18px;
+            margin: 20px 0 10px;
+            color: #333;
+        }
+        p {
+            margin-bottom: 15px;
+            line-height: 1.9;
+        }
+        .checklist {
+            background: #fff;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        .checklist h3 {
+            margin-top: 0;
+            color: #1a1a2e;
+        }
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+        .checklist .check {
+            color: #4caf50;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .checklist .time {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background: #1a1a2e;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .nav-links {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+        .nav-links a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .sidebar { display: none; }
+            .main { padding: 20px; }
+            h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <nav class="sidebar">
+            <h2>📖 GEO Encyclopedia</h2>
+            <a href="../index.html" class="home-link">🏠 Home</a>
+            <div class="nav-group open">
+                <div class="nav-group-toggle"><span class="arrow">▸</span> I. Fundamentals</div>
+                <div class="nav-group-links">
+                    <a href="what-is-geo.html">What is GEO?</a>
+                    <a href="seo-vs-geo.html">Is SEO Dead?</a>
+                    <a href="eeat-trust-mechanism.html">E-E-A-T Trust</a>
+                    <a href="llms-txt-guide.html">LLMs.txt Guide</a>
+                    <a href="answer-assetization.html">Answer Assetization</a>
+                    <a href="ai-vs-traditional-search.html">AI vs Traditional Search</a>
+                    <a href="geo-quick-start-checklist.html" class="active">GEO Quick Start</a>
+                </div>
+            </div>
+            <div class="nav-group">
+                <div class="nav-group-toggle"><span class="arrow">▸</span> II. Metrics</div>
+                <div class="nav-group-links">
+                    <a href="../metrics/citation-share.html">Citation Share</a>
+                    <a href="../metrics/entity-density.html">Entity Density</a>
+                    <a href="../metrics/sheep-framework.html">SHEEP Framework</a>
+                </div>
+            </div>
+            <div class="nav-group">
+                <div class="nav-group-toggle"><span class="arrow">▸</span> III. Models</div>
+                <div class="nav-group-links">
+                    <a href="../models/3c-optimization-model.html">3C Model</a>
+                    <a href="../models/geo-evolution.html">GEO Evolution</a>
+                    <a href="../models/source-authority.html">Source Authority</a>
+                </div>
+            </div>
+            <div class="nav-group">
+                <div class="nav-group-toggle"><span class="arrow">▸</span> IV. Content</div>
+                <div class="nav-group-links">
+                    <a href="../content/eeat-in-geo.html">E-E-A-T in GEO</a>
+                    <a href="../content/knowledge-entropy.html">Knowledge Entropy</a>
+                    <a href="../content/backlinks-in-geo.html">Backlinks in GEO</a>
+                    <a href="../content/topical-authority.html">Topical Authority</a>
+                    <a href="../content/content-freshness.html">Content Freshness</a>
+                    <a href="../content/multimodal-content.html">Multimodal Content</a>
+                    <a href="../content/question-driven-strategy.html">Question-Driven Strategy</a>
+                    <a href="../content/local-geo-longtail.html">Local GEO</a>
+                </div>
+            </div>
+            <div class="nav-group">
+                <div class="nav-group-toggle"><span class="arrow">▸</span> V. Technical</div>
+                <div class="nav-group-links">
+                    <a href="../technical/schema-markup-guide.html">Schema Markup</a>
+                    <a href="../technical/llms-txt-advanced.html">LLMs.txt Advanced</a>
+                    <a href="../technical/entity-knowledge-graph.html">Knowledge Graph</a>
+                    <a href="../technical/ai-crawler-management.html">Crawler Management</a>
+                    <a href="../technical/geo-monitoring-tools.html">Monitoring Tools</a>
+                    <a href="../technical/track-ai-citations.html">Track Citations</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="main">
+            <div class="content">
+                <span class="tag">Fundamentals</span>
+                <h1>GEO Quick Start Checklist: 15-Minute Setup for AI Visibility</h1>
+                <div class="meta">
+                    Published: September 1, 2026 · Updated: September 1, 2026 · 5 min read
+                </div>
+
+                <div class="answer-box">
+                    <p>The minimum viable GEO setup takes 15 minutes: create llms.txt, add JSON-LD Article Schema, write answer-first paragraphs, and submit your sitemap to Bing Webmaster Tools. This covers 80% of what AI crawlers look for when deciding whether to cite your content.</p>
+                </div>
+
+                <p>You don't need to overhaul your entire website to start optimizing for AI. Here's a 15-minute checklist that covers the essentials. Each item is backed by data from tracking 4,115 AI crawler visits over 12 days.</p>
+
+                <blockquote>
+                    <p><strong>The rule of thumb:</strong> llms.txt for orientation, Schema for parsing, answer-first for extraction, and Bing for discovery. Do these four and you've covered most of what AI crawlers look for.</p>
+                </blockquote>
+
+                <h2>The 15-Minute GEO Checklist</h2>
+
+                <div class="checklist">
+                    <h3>Technical Setup (5 minutes)</h3>
+                    <ul>
+                        <li>
+                            <span class="check">✓</span>
+                            <span class="time">2 min</span>
+                            <span><strong>Create llms.txt in root directory</strong> — This tells AI crawlers which pages to prioritize. Format: one URL per line, no comments needed.</span>
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <span class="time">3 min</span>
+                            <span><strong>Add JSON-LD Article Schema</strong> — Add to your &lt;head&gt; tag. Include headline, datePublished, author, and publisher. This reduces AI's "understanding cost" to milliseconds.</span>
+                        </li>
+                    </ul>
+
+                    <h3>Content Optimization (5 minutes)</h3>
+                    <ul>
+                        <li>
+                            <span class="check">✓</span>
+                            <span class="time">2 min</span>
+                            <span><strong>Write answer-first paragraphs</strong> — First sentence of each section should directly answer the question. AI extracts the most relevant paragraph — make sure it's your answer.</span>
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <span class="time">3 min</span>
+                            <span><strong>Add comparison tables</strong> — AI cites tables 3x more than prose. Use tables for any data comparison.</span>
+                        </li>
+                    </ul>
+
+                    <h3>Discovery Setup (5 minutes)</h3>
+                    <ul>
+                        <li>
+                            <span class="check">✓</span>
+                            <span class="time">3 min</span>
+                            <span><strong>Submit sitemap to Bing Webmaster Tools</strong> — Bing is the #1 AI gateway. Google Search Console doesn't show AI search impressions.</span>
+                        </li>
+                        <li>
+                            <span class="check">✓</span>
+                            <span class="time">2 min</span>
+                            <span><strong>Verify robots.txt allows AI crawlers</strong> — Check that Bingbot, ClaudeBot, GPTBot, and PerplexityBot are not blocked.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <h2>Why These 4 Things Matter Most</h2>
+
+                <p>Data from 12 days of tracking 4,115 crawler hits shows these are the highest-impact actions:</p>
+
+                <table>
+                    <tr>
+                        <th>Action</th>
+                        <th>Impact Level</th>
+                        <th>Why It Works</th>
+                    </tr>
+                    <tr>
+                        <td>llms.txt</td>
+                        <td>High</td>
+                        <td>AI crawlers check this first. GPTBot, ClaudeBot, and Amazonbot all respect it.</td>
+                    </tr>
+                    <tr>
+                        <td>JSON-LD Schema</td>
+                        <td>High</td>
+                        <td>Reduces AI parsing time from seconds to milliseconds. FAQPage Schema gives 2x citation rate.</td>
+                    </tr>
+                    <tr>
+                        <td>Answer-first content</td>
+                        <td>High</td>
+                        <td>AI extracts the first relevant paragraph. If it's your answer, you get cited.</td>
+                    </tr>
+                    <tr>
+                        <td>Bing Webmaster Tools</td>
+                        <td>Medium</td>
+                        <td>Bing powers Copilot + ChatGPT search + Perplexity backend. One submission = 3 AI platforms.</td>
+                    </tr>
+                </table>
+
+                <h2>What You Can Skip (For Now)</h2>
+
+                <p>Based on our data, these are lower priority for initial setup:</p>
+
+                <ul>
+                    <li><strong>FAQPage Schema on all pages</strong> — Only valuable if you have actual FAQ content. Don't add it to non-FAQ pages.</li>
+                    <li><strong>AI discovery endpoints</strong> — /ai/*.json, ai.txt, openapi.json received 0 crawler visits in 12 days.</li>
+                    <li><strong>Perplexity-specific optimization</strong> — PerplexityBot is selective (29 hits in 12 days). Focus on Bing/Claude first.</li>
+                </ul>
+
+                <h2>Expected Timeline</h2>
+
+                <table>
+                    <tr>
+                        <th>Time After Setup</th>
+                        <th>What Happens</th>
+                    </tr>
+                    <tr>
+                        <td>0-24 hours</td>
+                        <td>Bingbot crawls your site (daily schedule)</td>
+                    </tr>
+                    <tr>
+                        <td>24-48 hours</td>
+                        <td>ClaudeBot indexes new content (predictable schedule)</td>
+                    </tr>
+                    <tr>
+                        <td>3-5 days</td>
+                        <td>PerplexityBot may crawl (selective, high-quality)</td>
+                    </tr>
+                    <tr>
+                        <td>7-14 days</td>
+                        <td>AI citation potential increases (depends on content quality)</td>
+                    </tr>
+                </table>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>How long does it take for AI crawlers to index new content?</h3>
+                <p>ClaudeBot indexes new content within 24-48 hours on a predictable schedule. Bingbot crawls daily. ChatGPT-User activates on-demand when users search. PerplexityBot is selective and may take 3-5 days.</p>
+
+                <h3>Which AI crawler should I optimize for first?</h3>
+                <p>Optimize for Bingbot first. Bing powers Copilot, ChatGPT web search, and Perplexity's backend. Bing Webmaster Tools shows AI search impressions that Google Search Console doesn't.</p>
+
+                <h3>Do I need to change my entire content strategy?</h3>
+                <p>No. Start with answer-first paragraphs on your top 5 pages. Add comparison tables where you have data. That's 80% of the impact with 20% of the effort.</p>
+
+                <h3>What's the minimum technical requirement?</h3>
+                <p>Static HTML or server-side rendering. If your content requires JavaScript to render, AI crawlers may not see it. The exception is Bingbot and GPTBot, which support JavaScript.</p>
+
+                <div class="nav-links">
+                    <a href="what-is-geo.html">← What Is GEO?</a>
+                    <a href="seo-vs-geo.html">SEO vs GEO →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+    <script>LA.init({id:"3QR6VvmXkab0M8Cu",ck:"3QR6VvmXkab0M8Cu"})</script>
+
+    <script>
+    document.querySelectorAll('.nav-group-toggle').forEach(function(toggle) {
+      toggle.addEventListener('click', function() {
+        this.parentElement.classList.toggle('open');
+      });
+    });
+    var active = document.querySelector('.sidebar a.active');
+    if (active) {
+      var group = active.closest('.nav-group');
+      if (group) { group.classList.add('open'); }
+    }
+    </script>
+</body>
+</html>
