@@ -3,7 +3,7 @@
 <channel>
   <title>GEO Encyclopedia</title>
   <link>https://geo010.com</link>
-  <description>58 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
+  <description>59 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
   <language>en</language>
   <atom:link href="https://geo010.com/feed.xml" rel="self" type="application/rss+xml"/>
   <lastBuildDate>Tue, 01 Sep 2026 00:00:00 +0000</lastBuildDate>
@@ -377,6 +377,13 @@
     <guid>https://geo010.com/data/data-dashboard-setup.html</guid>
     <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
     <description>Build a GEO data dashboard with three-layer design - overview metrics for executives, topic analysis for execution teams, and actionable details for content teams.</description>
+  </item>
+  <item>
+    <title>AI Crawler Behavior Report: 12 Days of Real Crawl Data on a GEO Site</title>
+    <link>https://geo010.com/data/crawler-behavior-data.html</link>
+    <guid>https://geo010.com/data/crawler-behavior-data.html</guid>
+    <pubDate>Mon, 01 Sep 2026 00:00:00 +0000</pubDate>
+    <description>A 12-day, 4,115-hit analysis of how AI crawlers visit a live GEO site: Bingbot dominance, ClaudeBot consistency, OpenAI's two behaviors, and what the patterns mean for citation share.</description>
   </item>
   <item>
     <title>What is GEO? - Generative Engine Optimization Explained</title>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1911889082930844" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Crawler Behavior Report: 12 Days of Real Crawl Data on a GEO Site - GEO Encyclopedia</title>
+<meta name="description" content="A 12-day, 4,115-hit analysis of exactly how AI crawlers visit a live GEO site: Bingbot's dominance, ClaudeBot's consistency, OpenAI's two behaviors, and what the patterns mean for citation share.">
+<link rel="canonical" href="https://geo010.com/data/crawler-behavior-data.html"/>
+<link rel="alternate" type="application/rss+xml" title="GEO Encyclopedia RSS" href="https://geo010.com/feed.xml">
+<meta property="og:title" content="AI Crawler Behavior Report: 12 Days of Real Crawl Data on a GEO Site - GEO Encyclopedia"/>
+<meta property="og:description" content="A 12-day, 4,115-hit analysis of exactly how AI crawlers visit a live GEO site: Bingbot's dominance, ClaudeBot's consistency, OpenAI's two behaviors, and what the patterns mean for citation share."/>
+<meta property="og:url" content="https://geo010.com/data/crawler-behavior-data.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="https://geo010.com/og-image.png"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="GEO Encyclopedia"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="AI Crawler Behavior Report: 12 Days of Real Crawl Data on a GEO Site - GEO Encyclopedia"/>
+<meta name="twitter:description" content="A 12-day, 4,115-hit analysis of exactly how AI crawlers visit a live GEO site: Bingbot's dominance, ClaudeBot's consistency, OpenAI's two behaviors, and what the patterns mean for citation share."/>
+<meta name="twitter:image" content="https://geo010.com/og-image.png"/>
+<meta name="keywords" content="AI crawler,GPTBot,ClaudeBot,Amazonbot,PerplexityBot,OAI-SearchBot,Bingbot,citation share,GEO data,crawl log,Generative Engine Optimization">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
+  .layout { display: flex; min-height: 100vh; }
+  .sidebar { width: 240px; flex-shrink: 0; background: #1a1a2e; color: #ccc; padding: 32px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+  .sidebar h3 { color: #fff; font-size: 1em; padding: 0 20px; margin-bottom: 20px; }
+  .sidebar a { display: block; padding: 8px 20px; color: #999; text-decoration: none; font-size: 0.9em; transition: all 0.15s; }
+  .sidebar a:hover, .sidebar a.active { color: #fff; background: rgba(255,255,255,0.08); }
+  .sidebar a.active { border-left: 3px solid #4fc3f7; }
+  .sidebar .current { color: #aaa; padding: 8px 20px; font-size: 0.85em; }
+  .sidebar .home-link { margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 12px; font-weight: 500; color: #4fc3f7; }
+  .nav-group-toggle { padding: 8px 20px; color: #aaa; font-size: 0.85em; cursor: pointer; user-select: none; transition: color 0.15s; display: flex; align-items: center; gap: 6px; }
+  .nav-group-toggle:hover { color: #fff; background: rgba(255,255,255,0.05); }
+  .nav-group-links { display: none; }
+  .nav-group.open .nav-group-links { display: block; }
+  .nav-group.open > .nav-group-toggle .arrow { transform: rotate(90deg); }
+  .arrow { display: inline-block; transition: transform 0.2s; font-size: 0.8em; }
+  .main { flex: 1; max-width: 800px; margin: 0 auto; padding: 48px 32px 80px; }
+  .content { background: #fff; border-radius: 12px; padding: 40px 48px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .content .breadcrumb { color: #888; font-size: 0.85em; margin-bottom: 16px; }
+  .article-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: #888; font-size: 0.88em; margin: 4px 0 16px; }
+  .article-meta a { color: #0066cc; text-decoration: none; }
+  .article-meta a:hover { text-decoration: underline; }
+  .content .breadcrumb a { color: #0066cc; text-decoration: none; }
+  .content .breadcrumb a:hover { text-decoration: underline; }
+  .content h1 { font-size: 1.5em; margin: 40px 0 12px; color: #1a1a2e; padding-top: 8px; }
+  .content h1:first-of-type { margin-top: 0; }
+  .content h2 { font-size: 1.4em; margin: 32px 0 16px; color: #1a1a2e; padding-bottom: 8px; border-bottom: 1px solid #f0f0f0; }
+  .content h3 { font-size: 1.15em; margin: 24px 0 12px; color: #333; }
+  .content p { margin-bottom: 16px; color: #333; }
+  .content p:last-child { margin-bottom: 0; }
+  .content strong { color: #111; }
+  .content blockquote { margin: 16px 0; padding: 16px 20px; background: #f8f9ff; border-left: 4px solid #4fc3f7; border-radius: 0 8px 8px 0; color: #555; font-style: normal; }
+  .content blockquote strong { color: #1a1a2e; }
+  .content hr { margin: 32px 0; border: none; border-top: 1px solid #e8e8e8; }
+  .content ul, .content ol { margin: 8px 0 16px 24px; }
+  .content li { margin-bottom: 6px; color: #333; }
+  .content table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.93em; }
+  .content th { background: #f0f2f5; padding: 10px 14px; text-align: left; font-weight: 600; color: #333; border: 1px solid #e0e0e0; }
+  .content td { padding: 8px 14px; border: 1px solid #e8e8e8; color: #444; }
+  .content tr:nth-child(even) td { background: #fafafa; }
+  .content code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: #e74c3c; }
+  .content img { max-width: 100%; border-radius: 8px; margin: 16px 0; }
+  .nav-links { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; }
+  .nav-links a { color: #0066cc; text-decoration: none; font-size: 0.95em; }
+  .nav-links a:hover { text-decoration: underline; }
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 24px 16px; }
+    .content { padding: 24px 20px; border-radius: 8px; }
+    .content h1 { font-size: 1.3em; }
+    .content h2 { font-size: 1.2em; }
+    .nav-links { flex-direction: column; gap: 12px; }
+  }
+</style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI Crawler Behavior Report: 12 Days of Real Crawl Data on a GEO Site",
+  "description": "A 12-day, 4,115-hit analysis of exactly how AI crawlers visit a live GEO site: Bingbot's dominance, ClaudeBot's consistency, OpenAI's two behaviors, and what the patterns mean for citation share.",
+  "author": {
+    "@type": "Person",
+    "name": "GEO Encyclopedia Editorial Team",
+    "url": "https://geo010.com/about.html",
+    "jobTitle": "GEO Research Analysts",
+    "worksFor": { "@type": "Organization", "name": "GEO Encyclopedia", "url": "https://geo010.com" }
+  },
+  "datePublished": "2026-09-01",
+  "dateModified": "2026-09-01",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/data/crawler-behavior-data.html" },
+  "publisher": { "@type": "Organization", "name": "GEO Encyclopedia", "url": "https://geo010.com" },
+  "inLanguage": "en"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://geo010.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Data & Formulas",
+      "item": "https://geo010.com/data/core-metrics-system.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI Crawler Behavior Report",
+      "item": "https://geo010.com/data/crawler-behavior-data.html"
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which AI crawler generates the most traffic on a live GEO site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bingbot generated the most requests in our 12-day window (326 hits across 95 unique pages, every single day). Because Bing is the backend for Copilot, ChatGPT's web search and Perplexity, it is effectively the primary AI gateway — making Bing Webmaster Tools the most valuable free AI analytics source."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does ClaudeBot behave compared to other AI crawlers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ClaudeBot is the most consistent crawler — it visited 11 of 12 days with remarkably steady volume (18-42 requests/day) and no burst patterns. This means newly published content is indexed by Claude within 24-48 hours without any manual submission."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the two distinct OpenAI crawler behaviors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OAI-SearchBot (111 hits across 12 days) is a steady, Bing-powered search crawler, while ChatGPT-User (61 hits over just 4 days) is user-triggered and bursty — spiking to 57 requests on a single day. When a user asks ChatGPT to search, it crawls the cited site in real time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does crawler behavior data mean for citation share?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bing's crawler dominance matches the fact that Bing Webmaster Tools is now the only major search engine offering free citation-share data. AI citation requires a crawler being able to access, understand and find your content independently cited by third parties — crawl logs reveal the first two conditions."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h3>📖 GEO Encyclopedia</h3>
+    <a href="../index.html" class="home-link">🏠 Home</a>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> I. Fundamentals</div>
+      <div class="nav-group-links">
+        <a href="../fundamentals/what-is-geo.html">What is GEO?</a>
+        <a href="../fundamentals/seo-vs-geo.html">Is SEO Dead?</a>
+        <a href="../fundamentals/eeat-trust-mechanism.html">E-E-A-T Trust</a>
+        <a href="../fundamentals/llms-txt-guide.html">LLMs.txt Guide</a>
+        <a href="../fundamentals/answer-assetization.html">Answer Assetization</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> II. Metrics</div>
+      <div class="nav-group-links">
+        <a href="../metrics/citation-share.html">Citation Share</a>
+        <a href="../metrics/entity-density.html">Entity Density</a>
+        <a href="../metrics/sheep-framework.html">SHEEP Framework</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> III. Models</div>
+      <div class="nav-group-links">
+        <a href="../models/3c-optimization-model.html">3C Model</a>
+        <a href="../models/geo-evolution.html">GEO Evolution</a>
+        <a href="../models/source-authority.html">Source Authority</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IV. Content</div>
+      <div class="nav-group-links">
+        <a href="../content/eeat-in-geo.html">E-E-A-T in GEO</a>
+        <a href="../content/knowledge-entropy.html">Knowledge Entropy</a>
+        <a href="../content/backlinks-in-geo.html">Backlinks in GEO</a>
+        <a href="../content/topical-authority.html">Topical Authority</a>
+        <a href="../content/content-freshness.html">Content Freshness</a>
+        <a href="../content/multimodal-content.html">Multimodal Content</a>
+        <a href="../content/question-driven-strategy.html">Question-Driven Strategy</a>
+        <a href="../content/local-geo-longtail.html">Local GEO</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> V. Technical</div>
+      <div class="nav-group-links">
+        <a href="../technical/schema-markup-guide.html">Schema Markup</a>
+        <a href="../technical/llms-txt-advanced.html">LLMs.txt Advanced</a>
+        <a href="../technical/entity-knowledge-graph.html">Entity &amp; Knowledge Graph</a>
+        <a href="../technical/ai-crawler-management.html">AI Crawler Management</a>
+        <a href="../technical/geo-monitoring-tools.html">Monitoring Tools</a>
+        <a href="../technical/agenticgeo-tools.html">AgenticGEO</a>
+        <a href="../technical/tech-stack-overview.html">Tech Stack Overview</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VI. Brand</div>
+      <div class="nav-group-links">
+        <a href="../brand/brand-as-source.html">Brand as Source</a>
+        <a href="../brand/eeat-brand-implementation.html">EEAT Brand</a>
+        <a href="../brand/crisis-pr-geo.html">Crisis PR</a>
+        <a href="../brand/multi-brand-geo.html">Multi-Brand</a>
+        <a href="../brand/ecommerce-geo.html">E-Commerce</a>
+        <a href="../brand/b2b-brand-geo.html">B2B Brand</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VII. Industry</div>
+      <div class="nav-group-links">
+        <a href="../industry/healthcare-geo.html">Healthcare</a>
+        <a href="../industry/finance-geo.html">Finance</a>
+        <a href="../industry/education-geo.html">Education</a>
+        <a href="../industry/legal-geo.html">Legal</a>
+        <a href="../industry/local-services-geo.html">Local Services</a>
+        <a href="../industry/manufacturing-geo.html">Manufacturing</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VIII. Cases</div>
+      <div class="nav-group-links">
+        <a href="../cases/zero-to-one-roadmap.html">Zero to One</a>
+        <a href="../cases/full-process-case.html">Full Case Study</a>
+        <a href="../cases/geo-ai-audit.html">AI-Readiness Audit</a>
+        <a href="../cases/black-hat-prevention.html">Black Hat Prevention</a>
+        <a href="../cases/geo-future-trends.html">Future Trends</a>
+      </div>
+    </div>
+    <div class="nav-group open">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IX. Data</div>
+      <div class="nav-group-links">
+        <a href="../data/core-metrics-system.html">Core Metrics</a>
+        <a href="../data/roi-calculation.html">ROI Calculator</a>
+        <a href="../data/data-dashboard-setup.html">Data Dashboard</a>
+        <a href="crawler-behavior-data.html" class="active">Crawler Behavior Data</a>
+      </div>
+    </div>
+  <div class="current glossary-section">📌 Glossary</div>
+  <a href="../glossary/geo.html">GEO</a>
+  <a href="../glossary/seo.html">SEO</a>
+  <a href="../glossary/rag.html">RAG</a>
+  <a href="../glossary/eeat.html">E-E-A-T</a>
+  <a href="../glossary/llms-txt.html">LLMs.txt</a>
+  <a href="../glossary/zero-click.html">Zero-Click Search</a>
+  <a href="../glossary/schema.html">Schema</a>
+  <a href="../glossary/answer-asset.html">Answer Assetization</a>
+  <a href="../glossary/ai-visibility.html">AI Visibility Index</a>
+  <a href="../glossary/ymyl.html">YMYL</a>
+  <div class="current glossary-section">📄 About</div>
+  <a href="../about.html">About &amp; Editorial Standards</a>
+  <a href="../contact.html">Contact</a>
+  </nav>
+  <div class="main">
+    <div class="content">
+      <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../data/core-metrics-system.html">Data &amp; Formulas</a> › AI Crawler Behavior Report</div>
+
+<div class="article-meta"><span>By <a href="../about.html">GEO Encyclopedia Editorial Team</a></span><span>·</span><span>Updated: 2026-09-01</span><span>·</span><span>Primary data: geo010.com Cloudflare D1 crawl logs, August 21 - September 1, 2026</span></div>
+
+<h1>AI Crawler Behavior Report: 12 Days of Real Crawl Data on a GEO Site</h1>
+
+<blockquote>Over 12 days we logged every request to a live GEO-focused site through a Cloudflare Worker into a D1 database — 4,115 crawler hits. The data shows that Bingbot is the dominant AI gateway, ClaudeBot is the most consistent, Amazon is scanning the widest surface, and OpenAI crawls in two distinct modes.</blockquote>
+<blockquote>This report is a primary-data study of how AI crawlers actually behave: crawler-by-crawler breakdown, the pages they prioritize, and what the patterns imply for Generative Engine Optimization (GEO).</blockquote>
+
+<hr>
+
+<h2>How We Collected the Data</h2>
+
+<blockquote><strong>The method is straightforward: tag every inbound request by user agent, record path, HTTP status, page type and referer into a D1 database via a Cloudflare Worker, then aggregate over 12 consecutive days.</strong></blockquote>
+
+<p>Each request that reaches the site is logged server-side. Crawlers are identified by their user agent strings (GPTBot, ClaudeBot, Amazonbot, OAI-SearchBot, PerplexityBot, Bingbot, Googlebot and others). We excluded a large block of "null" user-agent traffic that largely probed sensitive paths — a scanner signature we describe separately below.</p>
+
+<p>Because the site is fully server-rendered HTML with no JavaScript dependency for content, crawlers receive the same clean answer-first pages a human does. That makes the data a fair picture of how answer engines consume it.</p>
+
+<h2>Which Crawlers Visited, and How Much?</h2>
+
+<blockquote><strong>4,115 total crawler hits across 13 identified crawlers in 12 days. Bingbot led with 326 requests on 95 unique pages; roughly 2,744 additional hits came from "null" user-agent scanners excluded from the crawler totals.</strong></blockquote>
+
+<table><thead><tr><th>Crawler</th><th>Total Hits</th><th>Unique Pages</th><th>Active Days</th><th>Avg Hits/Day</th></tr></thead><tbody>
+<tr><td>Bingbot</td><td>326</td><td>95</td><td>12/12</td><td>27</td></tr>
+<tr><td>ClaudeBot</td><td>254</td><td>38</td><td>11/12</td><td>23</td></tr>
+<tr><td>Googlebot</td><td>216</td><td>68</td><td>11/12</td><td>20</td></tr>
+<tr><td>Amazonbot</td><td>178</td><td>117</td><td>11/12</td><td>16</td></tr>
+<tr><td>OAI-SearchBot</td><td>111</td><td>80</td><td>12/12</td><td>9</td></tr>
+<tr><td>ChatGPT-User</td><td>61</td><td>45</td><td>4/12</td><td>15</td></tr>
+<tr><td>GPTBot</td><td>45</td><td>33</td><td>11/12</td><td>4</td></tr>
+<tr><td>PerplexityBot</td><td>29</td><td>24</td><td>7/12</td><td>4</td></tr>
+<tr><td>FacebookBot</td><td>23</td><td>1</td><td>11/12</td><td>2</td></tr>
+<tr><td>Google-Extended</td><td>14</td><td>14</td><td>1/12</td><td>14</td></tr>
+</tbody></table>
+
+<p>The clearest signal is that traffic is <strong>not evenly distributed</strong>. Three crawlers — Bingbot, ClaudeBot and Googlebot — account for the majority of legitimate hits. The rest are smaller, more focused visitors.</p>
+
+<h2>What Do the Top Crawler Patterns Tell Us?</h2>
+
+<p>Each leading crawler reveals a distinct strategy worth acting on.</p>
+
+<h3>1. Bing is the primary AI gateway</h3>
+
+<p>Bingbot hit 95 unique pages and visited every single day for 12 straight days. This matters because Bing is the indexing backend behind Copilot, ChatGPT's web search and Perplexity. When you optimize for Bing, you are effectively optimizing for the largest share of AI answer traffic.</p>
+
+<p><strong>Action:</strong> Make Bing Webmaster Tools your primary AI analytics. It now reports the free <a href="../metrics/citation-share.html">citation share</a> metric — your page's share of all citations on a topic — which Google Search Console does not expose.</p>
+
+<h3>2. ClaudeBot is the most predictable</h3>
+
+<p>ClaudeBot visited 11 of 12 days with steady 18-42 requests/day and no visible bursts. It does not need to be "submitted" to — it simply finds and re-checks content on a reliable cadence, typically indexing new pages within 24-48 hours.</p>
+
+<p><strong>Action:</strong> Publish and wait. New articles will be picked up by Claude quickly without manual pinging.</p>
+
+<h3>3. Amazon is scanning the widest surface</h3>
+
+<p>Amazonbot reached 117 unique pages — the highest page diversity of any crawler despite ranking mid-pack on total volume. This breadth suggests Amazon is building a comprehensive content index for AI shopping experiences like Alexa+.</p>
+
+<p><strong>Action:</strong> If you sell products, your pages are being evaluated by Amazon's AI. Product and <a href="../technical/schema-markup-guide.html">schema markup</a> is no longer optional.</p>
+
+<h3>4. OpenAI shows two distinct behaviors</h3>
+
+<p>OpenAI operates two very different crawlers. <strong>OAI-SearchBot</strong> (111 hits over 12 days) is steady and Bing-powered. <strong>ChatGPT-User</strong> (61 hits over just 4 days) is bursty and user-triggered — it spiked to 57 requests on a single day, then went quiet, which is the signature of a real user asking ChatGPT to search on demand.</p>
+
+<p><strong>Action:</strong> ChatGPT's real-time web search genuinely re-crawls the pages it cites when a user asks. Well-structured, answer-first content here directly improves the chance of a live citation.</p>
+
+<h3>5. Perplexity is selective but high-quality</h3>
+
+<p>PerplexityBot was the quietest major crawler (29 hits over 7 days) yet covered 24 unique pages. It crawls less but more deliberately, apparently prioritizing structured data and clear answers. A Perplexity citation functions like a high-authority backlink for AI surfaces.</p>
+
+<h2>What Sets PerplexityBot Apart From the Crowd?</h2>
+
+<p>Most answer engines crawl broadly and frequently. Perplexity takes a different approach: fewer total requests, higher page diversity relative to its volume, and a tendency to re-check pages that carry explicit structured data. For a site owner, this means content aimed at Perplexity should maximize question-style headings and tables — the elements that make answers immediately extractable.</p>
+
+<p>Perplexity does not reward the same click-driven signals as Google. It rewards clarity, structure and standalone answerability.</p>
+
+<h2>Which Pages Do Crawlers Prioritize?</h2>
+
+<blockquote><strong>Crawlers consistently check the same few entry points first — the root URL, robots.txt and sitemap.xml — then spread to high-demand, answer-rich content pages.</strong></blockquote>
+
+<table><thead><tr><th>Page</th><th>Total Hits</th><th>What It Tells Us</th></tr></thead><tbody>
+<tr><td><code>/</code> (homepage)</td><td>571</td><td>Crawlers always check the root</td></tr>
+<tr><td><code>/robots.txt</code></td><td>247</td><td>Every crawler respects robots.txt first</td></tr>
+<tr><td><code>/sitemap.xml</code></td><td>138</td><td>Sitemaps remain the primary discovery mechanism</td></tr>
+<tr><td><code>/fundamentals/what-is-geo.html</code></td><td>40</td><td>"What is GEO" is high-demand</td></tr>
+<tr><td><code>/metrics/citation-share.html</code></td><td>37</td><td>Metrics content attracts analytical crawlers</td></tr>
+<tr><td><code>/fundamentals/llms-txt-guide.html</code></td><td>36</td><td>LLMs.txt is a hot topic for AI crawlers</td></tr>
+</tbody></table>
+
+<p>A recurring theme: the entry-point pages dominate raw counts, but the <em>content</em> pages are what get cited. Keeping robots.txt and sitemap.xml healthy is table stakes; the differentiation happens in how well your articles can be quoted.</p>
+
+<h2>Where Do External Referrers Fit Into the Data?</h2>
+
+<p>Only six external domains sent referral traffic in the period: google.com (18 hits), sahammurah.com (11), reddit.com (3), and a handful of singles. External mentions are a leading indicator: a single Reddit post or a link from an unfamiliar domain can trigger a cluster of new crawler visits from domains you have never seen.</p>
+
+<p>This ties directly to the <a href="../models/source-authority.html">source authority</a> principle — crawlers and citation engines favor entities that are independently referenced. Referral spikes from <em>any</em> third party are therefore more valuable than their raw volume suggests.</p>
+
+<h2>What Are the Practical Implications for GEO?</h2>
+
+<blockquote><strong>Start with Bing Webmaster Tools for AI data, keep every page JSON-LD structured and answer-first, publish consistently for Claude, and treat external mentions — not just rankings — as the unit of growth.</strong></blockquote>
+
+<ol>
+  <li><strong>Track AI via Bing, not just Google.</strong> Bing powers Copilot, ChatGPT search and Perplexity, and it is the only free source of citation-share data.</li>
+  <li><strong>Make content standalone-quotable.</strong> Answer-first paragraphs and question-style tables are extracted directly by these crawlers.</li>
+  <li><strong>Publish on a cadence Claude can index.</strong> New content is re-checked within about two days with no submission needed.</li>
+  <li><strong>Treat third-party mentions as signal.</strong> External referrers correlate with bursts of new crawler visits.</li>
+  <li><strong>Filter scanner noise.</strong> A large share of "crawler" volume can be a hostile scan using a borrowed user agent — inspect paths, not just counts.</li>
+</ol>
+
+<p>The crawlers are already here. The question is how fast your content becomes the answer they habitually cite.</p>
+
+<h2>FAQ</h2>
+
+<p><strong>Which AI crawler generates the most traffic on a live GEO site?</strong> Bingbot — 326 requests across 95 unique pages, every day of the 12-day window. Bing's dominance reflects it being the backend for Copilot, ChatGPT web search and Perplexity.</p>
+
+<p><strong>How does ClaudeBot behave compared to other AI crawlers?</strong> It is the most consistent — 11 of 12 days with steady 18-42 requests/day and no bursts. New content is indexed within roughly 24-48 hours without manual submission.</p>
+
+<p><strong>What are the two distinct OpenAI crawler behaviors?</strong> OAI-SearchBot is steady and Bing-powered; ChatGPT-User is user-triggered and bursty, spiking on days when a real user asks ChatGPT to search and it re-crawls the cited pages in real time.</p>
+
+<p><strong>What does crawler behavior data mean for citation share?</strong> Bing's dominance matches Bing Webmaster Tools being the only free citation-share source. AI citation requires a crawler to access, understand and independently reference your content — crawl logs reveal the access and understanding conditions.</p>
+
+      <div class="nav-links">
+        <a href="data-dashboard-setup.html">← Data Dashboard Setup</a>
+        <a href="../data/core-metrics-system.html">📖 Data &amp; Formulas</a>
+        <a href="../metrics/citation-share.html">Citation Share →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3QR6VvmXkab0M8Cu",ck:"3QR6VvmXkab0M8Cu"})</script>
+
+
+<script>
+document.querySelectorAll('.nav-group-toggle').forEach(function(toggle) {
+  toggle.addEventListener('click', function() {
+    this.parentElement.classList.toggle('open');
+  });
+});
+var active = document.querySelector('.sidebar a.active');
+if (active) {
+  var group = active.closest('.nav-group');
+  if (group) { group.classList.add('open'); }
+}
+</script>
+</body>
+</html>
