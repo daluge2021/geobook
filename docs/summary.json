@@ -28,6 +28,7 @@
     { "title": "Community", "url": "https://geo010.com/community.html", "articleCount": 5 }
   ],
   "glossary": "https://geo010.com/glossary/geo.html",
+  "privacy": "https://geo010.com/privacy.html",
   "feed": "https://geo010.com/feed.xml",
   "sitemap": "https://geo010.com/sitemap.xml"
 }

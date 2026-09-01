@@ -130,6 +130,7 @@
 
 - [Complete Site Map](https://geo010.com/sitemap.xml): Full URL inventory for AI crawlers that need the long tail.
 - [RSS Feed](https://geo010.com/feed.xml): All articles with publication dates.
+- [Privacy Policy](https://geo010.com/privacy.html): How Google AdSense ads and cookies work on geo010.com.
 - [Robots.txt](https://geo010.com/robots.txt): AI crawler access rules.
 
 ## No Private Pages

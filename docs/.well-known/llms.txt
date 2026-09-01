@@ -1,6 +1,6 @@
 # GEO Encyclopedia
 
-> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 50 in-depth articles across 9 chapters plus a Community hub, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
+> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 59 in-depth articles across 9 chapters plus a Community hub, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
 
 ## Quick Answers (AI-Priority Citations)
 
@@ -32,6 +32,7 @@
 
 - [Complete Site Map](https://geo010.com/sitemap.xml): Full URL inventory for AI crawlers that need the long tail.
 - [RSS Feed](https://geo010.com/feed.xml): All articles with publication dates.
+- [Privacy Policy](https://geo010.com/privacy.html): How Google AdSense ads and cookies work on geo010.com.
 - [Robots.txt](https://geo010.com/robots.txt): AI crawler access rules.
 
 ## No Private Pages
