@@ -408,7 +408,7 @@ async function logRequest(env, { ts, ua, crawler, path, status, isHtml, refHost 
 }
 
 function renderStatsPage(data) {
-  const { totals, byCrawler, byDate, byPath, byReferrer, byEntry, recent } = data;
+  const { totals, byCrawler, byDate, byPath, byReferrer, byClickPath, byEntry, recent } = data;
   const rows = (arr) =>
     arr
       .map(
@@ -490,6 +490,12 @@ a { color: #0066cc; }
         ${rows(byReferrer)}
       </table></div>
 
+      <h2>被点击页面 Top（最近 7 天）</h2>
+      <div class="card"><table>
+        <tr><th>路径</th><th>点击数</th></tr>
+        ${rows(byClickPath)}
+      </table></div>
+
       <h2>最近 20 条记录</h2>
       <div class="card"><table>
         <tr><th>时间</th><th>爬虫</th><th>路径</th><th>状态</th><th>来源</th></tr>
@@ -512,7 +518,7 @@ a { color: #0066cc; }
 async function handleStats(env) {
   await ensureRefererColumn(env);
   const entryPlaceholders = [...AI_ENTRY_FILES].map(() => '?').join(',');
-  const [totals, byCrawler, byDate, byPath, byReferrer, byEntry, recent] = await Promise.all([
+  const [totals, byCrawler, byDate, byPath, byReferrer, byClickPath, byEntry, recent] = await Promise.all([
     env.DB.prepare(
       `SELECT COUNT(*) AS total,
               SUM(CASE WHEN crawler_name IS NOT NULL THEN 1 ELSE 0 END) AS ai,
@@ -539,6 +545,12 @@ async function handleStats(env) {
     ).all(),
     env.DB.prepare(
       `SELECT path AS label, COUNT(*) AS n FROM crawler_logs
+       WHERE referer_host IS NOT NULL AND referer_host != ''
+         AND date >= date('now', '-7 days')
+       GROUP BY path ORDER BY n DESC LIMIT 30`
+    ).all(),
+    env.DB.prepare(
+      `SELECT path AS label, COUNT(*) AS n FROM crawler_logs
        WHERE crawler_name IS NOT NULL AND path IN (${entryPlaceholders})
        GROUP BY path ORDER BY n DESC LIMIT 30`
     )
@@ -559,6 +571,7 @@ async function handleStats(env) {
     byDate: byDate?.results || [],
     byPath: byPath?.results || [],
     byReferrer: byReferrer?.results || [],
+    byClickPath: byClickPath?.results || [],
     byEntry: byEntry?.results || [],
     recent: recent?.results || [],
   };
