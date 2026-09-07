@@ -80,6 +80,7 @@
     .content h2 { font-size: 1.2em; }
     .nav-links { flex-direction: column; gap: 12px; }
   }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 
   <script type="application/ld+json">
@@ -295,14 +296,14 @@
 
 <p>Here's what the user sees:</p>
 
-<table>
+<div class="table-wrap"><table>
   <tr><th>Dimension</th><th>Traditional Search (Google)</th><th>AI Search (ChatGPT/Perplexity)</th></tr>
   <tr><td><strong>Result format</strong></td><td>10 blue links + snippets</td><td>1 synthesized answer paragraph</td></tr>
   <tr><td><strong>User action</strong></td><td>Scan results, click multiple</td><td>Read answer, maybe click 1-2 sources</td></tr>
   <tr><td><strong>Content role</strong></td><td>Rank high to get clicks</td><td>Be cited in the answer</td></tr>
   <tr><td><strong>Click-through</strong></td><td>~2-3% for position 1</td><td>0-40% (many queries end without clicks)</td></tr>
   <tr><td><strong>Revenue model</strong></td><td>Ad clicks + organic traffic</td><td>Direct answer (no ad model yet)</td></tr>
-</table>
+</table></div>
 
 <p>The scale of this shift: <strong>60% of Google searches now end without a click</strong> (SparkToro 2025). And on AI-native platforms like Perplexity, 40% of queries end without the user visiting any website.</p>
 

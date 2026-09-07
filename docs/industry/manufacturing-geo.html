@@ -80,6 +80,7 @@
     .content h2 { font-size: 1.2em; }
     .nav-links { flex-direction: column; gap: 12px; }
   }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 
   <script type="application/ld+json">
@@ -275,7 +276,7 @@
 
 <h3>Evolution of B2B Procurement Behavior</h3>
 
-<table><thead><tr><th>Stage</th><th>Traditional Model</th><th>AI Model</th></tr></thead><tbody><tr><td><strong>Information gathering</strong></td><td>Attending trade shows, searching Baidu/Google</td><td>Asking AI: "Who are the main suppliers in XX field"</td></tr><tr><td><strong>Initial supplier screening</strong></td><td>Reviewing websites, looking at cases</td><td>AI provides recommendation lists with reasons</td></tr><tr><td><strong>In-depth research</strong></td><td>Contacting sales, requesting materials</td><td>AI summarizes supplier strengths and weaknesses</td></tr><tr><td><strong>Decision confirmation</strong></td><td>On-site audits, peer referrals</td><td>AI cross-validates supplier market reputation</td></tr></tbody></table>
+<div class="table-wrap"><table><thead><tr><th>Stage</th><th>Traditional Model</th><th>AI Model</th></tr></thead><tbody><tr><td><strong>Information gathering</strong></td><td>Attending trade shows, searching Baidu/Google</td><td>Asking AI: "Who are the main suppliers in XX field"</td></tr><tr><td><strong>Initial supplier screening</strong></td><td>Reviewing websites, looking at cases</td><td>AI provides recommendation lists with reasons</td></tr><tr><td><strong>In-depth research</strong></td><td>Contacting sales, requesting materials</td><td>AI summarizes supplier strengths and weaknesses</td></tr><tr><td><strong>Decision confirmation</strong></td><td>On-site audits, peer referrals</td><td>AI cross-validates supplier market reputation</td></tr></tbody></table></div>
 
 <p><strong>The key is: AI's role in B2B procurement isn't "replacing humans" but "expanding information coverage."</strong></p>
 
@@ -354,22 +355,7 @@ Technical white papers
 
 <p>If marking technical certifications with <a href="../glossary/schema.html">Schema</a>:</p>
 
-<pre><code>{
-  "@type": "Organization",
-  "name": "XX Precision Manufacturing Co., Ltd.",
-  "hasCredential": [
-    {
-      "@type": "EducationalOccupationalCredential",
-      "name": "National High-Tech Enterprise",
-      "description": "Certification date: 2024"
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "name": "ISO 9001:2025",
-      "description": "Quality Management System Certification"
-    }
-  ]
-}</code></pre>
+
 
 <p>AI can directly extract your certification information from structured data without needing to "read" images or PDFs.</p>
 

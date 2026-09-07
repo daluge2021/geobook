@@ -74,6 +74,7 @@
 .nav-group.open .nav-group-links { display: block; }
 .nav-group.open > .nav-group-toggle .arrow { transform: rotate(90deg); }
 .arrow { display: inline-block; transition: transform 0.2s; font-size: 0.8em; }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 
   <script type="application/ld+json">
@@ -263,13 +264,13 @@
       </blockquote>
 
       <h2>2. Traditional Writing vs. Answer Assetization Writing</h2>
-      <table>
+      <div class="table-wrap"><table>
         <tr><th>Dimension</th><th>Traditional SEO Writing</th><th>Answer Assetization Writing</th></tr>
         <tr><td><strong>Opening</strong></td><td>200 words of preamble before the answer</td><td>First sentence directly gives the answer</td></tr>
         <tr><td><strong>Structure</strong></td><td>Long paragraphs, lacking focus</td><td>Lists, numbers, comparison tables</td></tr>
         <tr><td><strong>AI Friendliness</strong></td><td>AI may extract irrelevant paragraphs</td><td>AI takes it and uses it directly</td></tr>
         <tr><td><strong>Citation Frequency</strong></td><td>Low</td><td>High (A/B testing shows 3.7x difference)</td></tr>
-      </table>
+      </table></div>
 
       <h2>3. Why Does AI Prefer "Direct Answers"?</h2>
       <p>Recall the retrieval phase of <a href="rag.html">RAG</a>: AI converts user questions into vectors, then performs "semantic similarity matching" across massive web pages.</p>

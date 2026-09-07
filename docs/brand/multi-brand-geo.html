@@ -80,6 +80,7 @@
     .content h2 { font-size: 1.2em; }
     .nav-links { flex-direction: column; gap: 12px; }
   }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 
   <script type="application/ld+json">
@@ -361,7 +362,7 @@
 
 <p>First, draw a "brand relationship map" to clarify:</p>
 
-<table><thead><tr><th>Relationship Dimension</th><th>Content</th></tr></thead><tbody><tr><td><strong>Master Brand</strong></td><td>XX Group / XX Company</td></tr><tr><td><strong>Sub-Brands</strong></td><td>Brand A, Brand B, Brand C</td></tr><tr><td><strong>Product Brands</strong></td><td>Product X, Product Y, Product Z</td></tr><tr><td><strong>Acquired Brands</strong></td><td>Acquired Brand W (keep independent brand name?)</td></tr><tr><td><strong>Joint Venture Brands</strong></td><td>Partner Brand K</td></tr></tbody></table>
+<div class="table-wrap"><table><thead><tr><th>Relationship Dimension</th><th>Content</th></tr></thead><tbody><tr><td><strong>Master Brand</strong></td><td>XX Group / XX Company</td></tr><tr><td><strong>Sub-Brands</strong></td><td>Brand A, Brand B, Brand C</td></tr><tr><td><strong>Product Brands</strong></td><td>Product X, Product Y, Product Z</td></tr><tr><td><strong>Acquired Brands</strong></td><td>Acquired Brand W (keep independent brand name?)</td></tr><tr><td><strong>Joint Venture Brands</strong></td><td>Partner Brand K</td></tr></tbody></table></div>
 
 <p>This map determines the "relational tone" of all your GEO optimization.</p>
 
@@ -380,21 +381,13 @@
 }</code></pre>
 
 <p><strong>Sub-brand:</strong></p>
-<pre><code>{
-  "@type": "Organization",
-  "name": "Brand A",
-  "parentOrganization": {
-    "@type": "Organization",
-    "name": "XX Group",
-    "url": "https://xxgroup.com"
-  }
-}</code></pre>
+
 
 <h3>Step 3: Differentiated Content Strategy</h3>
 
 <p>Different brands play different "roles" in the AI ecosystem:</p>
 
-<table><thead><tr><th>Brand</th><th>Role</th><th>Content Strategy</th></tr></thead><tbody><tr><td><strong>Master Brand (Group)</strong></td><td>"Storefront"</td><td>Emphasize corporate strength, industry position, history</td></tr><tr><td><strong>Sub-Brand A (Flagship)</strong></td><td>"Core product"</td><td>Emphasize product competitiveness, customer cases, differentiation</td></tr><tr><td><strong>Sub-Brand B (Value)</strong></td><td>"Supplement"</td><td>Emphasize price advantage, suited for SMEs</td></tr><tr><td><strong>Acquired Brand W</strong></td><td>"Independent operations"</td><td>Maintain independence, moderate association with master brand</td></tr></tbody></table>
+<div class="table-wrap"><table><thead><tr><th>Brand</th><th>Role</th><th>Content Strategy</th></tr></thead><tbody><tr><td><strong>Master Brand (Group)</strong></td><td>"Storefront"</td><td>Emphasize corporate strength, industry position, history</td></tr><tr><td><strong>Sub-Brand A (Flagship)</strong></td><td>"Core product"</td><td>Emphasize product competitiveness, customer cases, differentiation</td></tr><tr><td><strong>Sub-Brand B (Value)</strong></td><td>"Supplement"</td><td>Emphasize price advantage, suited for SMEs</td></tr><tr><td><strong>Acquired Brand W</strong></td><td>"Independent operations"</td><td>Maintain independence, moderate association with master brand</td></tr></tbody></table></div>
 
 <h3>Step 4: Independent Monitoring System</h3>
 

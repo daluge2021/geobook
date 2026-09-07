@@ -80,6 +80,7 @@
     .content h2 { font-size: 1.2em; }
     .nav-links { flex-direction: column; gap: 12px; }
   }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 
   <script type="application/ld+json">
@@ -326,7 +327,7 @@
 
 <h3>What to Record for Every Request</h3>
 
-<table><thead><tr><th>Field</th><th>Why It Matters</th></tr></thead><tbody><tr><td><strong>Timestamp</strong></td><td>Crawl frequency and trends over time</td></tr><tr><td><strong>Crawler name</strong></td><td>Which AI platform visited (from User-Agent)</td></tr><tr><td><strong>Path</strong></td><td>Which page was read — your content inventory as AI sees it</td></tr><tr><td><strong>Status code</strong></td><td>200 vs. 404/403 — a blocked or broken page is a wasted crawl</td></tr><tr><td><strong>Referer host</strong></td><td>Rare for crawlers, but valuable for human click-through later</td></tr></tbody></table>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Why It Matters</th></tr></thead><tbody><tr><td><strong>Timestamp</strong></td><td>Crawl frequency and trends over time</td></tr><tr><td><strong>Crawler name</strong></td><td>Which AI platform visited (from User-Agent)</td></tr><tr><td><strong>Path</strong></td><td>Which page was read — your content inventory as AI sees it</td></tr><tr><td><strong>Status code</strong></td><td>200 vs. 404/403 — a blocked or broken page is a wasted crawl</td></tr><tr><td><strong>Referer host</strong></td><td>Rare for crawlers, but valuable for human click-through later</td></tr></tbody></table></div>
 
 <h3>The Cloudflare Worker Approach</h3>
 
@@ -346,31 +347,7 @@
 
 <p>Then classify the User-Agent and log only what matters:</p>
 
-<pre><code>const AI_CRAWLERS = [
-  { name: 'GPTBot', re: /GPTBot/i },
-  { name: 'OAI-SearchBot', re: /OAI-SearchBot/i },
-  { name: 'ClaudeBot', re: /ClaudeBot/i },
-  { name: 'PerplexityBot', re: /PerplexityBot/i }
-];
 
-function classifyCrawler(ua) {
-  if (!ua) return null;
-  for (const c of AI_CRAWLERS) {
-    if (c.re.test(ua)) return c.name;
-  }
-  return null;
-}
-
-async function logIfCrawler(env, request, status) {
-  const ua = request.headers.get('user-agent') || '';
-  const crawler = classifyCrawler(ua);
-  if (!crawler) return; // human traffic: skip
-  const now = new Date().toISOString();
-  await env.DB.prepare(
-    'INSERT INTO crawler_logs (ts, date, ua, crawler_name, path, status) VALUES (?, ?, ?, ?, ?, ?)'
-  ).bind(now, now.slice(0, 10), ua, crawler,
-         new URL(request.url).pathname, status).run();
-}</code></pre>
 
 <p>Keep the list current: OpenAI and Anthropic both publish official bot documentation, and new crawlers appear regularly. For the full access-control picture, pair logging with the rules described in <a href="ai-crawler-management.html">AI crawler management</a>.</p>
 
@@ -388,7 +365,7 @@ async function logIfCrawler(env, request, status) {
 
 <p><strong>Every AI platform crawls differently — and each difference tells you what to fix.</strong> Treating all bots alike wastes effort; matching fixes to behavior is what makes log data actionable.</p>
 
-<table><thead><tr><th>Crawler</th><th>Operated By</th><th>Crawl Pattern</th><th>What It Means for You</th></tr></thead><tbody><tr><td><strong>GPTBot</strong></td><td>OpenAI</td><td>Deep crawl, largely sitemap-driven; feeds training and retrieval corpora</td><td>Keep <code>sitemap.xml</code> current so new pages enter the queue fast</td></tr><tr><td><strong>OAI-SearchBot</strong></td><td>OpenAI</td><td>Selective; fetches pages surfaced by ChatGPT Search</td><td>A visit is a strong signal ChatGPT Search may cite that page</td></tr><tr><td><strong>ClaudeBot</strong></td><td>Anthropic</td><td>Enters via robots.txt permissions plus sitemap entries</td><td>Verify ClaudeBot is allowed and key pages are listed in the sitemap</td></tr><tr><td><strong>PerplexityBot</strong></td><td>Perplexity</td><td>Content page crawler focused on answer-ready text</td><td>Question-style headings and answer-first paragraphs pay off directly</td></tr><tr><td><strong>Googlebot</strong></td><td>Google</td><td>Frequent, comprehensive crawling</td><td>Feeds AI Overviews and Gemini grounding — classic SEO hygiene still counts</td></tr></tbody></table>
+<div class="table-wrap"><table><thead><tr><th>Crawler</th><th>Operated By</th><th>Crawl Pattern</th><th>What It Means for You</th></tr></thead><tbody><tr><td><strong>GPTBot</strong></td><td>OpenAI</td><td>Deep crawl, largely sitemap-driven; feeds training and retrieval corpora</td><td>Keep <code>sitemap.xml</code> current so new pages enter the queue fast</td></tr><tr><td><strong>OAI-SearchBot</strong></td><td>OpenAI</td><td>Selective; fetches pages surfaced by ChatGPT Search</td><td>A visit is a strong signal ChatGPT Search may cite that page</td></tr><tr><td><strong>ClaudeBot</strong></td><td>Anthropic</td><td>Enters via robots.txt permissions plus sitemap entries</td><td>Verify ClaudeBot is allowed and key pages are listed in the sitemap</td></tr><tr><td><strong>PerplexityBot</strong></td><td>Perplexity</td><td>Content page crawler focused on answer-ready text</td><td>Question-style headings and answer-first paragraphs pay off directly</td></tr><tr><td><strong>Googlebot</strong></td><td>Google</td><td>Frequent, comprehensive crawling</td><td>Feeds AI Overviews and Gemini grounding — classic SEO hygiene still counts</td></tr></tbody></table></div>
 
 <p>Three behavioral differences matter most in practice:</p>
 
@@ -419,7 +396,7 @@ async function logIfCrawler(env, request, status) {
 
 <h3>A Minimal Tracking Spreadsheet</h3>
 
-<table><thead><tr><th>Date</th><th>Platform</th><th>Query Tested</th><th>Mentioned?</th><th>Page Cited</th><th>Linked?</th><th>Position</th><th>Notes</th></tr></thead><tbody><tr><td>2026-08-14</td><td>ChatGPT</td><td>how do i track ai citations</td><td>Yes</td><td>/technical/track-ai-citations.html</td><td>Yes</td><td>#1 source</td><td>fresh session</td></tr><tr><td>2026-08-14</td><td>Perplexity</td><td>how do i track ai citations</td><td>No</td><td>—</td><td>—</td><td>—</td><td>competitor cited</td></tr><tr><td>2026-08-21</td><td>Claude</td><td>geo performance metrics</td><td>Yes</td><td>/metrics/citation-share.html</td><td>No</td><td>mid-answer</td><td>mention w/o link</td></tr></tbody></table>
+<div class="table-wrap"><table><thead><tr><th>Date</th><th>Platform</th><th>Query Tested</th><th>Mentioned?</th><th>Page Cited</th><th>Linked?</th><th>Position</th><th>Notes</th></tr></thead><tbody><tr><td>2026-08-14</td><td>ChatGPT</td><td>how do i track ai citations</td><td>Yes</td><td>/technical/track-ai-citations.html</td><td>Yes</td><td>#1 source</td><td>fresh session</td></tr><tr><td>2026-08-14</td><td>Perplexity</td><td>how do i track ai citations</td><td>No</td><td>—</td><td>—</td><td>—</td><td>competitor cited</td></tr><tr><td>2026-08-21</td><td>Claude</td><td>geo performance metrics</td><td>Yes</td><td>/metrics/citation-share.html</td><td>No</td><td>mid-answer</td><td>mention w/o link</td></tr></tbody></table></div>
 
 <blockquote><strong>A mention without a link still counts.</strong> AI often names a source inline while omitting the URL — recording "mentioned, not linked" separately keeps your numbers honest (more on this in Section VI).</blockquote>
 
@@ -429,7 +406,7 @@ async function logIfCrawler(env, request, status) {
 
 <p><strong>A useful GEO dashboard needs five numbers, not fifty.</strong> Together they cover the full funnel: discovered — crawled — cited — recommended — clicked.</p>
 
-<table><thead><tr><th>Metric</th><th>Data Source</th><th>Healthy Signal</th></tr></thead><tbody><tr><td><strong>Crawler visits by bot</strong></td><td>D1 log / Cloudflare Analytics</td><td>Steady weekly visits from 3+ AI crawlers</td></tr><tr><td><strong>Content pages crawled</strong></td><td>D1 <code>GROUP BY path</code></td><td>Priority answer pages crawled at least monthly</td></tr><tr><td><strong>AI citation frequency</strong></td><td>Weekly manual tests</td><td>Citations trending up on priority queries</td></tr><tr><td><strong>Brand mention rate</strong></td><td>Weekly manual tests</td><td>Mentioned in a rising share of tracked answers</td></tr><tr><td><strong>Referral traffic from AI platforms</strong></td><td>GA4 referral filters</td><td>Growing clicks despite missing referers</td></tr></tbody></table>
+<div class="table-wrap"><table><thead><tr><th>Metric</th><th>Data Source</th><th>Healthy Signal</th></tr></thead><tbody><tr><td><strong>Crawler visits by bot</strong></td><td>D1 log / Cloudflare Analytics</td><td>Steady weekly visits from 3+ AI crawlers</td></tr><tr><td><strong>Content pages crawled</strong></td><td>D1 <code>GROUP BY path</code></td><td>Priority answer pages crawled at least monthly</td></tr><tr><td><strong>AI citation frequency</strong></td><td>Weekly manual tests</td><td>Citations trending up on priority queries</td></tr><tr><td><strong>Brand mention rate</strong></td><td>Weekly manual tests</td><td>Mentioned in a rising share of tracked answers</td></tr><tr><td><strong>Referral traffic from AI platforms</strong></td><td>GA4 referral filters</td><td>Growing clicks despite missing referers</td></tr></tbody></table></div>
 
 <h3>Tooling Options</h3>
 

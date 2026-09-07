@@ -94,6 +94,7 @@
     .content h2 { font-size: 1.2em; }
     .nav-links { flex-direction: column; gap: 12px; }
   }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 
   <script type="application/ld+json">
@@ -319,7 +320,7 @@
 
 <p>We log every request through our Cloudflare Worker into a D1 database, tagging crawlers by user agent and recording path, status and page type. Here is the day-by-day picture since logging went live:</p>
 
-<table><thead><tr><th>Date</th><th>Total</th><th>Bot</th><th>Notable events</th></tr></thead><tbody>
+<div class="table-wrap"><table><thead><tr><th>Date</th><th>Total</th><th>Bot</th><th>Notable events</th></tr></thead><tbody>
 <tr><td>08-04</td><td>303</td><td>90</td><td>Worker logging goes live; baseline set</td></tr>
 <tr><td>08-05</td><td>59</td><td>18</td><td>Origin switched to raw fetch; CSP sandbox fix</td></tr>
 <tr><td>08-08</td><td>281</td><td>122</td><td><strong>GPTBot 59 requests</strong>; freshness refresh shipped</td></tr>
@@ -330,7 +331,7 @@
 <tr><td>08-13</td><td>502</td><td>182</td><td><strong>GPTBot 95</strong>; includes a spoofed-GPTBot attack blocked by our Worker</td></tr>
 <tr><td>08-14</td><td>222</td><td>148</td><td>Entity-density definition moved above the fold</td></tr>
 <tr><td>08-15</td><td>187</td><td>127</td><td>Amazonbot 82 — 67 of them 404s from its own URL-parsing bug</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p>Two things jump out. First, the biggest "success" day — 778 requests — was mostly noise. Second, our single biggest real day for legitimate crawlers was not infrastructure work at all; it was the day a new article went live and GPTBot and ClaudeBot visited that exact URL 10 times.</p>
 
@@ -338,14 +339,14 @@
 
 <p>We grouped our two weeks of commits into categories and measured each against the logs. The pattern was consistent and repeatable:</p>
 
-<table><thead><tr><th>Change</th><th>Result</th><th>Evidence</th></tr></thead><tbody>
+<div class="table-wrap"><table><thead><tr><th>Change</th><th>Result</th><th>Evidence</th></tr></thead><tbody>
 <tr><td><strong>New articles</strong></td><td>Immediate, repeated crawls</td><td>New pages hit 6-10 times on launch day, revisited for days after</td></tr>
 <tr><td><strong>Definition-first layout</strong> (answer before the fold)</td><td>Higher share of crawled content pages</td><td>The entity-density page became one of the most-crawled content URLs</td></tr>
 <tr><td><strong>FAQPage markup</strong> on metrics/case pages</td><td>New visits to those pages</td><td>ClaudeBot and OAI-SearchBot hit the six pages within a day of markup</td></tr>
 <tr><td><strong>Freshness alignment</strong> (dateModified ↔ lastmod)</td><td>Correlated with crawler activity</td><td>Peak legitimate crawler days followed freshness passes</td></tr>
 <tr><td><strong><code>/ai/summary.json</code>, <code>/.well-known/ai.txt</code></strong></td><td><strong>Zero requests</strong></td><td>No crawler ever requested any AI-facing endpoint in the window</td></tr>
 <tr><td><strong>Security headers (CSP)</strong></td><td>No crawl impact</td><td>Defensive only; never expected a positive crawl effect</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p>The lesson we took away: <strong>crawlers find content through <a href="../glossary/llms-txt.html" class="glossary-link">llms.txt</a>, robots.txt and sitemap.xml — not through custom AI endpoints.</strong> GPTBot and ClaudeBot visited robots.txt and sitemap.xml almost every single day. They never requested a single AI JSON endpoint.</p>
 

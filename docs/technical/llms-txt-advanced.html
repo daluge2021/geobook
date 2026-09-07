@@ -78,6 +78,7 @@
     .content h2 { font-size: 1.2em; }
     .nav-links { flex-direction: column; gap: 12px; }
   }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 
   <script type="application/ld+json">
@@ -450,7 +451,7 @@
 
 <p>These three files together form the "guidance system" for AI crawlers entering your website:</p>
 
-<table><thead><tr><th>File</th><th>Function</th><th>How AI Uses It</th></tr></thead><tbody><tr><td><strong>Robots.txt</strong></td><td>Tells AI crawlers "what can and cannot be crawled"</td><td>The first file read when crawlers arrive at the website</td></tr><tr><td><strong>Sitemap.xml</strong></td><td>Tells AI crawlers "which important pages the website has"</td><td>Crawlers decide "which pages to start crawling"</td></tr><tr><td><strong>LLMs.txt</strong></td><td>Tells AI large models "what the brand's core information is"</td><td>Large models prioritize reading when answering brand questions</td></tr></tbody></table>
+<div class="table-wrap"><table><thead><tr><th>File</th><th>Function</th><th>How AI Uses It</th></tr></thead><tbody><tr><td><strong>Robots.txt</strong></td><td>Tells AI crawlers "what can and cannot be crawled"</td><td>The first file read when crawlers arrive at the website</td></tr><tr><td><strong>Sitemap.xml</strong></td><td>Tells AI crawlers "which important pages the website has"</td><td>Crawlers decide "which pages to start crawling"</td></tr><tr><td><strong>LLMs.txt</strong></td><td>Tells AI large models "what the brand's core information is"</td><td>Large models prioritize reading when answering brand questions</td></tr></tbody></table></div>
 
 <h3>Deployment Order for the Three Files</h3>
 

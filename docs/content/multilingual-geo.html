@@ -82,6 +82,7 @@
     .content h2 { font-size: 1.2em; }
     .nav-links { flex-direction: column; gap: 12px; }
   }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 
   <script type="application/ld+json">
@@ -314,7 +315,7 @@
 
 <p><strong>Modern frontier models are multilingual, but they are not equally strong in every language — training data distribution decides who gets cited.</strong> Models like GPT-4-class systems, Gemini, and Claude were trained predominantly on English text, with other languages represented at much lower volumes.</p>
 
-<table><thead><tr><th>Language</th><th>Approx. Share of Web Content</th><th>Relative AI Answer Quality</th><th>Competitive Density for GEO</th></tr></thead><tbody><tr><td>English</td><td>~49%</td><td>Highest</td><td>Saturated</td></tr><tr><td>Spanish</td><td>~6%</td><td>High</td><td>Low–Medium</td></tr><tr><td>German</td><td>~5%</td><td>High</td><td>Low</td></tr><tr><td>Japanese</td><td>~5%</td><td>High</td><td>Low</td></tr><tr><td>Portuguese</td><td>~4%</td><td>Good</td><td>Very low</td></tr><tr><td>Russian</td><td>~4%</td><td>Good</td><td>Medium (local engines)</td></tr><tr><td>Arabic</td><td>&lt;3%</td><td>Uneven</td><td>Very low</td></tr></tbody></table>
+<div class="table-wrap"><table><thead><tr><th>Language</th><th>Approx. Share of Web Content</th><th>Relative AI Answer Quality</th><th>Competitive Density for GEO</th></tr></thead><tbody><tr><td>English</td><td>~49%</td><td>Highest</td><td>Saturated</td></tr><tr><td>Spanish</td><td>~6%</td><td>High</td><td>Low–Medium</td></tr><tr><td>German</td><td>~5%</td><td>High</td><td>Low</td></tr><tr><td>Japanese</td><td>~5%</td><td>High</td><td>Low</td></tr><tr><td>Portuguese</td><td>~4%</td><td>Good</td><td>Very low</td></tr><tr><td>Russian</td><td>~4%</td><td>Good</td><td>Medium (local engines)</td></tr><tr><td>Arabic</td><td>&lt;3%</td><td>Uneven</td><td>Very low</td></tr></tbody></table></div>
 
 <p><em>Source: W3Techs language usage statistics, 2026; internal testing across major AI engines.</em></p>
 
@@ -335,7 +336,7 @@
 
 <blockquote><strong>Translation converts words. Localization converts meaning, context, and proof.</strong></blockquote>
 
-<table><thead><tr><th>Dimension</th><th>Direct Translation</th><th>GEO Localization</th></tr></thead><tbody><tr><td><strong>Phrasing</strong></td><td>Word-for-word output, often stilted</td><td>Native-sounding, matches local query patterns</td></tr><tr><td><strong>Examples</strong></td><td>US-centric examples kept as-is</td><td>Local companies, cities, and scenarios substituted</td></tr><tr><td><strong>Data</strong></td><td>Same US statistics everywhere</td><td>Region-specific figures with local sources</td></tr><tr><td><strong>Units & formats</strong></td><td>USD, miles, MM/DD dates</td><td>EUR/JPY/BRL, kilometers, DD/MM dates</td></tr><tr><td><strong>Questions covered</strong></td><td>What Americans ask</td><td>What locals actually ask (regulations, seasons, payment habits)</td></tr><tr><td><strong>AI citation likelihood</strong></td><td>Low — feels derivative</td><td>High — reads as the authoritative local source</td></tr></tbody></table>
+<div class="table-wrap"><table><thead><tr><th>Dimension</th><th>Direct Translation</th><th>GEO Localization</th></tr></thead><tbody><tr><td><strong>Phrasing</strong></td><td>Word-for-word output, often stilted</td><td>Native-sounding, matches local query patterns</td></tr><tr><td><strong>Examples</strong></td><td>US-centric examples kept as-is</td><td>Local companies, cities, and scenarios substituted</td></tr><tr><td><strong>Data</strong></td><td>Same US statistics everywhere</td><td>Region-specific figures with local sources</td></tr><tr><td><strong>Units & formats</strong></td><td>USD, miles, MM/DD dates</td><td>EUR/JPY/BRL, kilometers, DD/MM dates</td></tr><tr><td><strong>Questions covered</strong></td><td>What Americans ask</td><td>What locals actually ask (regulations, seasons, payment habits)</td></tr><tr><td><strong>AI citation likelihood</strong></td><td>Low — feels derivative</td><td>High — reads as the authoritative local source</td></tr></tbody></table></div>
 
 <h3>Why AI Prefers Native-Sounding Content</h3>
 
@@ -359,7 +360,7 @@
 
 <h3>Common Mistakes That Break Multilingual Citations</h3>
 
-<table><thead><tr><th>Mistake</th><th>What Happens</th><th>Fix</th></tr></thead><tbody><tr><td>No hreflang at all</td><td>AI indexes one arbitrary version; others invisible</td><td>Add full bidirectional annotation sets</td></tr><tr><td>Wrong codes (<code>de-DE</code> written as <code>de-de</code> or <code>deu</code>)</td><td>Annotation ignored silently</td><td>ISO 639-1 lowercase + ISO 3166-1 uppercase (<code>pt-BR</code>, not <code>br</code>)</td></tr><tr><td>Inconsistent URLs between tags and sitemap</td><td>Crawler distrusts the cluster; picks nothing</td><td>Generate hreflang and sitemap from one source of truth</td></tr><tr><td>Missing return links</td><td>Google docs explicitly warn versions get dropped</td><td>Bidirectional pairs, always</td></tr><tr><td>One mixed-language page per topic</td><td>Diluted relevance; wrong language cited</td><td>Separate URL per language, clean <code>lang</code> attribute</td></tr></tbody></table>
+<div class="table-wrap"><table><thead><tr><th>Mistake</th><th>What Happens</th><th>Fix</th></tr></thead><tbody><tr><td>No hreflang at all</td><td>AI indexes one arbitrary version; others invisible</td><td>Add full bidirectional annotation sets</td></tr><tr><td>Wrong codes (<code>de-DE</code> written as <code>de-de</code> or <code>deu</code>)</td><td>Annotation ignored silently</td><td>ISO 639-1 lowercase + ISO 3166-1 uppercase (<code>pt-BR</code>, not <code>br</code>)</td></tr><tr><td>Inconsistent URLs between tags and sitemap</td><td>Crawler distrusts the cluster; picks nothing</td><td>Generate hreflang and sitemap from one source of truth</td></tr><tr><td>Missing return links</td><td>Google docs explicitly warn versions get dropped</td><td>Bidirectional pairs, always</td></tr><tr><td>One mixed-language page per topic</td><td>Diluted relevance; wrong language cited</td><td>Separate URL per language, clean <code>lang</code> attribute</td></tr></tbody></table></div>
 
 <p>Beyond hreflang, keep the basics aligned: <code>&lt;html lang=""&gt;</code> matching the content, language-specific XML sitemaps (or one sitemap with <code>xhtml:link</code> alternates), and per-version <code>Article</code> schema whose headline and description are fully in that language — mixed-language structured data weakens entity confidence.</p>
 
@@ -384,7 +385,7 @@
 
 <h3>Templates That Localize Well</h3>
 
-<table><thead><tr><th>Content Template</th><th>Localizes Well Because</th></tr></thead><tbody><tr><td>"Best [category] in [country/city] (year)"</td><td>Intent is inherently local; swap vendors and regulations</td></tr><tr><td>Comparison tables with pricing</td><td>Currency, plans, and availability differ per market anyway</td></tr><tr><td>"[Concept] explained" evergreen guides</td><td>Structure survives; examples and sources get swapped</td></tr><tr><td>Regulation/compliance checklists</td><td>Each market has its own rules (GDPR — LGPD — APPI) — pure new value</td></tr><tr><td>FAQ clusters</td><td>Real local questions differ; each version earns its own citations</td></tr></tbody></table>
+<div class="table-wrap"><table><thead><tr><th>Content Template</th><th>Localizes Well Because</th></tr></thead><tbody><tr><td>"Best [category] in [country/city] (year)"</td><td>Intent is inherently local; swap vendors and regulations</td></tr><tr><td>Comparison tables with pricing</td><td>Currency, plans, and availability differ per market anyway</td></tr><tr><td>"[Concept] explained" evergreen guides</td><td>Structure survives; examples and sources get swapped</td></tr><tr><td>Regulation/compliance checklists</td><td>Each market has its own rules (GDPR — LGPD — APPI) — pure new value</td></tr><tr><td>FAQ clusters</td><td>Real local questions differ; each version earns its own citations</td></tr></tbody></table></div>
 
 <h3>Avoiding Duplicate-Content Traps</h3>
 
@@ -396,7 +397,7 @@
 
 <p><strong>Measure each language version against its own baseline, never against your English numbers.</strong> A German page earning 30% of the English page's citations may already dominate the German market — the absolute comparison misleads.</p>
 
-<table><thead><tr><th>Metric</th><th>How to Track It</th><th>Tooling</th></tr></thead><tbody><tr><td><strong>AI crawler visits per language</strong></td><td>Server logs filtered by user agent (GPTBot, ClaudeBot, PerplexityBot) × URL path prefix (/de/, /ja/, /es/)</td><td>Raw access logs, Cloudflare analytics</td></tr><tr><td><strong>Citations per language</strong></td><td>Fixed prompt set run monthly in each language; count brand mentions and links</td><td>Manual prompts, monitoring tools with multi-locale support</td></tr><tr><td><strong>Referral traffic by region</strong></td><td>Sessions segmented by geography + landing path</td><td>GA4, Plausible, Matomo</td></tr><tr><td><strong>Branded search by locale</strong></td><td>Search Console filters by country + brand queries</td><td>Google Search Console, Bing Webmaster Tools</td></tr><tr><td><strong>Index coverage per version</strong></td><td>Indexed pages ÷ published pages, per language folder</td><td>Search Console Coverage report</td></tr></tbody></table>
+<div class="table-wrap"><table><thead><tr><th>Metric</th><th>How to Track It</th><th>Tooling</th></tr></thead><tbody><tr><td><strong>AI crawler visits per language</strong></td><td>Server logs filtered by user agent (GPTBot, ClaudeBot, PerplexityBot) × URL path prefix (/de/, /ja/, /es/)</td><td>Raw access logs, Cloudflare analytics</td></tr><tr><td><strong>Citations per language</strong></td><td>Fixed prompt set run monthly in each language; count brand mentions and links</td><td>Manual prompts, monitoring tools with multi-locale support</td></tr><tr><td><strong>Referral traffic by region</strong></td><td>Sessions segmented by geography + landing path</td><td>GA4, Plausible, Matomo</td></tr><tr><td><strong>Branded search by locale</strong></td><td>Search Console filters by country + brand queries</td><td>Google Search Console, Bing Webmaster Tools</td></tr><tr><td><strong>Index coverage per version</strong></td><td>Indexed pages ÷ published pages, per language folder</td><td>Search Console Coverage report</td></tr></tbody></table></div>
 
 <h3>Server Log Analysis for Multilingual Sites</h3>
 

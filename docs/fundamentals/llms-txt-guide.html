@@ -78,6 +78,7 @@
     .content h2 { font-size: 1.2em; }
     .nav-links { flex-direction: column; gap: 12px; }
   }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 
   <script type="application/ld+json">
@@ -379,7 +380,7 @@
 
 <p>Many people ask: I already have sitemap.xml, do I still need LLMs.txt?</p>
 
-<table><thead><tr><th>Dimension</th><th>sitemap.xml</th><th>LLMs.txt</th></tr></thead><tbody><tr><td><strong>Target audience</strong></td><td>Traditional search engines (Googlebot, etc.)</td><td>AI large language models (ChatGPT, Perplexity, etc.)</td></tr><tr><td><strong>Format</strong></td><td>XML, machine-readable</td><td>Markdown, human-readable too</td></tr><tr><td><strong>Semantics</strong></td><td>Only URLs and update frequency</td><td>Includes one-sentence descriptions to help AI understand each page's content</td></tr><tr><td><strong>Priority hints</strong></td><td><code>&lt;priority&gt;</code> field (but Google mostly ignores it)</td><td>Natural language ordering (most important placed first)</td></tr><tr><td><strong>Exclusion rules</strong></td><td>Typically doesn't handle exclusions here</td><td>Can directly say "these pages don't need to be cited"</td></tr></tbody></table>
+<div class="table-wrap"><table><thead><tr><th>Dimension</th><th>sitemap.xml</th><th>LLMs.txt</th></tr></thead><tbody><tr><td><strong>Target audience</strong></td><td>Traditional search engines (Googlebot, etc.)</td><td>AI large language models (ChatGPT, Perplexity, etc.)</td></tr><tr><td><strong>Format</strong></td><td>XML, machine-readable</td><td>Markdown, human-readable too</td></tr><tr><td><strong>Semantics</strong></td><td>Only URLs and update frequency</td><td>Includes one-sentence descriptions to help AI understand each page's content</td></tr><tr><td><strong>Priority hints</strong></td><td><code>&lt;priority&gt;</code> field (but Google mostly ignores it)</td><td>Natural language ordering (most important placed first)</td></tr><tr><td><strong>Exclusion rules</strong></td><td>Typically doesn't handle exclusions here</td><td>Can directly say "these pages don't need to be cited"</td></tr></tbody></table></div>
 
 <p><strong>They're not substitutes — they're complementary.</strong> sitemap.xml tells Googlebot "I have these pages"; LLMs.txt tells AI "what each page covers and which are most important."</p>
 

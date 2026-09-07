@@ -74,6 +74,7 @@
 .nav-group.open .nav-group-links { display: block; }
 .nav-group.open > .nav-group-toggle .arrow { transform: rotate(90deg); }
 .arrow { display: inline-block; transition: transform 0.2s; font-size: 0.8em; }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 
   <script type="application/ld+json">
@@ -278,21 +279,21 @@
       <p>This can't be answered by traditional <a href="seo.html">SEO</a>'s "ranking signals." AI's retrieval logic is closer to "semantic search" — it doesn't care whether your page Title contains that keyword, but whether your content as a whole is "useful material for this question."</p>
 
       <h2>3. Three Content Requirements from RAG</h2>
-      <table>
+      <div class="table-wrap"><table>
         <tr><th>Requirement</th><th>Meaning</th><th>GEO Strategy</th></tr>
         <tr><td><strong>Semantically Relevant</strong></td><td>Content meaning highly matches user questions</td><td>Semantic coverage strategy: cover all possible "meanings" users might ask</td></tr>
         <tr><td><strong>Structurally Clear</strong></td><td>AI can quickly locate the most useful paragraphs</td><td><a href="schema.html">Schema structured markup</a>, lead with answers, clear heading hierarchy</td></tr>
         <tr><td><strong>Credible &amp; Citable</strong></td><td>Content is verifiable, AI is willing to cite you</td><td><a href="eeat.html">E-E-A-T</a> standards met, data sources cited, authoritative endorsements</td></tr>
-      </table>
+      </table></div>
 
       <h2>4. RAG vs Traditional Search</h2>
-      <table>
+      <div class="table-wrap"><table>
         <tr><th>Dimension</th><th>Traditional Search Engine</th><th>RAG-Driven AI Search</th></tr>
         <tr><td>Retrieval Method</td><td>Keyword matching</td><td>Semantic vector matching</td></tr>
         <tr><td>Result Format</td><td>List of 10 links</td><td>A synthesized answer paragraph</td></tr>
         <tr><td>User Behavior</td><td>Browse link list, click multiple</td><td>Read AI answer directly, may zero-click</td></tr>
         <tr><td>Content Requirements</td><td>Keyword density, backlinks, technical optimization</td><td>Semantically relevant, structurally clear, <a href="eeat.html">credible</a></td></tr>
-      </table>
+      </table></div>
 
       <h2>5. In Practice: How to Get RAG to Select Your Content</h2>
       <ol>

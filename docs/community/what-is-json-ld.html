@@ -94,6 +94,7 @@
     .content h2 { font-size: 1.2em; }
     .nav-links { flex-direction: column; gap: 12px; }
   }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 
   <script type="application/ld+json">
@@ -334,12 +335,12 @@
 
 <p>AI answer engines do not read your page the way a person does. They parse it, extract entities, and weigh trust signals. Structured data makes that parsing dramatically easier and more reliable.</p>
 
-<table><thead><tr><th>What AI needs</th><th>What JSON-LD provides</th><th>GEO impact</th></tr></thead><tbody>
+<div class="table-wrap"><table><thead><tr><th>What AI needs</th><th>What JSON-LD provides</th><th>GEO impact</th></tr></thead><tbody>
 <tr><td>Entity recognition</td><td><code>Organization</code> / <code>Person</code> with a stable <code>@id</code></td><td>AI knows who you are and can attach your content to one entity</td></tr>
 <tr><td>Citation and source trust</td><td><code>Article</code> with author, publisher and dates</td><td>AI has concrete reasons to cite you as authoritative and current</td></tr>
 <tr><td>Site structure understanding</td><td><code>ItemList</code>, <code>BreadcrumbList</code></td><td>AI finds and navigates your content faster</td></tr>
 <tr><td>Answer extraction</td><td><code>FAQPage</code>, <code>HowTo</code> content</td><td>AI can quote you directly — the heart of <a href="../fundamentals/answer-assetization.html">answer assetization</a></td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p>This maps to the five-step GEO loop from <a href="../cases/geo-ai-audit.html">our own audit</a>: make AI <strong>find</strong> you, <strong>measure</strong> how it behaves, make itself <strong>understandable</strong>, earn <strong>trust</strong>, then stay <strong>canonical</strong>. Structured data is the "understandable" and "trust" layers.</p>
 
@@ -372,17 +373,7 @@
 
 <p>The <code>Organization</code> block is the entity card: logo, contact point, founding date and identity links. Its <code>@id</code> matches the anchor used by <code>WebSite.publisher</code>, so a crawler resolves both blocks into <strong>one</strong> entity — not two strangers.</p>
 
-<pre><code>{
-  "@context": "https://schema.org",
-  "@id": "https://geo010.com/#organization",
-  "@type": "Organization",
-  "name": "GEO Encyclopedia",
-  "logo": { "@type": "ImageObject", "url": "https://geo010.com/favicon.svg" },
-  "email": "my360930109@gmail.com",
-  "foundingDate": "2025",
-  "sameAs": ["https://geo010.com/feed.xml"],
-  "contactPoint": { "@type": "ContactPoint", "contactType": "customer support" }
-}</code></pre>
+
 
 <p>This is the schema that <a href="../technical/entity-knowledge-graph.html">entity recognition</a> leans on. A clear, consistent entity card is a direct E-E-A-T trust signal — and it is exactly what an auditor means when it checks for "Organization schema."</p>
 
@@ -390,17 +381,7 @@
 
 <p>The <code>ItemList</code> block numbers the nine chapters of this encyclopedia in order, each with its URL. It is effectively a <strong>semantic site map</strong> that lives alongside the human navigation.</p>
 
-<pre><code>{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "GEO Encyclopedia Chapters",
-  "numberOfItems": 9,
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "I. Fundamentals",
-      "url": "https://geo010.com/fundamentals/what-is-geo.html" }
-    // ... positions 2 through 9
-  ]
-}</code></pre>
+
 
 <p>Where sitemap.xml tells crawlers <em>which</em> URLs exist, <code>ItemList</code> tells machines <em>what each one is</em> and in what order. The two compound.</p>
 
@@ -408,11 +389,11 @@
 
 <p>JSON-LD is not the only structured-data syntax, but it is the one Google recommends and the one static sites can maintain most easily.</p>
 
-<table><thead><tr><th>Format</th><th>Placement</th><th>Readability</th><th>Where it shines</th></tr></thead><tbody>
+<div class="table-wrap"><table><thead><tr><th>Format</th><th>Placement</th><th>Readability</th><th>Where it shines</th></tr></thead><tbody>
 <tr><td><strong>JSON-LD</strong></td><td>One block in <code>&lt;head&gt;</code></td><td>Clean JSON, JS-friendly</td><td>Static sites, easy to generate and update</td></tr>
 <tr><td>Microdata</td><td>Attributes inside HTML elements</td><td>Mixed with visible markup</td><td>Legacy pages, CMS plugins</td></tr>
 <tr><td>RDFa</td><td>Attributes inside HTML elements</td><td>Verbose, harder to read</td><td>Legacy enterprise publishing</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p>Because JSON-LD lives in its own block, adding or fixing it never touches the visible content — which makes it the safest choice for a site that treats structured data as a first-class deliverable.</p>
 

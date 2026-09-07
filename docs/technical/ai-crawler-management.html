@@ -78,6 +78,7 @@
     .content h2 { font-size: 1.2em; }
     .nav-links { flex-direction: column; gap: 12px; }
   }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 
   <script type="application/ld+json">
@@ -296,7 +297,7 @@
 
 <h2>1. AI Crawlers vs Search Engine Crawlers: 4 Core Differences</h2>
 
-<table><thead><tr><th>Dimension</th><th>Search Engine Crawlers (e.g., Googlebot)</th><th>AI Crawlers (e.g., GPTBot)</th></tr></thead><tbody><tr><td><strong>Crawl Goal</strong></td><td>Index as many pages as possible</td><td>Only crawl high-quality, highly relevant content</td></tr><tr><td><strong>Content Preference</strong></td><td>Treats all pages equally</td><td>Prefers structured, Q&A-style, data-rich content</td></tr><tr><td><strong>Frequency</strong></td><td>Continuous, periodic crawling</td><td>On-demand crawling (triggered when activated)</td></tr><tr><td><strong>Behavior Pattern</strong></td><td>Starts from links, traverses by "graph"</td><td>Starts from known authoritative sources, traverses by "information source"</td></tr></tbody></table>
+<div class="table-wrap"><table><thead><tr><th>Dimension</th><th>Search Engine Crawlers (e.g., Googlebot)</th><th>AI Crawlers (e.g., GPTBot)</th></tr></thead><tbody><tr><td><strong>Crawl Goal</strong></td><td>Index as many pages as possible</td><td>Only crawl high-quality, highly relevant content</td></tr><tr><td><strong>Content Preference</strong></td><td>Treats all pages equally</td><td>Prefers structured, Q&A-style, data-rich content</td></tr><tr><td><strong>Frequency</strong></td><td>Continuous, periodic crawling</td><td>On-demand crawling (triggered when activated)</td></tr><tr><td><strong>Behavior Pattern</strong></td><td>Starts from links, traverses by "graph"</td><td>Starts from known authoritative sources, traverses by "information source"</td></tr></tbody></table></div>
 
 <h3>Search Engine Crawler Behavior Pattern</h3>
 
@@ -395,11 +396,11 @@
 
 <h2>3. Comparison of Different AI Crawler Characteristics</h2>
 
-<table><thead><tr><th>AI Crawler</th><th>Platform</th><th>Crawl Preference</th><th>Special Notes</th></tr></thead><tbody><tr><td><strong>GPTBot</strong></td><td>OpenAI (ChatGPT)</td><td>High-quality long-form, authoritative sources, structured data</td><td>ChatGPT's web search uses GPTBot by default</td></tr><tr><td><strong>Google-Extended</strong></td><td>Google (AIO/Gemini)</td><td>All types of content</td><td>Shares index with Googlebot</td></tr><tr><td><strong>PerplexityBot</strong></td><td>Perplexity</td><td>In-depth analysis, academic papers, data reports</td><td>Prefers "data-backed" content</td></tr><tr><td><strong>ClaudeBot</strong></td><td>Anthropic (Claude)</td><td>Long text, philosophy/technical discussions</td><td>Prefers in-depth analysis</td></tr><tr><td><strong>CCBot</strong></td><td>Common Crawl</td><td>All web content</td><td>Common Crawl dataset used by multiple AI models for training</td></tr><tr><td><strong>Baidu</strong></td><td>Baidu (ERNIE Bot)</td><td>Chinese content</td><td>Prefers Baidu ecosystem platform content</td></tr><tr><td><strong>KimiBot</strong></td><td>Kimi (Moonshot AI)</td><td>Long text</td><td>Can handle ultra-long contexts</td></tr></tbody></table>
+<div class="table-wrap"><table><thead><tr><th>AI Crawler</th><th>Platform</th><th>Crawl Preference</th><th>Special Notes</th></tr></thead><tbody><tr><td><strong>GPTBot</strong></td><td>OpenAI (ChatGPT)</td><td>High-quality long-form, authoritative sources, structured data</td><td>ChatGPT's web search uses GPTBot by default</td></tr><tr><td><strong>Google-Extended</strong></td><td>Google (AIO/Gemini)</td><td>All types of content</td><td>Shares index with Googlebot</td></tr><tr><td><strong>PerplexityBot</strong></td><td>Perplexity</td><td>In-depth analysis, academic papers, data reports</td><td>Prefers "data-backed" content</td></tr><tr><td><strong>ClaudeBot</strong></td><td>Anthropic (Claude)</td><td>Long text, philosophy/technical discussions</td><td>Prefers in-depth analysis</td></tr><tr><td><strong>CCBot</strong></td><td>Common Crawl</td><td>All web content</td><td>Common Crawl dataset used by multiple AI models for training</td></tr><tr><td><strong>Baidu</strong></td><td>Baidu (ERNIE Bot)</td><td>Chinese content</td><td>Prefers Baidu ecosystem platform content</td></tr><tr><td><strong>KimiBot</strong></td><td>Kimi (Moonshot AI)</td><td>Long text</td><td>Can handle ultra-long contexts</td></tr></tbody></table></div>
 
 <h3>How to Adapt Content Strategy for Different Crawlers?</h3>
 
-<table><thead><tr><th>Crawler Preference</th><th>Adaptation Strategy</th></tr></thead><tbody><tr><td>Prefers structured data</td><td>Focus on Schema markup deployment, prioritize FAQPage</td></tr><tr><td>Prefers authoritative sources</td><td>Focus on encyclopedia entries and authoritative media endorsements</td></tr><tr><td>Prefers data-driven</td><td>Each core article includes at least 1 data point with source attribution</td></tr><tr><td>Prefers Chinese content</td><td>Baidu AI prioritizes Baidu ecosystem platform content</td></tr></tbody></table>
+<div class="table-wrap"><table><thead><tr><th>Crawler Preference</th><th>Adaptation Strategy</th></tr></thead><tbody><tr><td>Prefers structured data</td><td>Focus on Schema markup deployment, prioritize FAQPage</td></tr><tr><td>Prefers authoritative sources</td><td>Focus on encyclopedia entries and authoritative media endorsements</td></tr><tr><td>Prefers data-driven</td><td>Each core article includes at least 1 data point with source attribution</td></tr><tr><td>Prefers Chinese content</td><td>Baidu AI prioritizes Baidu ecosystem platform content</td></tr></tbody></table></div>
 
 <p><strong>Universal principle:</strong> Optimizations friendly to one crawler are usually effective for others. "Doing content quality well" is always the safest strategy.</p>
 

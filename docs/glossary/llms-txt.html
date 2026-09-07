@@ -74,6 +74,7 @@
 .nav-group.open .nav-group-links { display: block; }
 .nav-group.open > .nav-group-toggle .arrow { transform: rotate(90deg); }
 .arrow { display: inline-block; transition: transform 0.2s; font-size: 0.8em; }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 
   <script type="application/ld+json">
@@ -268,14 +269,14 @@
       </ul>
 
       <h2>2. LLMs.txt vs sitemap.xml</h2>
-      <table>
+      <div class="table-wrap"><table>
         <tr><th>Dimension</th><th>sitemap.xml</th><th>LLMs.txt</th></tr>
         <tr><td><strong>Target Audience</strong></td><td>Traditional search engines (Googlebot, etc.)</td><td>AI large language models (ChatGPT, Perplexity, etc.)</td></tr>
         <tr><td><strong>Format</strong></td><td>XML, machine-readable</td><td>Markdown, human-readable too</td></tr>
         <tr><td><strong>Semantics</strong></td><td>Only URLs and update frequency</td><td>One-sentence descriptions helping AI understand each page</td></tr>
         <tr><td><strong>Priority Hints</strong></td><td>priority field (but Google mostly ignores it)</td><td>Natural language ordering (most important first)</td></tr>
         <tr><td><strong>Exclusion Rules</strong></td><td>Typically no exclusions</td><td>Can directly say "these pages don't need to be cited"</td></tr>
-      </table>
+      </table></div>
       <p><strong>They are not replacements — they are complements.</strong></p>
 
       <h2>3. LLMs.txt Format Example</h2>

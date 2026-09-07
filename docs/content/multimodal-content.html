@@ -82,6 +82,7 @@
     .content h2 { font-size: 1.2em; }
     .nav-links { flex-direction: column; gap: 12px; }
   }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 
   <script type="application/ld+json">
@@ -429,7 +430,7 @@
 
 <h3>Platform-Content Format Matching Table</h3>
 
-<table><thead><tr><th>Platform</th><th>Most Friendly Format</th><th>Feeding Strategy</th></tr></thead><tbody><tr><td><strong>Zhihu</strong></td><td>Text (Q&A)</td><td>Text first, with key charts</td></tr><tr><td><strong>Xiaohongshu</strong></td><td>Images + short text</td><td>Images first, with informative text</td></tr><tr><td><strong>Bilibili</strong></td><td>Video</td><td>Complete video title + description + subtitles</td></tr><tr><td><strong>Official Accounts</strong></td><td>Mixed text and images</td><td>Text-image combination, in-depth content</td></tr><tr><td><strong>LinkedIn</strong></td><td>Text + PDF</td><td>Text primarily, can attach industry report PDFs</td></tr><tr><td><strong>Encyclopedias</strong></td><td>Text + charts</td><td>Pure text + structured data</td></tr></tbody></table>
+<div class="table-wrap"><table><thead><tr><th>Platform</th><th>Most Friendly Format</th><th>Feeding Strategy</th></tr></thead><tbody><tr><td><strong>Zhihu</strong></td><td>Text (Q&A)</td><td>Text first, with key charts</td></tr><tr><td><strong>Xiaohongshu</strong></td><td>Images + short text</td><td>Images first, with informative text</td></tr><tr><td><strong>Bilibili</strong></td><td>Video</td><td>Complete video title + description + subtitles</td></tr><tr><td><strong>Official Accounts</strong></td><td>Mixed text and images</td><td>Text-image combination, in-depth content</td></tr><tr><td><strong>LinkedIn</strong></td><td>Text + PDF</td><td>Text primarily, can attach industry report PDFs</td></tr><tr><td><strong>Encyclopedias</strong></td><td>Text + charts</td><td>Pure text + structured data</td></tr></tbody></table></div>
 
 <h3>"Cross-Modal Feeding" for Multimodal Content</h3>
 

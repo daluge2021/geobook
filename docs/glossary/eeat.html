@@ -74,6 +74,7 @@
 .nav-group.open .nav-group-links { display: block; }
 .nav-group.open > .nav-group-toggle .arrow { transform: rotate(90deg); }
 .arrow { display: inline-block; transition: transform 0.2s; font-size: 0.8em; }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 
   <script type="application/ld+json">
@@ -299,13 +300,13 @@
       <p>AI actively favors high-EEAT sources during <a href="rag.html">RAG retrieval</a> — low-EEAT websites often rank below high-EEAT websites even when they match semantically.</p>
 
       <h2>3. E-E-A-T Checklist</h2>
-      <table>
+      <div class="table-wrap"><table>
         <tr><th>EEAT Dimension</th><th>Content Level</th><th>Technical Level</th></tr>
         <tr><td><strong>Experience</strong></td><td>Include real cases, operational processes, practical data</td><td>Use <a href="schema.html">Person Schema</a> to mark author experience</td></tr>
         <tr><td><strong>Expertise</strong></td><td>Label author credentials and professional background</td><td>Use Author Schema to link to LinkedIn and other professional accounts</td></tr>
         <tr><td><strong>Authoritativeness</strong></td><td>Cite authoritative sources, obtain external endorsements</td><td>Obtain high-quality backlinks, encyclopedia inclusions</td></tr>
         <tr><td><strong>Trustworthiness</strong></td><td>Label data sources, update dates, and interest disclosures</td><td>Use HTTPS, clear privacy policy</td></tr>
-      </table>
+      </table></div>
 
       <h2>4. Deep Reading</h2>
       <ul>

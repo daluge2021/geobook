@@ -94,6 +94,7 @@
     .content h2 { font-size: 1.2em; }
     .nav-links { flex-direction: column; gap: 12px; }
   }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 
   <script type="application/ld+json">
@@ -341,12 +342,12 @@
 
 <p>The table below is the practical difference between a page that gets quoted and one that gets skipped.</p>
 
-<table><thead><tr><th>Stage</th><th>Quoted pages</th><th>Skipped pages</th></tr></thead><tbody>
+<div class="table-wrap"><table><thead><tr><th>Stage</th><th>Quoted pages</th><th>Skipped pages</th></tr></thead><tbody>
 <tr><td><strong>Retrieve</strong></td><td>H2s match how users actually ask</td><td>H2s are noun phrases or numbers</td></tr>
 <tr><td><strong>Extract</strong></td><td>Answer sits in the first sentence after the H2</td><td>Answer is buried three paragraphs deep</td></tr>
 <tr><td><strong>Extract</strong></td><td>Key definition is a standalone quote block</td><td>Definition is inline, easy to cut mid-sentence</td></tr>
 <tr><td><strong>Cite</strong></td><td>Has author, dates, sources and structured data</td><td>No dates, no sources, no JSON-LD</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p>Notice how the middle two rows are about <strong>fragment shape</strong>, not writing quality. A brilliant essay with a vague structure is a poor retrieval target; a decent page with sharp structure is a great one.</p>
 
@@ -359,8 +360,7 @@ You've already done some GEO optimization…&lt;/blockquote&gt;</code></pre>
 
 <p>The scenario makes a promise ("this is about a situation like yours"), then the article defines the metric with a standalone quote block:</p>
 
-<pre><code>&lt;blockquote&gt;&lt;strong&gt;Of all the AI responses on a given topic,
-the proportion of citations that come from your brand.&lt;/strong&gt;&lt;/blockquote&gt;</code></pre>
+
 
 <p>That quote block is exactly the shape a RAG pipeline loves: short, self-contained, and quotable without context. Every H2 in the article is followed by one of these definition blocks — the answer comes before the explanation.</p>
 
@@ -370,25 +370,21 @@ the proportion of citations that come from your brand.&lt;/strong&gt;&lt;/blockq
 
 <p>Our older articles use numbered H2s. Look at the actual headings of <a href="../fundamentals/what-is-geo.html">What is GEO?</a>:</p>
 
-<pre><code>I. From "Blue Links" to "AI Answers"
-II. Zero-Click Search: The Underlying Logic Behind GEO's Birth
-III. GEO's Core Mechanism: How to Get AI to "Name-Drop" You?</code></pre>
+
 
 <p>Our newest articles use question H2s. The headings of <a href="../community/what-is-json-ld.html">What is JSON-LD?</a>:</p>
 
-<pre><code>What is JSON-LD?
-Why Do AI Engines Care?
-Three Blocks on Our Homepage</code></pre>
+
 
 <p>The numbered headings are not wrong — those pages still get crawled and cited. But question H2s map directly onto how a user asks. A RAG query is a question; a heading that is already a question is the most direct match possible.</p>
 
-<table><thead><tr><th>H2 style</th><th>Older articles</th><th>Newer articles</th></tr></thead><tbody>
+<div class="table-wrap"><table><thead><tr><th>H2 style</th><th>Older articles</th><th>Newer articles</th></tr></thead><tbody>
 <tr><td><strong>Format</strong></td><td>I. / II. / 1. / 2. + noun phrase</td><td>What / Why / How / Which question</td></tr>
 <tr><td><strong>Retrieval match</strong></td><td>Matches keywords and meaning</td><td>Matches the query shape directly</td></tr>
 <tr><td><strong>Extraction</strong></td><td>Works when answer is first</td><td>Works, plus fragment reads like an answer</td></tr>
 <tr><td><strong>Maintenance</strong></td><td>Renumbering on insert/delete</td><td>No numbering to maintain</td></tr>
 <tr><td><strong>Verdict</strong></td><td>Still effective</td><td>Safer default for new content</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p>We did not delete the old style or rewrite 40 pages — that would be churn, not progress. New articles simply start from questions.</p>
 
@@ -412,14 +408,14 @@ Three Blocks on Our Homepage</code></pre>
 
 <p>The template is built from a small set of HTML blocks, each chosen for a reason:</p>
 
-<table><thead><tr><th>Block</th><th>Job</th><th>Example on this site</th></tr></thead><tbody>
+<div class="table-wrap"><table><thead><tr><th>Block</th><th>Job</th><th>Example on this site</th></tr></thead><tbody>
 <tr><td><strong>blockquote (scenario)</strong></td><td>Opens with a situation the reader is in</td><td>Citation Share opening</td></tr>
 <tr><td><strong>blockquote strong (definition)</strong></td><td>Answer in a self-contained quotable shape</td><td>Every section of Citation Share</td></tr>
 <tr><td><strong>table with th</strong></td><td>Contrasts and data AI can cite directly</td><td>JSON-LD vs Microdata vs RDFa</td></tr>
 <tr><td><strong>FAQ + FAQPage JSON-LD</strong></td><td>Q&amp;A pairs that can be quoted verbatim</td><td>What is JSON-LD? FAQ section</td></tr>
 <tr><td><strong>Article JSON-LD</strong></td><td>Author, publisher and dates for trust</td><td>Every article head</td></tr>
 <tr><td><strong>BreadcrumbList JSON-LD</strong></td><td>Tells crawlers where the page sits</td><td>Every article head</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p>Here is the FAQPage JSON-LD shape we use, copied and simplified from <a href="../community/what-is-json-ld.html">our JSON-LD article</a>:</p>
 

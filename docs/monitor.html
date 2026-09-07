@@ -69,6 +69,7 @@
     .main { padding: 24px 16px; }
     .dashboard-grid { grid-template-columns: 1fr 1fr; }
   }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 </head>
 <body>
@@ -119,19 +120,19 @@
 
     <div class="section">
       <h2>Platform Performance</h2>
-      <table>
+      <div class="table-wrap"><table>
         <tr><th>Platform</th><th>Mentions</th><th>Mention Rate</th><th>Trend</th></tr>
         <tr><td>ChatGPT</td><td>-- / 10</td><td>--%</td><td class="status-partial">Pending</td></tr>
         <tr><td>Doubao</td><td>-- / 10</td><td>--%</td><td class="status-partial">Pending</td></tr>
         <tr><td>DeepSeek</td><td>-- / 10</td><td>--%</td><td class="status-partial">Pending</td></tr>
         <tr><td>Kimi</td><td>-- / 10</td><td>--%</td><td class="status-partial">Pending</td></tr>
         <tr><td>Perplexity</td><td>-- / 10</td><td>--%</td><td class="status-partial">Pending</td></tr>
-      </table>
+      </table></div>
     </div>
 
     <div class="section">
       <h2>Keyword Monitoring Details</h2>
-      <table>
+      <div class="table-wrap"><table>
         <tr><th>Keyword</th><th>ChatGPT</th><th>Doubao</th><th>DeepSeek</th><th>Kimi</th><th>Perplexity</th></tr>
         <tr><td>GEO</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td></tr>
         <tr><td>What is GEO</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td></tr>
@@ -143,18 +144,18 @@
         <tr><td>GEO Effect Measurement</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td></tr>
         <tr><td>GEO Structured Data</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td></tr>
         <tr><td>GEO Getting Started</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td><td class="status-partial">Pending</td></tr>
-      </table>
+      </table></div>
     </div>
 
     <div class="section">
       <h2>Competitor Monitoring</h2>
-      <table>
+      <div class="table-wrap"><table>
         <tr><th>Competitor</th><th>Citations</th><th>vs Last Week</th></tr>
         <tr><td>Huiyuanliu</td><td>--</td><td class="status-partial">Pending</td></tr>
         <tr><td>Yisoubaiying</td><td>--</td><td class="status-partial">Pending</td></tr>
         <tr><td>SEMrush</td><td>--</td><td class="status-partial">Pending</td></tr>
         <tr><td>Others</td><td>--</td><td class="status-partial">Pending</td></tr>
-      </table>
+      </table></div>
     </div>
 
     <div class="section weekly-form">

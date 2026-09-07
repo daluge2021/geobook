@@ -94,6 +94,7 @@
     .content h2 { font-size: 1.2em; }
     .nav-links { flex-direction: column; gap: 12px; }
   }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
 
   <script type="application/ld+json">
@@ -337,11 +338,11 @@
 
 <p>We had two discovery layers in place and added a third:</p>
 
-<table><thead><tr><th>Layer</th><th>Files</th><th>Why it matters</th></tr></thead><tbody>
+<div class="table-wrap"><table><thead><tr><th>Layer</th><th>Files</th><th>Why it matters</th></tr></thead><tbody>
 <tr><td><strong>Well-known</strong></td><td><code>/.well-known/ai.txt</code>, <code>ai.json</code>, <code>ai-plugin.json</code>, <code>openapi.json</code></td><td>Standard paths new AI tools probe first</td></tr>
 <tr><td><strong>Orientation</strong></td><td><code>/llms.txt</code>, <code>/sitemap.xml</code>, <code>/robots.txt</code></td><td>Direct crawlers to the pages worth citing</td></tr>
 <tr><td><strong>AI-facing JSON</strong></td><td><code>/ai/summary.json</code>, <code>/ai/faq.json</code>, <code>/ai/service.json</code> (added this week)</td><td>Machine-readable answers about the site itself</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p>The <code>/ai/</code> endpoints were genuinely missing — request one before the sprint and you got a 404. They describe the site as data: what it covers, the questions it answers, and how to reach the editors. That is the difference between a site an audit can summarize and one that forces an audit to guess.</p>
 
@@ -382,13 +383,13 @@
 
 <p>One week of that telemetry changed our picture of the site:</p>
 
-<table><thead><tr><th>Metric</th><th>Observed value</th></tr></thead><tbody>
+<div class="table-wrap"><table><thead><tr><th>Metric</th><th>Observed value</th></tr></thead><tbody>
 <tr><td><strong>Total requests logged</strong></td><td>2,335</td></tr>
 <tr><td><strong>Top AI crawlers</strong></td><td>GPTBot 72, Googlebot 49, Applebot 46, Bingbot 38, PerplexityBot 18, ChatGPT-User 13, ClaudeBot 12</td></tr>
 <tr><td><strong>External referrers</strong></td><td>google.com 29, chatgpt.com 1</td></tr>
 <tr><td><strong>New article on launch day</strong></td><td>crawled 6 times by GPTBot, ClaudeBot and others</td></tr>
 <tr><td><strong>Attack noise</strong></td><td>264 requests to paths like <code>/wp-admin/install.php</code> and <code>/xmlrpc.php</code>, all 404</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <p>Three useful findings came out of that table. First, the big crawlers already visit regularly — the intake pipeline works. Second, a freshly published article gets crawled the same day, which validates the sitemap-and-orientation work. Third, a large share of the daily traffic is scanner noise against nonexistent paths; harmless, but worth knowing so you do not confuse 404 noise with reader churn.</p>
 
