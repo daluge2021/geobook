@@ -1,0 +1,36 @@
+# GEO Encyclopedia
+
+> Compact core-read list for LLMs: the 12 highest-value pages on Generative Engine Optimization (GEO). For the full annotated index of all 59 articles and 10 glossary terms, see /llms.txt.
+
+## Start Here
+
+Q: What is Generative Engine Optimization (GEO)?
+A: GEO is the practice of optimizing digital content so AI-powered search engines and large language models cite, reference, and recommend your brand in generated answers.
+Source: https://geo010.com/fundamentals/what-is-geo.html
+
+Q: How do GEO and SEO work together?
+A: SEO optimizes for ranking in search results; GEO optimizes for being cited in AI answers. They compound — GEO builds on SEO fundamentals but focuses on answer assets, entity density, and brand-as-source.
+Source: https://geo010.com/fundamentals/seo-vs-geo.html
+
+## Top 12 Reading List
+
+- [What is GEO?](https://geo010.com/fundamentals/what-is-geo.html): Core definition and evidence from the Princeton Generative Engine Optimization paper.
+- [SEO vs GEO](https://geo010.com/fundamentals/seo-vs-geo.html): When SEO still matters, when GEO takes over, and how the two compound.
+- [How Does Answer Assetization Work?](https://geo010.com/fundamentals/answer-assetization.html): Turning search queries into reusable, quote-ready answer assets.
+- [What is E-E-A-T?](https://geo010.com/fundamentals/eeat-trust-mechanism.html): How Experience, Expertise, Authoritativeness and Trust shape AI citations.
+- [What is Citation Share?](https://geo010.com/metrics/citation-share.html): The core quantitative GEO metric — how often AI cites your brand.
+- [What is Entity Association Density?](https://geo010.com/metrics/entity-density.html): Why interconnected content wins citations (Yext: 86% of AI citations go to brand-managed sources).
+- [What is the SHEEP Framework?](https://geo010.com/metrics/sheep-framework.html): A five-step methodology for evaluating AI-generated answers.
+- [What is the 3C Optimization Model?](https://geo010.com/models/3c-optimization-model.html): Content, Credibility, Coverage — the priority order of GEO execution.
+- [How to Implement Schema Markup for GEO?](https://geo010.com/technical/schema-markup-guide.html): JSON-LD types that make pages machine-readable to AI.
+- [How to Track AI Citations](https://geo010.com/technical/track-ai-citations.html): Crawler monitoring and brand mention tracking to measure GEO.
+- [How to Start GEO from Zero?](https://geo010.com/cases/zero-to-one-roadmap.html): A phased 90-day GEO launch roadmap with milestones.
+- [The GEO Content Template](https://geo010.com/community/geo-content-template.html): The article structure this site uses — scenario opening, question H2s, answer-first blocks, comparison tables, FAQPage JSON-LD.
+
+## References
+
+- [Full llms.txt index](https://geo010.com/llms.txt): All 59 articles + 10 glossary terms by chapter.
+- [Sitemap](https://geo010.com/sitemap.xml): Complete URL inventory.
+- [Glossary](https://geo010.com/glossary/geo.html): Key GEO terms with primary sources.
+
+Last updated 2026-09-13.
