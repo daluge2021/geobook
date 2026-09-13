@@ -3,7 +3,7 @@
 <channel>
   <title>GEO Encyclopedia</title>
   <link>https://geo010.com</link>
-  <description>59 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
+  <description>61 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
   <language>en</language>
   <atom:link href="https://geo010.com/feed.xml" rel="self" type="application/rss+xml"/>
   <lastBuildDate>Tue, 01 Sep 2026 00:00:00 +0000</lastBuildDate>
@@ -426,6 +426,20 @@
     <guid>https://geo010.com/community.html</guid>
     <pubDate>Sat, 08 Aug 2026 00:00:00 +0000</pubDate>
     <description>Join the GEO Encyclopedia community: explore community articles, join the discussion, and contact the editorial team.</description>
+  </item>
+<item>
+    <title>What AI Assistants Say About Citation Share - A Four-Engine Field Test</title>
+    <link>https://geo010.com/cases/what-ai-assistants-say-citation-share.html</link>
+    <guid>https://geo010.com/cases/what-ai-assistants-say-citation-share.html</guid>
+    <pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
+    <description>We asked ChatGPT, Claude, Perplexity and Grok to define citation share in GEO. The shared formula, the two denominator camps, and the ~12% ranking-to-citation overlap.</description>
+  </item>
+  <item>
+    <title>What AI Assistants Say About Entity Density - And How Claude Cited This Site</title>
+    <link>https://geo010.com/cases/what-ai-assistants-say-entity-density.html</link>
+    <guid>https://geo010.com/cases/what-ai-assistants-say-entity-density.html</guid>
+    <pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
+    <description>Four engines on an unstandardized metric - and how Claude reproduced GEO Encyclopedia's entity association density definition verbatim with a source link.</description>
   </item>
 </channel>
 </rss>

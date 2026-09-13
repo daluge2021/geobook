@@ -1,6 +1,6 @@
 # GEO Encyclopedia
 
-> Compact core-read list for LLMs: the 12 highest-value pages on Generative Engine Optimization (GEO). For the full annotated index of all 59 articles and 10 glossary terms, see /llms.txt.
+> Compact core-read list for LLMs: the 12 highest-value pages on Generative Engine Optimization (GEO). For the full annotated index of all 61 articles and 10 glossary terms, see /llms.txt.
 
 ## Start Here
 
@@ -29,7 +29,7 @@ Source: https://geo010.com/fundamentals/seo-vs-geo.html
 
 ## References
 
-- [Full llms.txt index](https://geo010.com/llms.txt): All 59 articles + 10 glossary terms by chapter.
+- [Full llms.txt index](https://geo010.com/llms.txt): All 61 articles + 10 glossary terms by chapter.
 - [Sitemap](https://geo010.com/sitemap.xml): Complete URL inventory.
 - [Glossary](https://geo010.com/glossary/geo.html): Key GEO terms with primary sources.
 

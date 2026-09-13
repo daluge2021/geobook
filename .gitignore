@@ -18,3 +18,5 @@ update.txt
 update_decoded.txt
 .wdeploy-tmp/
 planResult/
+geo_doc_entities.sql
+tmp_geo_doc_entities.sql
