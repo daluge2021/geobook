@@ -21,6 +21,13 @@ const COMMENTS_API_PATH = '/api/comments';
 const ADMIN_COMMENTS_PATH = '/admin/comments.html';
 const CACHE_TTL = 300;
 
+// Site search: a generated article index lives in worker/search-index.json in the
+// same GitHub repo but outside docs/, so it is never exposed at geo010.com and
+// cannot create duplicate-content for crawlers. The worker loads it on demand and
+// caches it in Cloudflare's cache layer for CACHE_TTL seconds.
+const SEARCH_PATH = '/api/search';
+const SEARCH_INDEX_URL = 'https://raw.githubusercontent.com/daluge2021/geobook/main/worker/search-index.json';
+
 // Comment pages must look like a real site page (/foo.html or /section/foo.html),
 // never an API, admin, stats or well-known path.
 const COMMENT_PAGE_RE = /^\/([a-z0-9-]+\.html|[a-z0-9-]+\/[a-z0-9-]+\.html)$/i;
@@ -212,6 +219,68 @@ function escapeHtml(s) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+// ---------- Site Search (/api/search?q=...) ----------
+
+async function loadSearchIndex() {
+  const res = await fetch(SEARCH_INDEX_URL, {
+    headers: { 'User-Agent': 'geo010-crawler-log/1.0 (geo010.com site search)' },
+    cf: { cacheEverything: true, cacheTtl: CACHE_TTL, cacheKey: SEARCH_INDEX_URL },
+  });
+  if (!res.ok) throw new Error('search index fetch ' + res.status);
+  return res.json();
+}
+
+function tokenizeQuery(q) {
+  return (q.toLowerCase().match(/[a-z0-9\u00e0-\u024f]+/g) || []).slice(0, 8);
+}
+
+function searchDocScore(doc, terms) {
+  const title = (doc.title || '').toLowerCase();
+  const summary = (doc.summary || '').toLowerCase();
+  const text = (doc.text || '').toLowerCase();
+  const hit = (s) => terms.filter((t) => s.includes(t)).length;
+  return hit(title) * 60 + hit(summary) * 20 + hit(text) * 5;
+}
+
+function searchDocHit(doc, terms) {
+  const hay = ((doc.title || '') + ' ' + (doc.summary || '') + ' ' + (doc.text || '')).toLowerCase();
+  return terms.every((t) => hay.includes(t));
+}
+
+async function handleSearch(url) {
+  const q = (url.searchParams.get('q') || '').trim();
+  if (!q) return json({ error: 'Missing q parameter.' }, 400);
+  const terms = tokenizeQuery(q);
+  if (terms.length === 0) return json({ error: 'Invalid query.' }, 400);
+
+  let index;
+  try {
+    index = await loadSearchIndex();
+  } catch (e) {
+    console.error('search index failed:', e.message);
+    return json({ error: 'Search index unavailable.' }, 503);
+  }
+
+  const scored = [];
+  for (const doc of index.docs || []) {
+    if (!searchDocHit(doc, terms)) continue;
+    scored.push({ doc, score: searchDocScore(doc, terms) });
+  }
+  scored.sort((a, b) => b.score - a.score);
+
+  const hits = scored.slice(0, 12).map(({ doc }) => ({
+    slug: doc.slug,
+    title: doc.title,
+    chapter: doc.chapter,
+    url: 'https://geo010.com/' + doc.slug,
+    summary: doc.summary,
+  }));
+
+  const res = json({ query: q, count: hits.length, hits });
+  res.headers.set('X-Robots-Tag', 'noindex, nofollow');
+  return res;
 }
 
 let commentsChecked = false;
@@ -662,6 +731,11 @@ export default {
     // Stats page — never logged, never cached
     if (rawPath === STATS_PATH) {
       return handleStats(env);
+    }
+
+    // Site search API — reads the generated article index (never logged)
+    if (rawPath === SEARCH_PATH || rawPath === SEARCH_PATH + '/') {
+      return handleSearch(url);
     }
 
     // MCP discovery manifest (SEP-1960): declare that this site hosts no MCP server

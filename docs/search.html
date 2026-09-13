@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search — GEO Encyclopedia</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Search GEO Encyclopedia — 61 in-depth articles on Generative Engine Optimization.">
+<link rel="alternate" type="application/rss+xml" title="GEO Encyclopedia RSS" href="https://geo010.com/feed.xml">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
+  .layout { display: flex; min-height: 100vh; }
+  .sidebar { width: 240px; flex-shrink: 0; background: #1a1a2e; color: #ccc; padding: 32px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+  .sidebar h3 { color: #fff; font-size: 1em; padding: 0 20px; margin-bottom: 20px; }
+  .sidebar a { display: block; padding: 8px 20px; color: #999; text-decoration: none; font-size: 0.9em; transition: all 0.15s; }
+  .sidebar a:hover, .sidebar a.active { color: #fff; background: rgba(255,255,255,0.08); }
+  .sidebar a.active { border-left: 3px solid #4fc3f7; }
+  .sidebar .current { color: #aaa; padding: 8px 20px; font-size: 0.85em; }
+  .sidebar .home-link { margin-bottom: 4px; border-bottom: 1px solid #333; padding-bottom: 12px; font-weight: 500; color: #4fc3f7; }
+  .nav-group-toggle { padding: 8px 20px; color: #aaa; font-size: 0.85em; cursor: pointer; user-select: none; transition: color 0.15s; display: flex; align-items: center; gap: 6px; }
+  .nav-group-toggle:hover { color: #fff; background: rgba(255,255,255,0.05); }
+  .nav-group-links { display: none; }
+  .nav-group.open .nav-group-links { display: block; }
+  .nav-group.open > .nav-group-toggle .arrow { transform: rotate(90deg); }
+  .arrow { display: inline-block; transition: transform 0.2s; font-size: 0.8em; }
+  .glossary-section { margin-top: 12px; border-top: 1px solid #333; padding-top: 12px; }
+  .main { flex: 1; max-width: 800px; margin: 0 auto; padding: 48px 32px 80px; }
+  .page-head { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff; border-radius: 16px; padding: 40px; margin-bottom: 24px; }
+  .page-head h1 { font-size: 1.8em; margin-bottom: 8px; }
+  .page-head p { color: #b0bec5; font-size: 0.95em; max-width: 600px; }
+  .search-box { display: flex; gap: 10px; margin-bottom: 24px; }
+  .search-box input { flex: 1; padding: 14px 16px; font-size: 1em; border: 1px solid #ccc; border-radius: 8px; outline: none; }
+  .search-box input:focus { border-color: #4fc3f7; box-shadow: 0 0 0 2px rgba(79,195,247,0.2); }
+  .search-box button { padding: 14px 28px; font-size: 1em; background: #1a1a2e; color: #fff; border: none; border-radius: 8px; cursor: pointer; transition: background 0.15s; }
+  .search-box button:hover { background: #0066cc; }
+  .hint { color: #666; font-size: 0.92em; padding: 8px 0; }
+  .result-item { display: block; background: #fff; border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); text-decoration: none; color: inherit; border-left: 3px solid transparent; transition: border-color 0.15s; }
+  .result-item:hover { border-left-color: #4fc3f7; }
+  .result-item .chapter { color: #4fc3f7; font-size: 0.75em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .result-item .title { font-size: 1.05em; color: #1a1a2e; margin: 2px 0 4px; }
+  .result-item .title:hover { color: #0066cc; }
+  .result-item .summary { color: #555; font-size: 0.88em; }
+  .count { color: #666; font-size: 0.88em; margin-bottom: 12px; }
+  .footer { margin-top: 48px; text-align: center; color: #999; font-size: 0.85em; border-top: 1px solid #e0e0e0; padding-top: 24px; }
+  .footer a { color: #0066cc; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 24px 16px; }
+    .page-head { padding: 28px 20px; }
+    .page-head h1 { font-size: 1.4em; }
+    .search-box { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h3>📖 GEO Encyclopedia</h3>
+    <a href="index.html" class="home-link">🏠 Home</a>
+    <a href="search.html" class="active">🔍 Search</a>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> I. Fundamentals</div>
+      <div class="nav-group-links">
+        <a href="fundamentals/what-is-geo.html">What is GEO?</a>
+        <a href="fundamentals/seo-vs-geo.html">Is SEO Dead?</a>
+        <a href="fundamentals/eeat-trust-mechanism.html">E-E-A-T Trust</a>
+        <a href="fundamentals/llms-txt-guide.html">LLMs.txt Guide</a>
+        <a href="fundamentals/answer-assetization.html">Answer Assetization</a>
+        <a href="fundamentals/ai-vs-traditional-search.html">AI vs Traditional Search</a>
+        <a href="fundamentals/geo-quick-start-checklist.html">GEO Quick Start</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> II. Metrics</div>
+      <div class="nav-group-links">
+        <a href="metrics/citation-share.html">Citation Share</a>
+        <a href="metrics/entity-density.html">Entity Density</a>
+        <a href="metrics/sheep-framework.html">SHEEP Framework</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> III. Models</div>
+      <div class="nav-group-links">
+        <a href="models/3c-optimization-model.html">3C Model</a>
+        <a href="models/geo-evolution.html">GEO Evolution</a>
+        <a href="models/source-authority.html">Source Authority</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IV. Content</div>
+      <div class="nav-group-links">
+        <a href="content/eeat-in-geo.html">E-E-A-T in GEO</a>
+        <a href="content/knowledge-entropy.html">Knowledge Entropy</a>
+        <a href="content/backlinks-in-geo.html">Backlinks in GEO</a>
+        <a href="content/topical-authority.html">Topical Authority</a>
+        <a href="content/content-freshness.html">Content Freshness</a>
+        <a href="content/multimodal-content.html">Multimodal Content</a>
+        <a href="content/question-driven-strategy.html">Question-Driven Strategy</a>
+        <a href="content/local-geo-longtail.html">Local GEO</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> V. Technical</div>
+      <div class="nav-group-links">
+        <a href="technical/schema-markup-guide.html">Schema Markup</a>
+        <a href="technical/llms-txt-advanced.html">LLMs.txt Advanced</a>
+        <a href="technical/entity-knowledge-graph.html">Entity &amp; Knowledge Graph</a>
+        <a href="technical/ai-crawler-management.html">AI Crawler Management</a>
+        <a href="technical/geo-monitoring-tools.html">Monitoring Tools</a>
+        <a href="technical/track-ai-citations.html">Track AI Citations</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VI. Brand</div>
+      <div class="nav-group-links">
+        <a href="brand/brand-as-source.html">Brand as Source</a>
+        <a href="brand/eeat-brand-implementation.html">EEAT Brand</a>
+        <a href="brand/crisis-pr-geo.html">Crisis PR</a>
+        <a href="brand/multi-brand-geo.html">Multi-Brand</a>
+        <a href="brand/ecommerce-geo.html">E-Commerce</a>
+        <a href="brand/b2b-brand-geo.html">B2B Brand</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VII. Industry</div>
+      <div class="nav-group-links">
+        <a href="industry/healthcare-geo.html">Healthcare</a>
+        <a href="industry/finance-geo.html">Finance</a>
+        <a href="industry/education-geo.html">Education</a>
+        <a href="industry/legal-geo.html">Legal</a>
+        <a href="industry/local-services-geo.html">Local Services</a>
+        <a href="industry/manufacturing-geo.html">Manufacturing</a>
+        <a href="industry/saas-geo.html">SaaS</a>
+        <a href="industry/ecommerce-product-geo.html">E-commerce Products</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VIII. Cases</div>
+      <div class="nav-group-links">
+        <a href="cases/zero-to-one-roadmap.html">Zero to One</a>
+        <a href="cases/full-process-case.html">Full Case Study</a>
+        <a href="cases/geo-ai-audit.html">AI-Readiness Audit</a>
+        <a href="cases/black-hat-prevention.html">Black Hat Prevention</a>
+        <a href="cases/geo-future-trends.html">Future Trends</a>
+        <a href="cases/what-ai-assistants-say-citation-share.html">AI Answers: Citation Share</a>
+        <a href="cases/what-ai-assistants-say-entity-density.html">AI Answers: Entity Density</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IX. Data</div>
+      <div class="nav-group-links">
+        <a href="data/core-metrics-system.html">Core Metrics</a>
+        <a href="data/roi-calculation.html">ROI Calculator</a>
+        <a href="data/crawler-behavior-data.html">Crawler Behavior Data</a>
+        <a href="data/data-dashboard-setup.html">Data Dashboard</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> 💬 Community</div>
+      <div class="nav-group-links">
+        <a href="community.html">Community Home</a>
+        <a href="community/what-is-json-ld.html">What is JSON-LD?</a>
+        <a href="community/geo-content-template.html">The GEO Content Template</a>
+        <a href="community/one-week-geo-readiness.html">One-Week GEO Readiness</a>
+        <a href="community/two-week-crawler-data.html">Two-Week Crawler Data</a>
+        <a href="community/geo-impact-attribution-new-site.html">Crawler Impact &amp; Launch Checklist</a>
+      </div>
+    </div>
+    <div class="current glossary-section">📌 Glossary</div>
+    <a href="glossary/geo.html">GEO</a>
+    <a href="glossary/seo.html">SEO</a>
+    <a href="glossary/rag.html">RAG</a>
+    <a href="glossary/eeat.html">E-E-A-T</a>
+    <a href="glossary/llms-txt.html">LLMs.txt</a>
+    <a href="glossary/zero-click.html">Zero-Click Search</a>
+    <a href="glossary/schema.html">Schema</a>
+    <a href="glossary/answer-asset.html">Answer Assetization</a>
+    <a href="glossary/ai-visibility.html">AI Visibility Index</a>
+    <a href="glossary/ymyl.html">YMYL</a>
+    <div class="current glossary-section">📄 About</div>
+    <a href="about.html">About &amp; Editorial Standards</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </nav>
+  <div class="main">
+    <div class="page-head">
+      <h1>Search GEO Encyclopedia</h1>
+      <p>Find answers across all 61 in-depth articles and 10 glossary terms on Generative Engine Optimization.</p>
+    </div>
+
+    <div class="search-box">
+      <input id="q" type="search" placeholder="Try "citation share", "schema markup", "llms.txt", "Bing WMT"…" autocomplete="off" aria-label="Search query">
+      <button id="go" type="button">Search</button>
+    </div>
+    <div id="count" class="count"></div>
+    <div id="results"></div>
+
+    <div class="footer">
+      © 2026 <a href="index.html">GEO Encyclopedia</a> · <a href="about.html">About</a> · <a href="feed.xml">RSS</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var input = document.getElementById('q');
+  var button = document.getElementById('go');
+  var count = document.getElementById('count');
+  var results = document.getElementById('results');
+
+  function render(hits) {
+    results.innerHTML = '';
+    hits.forEach(function (h) {
+      var a = document.createElement('a');
+      a.className = 'result-item';
+      a.href = h.url;
+      var chap = document.createElement('div');
+      chap.className = 'chapter';
+      chap.textContent = h.chapter;
+      var title = document.createElement('div');
+      title.className = 'title';
+      title.textContent = h.title;
+      var sum = document.createElement('div');
+      sum.className = 'summary';
+      sum.textContent = h.summary || '';
+      a.appendChild(chap);
+      a.appendChild(title);
+      a.appendChild(sum);
+      results.appendChild(a);
+    });
+  }
+
+  function run() {
+    var q = input.value.trim();
+    if (!q) { count.textContent = ''; results.innerHTML = ''; return; }
+    count.textContent = 'Searching…';
+    results.innerHTML = '';
+    fetch('/api/search?q=' + encodeURIComponent(q), { headers: { 'Accept': 'application/json' } })
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
+      .then(function (res) {
+        if (!res.ok || !res.data || !Array.isArray(res.data.hits)) {
+          count.textContent = 'Search temporarily unavailable — please try again in a moment.';
+          return;
+        }
+        if (res.data.hits.length === 0) {
+          count.textContent = 'No matches for "' + q + '". Try different keywords.';
+          return;
+        }
+        count.textContent = res.data.count + ' result' + (res.data.count === 1 ? '' : 's') + ' for "' + q + '"';
+        render(res.data.hits);
+      })
+      .catch(function () {
+        count.textContent = 'Network error — please refresh and try again.';
+      });
+  }
+
+  button.addEventListener('click', run);
+  input.addEventListener('keydown', function (e) { if (e.key === 'Enter') run(); });
+
+  var m = location.search.match(/[?&]q=([^&]+)/);
+  if (m) { input.value = decodeURIComponent(m[1].replace(/\+/g, ' ')); run(); }
+})();
+
+var toggles = document.querySelectorAll('.nav-group-toggle');
+toggles.forEach(function (t) {
+  t.addEventListener('click', function () { t.parentElement.classList.toggle('open'); });
+});
+</script>
+</body>
+</html>
