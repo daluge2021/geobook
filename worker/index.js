@@ -477,13 +477,27 @@ async function logRequest(env, { ts, ua, crawler, path, status, isHtml, refHost 
 }
 
 function renderStatsPage(data) {
-  const { totals, byCrawler, byDate, byPath, byReferrer, byClickPath, byEntry, recent } = data;
+  const { totals, byCrawler, byDate, byDateDaily, byPath, byReferrer, byClickPath, byEntry, recent } = data;
   const rows = (arr) =>
     arr
       .map(
         (r, i) =>
           `<tr${i % 2 ? ' class="alt"' : ''}><td>${r.label}</td><td>${r.n}</td></tr>`
       )
+      .join('');
+  // 按天细分：总 = AI + 非 AI；点击仅计 referer 非空调试来源
+  const dailyRows = (arr) =>
+    arr
+      .map((r, i) => {
+        const total = r.total || 0;
+        const ai = r.ai || 0;
+        const clicks = r.clicks || 0;
+        return (
+          `<tr${i % 2 ? ' class="alt"' : ''}>` +
+          `<td>${r.label}</td><td>${total}</td><td>${ai}</td><td>${total - ai}</td>` +
+          `<td>${clicks}</td><td>${total ? Math.round((ai / total) * 100) : 0}%</td></tr>`
+        );
+      })
       .join('');
 
   return `<!DOCTYPE html>
@@ -541,6 +555,12 @@ a { color: #0066cc; }
         ${rows(byDate)}
       </table></div>
 
+      <h2>按日期细分（总 / AI / 非 AI / 点击）</h2>
+      <div class="card"><table>
+        <tr><th>日期</th><th>总请求</th><th>AI</th><th>非 AI</th><th>点击</th><th>AI 占比</th></tr>
+        ${dailyRows(byDateDaily)}
+      </table></div>
+
       <h2>热门被抓取页面</h2>
       <div class="card"><table>
         <tr><th>路径</th><th>请求数</th></tr>
@@ -587,7 +607,7 @@ a { color: #0066cc; }
 async function handleStats(env) {
   await ensureRefererColumn(env);
   const entryPlaceholders = [...AI_ENTRY_FILES].map(() => '?').join(',');
-  const [totals, byCrawler, byDate, byPath, byReferrer, byClickPath, byEntry, recent] = await Promise.all([
+  const [totals, byCrawler, byDate, byDateDaily, byPath, byReferrer, byClickPath, byEntry, recent] = await Promise.all([
     env.DB.prepare(
       `SELECT COUNT(*) AS total,
               SUM(CASE WHEN crawler_name IS NOT NULL THEN 1 ELSE 0 END) AS ai,
@@ -602,6 +622,14 @@ async function handleStats(env) {
     env.DB.prepare(
       `SELECT date AS label, COUNT(*) AS n FROM crawler_logs
        GROUP BY date ORDER BY date DESC LIMIT 30`
+    ).all(),
+    env.DB.prepare(
+      `SELECT date AS label,
+              COUNT(*) AS total,
+              SUM(CASE WHEN crawler_name IS NOT NULL THEN 1 ELSE 0 END) AS ai,
+              SUM(CASE WHEN referer_host IS NOT NULL AND referer_host != '' THEN 1 ELSE 0 END) AS clicks
+       FROM crawler_logs
+       GROUP BY date ORDER BY date DESC LIMIT 14`
     ).all(),
     env.DB.prepare(
       `SELECT path AS label, COUNT(*) AS n FROM crawler_logs
@@ -638,6 +666,7 @@ async function handleStats(env) {
     totals: { total, ai, clicks, aiPct: total ? Math.round((ai / total) * 100) : 0 },
     byCrawler: byCrawler?.results || [],
     byDate: byDate?.results || [],
+    byDateDaily: byDateDaily?.results || [],
     byPath: byPath?.results || [],
     byReferrer: byReferrer?.results || [],
     byClickPath: byClickPath?.results || [],
