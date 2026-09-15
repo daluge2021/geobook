@@ -28,6 +28,10 @@ const CACHE_TTL = 300;
 const SEARCH_PATH = '/api/search';
 const SEARCH_INDEX_URL = 'https://raw.githubusercontent.com/daluge2021/geobook/main/worker/search-index.json';
 
+// Site assistant chat: answers are produced locally from the FAQ rules below plus
+// the generated article index (search-index.json). No external AI call is made.
+const CHAT_PATH = '/api/chat';
+
 // Comment pages must look like a real site page (/foo.html or /section/foo.html),
 // never an API, admin, stats or well-known path.
 const COMMENT_PAGE_RE = /^\/([a-z0-9-]+\.html|[a-z0-9-]+\/[a-z0-9-]+\.html)$/i;
@@ -281,6 +285,339 @@ async function handleSearch(url) {
   const res = json({ query: q, count: hits.length, hits });
   res.headers.set('X-Robots-Tag', 'noindex, nofollow');
   return res;
+}
+
+// ---------- Site Assistant Chat (/api/chat) ----------
+// Answers are assembled locally: FAQ intent matching first (bilingual), then a
+// ranked lookup over the article index with a keyword-context snippet. Nothing is
+// sent to a third party. Queries are logged anonymously (no IP) to D1.
+
+const FAQS = [
+  {
+    en: [/\bgeo\b/, /generative engine optimization/],
+    zh: ['什么是geo', 'geo是什么', 'geo 是什么', 'geo是什么？', '生成式引擎优化', 'geo的意思'],
+    enText:
+      'GEO (Generative Engine Optimization) is the practice of structuring and optimizing content so AI answer engines — ChatGPT, Perplexity, Google AI Overviews, Claude and similar — can find, understand and cite your brand when users ask questions. The encyclopedia covers it end to end; the definition article is the best place to start.',
+    zhText:
+      'GEO（Generative Engine Optimization，生成式引擎优化）是指优化你的内容，让 ChatGPT、Perplexity、Google AI Overviews、Claude 等 AI 回答引擎在用户提问时能找到、理解并引用你的品牌。知识库有完整体系，推荐从定义篇读起。',
+    sources: [
+      { title: 'What is GEO? (Glossary)', url: 'https://geo010.com/glossary/geo.html' },
+      { title: 'What is GEO? — The Full Guide', url: 'https://geo010.com/fundamentals/what-is-geo.html' },
+    ],
+  },
+  {
+    en: [/llms\.txt/, /\bllms\b/, /for large language models/],
+    zh: ['llms.txt', 'llms 文件', '站点摘要文件'],
+    enText:
+      'llms.txt is a plain-text file placed in the root of a site that lists the most important pages with short summaries — an orientation layer that helps AI crawlers and LLMs understand what the site covers, similar to how sitemap.xml helps search engines.',
+    zhText:
+      'llms.txt 是放在网站根目录的纯文本文件，用一小段文字列出站内最重要的页面——它像 sitemap.xml 之于搜索引擎那样，帮助 AI 爬虫和大模型快速了解你站点的结构与主题。',
+    sources: [
+      { title: 'LLMs.txt Guide', url: 'https://geo010.com/fundamentals/llms-txt-guide.html' },
+      { title: 'What is LLMs.txt? (Glossary)', url: 'https://geo010.com/glossary/llms-txt.html' },
+    ],
+  },
+  {
+    en: [/seo dead/, /seo vs geo/, /is seo/, /difference between seo/, /seo and geo/],
+    zh: ['seo死了', 'seo已死', 'seo和geo', 'seo与geo', 'seo vs geo', 'seo区别'],
+    enText:
+      'SEO is not dead. GEO and SEO overlap and compound: the technical SEO basics remain prerequisites, while GEO adds answer-engine-specific signals such as question H2s, structured data and llms.txt for being cited inside AI answers.',
+    zhText:
+      'SEO 并没有死。GEO 与 SEO 是重叠且相互放大的关系：技术 SEO 基本功仍是一切的前提，GEO 在此之上叠加针对回答引擎的信号（问题式小标题、结构化数据、llms.txt），让 AI 在答案里引用你。',
+    sources: [
+      { title: 'Is SEO Dead?', url: 'https://geo010.com/fundamentals/seo-vs-geo.html' },
+    ],
+  },
+  {
+    en: [/citation share/, /citation/],
+    zh: ['引用占比', '引用份额', 'citation share', '引用率'],
+    enText:
+      'Citation share is the share of AI-generated answers in your market that cite your brand as a source — the core GEO performance metric. It is typically measured by polling key questions across answer engines (ChatGPT, Perplexity, Google AI Overviews, Copilot) and counting how often your brand appears as a reference.',
+    zhText:
+      '引用占比（citation share）指在你的目标市场里，AI 生成的回答中引用你的品牌作为来源的比例——这是 GEO 最核心的绩效指标。通常做法是：在 ChatGPT、Perplexity、Google AI Overviews、Copilot 等引擎上反复提问关键问题，统计你的品牌被引用为来源的次数占比。',
+    sources: [
+      { title: 'Citation Share — Metrics', url: 'https://geo010.com/metrics/citation-share.html' },
+      { title: 'Track AI Citations — Technical', url: 'https://geo010.com/technical/track-ai-citations.html' },
+    ],
+  },
+  {
+    en: [/entity density/, /entity/],
+    zh: ['实体密度', 'entity density', '实体'],
+    enText:
+      'Entity density measures how many unique, meaningful named entities appear in content relative to word count (typically per 1,000 words), and how clearly they are connected. Higher entity density helps AI engines map your content to a topic graph and cite it with confidence.',
+    zhText:
+      '实体密度（entity density）衡量内容中出现的独特、有意义的命名实体数量（通常按每 1000 词计数），以及这些实体间的关联是否清晰。实体密度越高，AI 引擎越容易把你的内容映射进主题图谱并放心引用。',
+    sources: [
+      { title: 'Entity Density — Metrics', url: 'https://geo010.com/metrics/entity-density.html' },
+    ],
+  },
+  {
+    en: [/schema/, /structured data/, /json-ld/],
+    zh: ['结构化数据', 'schema', 'json-ld', 'jsonld', '微数据'],
+    enText:
+      'Structured data is machine-readable markup (JSON-LD with Schema.org vocabulary) that describes what each page means. Markup such as Article, FAQPage, Organization and BreadcrumbList lets AI engines extract clean, confident facts instead of guessing — it is a core GEO trust signal.',
+    zhText:
+      '结构化数据是机器可读的标记（基于 Schema.org 词表的 JSON-LD），用来描述每个页面的含义。Article、FAQPage、Organization、BreadcrumbList 等标记让 AI 引擎能直接提取干净可信的事实而不是去猜——这是 GEO 的重要信任信号。',
+    sources: [
+      { title: 'Schema Markup Guide', url: 'https://geo010.com/technical/schema-markup-guide.html' },
+      { title: 'What is JSON-LD?', url: 'https://geo010.com/community/what-is-json-ld.html' },
+    ],
+  },
+  {
+    en: [/e-?e-?a-?t/, /experience.*expertise/, /expertise.*authoritative/],
+    zh: ['eeat', 'e-e-a-t', '经验', '专业知识', '权威'],
+    enText:
+      'E-E-A-T stands for Experience, Expertise, Authoritativeness and Trust — the quality framework (rooted in Googles search quality guidelines) that shapes how much credibility AI engines assign to a source. High E-E-A-T means authorship, citations, primary data and transparent sourcing.',
+    zhText:
+      'E-E-A-T 是 Experience（经验）、Expertise（专业度）、Authoritativeness（权威性）、Trust（可信度）四要素，源于 Google 搜索质量指南的质量框架。AI 引擎会据此判断一个来源的可信度，高 E-E-A-T 意味着署名清楚、引用来源、有一手数据、来源透明。',
+    sources: [
+      { title: 'E-E-A-T in GEO', url: 'https://geo010.com/content/eeat-in-geo.html' },
+      { title: 'E-E-A-T Trust Mechanism', url: 'https://geo010.com/fundamentals/eeat-trust-mechanism.html' },
+    ],
+  },
+  {
+    en: [/how.*(start|begin).*geo/, /start(ing)? with geo/, /roadmap/, /from zero/, /get started/],
+    zh: ['怎么开始', '如何开始', '从零开始', '开启', '入门', '新手', '第一步', 'roadmap', '路线图', '检查清单', 'checklist'],
+    enText:
+      'The fastest path: audit your current AI visibility, fix crawlability and orientation (robots.txt, llms.txt, sitemap), add structured data, create question-driven answer content, then measure citation share and iterate. The GEO Quick Start checklist can be done in 15 minutes.',
+    zhText:
+      '最快路径：先审计当前 AI 可见度，修复可抓取性与"自我介绍"（robots.txt、llms.txt、sitemap），加结构化数据，创作问题驱动的回答型内容，然后测量引用占比并迭代。15 分钟的 GEO Quick Start 检查清单可以直接上手。',
+    sources: [
+      { title: 'GEO Quick Start Checklist', url: 'https://geo010.com/fundamentals/geo-quick-start-checklist.html' },
+      { title: 'Zero to One GEO Roadmap', url: 'https://geo010.com/cases/zero-to-one-roadmap.html' },
+    ],
+  },
+  {
+    en: [/monitor/, /measure.*(ai|crawler|crawl)/, /track.*(ai|crawler)/, /stats/, /analytics/],
+    zh: ['监控', '统计', '数据分析', '跟踪抓捕', '怎么测量', '怎么看数据', '爬虫数据'],
+    enText:
+      'You can monitor AI visibility in two ways: (1) AI crawler analytics — Bing Webmaster Tools is the only major free source of AI citation-share data, since Bing powers Copilot, ChatGPT search and Perplexity; (2) direct answer polling across engines to count citations.',
+    zhText:
+      '监控 AI 可见度有两条路径：(1) AI 爬虫统计——由于 Bing 是 Copilot、ChatGPT 搜索和 Perplexity 的后端，Bing Webmaster Tools 是唯一免费提供引用数据的主流工具；(2) 在各引擎直接答题轮询，统计引用次数。',
+    sources: [
+      { title: 'AI Crawler Management', url: 'https://geo010.com/technical/ai-crawler-management.html' },
+      { title: 'Track AI Citations', url: 'https://geo010.com/technical/track-ai-citations.html' },
+    ],
+  },
+  {
+    en: [/contact|email|reach you|get in touch/],
+    zh: ['联系', '邮箱', '联系方式', '发邮件', '合作'],
+    enText:
+      'You can reach the GEO Encyclopedia team via the contact page.',
+    zhText: '你可以通过 contact 页面联系 GEO Encyclopedia 团队。',
+    sources: [
+      { title: 'Contact', url: 'https://geo010.com/contact.html' },
+    ],
+  },
+];
+
+const CHAT_SUGGESTIONS = [
+  'What is GEO?',
+  'What is llms.txt?',
+  'How do I measure citation share?',
+  'How do I start GEO from zero?',
+];
+
+function langOf(q) {
+  const cjk = (q.match(/[\u4e00-\u9fff]/g) || []).length;
+  // Any meaningful CJK presence (>= 2 characters) counts as Chinese-language mode,
+  // so mixed queries like "llms.txt 是什么" answer in Chinese.
+  return cjk >= 2 ? 'zh' : 'en';
+}
+
+// Latin tokens + CJK blocks, so a Chinese query keeps its recognizable English terms.
+function tokenizeMixed(q) {
+  const lower = q.toLowerCase();
+  const tokens = [];
+  for (const m of lower.match(/[a-z0-9\u00e0-\u024f]{2,}/g) || []) tokens.push(m);
+  for (const c of lower.match(/[\u4e00-\u9fff]{2,}/g) || []) tokens.push(c);
+  return tokens.filter((t) => t !== 'geo').slice(0, 10);
+}
+
+// For chat we deliberately use a loose match: any query term hitting a doc counts
+// (stopwords dropped), so an open-ended question still surfaces relevant articles.
+const CHAT_STOPWORDS = new Set([
+  'what', 'which', 'when', 'where', 'who', 'why', 'how', 'is', 'do', 'does',
+  'the', 'a', 'an', 'to', 'of', 'in', 'on', 'for', 'and', 'or', 'with', 'at',
+  'from', 'can', 'i', 'you', 'your', 'my', 'me', 'it', 'its', 'this', 'that',
+  'about', 'much', 'many', 'not', 'no', 'are', 'was', 'were', 'as', 'be', 'by',
+]);
+
+function chatDocHits(doc, terms) {
+  const use = terms.filter((t) => !CHAT_STOPWORDS.has(t));
+  const list = use.length ? use : terms;
+  const title = (doc.title || '').toLowerCase();
+  const summary = (doc.summary || '').toLowerCase();
+  const text = (doc.text || '').toLowerCase();
+  let hits = 0;
+  for (const t of list) {
+    if (title.includes(t)) hits += 4;
+    else if (summary.includes(t)) hits += 2;
+    else if (text.includes(t)) hits += 1;
+  }
+  return { hits, rank: hits, list };
+}
+
+function snippetFor(doc, terms, lang) {
+  const text = doc.text || '';
+  if (lang === 'en') {
+    const lower = text.toLowerCase();
+    for (const t of terms) {
+      const i = lower.indexOf(t);
+      if (i === -1) continue;
+      const start = Math.max(0, i - 90);
+      const end = Math.min(text.length, i + t.length + 150);
+      return text.slice(start, end).replace(/\s+/g, ' ').trim() + '…';
+    }
+  }
+  const s = (doc.summary || '').trim();
+  return s.length > 260 ? s.slice(0, 260) + '…' : s;
+}
+
+function chatReply(payload) {
+  const res = json(payload);
+  res.headers.set('X-Robots-Tag', 'noindex, nofollow');
+  res.headers.set('Cache-Control', 'no-store');
+  return res;
+}
+
+let chatTableChecked = false;
+async function ensureChatTable(env) {
+  if (chatTableChecked) return;
+  try {
+    await env.DB.prepare(
+      `CREATE TABLE IF NOT EXISTS chat_queries (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ts TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ', 'now')),
+        q TEXT NOT NULL,
+        hits INTEGER NOT NULL DEFAULT 0
+      )`
+    ).run();
+  } catch (e) {
+    console.error('chat table init failed:', e.message);
+  }
+  chatTableChecked = true;
+}
+
+// Simple per-IP in-memory rate limit (no identity stored on disk — stays anonymous).
+const chatRate = new Map();
+function chatRateLimited(request) {
+  const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+  const now = Date.now();
+  const arr = (chatRate.get(ip) || []).filter((t) => now - t < 60000);
+  if (arr.length >= 5) {
+    chatRate.set(ip, arr);
+    return true;
+  }
+  arr.push(now);
+  chatRate.set(ip, arr);
+  if (chatRate.size > 20000) chatRate.clear();
+  return false;
+}
+
+async function handleChat(request, env) {
+  if (request.method !== 'POST') return json({ error: 'Method not allowed.' }, 405);
+  let data;
+  try {
+    data = await request.json();
+  } catch (e) {
+    return json({ error: 'Invalid JSON body.' }, 400);
+  }
+  const q = String(data.q || '').trim();
+  if (q.length < 3 || q.length > 300) {
+    return json({ error: 'Please ask a question between 3 and 300 characters.' }, 400);
+  }
+  if (chatRateLimited(request)) {
+    return json({ error: 'Too many questions — please wait a moment.' }, 429);
+  }
+
+  const lang = langOf(q);
+  const lower = q.toLowerCase();
+
+  // 1) FAQ intent match (bilingual answers)
+  for (const f of FAQS) {
+    const enHit = f.en.some((re) => re.test(lower));
+    const zhHit = f.zh.some((k) => lower.includes(k));
+    if (enHit || zhHit) {
+      await logChat(env, q, 1);
+      return chatReply({
+        type: 'faq',
+        lang,
+        text: lang === 'zh' ? f.zhText : f.enText,
+        sources: f.sources,
+      });
+    }
+  }
+
+  // 2) Ranked lookup over the article index with a keyword-context snippet
+  let index;
+  try {
+    index = await loadSearchIndex();
+  } catch (e) {
+    console.error('chat index failed:', e.message);
+    await logChat(env, q, 0);
+    return chatReply({
+      type: 'error',
+      lang,
+      text:
+        lang === 'zh'
+          ? '知识库暂时不可用（索引加载失败），请稍后再试。'
+          : 'The knowledge index is temporarily unavailable — please try again in a moment.',
+      sources: [],
+    });
+  }
+
+  const terms = tokenizeMixed(q);
+  const ranked = [];
+  for (const doc of index.docs || []) {
+    const { hits, rank, list } = chatDocHits(doc, terms);
+    if (hits > 0) ranked.push({ doc, score: rank, terms: list });
+  }
+  ranked.sort((a, b) => b.score - a.score);
+  const top = ranked.slice(0, 3);
+
+  // 3) Anonymized log (no IP) with the hit count for content-idea analytics
+  await logChat(env, q, top.length);
+
+  if (top.length === 0) {
+    const zhText =
+      '我目前在英文知识库中最接近你的问题。建议用这些英文问题重新提问，能拿到直接答案：';
+    const enText =
+      'I could not find a direct match in the encyclopedia. Try one of these questions:';
+    return chatReply({
+      type: 'guide',
+      lang,
+      text: lang === 'zh' ? zhText : enText,
+      sources: CHAT_SUGGESTIONS.map((s) => ({ title: s, url: '' })),
+      suggestions: true,
+    });
+  }
+
+  return chatReply({
+    type: 'answer',
+    lang,
+    text:
+      lang === 'zh'
+        ? '我为你匹配到知识库中相关的内容（站点内容为英文，以下为摘要）：'
+        : 'Here is what the encyclopedia says:',
+    sources: top.map(({ doc, terms }) => ({
+      title: doc.title,
+      url: 'https://geo010.com/' + doc.slug,
+      chapter: doc.chapter,
+      snippet: snippetFor(doc, terms, lang),
+    })),
+  });
+}
+
+async function logChat(env, q, hits) {
+  try {
+    await ensureChatTable(env);
+    await env.DB.prepare('INSERT INTO chat_queries (q, hits) VALUES (?, ?)')
+      .bind(q.slice(0, 300), hits)
+      .run();
+  } catch (e) {
+    console.error('chat log failed:', e.message);
+  }
 }
 
 let commentsChecked = false;
@@ -737,6 +1074,106 @@ async function fetchFile(path) {
   return { res, served };
 }
 
+// Assistant chat widget, injected into every ordinary HTML page before </body>.
+// The site CSP allows inline scripts/styles (no 'self'), so the widget is fully
+// inlined — no external asset, no changes to any static page needed.
+const ASSISTANT_WIDGET = `
+<div id="geo-assistant" style="position:fixed;bottom:16px;right:16px;z-index:9999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif;line-height:1.6;">
+<style>
+#geo-assistant *{box-sizing:border-box;margin:0;padding:0}
+#ga-fab{width:56px;height:56px;border-radius:50%;border:none;cursor:pointer;background:#1a1a2e;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 14px rgba(0,0,0,.25);transition:transform .15s}
+#ga-fab:hover{transform:scale(1.06)}
+#ga-panel{position:fixed;bottom:84px;right:16px;width:340px;max-width:calc(100vw - 32px);height:440px;max-height:calc(100vh - 120px);background:#fff;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,.25);display:none;flex-direction:column;overflow:hidden;border:1px solid #eee}
+#geo-assistant.open #ga-panel{display:flex}
+#ga-head{background:#1a1a2e;color:#fff;padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+#ga-head b{font-size:14px}
+#ga-close{background:none;border:none;color:#ccc;font-size:18px;cursor:pointer;padding:0 4px}
+#ga-msgs{flex:1;overflow-y:auto;padding:14px;background:#f5f5f5}
+.ga-msg{max-width:86%;margin-bottom:10px;padding:9px 12px;border-radius:12px;font-size:13.5px;word-break:break-word;white-space:pre-wrap}
+.ga-msg.user{background:#1a1a2e;color:#fff;margin-left:auto;border-bottom-right-radius:3px}
+.ga-msg.bot{background:#fff;color:#222;box-shadow:0 1px 2px rgba(0,0,0,.08);border-bottom-left-radius:3px}
+.ga-msg .ga-src{display:block;margin-top:6px;border-top:1px solid #eee;padding-top:6px}
+.ga-msg .ga-src a{color:#0066cc;font-size:12.5px;text-decoration:none}
+.ga-msg .ga-src a:hover{text-decoration:underline}
+.ga-msg .ga-src .ga-snip{color:#666;font-size:12px;margin-top:2px}
+.ga-chip{display:inline-block;background:#fff;border:1px solid #4fc3f7;color:#1a1a2e;border-radius:16px;padding:5px 12px;font-size:12.5px;cursor:pointer;margin:0 6px 6px 0;transition:background .15s}
+.ga-chip:hover{background:#e3f5ff}
+#ga-inputrow{display:flex;gap:8px;padding:10px;border-top:1px solid #eee;background:#fff}
+#ga-input{flex:1;border:1px solid #ddd;border-radius:18px;padding:9px 14px;font-size:13.5px;outline:none}
+#ga-input:focus{border-color:#4fc3f7}
+#ga-send{border:none;border-radius:18px;padding:9px 16px;background:#1a1a2e;color:#fff;font-size:13.5px;cursor:pointer}
+#ga-send:hover{background:#0066cc}
+@media (max-width:768px){#ga-panel{width:100vw;max-width:100vw;bottom:0;right:0;height:70vh;max-height:70vh;border-radius:14px 14px 0 0}}
+</style>
+<div id="ga-panel" role="dialog" aria-label="GEO assistant">
+<div id="ga-head"><b>GEO Assistant</b><button id="ga-close" aria-label="Close">×</button></div>
+<div id="ga-msgs"></div>
+<div id="ga-actions" style="padding:0 12px;background:#f5f5f5"></div>
+<div id="ga-inputrow"><input id="ga-input" type="text" placeholder="Ask about GEO…（可中文提问）" autocomplete="off"><button id="ga-send">Send</button></div>
+</div>
+<button id="ga-fab" aria-label="Open assistant">🤖</button>
+<script>
+(function(){
+var FAB='#ga-fab',PANEL='#ga-panel',MSGS='#ga-msgs',ACT='#ga-actions',INP='#ga-input',BTN='#ga-send',CLOSE='#ga-close';
+var root=document.getElementById('geo-assistant');
+var msgs=document.getElementById(MSGS.slice(1));
+var welcome="Hi! I answer quick questions about Generative Engine Optimization. Ask in English or Chinese — 中文提问也可以。";
+var suggestions=['What is GEO?','What is llms.txt?','How do I measure citation share?','How do I start GEO from zero?'];
+function addMsg(t,who,srcs,chips){
+  var d=document.createElement('div');d.className='ga-msg '+who;d.textContent=t;
+  if(srcs&&srcs.length){
+    var box=document.createElement('div');box.className='ga-src';
+    srcs.forEach(function(s){
+      if(s.url){var a=document.createElement('a');a.href=s.url;a.target='_blank';a.rel='noopener';a.textContent='🔗 '+s.title;box.appendChild(a);}
+      else{var c=document.createElement('span');c.textContent=s.title;box.appendChild(c);}
+      if(s.snippet){var sn=document.createElement('div');sn.className='ga-snip';sn.textContent=s.snippet;box.appendChild(sn);}
+    });
+    d.appendChild(box);
+  }
+  if(chips){var ch=document.createElement('div');ch.className='ga-chip';ch.textContent=chips;ch.style.display='inline-block';d.appendChild(ch);}
+  document.getElementById(MSGS.slice(1)).appendChild(d);
+  document.getElementById(MSGS.slice(1)).scrollTop=document.getElementById(MSGS.slice(1)).scrollHeight;
+}
+function send(text){
+  if(!text)return;
+  addMsg(text,'user');
+  var inp=document.getElementById(INP.slice(1));inp.value='';
+  fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({q:text})})
+  .then(function(r){return r.json().then(function(d){return {ok:r.ok,d:d};});})
+  .then(function(res){
+    if(!res.ok||!res.d.text){
+      addMsg('No answer right now — please try again.','bot');return;
+    }
+    if(res.d.suggestions){addMsg(res.d.text,'bot');renderChips(res.d.sources);return;}
+    addMsg(res.d.text,'bot',res.d.sources);
+  })
+  .catch(function(){addMsg('Network error — please refresh and try again.','bot');});
+}
+function renderChips(srcs){
+  var act=document.getElementById(ACT.slice(1));act.innerHTML='';
+  (srcs||[]).forEach(function(s){
+    var c=document.createElement('span');c.className='ga-chip';c.textContent=s.title;
+    c.addEventListener('click',function(){send(s.title);act.innerHTML='';});
+    act.appendChild(c);
+  });
+}
+document.getElementById(FAB.slice(1)).addEventListener('click',function(){root.classList.toggle('open');});
+document.getElementById(CLOSE.slice(1)).addEventListener('click',function(){root.classList.remove('open');});
+document.getElementById(BTN.slice(1)).addEventListener('click',function(){send(document.getElementById(INP.slice(1)).value);});
+document.getElementById(INP.slice(1)).addEventListener('keydown',function(e){if(e.key==='Enter')send(document.getElementById(INP.slice(1)).value);});
+addMsg(welcome,'bot');
+renderChips(suggestions);
+})();
+</script>
+</div>`;
+
+/** Append the assistant widget to an HTML body. Never throws. */
+function injectAssistant(html) {
+  if (!html || typeof html !== 'string') return html;
+  if (!/<\/body>/i.test(html)) return html;
+  return html.replace(/<\/body>/i, ASSISTANT_WIDGET + '\n</body>');
+}
+
 const NOT_FOUND_HTML = `<!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8"><title>404 — GEO Encyclopedia</title>
@@ -765,6 +1202,11 @@ export default {
     // Site search API — reads the generated article index (never logged)
     if (rawPath === SEARCH_PATH || rawPath === SEARCH_PATH + '/') {
       return handleSearch(url);
+    }
+
+    // Site assistant chat API — local FAQ + knowledge-index answers (anonymous log)
+    if (rawPath === CHAT_PATH || rawPath === CHAT_PATH + '/') {
+      return handleChat(request, env);
     }
 
     // MCP discovery manifest (SEP-1960): declare that this site hosts no MCP server
@@ -847,6 +1289,12 @@ export default {
         isHtml,
         refHost: refererHost(request.headers.get('Referer')),
       });
+    }
+
+    // Inject the assistant chat widget into ordinary HTML pages only
+    // (stats/admin pages and 404 are rendered elsewhere and excluded).
+    if (status !== 404 && served && served.endsWith('.html')) {
+      body = injectAssistant(await res.text());
     }
 
     const headers = new Headers(res.headers);
