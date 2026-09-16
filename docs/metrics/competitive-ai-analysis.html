@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1911889082930844" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Benchmark Competitors in AI Answers - GEO Encyclopedia</title>
+<meta name="description" content="A repeatable method for competitive AI analysis: fixed query sets, a presence scale (absent/mention/cite/recommend), per-engine scoring, and how to read the leaderboard without over-claiming.">
+<link rel="canonical" href="https://geo010.com/metrics/competitive-ai-analysis.html"/>
+<link rel="alternate" type="application/rss+xml" title="GEO Encyclopedia RSS" href="https://geo010.com/feed.xml">
+<meta property="og:title" content="How to Benchmark Competitors in AI Answers - GEO Encyclopedia"/>
+<meta property="og:description" content="Competitive AI analysis: a fixed-query presence-scoring method, per-engine leaderboards, and reading the results without over-claiming."/>
+<meta property="og:url" content="https://geo010.com/metrics/competitive-ai-analysis.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="https://geo010.com/og-image.png"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="GEO Encyclopedia"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="How to Benchmark Competitors in AI Answers - GEO Encyclopedia"/>
+<meta name="twitter:description" content="Competitive AI analysis: fixed-query presence scoring, per-engine leaderboards, honest reading."/>
+<meta name="twitter:image" content="https://geo010.com/og-image.png"/>
+<meta name="keywords" content="competitive AI analysis,AI competitor benchmarking,competitor AI visibility,presence scoring,TAMP,AI share of voice competitors,GEO competitive analysis,Generative Engine Optimization,AI leaderboard">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
+  .layout { display: flex; min-height: 100vh; }
+  .sidebar { width: 240px; flex-shrink: 0; background: #1a1a2e; color: #ccc; padding: 32px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+  .sidebar h3 { color: #fff; font-size: 1em; padding: 0 20px; margin-bottom: 20px; }
+  .sidebar a { display: block; padding: 8px 20px; color: #999; text-decoration: none; font-size: 0.9em; transition: all 0.15s; }
+  .sidebar a:hover, .sidebar a.active { color: #fff; background: rgba(255,255,255,0.08); }
+  .sidebar a.active { border-left: 3px solid #4fc3f7; }
+  .sidebar .current { color: #aaa; padding: 8px 20px; font-size: 0.85em; }
+  .sidebar .home-link { margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 12px; font-weight: 500; color: #4fc3f7; }
+  .nav-group-toggle { padding: 8px 20px; color: #aaa; font-size: 0.85em; cursor: pointer; user-select: none; transition: color 0.15s; display: flex; align-items: center; gap: 6px; }
+  .nav-group-toggle:hover { color: #fff; background: rgba(255,255,255,0.05); }
+  .nav-group-links { display: none; }
+  .nav-group.open .nav-group-links { display: block; }
+  .nav-group.open > .nav-group-toggle .arrow { transform: rotate(90deg); }
+  .arrow { display: inline-block; transition: transform 0.2s; font-size: 0.8em; }
+  .glossary-section { margin-top: 12px; border-top: 1px solid #333; padding-top: 12px; }
+  .main { flex: 1; max-width: 800px; margin: 0 auto; padding: 48px 32px 80px; }
+  .content { background: #fff; border-radius: 12px; padding: 40px 48px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .content .breadcrumb { color: #888; font-size: 0.85em; margin-bottom: 16px; }
+  .article-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: #888; font-size: 0.88em; margin: 4px 0 16px; }
+  .article-meta a { color: #0066cc; text-decoration: none; }
+  .article-meta a:hover { text-decoration: underline; }
+  .content .breadcrumb a { color: #0066cc; text-decoration: none; }
+  .content .breadcrumb a:hover { text-decoration: underline; }
+  .content h1 { font-size: 1.5em; margin: 40px 0 12px; color: #1a1a2e; padding-top: 8px; }
+  .content h1:first-of-type { margin-top: 0; }
+  .content h2 { font-size: 1.4em; margin: 32px 0 16px; color: #1a1a2e; padding-bottom: 8px; border-bottom: 1px solid #f0f0f0; }
+  .content h3 { font-size: 1.15em; margin: 24px 0 12px; color: #333; }
+  .content p { margin-bottom: 16px; color: #333; }
+  .content p:last-child { margin-bottom: 0; }
+  .content strong { color: #111; }
+  .content blockquote { margin: 16px 0; padding: 16px 20px; background: #f8f9ff; border-left: 4px solid #4fc3f7; border-radius: 0 8px 8px 0; color: #555; font-style: normal; }
+  .content blockquote strong { color: #1a1a2e; }
+  .content hr { margin: 32px 0; border: none; border-top: 1px solid #e8e8e8; }
+  .content ul, .content ol { margin: 8px 0 16px 24px; }
+  .content li { margin-bottom: 6px; color: #333; }
+  .content table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.93em; }
+  .content th { background: #f0f2f5; padding: 10px 14px; text-align: left; font-weight: 600; color: #333; border: 1px solid #e0e0e0; }
+  .content td { padding: 8px 14px; border: 1px solid #e8e8e8; color: #444; }
+  .content tr:nth-child(even) td { background: #fafafa; }
+  .content code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: #e74c3c; }
+  .content pre { background: #1a1a2e; color: #e6e6e6; border-radius: 8px; padding: 16px 20px; overflow-x: auto; margin: 16px 0 24px; font-size: 0.85em; line-height: 1.6; }
+  .content pre code { background: none; color: inherit; padding: 0; font-size: 1em; }
+  .content img { max-width: 100%; border-radius: 8px; margin: 16px 0; }
+  .glossary-link { color: #0066cc; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+  .glossary-link:hover { color: #004499; text-decoration-style: solid; }
+  .nav-links { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; }
+  .nav-links a { color: #0066cc; text-decoration: none; font-size: 0.95em; }
+  .nav-links a:hover { text-decoration: underline; }
+  .comments { margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; }
+  .comments h2 { font-size: 1.3em; margin-bottom: 16px; }
+  .comment-item { background: #fafbfc; border: 1px solid #eee; border-radius: 8px; padding: 14px 18px; margin-bottom: 12px; }
+  .comment-item .c-meta { color: #666; font-size: 0.85em; margin-bottom: 4px; }
+  .comment-item .c-body { color: #333; font-size: 0.95em; white-space: pre-wrap; word-break: break-word; }
+  .comment-empty { color: #999; font-size: 0.9em; margin-bottom: 12px; }
+  #comment-form { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+  #comment-form input, #comment-form textarea { font-family: inherit; font-size: 0.95em; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; background: #fff; color: #333; }
+  #comment-form textarea { min-height: 90px; resize: vertical; }
+  #comment-form button { align-self: flex-start; background: #1a1a2e; color: #fff; border: none; border-radius: 6px; padding: 10px 22px; font-size: 0.95em; cursor: pointer; }
+  #comment-form button:hover { background: #2a2a44; }
+  .comment-msg { font-size: 0.9em; margin-top: 4px; }
+  .comment-msg.ok { color: #2e7d32; }
+  .comment-msg.err { color: #c62828; }
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 24px 16px; }
+    .content { padding: 24px 20px; border-radius: 8px; }
+    .content h1 { font-size: 1.3em; }
+    .content h2 { font-size: 1.2em; }
+    .nav-links { flex-direction: column; gap: 12px; }
+  }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+</style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Benchmark Competitors in AI Answers",
+  "description": "A repeatable method for competitive AI analysis: fixed query sets, a presence scale (absent/mention/cite/recommend), per-engine scoring, and how to read the leaderboard without over-claiming.",
+  "author": { "@type": "Organization", "name": "GEO Encyclopedia Editorial Team", "url": "https://geo010.com/about.html" },
+  "datePublished": "2026-09-16",
+  "dateModified": "2026-09-16",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/metrics/competitive-ai-analysis.html" },
+  "publisher": { "@type": "Organization", "name": "GEO Encyclopedia", "url": "https://geo010.com" },
+  "inLanguage": "en"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://geo010.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Metrics & Frameworks",
+      "item": "https://geo010.com/metrics-frameworks.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to Benchmark Competitors in AI Answers",
+      "item": "https://geo010.com/metrics/competitive-ai-analysis.html"
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the quickest way to benchmark competitors in AI answers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start manually: pick 20-50 fixed buyer questions, run them in 2-3 engines weekly, and score each competitor against a simple presence scale (absent, mentioned, cited, recommended). Total the scores into a share-like number. Consistency of queries and cadence matters more than tooling."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I score competitor presence in an AI answer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a 0-3 scale: 0 = not present, 1 = mentioned, 2 = cited with a source, 3 = recommended. Weight by whether the brand is the primary answer. This is directional, so apply the same rubric every cycle and report trends, not point values."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I run competitive AI analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Weekly for a core set of priority queries, monthly for a wider query library. Because AI answers drift substantially month to month, a single snapshot is noise — the trend across four or more cycles is the signal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I translate a competitive AI leaderboard into action?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Find where a competitor beats you on cite or recommend levels for revenue-critical queries, identify what sources they win from (owned, press, community), and allocate effort there. Closing a cite-level gap on priority queries is a concrete, measurable GEO objective."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h3>📖 GEO Encyclopedia</h3>
+    <a href="../index.html" class="home-link">🏠 Home</a>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> I. Fundamentals</div>
+      <div class="nav-group-links">
+        <a href="../fundamentals/what-is-geo.html">What is GEO?</a>
+        <a href="../fundamentals/seo-vs-geo.html">Is SEO Dead?</a>
+        <a href="../fundamentals/eeat-trust-mechanism.html">E-E-A-T Trust</a>
+        <a href="../fundamentals/llms-txt-guide.html">LLMs.txt Guide</a>
+        <a href="../fundamentals/answer-assetization.html">Answer Assetization</a>
+      </div>
+    </div>
+    <div class="nav-group open">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> II. Metrics</div>
+      <div class="nav-group-links">
+        <a href="../metrics/citation-share.html">Citation Share</a>
+        <a href="../metrics/entity-density.html">Entity Density</a>
+        <a href="../metrics/sheep-framework.html">SHEEP Framework</a>
+        <a href="competitive-ai-analysis.html" class="active">Competitive AI Analysis</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> III. Models</div>
+      <div class="nav-group-links">
+        <a href="../models/3c-optimization-model.html">3C Model</a>
+        <a href="../models/geo-evolution.html">GEO Evolution</a>
+        <a href="../models/source-authority.html">Source Authority</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IV. Content</div>
+      <div class="nav-group-links">
+        <a href="../content/eeat-in-geo.html">E-E-A-T in GEO</a>
+        <a href="../content/knowledge-entropy.html">Knowledge Entropy</a>
+        <a href="../content/backlinks-in-geo.html">Backlinks in GEO</a>
+        <a href="../content/topical-authority.html">Topical Authority</a>
+        <a href="../content/content-freshness.html">Content Freshness</a>
+        <a href="../content/multimodal-content.html">Multimodal Content</a>
+        <a href="../content/question-driven-strategy.html">Question-Driven Strategy</a>
+        <a href="../content/local-geo-longtail.html">Local GEO</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> V. Technical</div>
+      <div class="nav-group-links">
+        <a href="../technical/schema-markup-guide.html">Schema Markup</a>
+        <a href="../technical/llms-txt-advanced.html">LLMs.txt Advanced</a>
+        <a href="../technical/entity-knowledge-graph.html">Entity & Knowledge Graph</a>
+        <a href="../technical/ai-crawler-management.html">AI Crawler Management</a>
+        <a href="../technical/geo-monitoring-tools.html">Monitoring Tools</a>
+        <a href="../technical/agenticgeo-tools.html">AgenticGEO</a>
+        <a href="../technical/tech-stack-overview.html">Tech Stack Overview</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VI. Brand</div>
+      <div class="nav-group-links">
+        <a href="../brand/brand-as-source.html">Brand as Source</a>
+        <a href="../brand/eeat-brand-implementation.html">EEAT Brand</a>
+        <a href="../brand/crisis-pr-geo.html">Crisis PR</a>
+        <a href="../brand/multi-brand-geo.html">Multi-Brand</a>
+        <a href="../brand/ecommerce-geo.html">E-Commerce</a>
+        <a href="../brand/b2b-brand-geo.html">B2B Brand</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VII. Industry</div>
+      <div class="nav-group-links">
+        <a href="../industry/healthcare-geo.html">Healthcare</a>
+        <a href="../industry/finance-geo.html">Finance</a>
+        <a href="../industry/education-geo.html">Education</a>
+        <a href="../industry/legal-geo.html">Legal</a>
+        <a href="../industry/local-services-geo.html">Local Services</a>
+        <a href="../industry/manufacturing-geo.html">Manufacturing</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VIII. Cases</div>
+      <div class="nav-group-links">
+        <a href="../cases/zero-to-one-roadmap.html">Zero to One</a>
+        <a href="../cases/full-process-case.html">Full Case Study</a>
+        <a href="../cases/geo-ai-audit.html">AI-Readiness Audit</a>
+        <a href="../cases/black-hat-prevention.html">Black Hat Prevention</a>
+        <a href="../cases/geo-future-trends.html">Future Trends</a>
+        <a href="../cases/what-ai-assistants-say-citation-share.html">AI Answers: Citation Share</a>
+        <a href="../cases/what-ai-assistants-say-entity-density.html">AI Answers: Entity Density</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IX. Data</div>
+      <div class="nav-group-links">
+        <a href="../data/core-metrics-system.html">Core Metrics</a>
+        <a href="../data/roi-calculation.html">ROI Calculator</a>
+        <a href="../data/crawler-behavior-data.html">Crawler Behavior Data</a>
+
+        <a href="../data/data-dashboard-setup.html">Data Dashboard</a>
+        <a href="../data/geo-benchmarks.html">GEO Benchmarks</a>
+        <a href="../data/ai-referral-attribution.html">AI Referral Attribution</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> 💬 Community</div>
+      <div class="nav-group-links">
+        <a href="../community.html">Community Home</a>
+        <a href="../community/what-is-json-ld.html">What is JSON-LD?</a>
+        <a href="../community/geo-content-template.html">The GEO Content Template</a>
+        <a href="../community/one-week-geo-readiness.html">One-Week GEO Readiness</a>
+        <a href="../community/two-week-crawler-data.html">Two-Week Crawler Data</a>
+        <a href="../community/geo-impact-attribution-new-site.html">Crawler Impact & Launch Checklist</a>
+      </div>
+    </div>
+  <div class="current glossary-section">📌 Glossary</div>
+  <a href="../glossary/geo.html">GEO</a>
+  <a href="../glossary/seo.html">SEO</a>
+  <a href="../glossary/rag.html">RAG</a>
+  <a href="../glossary/eeat.html">E-E-A-T</a>
+  <a href="../glossary/llms-txt.html">LLMs.txt</a>
+  <a href="../glossary/zero-click.html">Zero-Click Search</a>
+  <a href="../glossary/schema.html">Schema</a>
+  <a href="../glossary/answer-asset.html">Answer Assetization</a>
+  <a href="../glossary/ai-visibility.html">AI Visibility Index</a>
+  <a href="../glossary/ymyl.html">YMYL</a>
+  <div class="current glossary-section">📄 About</div>
+  <a href="../about.html">About &amp; Editorial Standards</a>
+  <a href="../privacy.html">Privacy Policy</a>
+  </nav>
+  <div class="main">
+    <div class="content">
+      <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../metrics-frameworks.html">Metrics & Frameworks</a> › How to Benchmark Competitors in AI Answers</div>
+
+<div class="article-meta"><span>By <a href="../about.html">GEO Encyclopedia Editorial Team</a></span><span>·</span><span>Updated: 2026-09-16</span><span>·</span><span>Methodology outlined; no proprietary data required</span></div>
+
+<h1>How to Benchmark Competitors in AI Answers</h1>
+
+<blockquote>Your own AI visibility is half the picture. The other half is whether your three rivals beat you in the answer engines your buyers use — and where, exactly, the gap is.</blockquote>
+<blockquote>Competitive AI analysis is not a secret dashboard. It is a disciplined mirror of your own benchmarking: a fixed query set, a fixed scoring rubric, a fixed cadence. This article gives you the method you can start with a spreadsheet and a browser today.</blockquote>
+
+<hr>
+
+<h2>Why It Works Like Your Own Benchmarking — Only Wider</h2>
+
+<p>Everything that makes <a href="../data/geo-benchmarks.html">GEO benchmarking</a> honest applies to competitors, with one addition: you now score more than one brand per answer. The core discipline stays the same — <strong>fixed queries, fixed formula, monthly cadence</strong> — because AI answers drift substantially month to month. A snapshot is noise; a four-month trend is a signal.</p>
+
+<p>Also keep the same honesty rules: engine-by-engine comparison only (never average ChatGPT against Perplexity), and always score every competitor on the same answers you award yourself, never different sessions.</p>
+
+<h2>Step 1: Fix the Query Set</h2>
+
+<p>Your competitive set is only as good as your question list. Build 20-50 questions from three buckets:</p>
+
+<ul>
+  <li><strong>Revenue-critical</strong> — the questions that genuinely move your pipeline. Where AI is asked instead of Google, this is where you need to beat everyone.</li>
+  <li><strong>Category-owning</strong> — the questions where a citation effectively = "the answer is this brand."</li>
+  <li><strong>Comparison</strong> — "best / vs / alternatives" queries, where community sources pull heavy weight.</li>
+</ul>
+
+<p>Write the questions exactly as a buyer would type them. Save them verbatim, and mark which 3-5 underlie actual deals — that weighting is what separates a leaderboard from a vanity board.</p>
+
+<h2>Step 2: Choose the Competitor Set</h2>
+
+<p>Track 4-6 names: 3-4 real rivals on your core questions, plus 1-2 benchmark targets you do not conventionally compete with as much (a category leader, or a fast-moving newcomer). Scoring an aspirational target is how you find the gap between your ceiling and theirs. Refer to <a href="../content/source-matrix-strategy.html">source matrix logic</a> for why some competitors win from platform sources you are ignoring.</p>
+
+<h2>Step 3: The Presence Scale</h2>
+
+<p>Score each competitor per question, per engine, on a simple 0-3 scale. This mirrors the "absent / mention / cite / recommend" reality of answers:</p>
+
+<div class="table-wrap"><table><thead><tr><th>Score</th><th>Presence</th><th>Example</th></tr></thead><tbody>
+<tr><td><strong>0</strong></td><td>Not present</td><td>Brand not named in the answer</td></tr>
+<tr><td><strong>1</strong></td><td>Mentioned</td><td>Listed among options without a source link</td></tr>
+<tr><td><strong>2</strong></td><td>Cited</td><td>Named with an explicit source reference</td></tr>
+<tr><td><strong>3</strong></td><td>Recommended</td><td>Presented as the primary or recommended choice</td></tr>
+</tbody></table></div>
+
+<p>Apply the same rubric every cycle. The scale is directional on purpose — fine-grained sentiment scoring invites false precision. The job is to <strong>find cite-level and recommend-level gaps that you can act on</strong>, not to argue about tenths of a point.</p>
+
+<h2>Step 4: Score, Aggregate, and Read the Leaderboard</h2>
+
+<p>Run the set in 2-3 engines on the same day. Aggregate per competitor into three numbers: raw presence score (sum of the scale), percent of answers where the brand appears at all (a share-like figure comparable to <a href="citation-share.html">citation share</a>), and recommend/cite counts on the revenue-critical subset.</p>
+
+<p>A compact read:</p>
+
+<div class="table-wrap"><table><thead><tr><th>Competitor</th><th>Presence % (all queries)</th><th>Revenue-critical cite/recommend</th><th>Read</th></tr></thead><tbody>
+<tr><td>You</td><td>28%</td><td>6 of 20</td><td>Solid presence, thin on money queries</td></tr>
+<tr><td>Rival A</td><td>44%</td><td>13 of 20</td><td>Leader — dominates this query library</td></tr>
+<tr><td>Rival B</td><td>19%</td><td>4 of 20</td><td>Contender — competitive on a few topics</td></tr>
+<tr><td>Benchmark target</td><td>61%</td><td>17 of 20</td><td>Reference ceiling — study its sources</td></tr>
+</tbody></table></div>
+
+<p>Against vendor-published norms, sustained overall presence around 15%+ is typically considered a leadership-ish position and 40%+ clearly so — but the only honest yardstick is <em>your</em> gap to the next competitor, recomputed monthly.</p>
+
+<h2>Step 5: Diagnose Where Rivals Win From</h2>
+
+<p>The leaderboard says <em>who</em>; the diagnosis says <em>why</em>. For each revenue-critical answer where a competitor beats you, open the cited/linked sources and bucket them:</p>
+
+<ul>
+  <li>Competitor's own site (owned) — they have a <a href="../models/source-authority.html">stronger fact base</a>; build the missing answer assets.</li>
+  <li>Media/reports (earned) — they have independent witnesses; seed your own data and press.</li>
+  <li>Community platforms (platform) — they are winning the <a href="../content/source-matrix-strategy.html">experience conversation</a>; publish where engines actually quote.</li>
+</ul>
+
+<p>This mirrors <a href="../data/ai-referral-attribution.html">attribution logic</a>: know which source type carries the win before you spend against it.</p>
+
+<h2>Step 6: Turn Findings into Objectives</h2>
+
+<p>Close the loop with measurable targets:</p>
+
+<ol>
+  <li>Pick the 5 revenue-critical questions where a rival holds a cite or recommend level you lack.</li>
+  <li>Build the specific answer asset, schema, or third-party source that closes one of those gaps.</li>
+  <li>Re-run the set monthly and watch whether the gap narrows. Congratulate the team only on a trend that holds two cycles.</li>
+</ol>
+
+<p>Feed the result into your <a href="../data/data-dashboard-setup.html">GEO dashboard</a> alongside core metrics so competitive position is part of the standing report, not a one-off exercise.</p>
+
+<h2>Automation Notes (and When to Stay Manual)</h2>
+
+<p>Start manual — a spreadsheet and 30-60 minutes per cycle is enough to learn the rhythm. Tools that offer competitive AI tracking can scale the query library and engine count once your rubric is locked, but <strong>do not let a tool redefine your scoring scale mid-program</strong>; continuity beats tool fidelity. Also keep double-blind checks early on (two people scoring the same answers) to confirm the rubric is shared.</p>
+
+<h2>FAQ</h2>
+
+<p><strong>What is the quickest way to benchmark competitors in AI answers?</strong> Manually, weekly: 20-50 fixed questions across 2-3 engines, scoring each competitor 0-3 on the same presence scale. Consistency beats tooling.</p>
+
+<p><strong>How do I score competitor presence?</strong> 0 = absent, 1 = mentioned, 2 = cited, 3 = recommended; weight the revenue-critical subset. Apply the same rubric every cycle and track trends, not point values.</p>
+
+<p><strong>How often should I run competitive AI analysis?</strong> Weekly for priority queries, monthly for the wider library. AI answers drift month to month, so compare trends across four or more cycles.</p>
+
+<p><strong>How do I translate the leaderboard into action?</strong> Find where rivals beat you at cite/recommend level on revenue questions, bucket their sources (owned / earned / platform), and allocate effort to the biggest gap.</p>
+
+      <div class="nav-links">
+        <a href="sheep-framework.html">← SHEEP Framework</a>
+        <a href="../metrics-frameworks.html">📖 Metrics & Frameworks</a>
+        <span></span>
+      </div>
+
+      <div class="comments" id="comments" data-page="/metrics/competitive-ai-analysis.html">
+        <h2>Discussion</h2>
+        <div id="comments-list"><p class="comment-empty">Loading comments…</p></div>
+        <form id="comment-form" autocomplete="off">
+          <input type="text" name="author" placeholder="Your name" maxlength="40" required>
+          <input type="email" name="email" placeholder="Email (optional, never displayed)" maxlength="80">
+          <textarea name="body" placeholder="Share your thoughts or ask a question…" maxlength="1000" required></textarea>
+          <button type="submit">Post comment</button>
+          <div class="comment-msg" id="comment-msg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3QR6VvmXkab0M8Cu",ck:"3QR6VvmXkab0M8Cu"})</script>
+
+
+<script>
+(function(){
+  var box = document.getElementById('comments');
+  if (!box) return;
+  var list = document.getElementById('comments-list');
+  var form = document.getElementById('comment-form');
+  var msg = document.getElementById('comment-msg');
+  function esc(s){ var d=document.createElement('div'); d.textContent=s||''; return d.innerHTML; }
+  function load(){
+    fetch('/api/comments?page=' + encodeURIComponent(box.getAttribute('data-page')))
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        var items = data.comments || [];
+        if (!items.length) { list.innerHTML = '<p class="comment-empty">No comments yet. Start the discussion below.</p>'; return; }
+        list.innerHTML = items.map(function(c){
+          return '<div class="comment-item"><div class="c-meta">' + esc(c.author) + ' · ' + esc(c.date) + '</div><div class="c-body">' + esc(c.body) + '</div></div>';
+        }).join('');
+      })
+      .catch(function(){ list.innerHTML = '<p class="comment-empty">Comments unavailable right now.</p>'; });
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    msg.className = 'comment-msg';
+    msg.textContent = '';
+    var body = form.body.value.trim();
+    if (body.length < 2) { msg.className = 'comment-msg err'; msg.textContent = 'Please write at least 2 characters.'; return; }
+    fetch('/api/comments', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ page: box.getAttribute('data-page'), author: form.author.value.trim(), email: form.email.value.trim(), body: body })
+    })
+    .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); })
+    .then(function(res){
+      if (res.ok) {
+        msg.className = 'comment-msg ok';
+        msg.textContent = res.j.message || 'Thanks! Your comment is awaiting approval.';
+        form.reset();
+        load();
+      } else {
+        msg.className = 'comment-msg err';
+        msg.textContent = (res.j && res.j.error) || 'Could not post your comment.';
+      }
+    })
+    .catch(function(){ msg.className = 'comment-msg err'; msg.textContent = 'Network error — please try again.'; });
+  });
+  load();
+})();
+</script>
+<script>
+document.querySelectorAll('.nav-group-toggle').forEach(function(toggle) {
+  toggle.addEventListener('click', function() {
+    this.parentElement.classList.toggle('open');
+  });
+});
+var active = document.querySelector('.sidebar a.active');
+if (active) {
+  var group = active.closest('.nav-group');
+  if (group) { group.classList.add('open'); }
+}
+</script>
+</body>
+</html>

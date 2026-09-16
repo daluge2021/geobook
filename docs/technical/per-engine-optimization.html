@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1911889082930844" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Per-Engine Optimization: What Each AI Engine Actually Reads - GEO Encyclopedia</title>
+<meta name="description" content="GPTBot, ClaudeBot, PerplexityBot and friends crawl differently, weight different signals, and read llms.txt differently. How per-engine optimization actually works and what to prioritize.">
+<link rel="canonical" href="https://geo010.com/technical/per-engine-optimization.html"/>
+<link rel="alternate" type="application/rss+xml" title="GEO Encyclopedia RSS" href="https://geo010.com/feed.xml">
+<meta property="og:title" content="Per-Engine Optimization: What Each AI Engine Actually Reads - GEO Encyclopedia"/>
+<meta property="og:description" content="GPTBot, ClaudeBot, PerplexityBot crawl differently and weight different signals. Per-engine optimization, in practice, with prioritization and monitoring."/>
+<meta property="og:url" content="https://geo010.com/technical/per-engine-optimization.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="https://geo010.com/og-image.png"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="GEO Encyclopedia"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Per-Engine Optimization: What Each AI Engine Actually Reads - GEO Encyclopedia"/>
+<meta name="twitter:description" content="GPTBot, ClaudeBot, PerplexityBot crawl differently. Prioritize by traffic, behavior, and signals."/>
+<meta name="twitter:image" content="https://geo010.com/og-image.png"/>
+<meta name="keywords" content="per engine optimization,GEO by engine,crawler behavior,GPTBot,ClaudeBot,PerplexityBot,AI crawlers,llms.txt,AI Overviews,citation share per engine,Generative Engine Optimization">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
+  .layout { display: flex; min-height: 100vh; }
+  .sidebar { width: 240px; flex-shrink: 0; background: #1a1a2e; color: #ccc; padding: 32px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+  .sidebar h3 { color: #fff; font-size: 1em; padding: 0 20px; margin-bottom: 20px; }
+  .sidebar a { display: block; padding: 8px 20px; color: #999; text-decoration: none; font-size: 0.9em; transition: all 0.15s; }
+  .sidebar a:hover, .sidebar a.active { color: #fff; background: rgba(255,255,255,0.08); }
+  .sidebar a.active { border-left: 3px solid #4fc3f7; }
+  .sidebar .current { color: #aaa; padding: 8px 20px; font-size: 0.85em; }
+  .sidebar .home-link { margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 12px; font-weight: 500; color: #4fc3f7; }
+  .nav-group-toggle { padding: 8px 20px; color: #aaa; font-size: 0.85em; cursor: pointer; user-select: none; transition: color 0.15s; display: flex; align-items: center; gap: 6px; }
+  .nav-group-toggle:hover { color: #fff; background: rgba(255,255,255,0.05); }
+  .nav-group-links { display: none; }
+  .nav-group.open .nav-group-links { display: block; }
+  .nav-group.open > .nav-group-toggle .arrow { transform: rotate(90deg); }
+  .arrow { display: inline-block; transition: transform 0.2s; font-size: 0.8em; }
+  .glossary-section { margin-top: 12px; border-top: 1px solid #333; padding-top: 12px; }
+  .main { flex: 1; max-width: 800px; margin: 0 auto; padding: 48px 32px 80px; }
+  .content { background: #fff; border-radius: 12px; padding: 40px 48px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .content .breadcrumb { color: #888; font-size: 0.85em; margin-bottom: 16px; }
+  .article-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: #888; font-size: 0.88em; margin: 4px 0 16px; }
+  .article-meta a { color: #0066cc; text-decoration: none; }
+  .article-meta a:hover { text-decoration: underline; }
+  .content .breadcrumb a { color: #0066cc; text-decoration: none; }
+  .content .breadcrumb a:hover { text-decoration: underline; }
+  .content h1 { font-size: 1.5em; margin: 40px 0 12px; color: #1a1a2e; padding-top: 8px; }
+  .content h1:first-of-type { margin-top: 0; }
+  .content h2 { font-size: 1.4em; margin: 32px 0 16px; color: #1a1a2e; padding-bottom: 8px; border-bottom: 1px solid #f0f0f0; }
+  .content h3 { font-size: 1.15em; margin: 24px 0 12px; color: #333; }
+  .content p { margin-bottom: 16px; color: #333; }
+  .content p:last-child { margin-bottom: 0; }
+  .content strong { color: #111; }
+  .content blockquote { margin: 16px 0; padding: 16px 20px; background: #f8f9ff; border-left: 4px solid #4fc3f7; border-radius: 0 8px 8px 0; color: #555; font-style: normal; }
+  .content blockquote strong { color: #1a1a2e; }
+  .content hr { margin: 32px 0; border: none; border-top: 1px solid #e8e8e8; }
+  .content ul, .content ol { margin: 8px 0 16px 24px; }
+  .content li { margin-bottom: 6px; color: #333; }
+  .content table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.93em; }
+  .content th { background: #f0f2f5; padding: 10px 14px; text-align: left; font-weight: 600; color: #333; border: 1px solid #e0e0e0; }
+  .content td { padding: 8px 14px; border: 1px solid #e8e8e8; color: #444; }
+  .content tr:nth-child(even) td { background: #fafafa; }
+  .content code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: #e74c3c; }
+  .content pre { background: #1a1a2e; color: #e6e6e6; border-radius: 8px; padding: 16px 20px; overflow-x: auto; margin: 16px 0 24px; font-size: 0.85em; line-height: 1.6; }
+  .content pre code { background: none; color: inherit; padding: 0; font-size: 1em; }
+  .content img { max-width: 100%; border-radius: 8px; margin: 16px 0; }
+  .glossary-link { color: #0066cc; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+  .glossary-link:hover { color: #004499; text-decoration-style: solid; }
+  .nav-links { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; }
+  .nav-links a { color: #0066cc; text-decoration: none; font-size: 0.95em; }
+  .nav-links a:hover { text-decoration: underline; }
+  .comments { margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; }
+  .comments h2 { font-size: 1.3em; margin-bottom: 16px; }
+  .comment-item { background: #fafbfc; border: 1px solid #eee; border-radius: 8px; padding: 14px 18px; margin-bottom: 12px; }
+  .comment-item .c-meta { color: #666; font-size: 0.85em; margin-bottom: 4px; }
+  .comment-item .c-body { color: #333; font-size: 0.95em; white-space: pre-wrap; word-break: break-word; }
+  .comment-empty { color: #999; font-size: 0.9em; margin-bottom: 12px; }
+  #comment-form { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+  #comment-form input, #comment-form textarea { font-family: inherit; font-size: 0.95em; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; background: #fff; color: #333; }
+  #comment-form textarea { min-height: 90px; resize: vertical; }
+  #comment-form button { align-self: flex-start; background: #1a1a2e; color: #fff; border: none; border-radius: 6px; padding: 10px 22px; font-size: 0.95em; cursor: pointer; }
+  #comment-form button:hover { background: #2a2a44; }
+  .comment-msg { font-size: 0.9em; margin-top: 4px; }
+  .comment-msg.ok { color: #2e7d32; }
+  .comment-msg.err { color: #c62828; }
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 24px 16px; }
+    .content { padding: 24px 20px; border-radius: 8px; }
+    .content h1 { font-size: 1.3em; }
+    .content h2 { font-size: 1.2em; }
+    .nav-links { flex-direction: column; gap: 12px; }
+  }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+</style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Per-Engine Optimization: What Each AI Engine Actually Reads",
+  "description": "GPTBot, ClaudeBot, PerplexityBot and friends crawl differently, weight different signals, and read llms.txt differently. How per-engine optimization actually works and what to prioritize.",
+  "author": { "@type": "Organization", "name": "GEO Encyclopedia Editorial Team", "url": "https://geo010.com/about.html" },
+  "datePublished": "2026-09-16",
+  "dateModified": "2026-09-16",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/technical/per-engine-optimization.html" },
+  "publisher": { "@type": "Organization", "name": "GEO Encyclopedia", "url": "https://geo010.com" },
+  "inLanguage": "en"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://geo010.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Technical Implementation",
+      "item": "https://geo010.com/technical-implementation.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Per-Engine Optimization: What Each AI Engine Actually Reads",
+      "item": "https://geo010.com/technical/per-engine-optimization.html"
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does GEO work the same way on every AI engine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Engines crawl differently (GPTBot traverses the whole site, ClaudeBot follows sitemaps closely, PerplexityBot verifies with live crawling), weight different trust signals, and only some read llms.txt at all. A single baseline setup works everywhere; per-engine layers then adapt weighting, controls, and monitoring."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which AI crawlers should I prioritize?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Prioritize the engines your audience actually uses, not all of them. Rank by three inputs: referral traffic you observe (mind your referral path is often zero-click), which engines your category research uses (Perplexity answers list many more sources than ChatGPT), and which engines you can actually measure. Start with GPTBot and ClaudeBot for index coverage, add PerplexityBot when you can measure it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do all AI engines read llms.txt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Only a minority of engines and tooling read llms.txt today, and Google has stated its AI products are not using it. Publish it anyway as a low-cost, engine-agnostic control file, but never make llms.txt the only channel — crawlers cannot reach content that does not exist on the rendered page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I optimize for each engine without making extra content sets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keep the baseline answer-first content universal, then apply small per-engine layers: per-engine robots rules and rate tiers, sitemap segmentation, llms.txt section weights, and engine-aware monitoring. You optimize distribution and discovery per engine; the underlying answer asset stays the same. This keeps the work proportional."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h3>📖 GEO Encyclopedia</h3>
+    <a href="../index.html" class="home-link">🏠 Home</a>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> I. Fundamentals</div>
+      <div class="nav-group-links">
+        <a href="../fundamentals/what-is-geo.html">What is GEO?</a>
+        <a href="../fundamentals/seo-vs-geo.html">Is SEO Dead?</a>
+        <a href="../fundamentals/eeat-trust-mechanism.html">E-E-A-T Trust</a>
+        <a href="../fundamentals/llms-txt-guide.html">LLMs.txt Guide</a>
+        <a href="../fundamentals/answer-assetization.html">Answer Assetization</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> II. Metrics</div>
+      <div class="nav-group-links">
+        <a href="../metrics/citation-share.html">Citation Share</a>
+        <a href="../metrics/entity-density.html">Entity Density</a>
+        <a href="../metrics/sheep-framework.html">SHEEP Framework</a>
+        <a href="../metrics/competitive-ai-analysis.html">Competitive AI Analysis</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> III. Models</div>
+      <div class="nav-group-links">
+        <a href="../models/3c-optimization-model.html">3C Model</a>
+        <a href="../models/geo-evolution.html">GEO Evolution</a>
+        <a href="../models/source-authority.html">Source Authority</a>
+        <a href="../models/geo-vs-aeo.html">GEO vs AEO</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IV. Content</div>
+      <div class="nav-group-links">
+        <a href="../content/eeat-in-geo.html">E-E-A-T in GEO</a>
+        <a href="../content/knowledge-entropy.html">Knowledge Entropy</a>
+        <a href="../content/backlinks-in-geo.html">Backlinks in GEO</a>
+        <a href="../content/source-matrix-strategy.html">Source Matrix</a>
+        <a href="../content/topical-authority.html">Topical Authority</a>
+        <a href="../content/content-freshness.html">Content Freshness</a>
+        <a href="../content/multimodal-content.html">Multimodal Content</a>
+        <a href="../content/question-driven-strategy.html">Question-Driven Strategy</a>
+        <a href="../content/local-geo-longtail.html">Local GEO</a>
+      </div>
+    </div>
+    <div class="nav-group open">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> V. Technical</div>
+      <div class="nav-group-links">
+        <a href="../technical/schema-markup-guide.html">Schema Markup</a>
+        <a href="../technical/llms-txt-advanced.html">LLMs.txt Advanced</a>
+        <a href="../technical/entity-knowledge-graph.html">Entity & Knowledge Graph</a>
+        <a href="../technical/ai-crawler-management.html">AI Crawler Management</a>
+        <a href="../technical/geo-monitoring-tools.html">Monitoring Tools</a>
+        <a href="../technical/agenticgeo-tools.html">AgenticGEO</a>
+        <a href="../technical/tech-stack-overview.html">Tech Stack Overview</a>
+        <a href="../technical/track-ai-citations.html">Track AI Citations</a>
+        <a href="../technical/geo-tools-review.html">Tool Reviews</a>
+        <a href="per-engine-optimization.html" class="active">Per-Engine Optimization</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VI. Brand</div>
+      <div class="nav-group-links">
+        <a href="../brand/brand-as-source.html">Brand as Source</a>
+        <a href="../brand/eeat-brand-implementation.html">EEAT Brand</a>
+        <a href="../brand/crisis-pr-geo.html">Crisis PR</a>
+        <a href="../brand/ai-hallucination-protection.html">Hallucination Protection</a>
+        <a href="../brand/multi-brand-geo.html">Multi-Brand</a>
+        <a href="../brand/ecommerce-geo.html">E-Commerce</a>
+        <a href="../brand/b2b-brand-geo.html">B2B Brand</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VII. Industry</div>
+      <div class="nav-group-links">
+        <a href="../industry/healthcare-geo.html">Healthcare</a>
+        <a href="../industry/finance-geo.html">Finance</a>
+        <a href="../industry/education-geo.html">Education</a>
+        <a href="../industry/legal-geo.html">Legal</a>
+        <a href="../industry/local-services-geo.html">Local Services</a>
+        <a href="../industry/manufacturing-geo.html">Manufacturing</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VIII. Cases</div>
+      <div class="nav-group-links">
+        <a href="../cases/zero-to-one-roadmap.html">Zero to One</a>
+        <a href="../cases/full-process-case.html">Full Case Study</a>
+        <a href="../cases/geo-ai-audit.html">AI-Readiness Audit</a>
+        <a href="../cases/black-hat-prevention.html">Black Hat Prevention</a>
+        <a href="../cases/geo-future-trends.html">Future Trends</a>
+        <a href="../cases/what-ai-assistants-say-citation-share.html">AI Answers: Citation Share</a>
+        <a href="../cases/what-ai-assistants-say-entity-density.html">AI Answers: Entity Density</a>
+        <a href="../cases/geo-timeline.html">GEO Timeline</a>
+        <a href="../cases/why-ai-answers-vary.html">Why AI Answers Vary</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IX. Data</div>
+      <div class="nav-group-links">
+        <a href="../data/core-metrics-system.html">Core Metrics</a>
+        <a href="../data/roi-calculation.html">ROI Calculator</a>
+        <a href="../data/crawler-behavior-data.html">Crawler Behavior Data</a>
+
+        <a href="../data/data-dashboard-setup.html">Data Dashboard</a>
+        <a href="../data/geo-benchmarks.html">GEO Benchmarks</a>
+        <a href="../data/ai-referral-attribution.html">AI Referral Attribution</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> 💬 Community</div>
+      <div class="nav-group-links">
+        <a href="../community.html">Community Home</a>
+        <a href="../community/what-is-json-ld.html">What is JSON-LD?</a>
+        <a href="../community/geo-content-template.html">The GEO Content Template</a>
+        <a href="../community/one-week-geo-readiness.html">One-Week GEO Readiness</a>
+        <a href="../community/two-week-crawler-data.html">Two-Week Crawler Data</a>
+        <a href="../community/geo-impact-attribution-new-site.html">Crawler Impact & Launch Checklist</a>
+      </div>
+    </div>
+  <div class="current glossary-section">📌 Glossary</div>
+  <a href="../glossary/geo.html">GEO</a>
+  <a href="../glossary/seo.html">SEO</a>
+  <a href="../glossary/rag.html">RAG</a>
+  <a href="../glossary/eeat.html">E-E-A-T</a>
+  <a href="../glossary/llms-txt.html">LLMs.txt</a>
+  <a href="../glossary/zero-click.html">Zero-Click Search</a>
+  <a href="../glossary/schema.html">Schema</a>
+  <a href="../glossary/answer-asset.html">Answer Assetization</a>
+  <a href="../glossary/ai-visibility.html">AI Visibility Index</a>
+  <a href="../glossary/ymyl.html">YMYL</a>
+  <div class="current glossary-section">📄 About</div>
+  <a href="../about.html">About &amp; Editorial Standards</a>
+  <a href="../privacy.html">Privacy Policy</a>
+  </nav>
+  <div class="main">
+    <div class="content">
+      <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../technical-implementation.html">Technical Implementation</a> › Per-Engine Optimization: What Each AI Engine Actually Reads</div>
+
+<div class="article-meta"><span>By <a href="../about.html">GEO Encyclopedia Editorial Team</a></span><span>·</span><span>Updated: 2026-09-16</span><span>·</span><span>Crawler behavior: observed on geo010.com + vendor documentation</span></div>
+
+<h1>Per-Engine Optimization: What Each AI Engine Actually Reads</h1>
+
+<blockquote>"Optimize for ChatGPT" and "optimize for Perplexity" are not the same instruction. The crawlers behave differently, the engines weight differently, and one llms.txt does not reach all of them. Per-engine optimization is the layer of GEO you apply after the baseline — not instead of it.</blockquote>
+<blockquote>This article covers the real, observable differences between the major engine crawlers we track, which signals each one weights, and a prioritization method that keeps the work proportional.</blockquote>
+
+<hr>
+
+<h2>The Baseline Is Still Everything</h2>
+
+<p>Before any engine-specific layer, the non-negotiable baseline is the same for every engine:</p>
+
+<ul>
+  <li>Fetchable, likeable, compressible pages answers can cite.</li>
+  <li>Answer-first structure with the question and answer in the first block (<a href="../fundamentals/answer-assetization.html">answer assetization</a>).</li>
+  <li>Entity-annotated content with consistent internal links (<a href="../technical/entity-knowledge-graph.html">entity graph</a>).</li>
+  <li>A published <code>llms.txt</code> (<a href="../fundamentals/llms-txt-guide.html">guide</a>) and stable <code>robots.txt</code> rules for known AI user-agents (<a href="../technical/ai-crawler-management.html">crawler management</a>).</li>
+</ul>
+
+<p>This baseline gets you the first 90 percent of coverage on every engine at once. Per-engine work is about the marginal differences — and about <strong>not assuming one engine's behavior applies to another</strong>.</p>
+
+<h2>What the Major Crawlers Actually Do Differently</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Crawler / surface</th><th>Discovery pattern</th><th>Response to sitemap & llms.txt</th><th>Weighted signals</th><th>Observed on geo010.com</th></tr></thead><tbody>
+<tr><td><strong>GPTBot (ChatGPT)</strong></td><td>Deep full-site traversal; visits many pages per session</td><td>Reads sitemaps; llms.txt usage not guaranteed</td><td>Content depth, freshness, entity coverage</td><td>Full-site traversal within the first days; steady re-crawl cadence</td></tr>
+<tr><td><strong>ClaudeBot (Claude)</strong></td><td>Methodical, sitemap-first traversal</td><td>Follows sitemap closely; periodic full re-scans documented</td><td>Source trust, consistency, structured data</td><td>Shares/robots respected daily; repeats sitemap-first pattern</td></tr>
+<tr><td><strong>PerplexityBot (Perplexity)</strong></td><td>On-demand "verify" fetching, plus background crawling</td><td>Uses sitemaps; sends multiple fetch rounds per answer</td><td>Live verification, freshness, citation density</td><td>Verify bursts on freshly published pages — good to keep pages current</td></tr>
+<tr><td><strong>Google-Extended</strong></td><td>Tied to Google's crawl infrastructure</td><td>Uses the Googlebot pipeline; ignores llms.txt</td><td>Same as Google ranking + retrieval</td><td>Stable daily crawl; distinct from regular Googlebot</td></tr>
+<tr><td><strong>Other LLM agents (industry-specific tools)</strong></td><td>Bursty, query-driven</td><td>Variable; some read llms.txt via agent tooling</td><td>Siloed: citation lists, tool docs, review pages</td><td>Rare but spiky; not worth daily attention</td></tr>
+</tbody></table></div>
+
+<p>The pattern in our data: <strong>GPTBot gives you broad index coverage, ClaudeBot gives you disciplined sitemap-driven coverage, and PerplexityBot re-fetches on demand so freshness and plain-language accuracy matter more there.</strong> Garbage in, different garbage out.</p>
+
+<h2>llms.txt: The Engine-Agnostic Misunderstanding</h2>
+
+<p>Public datasets we track still show the same reality: only a minority of domains publish <code>llms.txt</code> at all, almost all of them receive zero crawler requests for it, and Google has stated its AI products are not consuming it. Publishing llms.txt stays worthwhile — it is a low-cost, standard, engine-agnostic control file (<a href="../technical/llms-txt-advanced.html">advanced guide</a>) — but it must not be your only channel.</p>
+
+<p>Two consequences for per-engine work:</p>
+
+<ul>
+  <li><strong>Do not build an entire strategy on llms.txt.</strong> Verify in your server logs whether engines actually request it; many do not.</li>
+  <li><strong>Do not trust llms.txt to reach every engine.</strong> Content that exists only in llms.txt is invisible to engines that ignore it. Every important answer must also exist on a rendered page.</li>
+</ul>
+
+<h2>Per-Engine Layers to Apply</h2>
+
+<div class="table-wrap"><table><thead><tr><th>Layer</th><th>What changes</th><th>Example</th></tr></thead><tbody>
+<tr><td><strong>Robots / rate tiers</strong></td><td>Per-user-agent allowances and crawl-rate hints</td><td>Full crawl for GPTBot; throttle the bursty verify bots at peak hours</td></tr>
+<tr><td><strong>Sitemap segmentation</strong></td><td>Order and weight pages per engine</td><td>News/case pages high in the Perplexity-facing sitemap; evergreen high for GPTBot</td></tr>
+<tr><td><strong>llms.txt sections</strong></td><td>Reorder/trim per audience blocks</td><td>Keep product answers first for commerce tools; docs for technical agents</td></tr>
+<tr><td><strong>Freshness cadence</strong></td><td>Update signal per engine</td><td>Refresh the pages Perplexity re-verifies often; leave stable docs untouched</td></tr>
+<tr><td><strong>Structured data</strong></td><td>Higher entity-recall weight</td><td>FAQPage around answers engines often surface as direct quotes</td></tr>
+<tr><td><strong>Monitoring split</strong></td><td>Citation share broken down per engine</td><td>Count ChatGPT mentions separately from Perplexity mentions</td></tr>
+</tbody></table></div>
+
+<p>The rule of thumb: keep every answer in one universal asset, then apply layers for <strong>distribution</strong> (robots, sitemaps, llms.txt sections) and <strong>measurement</strong> (per-engine citation counts) rather than producing separate content per engine.</p>
+
+<h2>Prioritization: The Three-Input Ranking</h2>
+
+<p>With limited budget, rank engines by three inputs, in order:</p>
+
+<ol>
+  <li><strong>Where your audience is.</strong> Not where "AI is hottest" — where <em>your</em> buyers ask questions. If your category research happens in Perplexity (many-source, list-heavy answers), Perplexity outranks ChatGPT for you even though ChatGPT has more users.</li>
+  <li><strong>Where you can observe a change.</strong> An engine you cannot measure is a program you cannot run (<a href="../technical/geo-monitoring-tools.html">monitoring tools</a>). Start with the engines your logs and trackers can actually split out.</li>
+  <li><strong>Where competitors already win.</strong> Use a competitive sweep (<a href="../metrics/competitive-ai-analysis.html">competitive AI analysis</a>) to see whose brand already appears in each engine's answers; that is your real priority signal.</li>
+</ol>
+
+<p>A pragmatic starting split: <strong>GPTBot and ClaudeBot first for index coverage; then PerplexityBot once you can measure its verify traffic and citation share; AI Overviews as a Google-adjacent surface you monitor regionally.</strong></p>
+
+<h2>Measuring Per-Engine Performance</h2>
+
+<p>Split the same core indicators by engine:</p>
+
+<ul>
+  <li><strong>Index coverage:</strong> per-engine pages fetched and re-fetched, in your server logs (<a href="../data/crawler-behavior-data.html">crawler data</a>).</li>
+  <li><strong>Completeness:</strong> which sitemap sections each engine actually traverses.</li>
+  <li><strong>Citation share:</strong> per-engine mentions of your brand in generated answers (<a href="../metrics/citation-share.html">citation share</a>).</li>
+  <li><strong>Answer path:</strong> zero-click presence vs brand-visit lift, per engine (<a href="../data/ai-referral-attribution.html">attribution</a>).</li>
+</ul>
+
+<p>Put the split view on your dashboard (<a href="../data/data-dashboard-setup.html">dashboard guide</a>) so you spot one engine regressing while the others hold — that is the first sign of a per-engine control or freshness issue, not a strategy failure.</p>
+
+<h2>FAQ</h2>
+
+<p><strong>Does GEO work the same way on every AI engine?</strong> No. Discovery, trust weighting, and llms.txt usage differ per engine. A universal baseline plus small per-engine layers is the correct scope.</p>
+
+<p><strong>Which AI crawlers should I prioritize?</strong> The engines your audience actually uses, where you can measure a change, and where competitors already win. Start with GPTBot and ClaudeBot for coverage, add PerplexityBot when measurable.</p>
+
+<p><strong>Do all AI engines read llms.txt?</strong> No. Only a minority read it and Google's AI products are not using it. Publish it as a low-cost standard control file, never as the only channel.</p>
+
+<p><strong>How do I optimize for each engine without making extra content sets?</strong> Universal answer assets plus per-engine layers on distribution, freshness, structured data, and monitoring. You optimize reach per engine; the answer stays the same.</p>
+
+      <div class="nav-links">
+        <a href="geo-tools-review.html">← Tool Reviews</a>
+        <a href="../technical-implementation.html">📖 Technical Implementation</a>
+        <span></span>
+      </div>
+
+      <div class="comments" id="comments" data-page="/technical/per-engine-optimization.html">
+        <h2>Discussion</h2>
+        <div id="comments-list"><p class="comment-empty">Loading comments…</p></div>
+        <form id="comment-form" autocomplete="off">
+          <input type="text" name="author" placeholder="Your name" maxlength="40" required>
+          <input type="email" name="email" placeholder="Email (optional, never displayed)" maxlength="80">
+          <textarea name="body" placeholder="Share your thoughts or ask a question…" maxlength="1000" required></textarea>
+          <button type="submit">Post comment</button>
+          <div class="comment-msg" id="comment-msg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3QR6VvmXkab0M8Cu",ck:"3QR6VvmXkab0M8Cu"})</script>
+
+
+<script>
+(function(){
+  var box = document.getElementById('comments');
+  if (!box) return;
+  var list = document.getElementById('comments-list');
+  var form = document.getElementById('comment-form');
+  var msg = document.getElementById('comment-msg');
+  function esc(s){ var d=document.createElement('div'); d.textContent=s||''; return d.innerHTML; }
+  function load(){
+    fetch('/api/comments?page=' + encodeURIComponent(box.getAttribute('data-page')))
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        var items = data.comments || [];
+        if (!items.length) { list.innerHTML = '<p class="comment-empty">No comments yet. Start the discussion below.</p>'; return; }
+        list.innerHTML = items.map(function(c){
+          return '<div class="comment-item"><div class="c-meta">' + esc(c.author) + ' · ' + esc(c.date) + '</div><div class="c-body">' + esc(c.body) + '</div></div>';
+        }).join('');
+      })
+      .catch(function(){ list.innerHTML = '<p class="comment-empty">Comments unavailable right now.</p>'; });
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    msg.className = 'comment-msg';
+    msg.textContent = '';
+    var body = form.body.value.trim();
+    if (body.length < 2) { msg.className = 'comment-msg err'; msg.textContent = 'Please write at least 2 characters.'; return; }
+    fetch('/api/comments', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ page: box.getAttribute('data-page'), author: form.author.value.trim(), email: form.email.value.trim(), body: body })
+    })
+    .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); })
+    .then(function(res){
+      if (res.ok) {
+        msg.className = 'comment-msg ok';
+        msg.textContent = res.j.message || 'Thanks! Your comment is awaiting approval.';
+        form.reset();
+        load();
+      } else {
+        msg.className = 'comment-msg err';
+        msg.textContent = (res.j && res.j.error) || 'Could not post your comment.';
+      }
+    })
+    .catch(function(){ msg.className = 'comment-msg err'; msg.textContent = 'Network error — please try again.'; });
+  });
+  load();
+})();
+</script>
+<script>
+document.querySelectorAll('.nav-group-toggle').forEach(function(toggle) {
+  toggle.addEventListener('click', function() {
+    this.parentElement.classList.toggle('open');
+  });
+});
+var active = document.querySelector('.sidebar a.active');
+if (active) {
+  var group = active.closest('.nav-group');
+  if (group) { group.classList.add('open'); }
+}
+</script>
+</body>
+</html>

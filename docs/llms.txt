@@ -1,6 +1,6 @@
 # GEO Encyclopedia
 
-> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 61 in-depth articles across 9 chapters plus a Community hub, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
+> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 70 in-depth articles across 9 chapters plus a Community hub, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
 
 ## Quick Answers (AI-Priority Citations)
 
@@ -53,18 +53,21 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 - [What is Citation Share?](https://geo010.com/metrics/citation-share.html): The core GEO metric measuring how often AI cites your brand.
 - [What is Entity Association Density?](https://geo010.com/metrics/entity-density.html): The GEO metric measuring how interconnected and cross-referenced the entities in your content are — whether an article presents one isolated concept or a web of related knowledge. Backed by Yext's 6.8-million-citation study (86% of citations from brand-managed sources).
 - [What is the SHEEP Framework?](https://geo010.com/metrics/sheep-framework.html): A five-step framework for evaluating AI-generated search results.
+- [How to Run a Competitive AI Analysis?](https://geo010.com/metrics/competitive-ai-analysis.html): A repeatable sweep of who wins AI answers in your category — engine scoring, data collection, and a one-page report template.
 
 ## III. Models & Methods
 
 - [What is the 3C Optimization Model?](https://geo010.com/models/3c-optimization-model.html): Credibility, Clarity, and Context as the three levers of GEO.
 - [How Has GEO Evolved?](https://geo010.com/models/geo-evolution.html): Timeline from the Princeton paper to AutoGEO and AgenticGEO.
 - [What is Source Authority?](https://geo010.com/models/source-authority.html): How AI evaluates source authority and the 86% controllable-citation finding.
+- [GEO vs AEO: What's the Difference and How They Overlap](https://geo010.com/models/geo-vs-aeo.html): Answer Engine Optimization targets snippets and voice; GEO targets LLM-generated answers — origins, mechanisms, metrics, and one asset serving both.
 
 ## IV. Content Strategy
 
 - [How to Apply E-E-A-T in GEO Content?](https://geo010.com/content/eeat-in-geo.html): Practical content rules that build AI trust signals.
 - [What is Knowledge Entropy?](https://geo010.com/content/knowledge-entropy.html): Why fragmented content loses to consolidated answer assets.
 - [How Do Backlinks Work in GEO?](https://geo010.com/content/backlinks-in-geo.html): How link signals feed AI source selection.
+- [The Source Matrix Strategy: Planning Every Type of Digital Real Estate](https://geo010.com/content/source-matrix-strategy.html): Owning the four linked corporate assets — owned site, community answers, directories, guest placements — that AI retrieves and cross-verifies.
 - [What is Topical Authority?](https://geo010.com/content/topical-authority.html): Building depth so AI treats you as a category authority.
 - [How Important is Content Freshness for GEO?](https://geo010.com/content/content-freshness.html): How updated content improves AI citation likelihood.
 - [How to Optimize Multimodal Content?](https://geo010.com/content/multimodal-content.html): Images, video, and other formats in AI retrieval.
@@ -83,12 +86,14 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 - [What is AgenticGEO?](https://geo010.com/technical/agenticgeo-tools.html): How agent-based tools automate GEO workflows.
 - [GEO Tech Stack Overview](https://geo010.com/technical/tech-stack-overview.html): The full toolkit for running a GEO program.
 - [GEO Tools & Software Review](https://geo010.com/technical/geo-tools-review.html): Honest review of AI visibility trackers, schema generators, content optimizers, and DIY crawler monitoring.
+- [Per-Engine Optimization: What Each AI Engine Actually Reads](https://geo010.com/technical/per-engine-optimization.html): GPTBot, ClaudeBot, PerplexityBot and friends crawl differently — per-engine layers beyond the baseline, with prioritization and monitoring.
 
 ## VI. Brand Strategy
 
 - [How to Build Brand as an AI-Recognized Source?](https://geo010.com/brand/brand-as-source.html): Making your brand the named source AI cites.
 - [How to Implement E-E-A-T Brand Strategy?](https://geo010.com/brand/eeat-brand-implementation.html): Aligning brand operations with AI trust requirements.
 - [How to Handle Brand Crisis via GEO?](https://geo010.com/brand/crisis-pr-geo.html): Managing reputation in AI answer engines.
+- [How to Protect Your Brand from AI Hallucinations?](https://geo010.com/brand/ai-hallucination-protection.html): Confusion, misinformation, and invented facts about your brand — and the defensive content, monitoring, and correction playbook.
 - [How to Do Multi-Brand GEO Strategy?](https://geo010.com/brand/multi-brand-geo.html): Coordinating GEO across brand portfolios.
 - [How to Optimize E-Commerce for GEO?](https://geo010.com/brand/ecommerce-geo.html): Making products and merchants appear in AI shopping answers.
 - [How to Do B2B Brand GEO Strategy?](https://geo010.com/brand/b2b-brand-geo.html): Winning AI referrals for enterprise brands.
@@ -113,6 +118,8 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 - [What are GEO Future Trends?](https://geo010.com/cases/geo-future-trends.html): Where AI search and GEO are heading.
 - [What AI Assistants Say About Citation Share](https://geo010.com/cases/what-ai-assistants-say-citation-share.html): A September 2026 field test comparing how ChatGPT, Claude, Perplexity and Grok define citation share — the shared formula, the two denominator camps, and the ~12% ranking-to-citation overlap.
 - [What AI Assistants Say About Entity Density](https://geo010.com/cases/what-ai-assistants-say-entity-density.html): Four engines on an unstandardized metric — and how Claude reproduced this site's definition verbatim with a source link.
+- [A Realistic GEO Timeline: What to Expect When](https://geo010.com/cases/geo-timeline.html): The honest stages of GEO — crawl readiness, visibility, and category position — with observed 2-4 week and 3-6 month milestones from real programs.
+- [Why AI Answers Vary: What You Can Control](https://geo010.com/cases/why-ai-answers-vary.html): Engine drift, updates, randomness, and changing query intent — and why a citation baseline survives answers that differ day to day.
 
 ## IX. Data & Formulas
 
@@ -120,6 +127,8 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 - [How to Calculate GEO ROI?](https://geo010.com/data/roi-calculation.html): Formulas for valuing AI citations and referrals.
 - [How to Build a GEO Data Dashboard?](https://geo010.com/data/data-dashboard-setup.html): Setting up tracking infrastructure for GEO KPIs.
 - [AI Crawler Behavior Report](https://geo010.com/data/crawler-behavior-data.html): 12-day, 4,115-hit analysis of how AI crawlers actually visit a live GEO site — Bingbot dominance, ClaudeBot consistency, OpenAI's two behaviors, and what it means for citation share.
+- [GEO Benchmarks: What Good Looks Like by Industry](https://geo010.com/data/geo-benchmarks.html): The working reference bands — citation rates, source counts, citation share leadership, and community-platform share — with how to set your own benchmark honestly.
+- [AI Referral Attribution: When Ethically Possible](https://geo010.com/data/ai-referral-attribution.html): Tracking the zero-click path — brand-search uplift, direct visits, and prompt-aware tracking — where attribution is tractable and where it is not.
 
 ## 💬 Community
 
@@ -152,4 +161,4 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 
 ## No Private Pages
 
-- All content is public knowledge. AI crawlers welcome. Last updated 2026-09-13.
+- All content is public knowledge. AI crawlers welcome. Last updated 2026-09-16.

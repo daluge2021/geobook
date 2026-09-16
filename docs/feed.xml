@@ -3,10 +3,10 @@
 <channel>
   <title>GEO Encyclopedia</title>
   <link>https://geo010.com</link>
-  <description>61 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
+  <description>70 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
   <language>en</language>
   <atom:link href="https://geo010.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 01 Sep 2026 00:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 16 Sep 2026 00:00:00 +0000</lastBuildDate>
   <item>
     <title>GEO Quick Start Checklist - 15-Minute Setup for AI Visibility</title>
     <link>https://geo010.com/fundamentals/geo-quick-start-checklist.html</link>
@@ -440,6 +440,69 @@
     <guid>https://geo010.com/cases/what-ai-assistants-say-entity-density.html</guid>
     <pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
     <description>Four engines on an unstandardized metric - and how Claude reproduced GEO Encyclopedia's entity association density definition verbatim with a source link.</description>
+  </item>
+  <item>
+    <title>GEO Benchmarks: What Good Looks Like by Industry</title>
+    <link>https://geo010.com/data/geo-benchmarks.html</link>
+    <guid>https://geo010.com/data/geo-benchmarks.html</guid>
+    <pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
+    <description>The working reference bands for GEO performance - citation rates, sources per answer, citation-share leadership, and community-platform share - and how to set your own benchmark honestly instead of trusting a vendor number.</description>
+  </item>
+  <item>
+    <title>AI Referral Attribution: When Ethically Possible</title>
+    <link>https://geo010.com/data/ai-referral-attribution.html</link>
+    <guid>https://geo010.com/data/ai-referral-attribution.html</guid>
+    <pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
+    <description>How to track the zero-click path from AI answers to your brand - brand-search uplift, direct visits, and prompt-aware tracking where attribution is tractable, and why raw referral reports miss most of it.</description>
+  </item>
+  <item>
+    <title>How to Protect Your Brand from AI Hallucinations?</title>
+    <link>https://geo010.com/brand/ai-hallucination-protection.html</link>
+    <guid>https://geo010.com/brand/ai-hallucination-protection.html</guid>
+    <pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
+    <description>Confusion, misinformation, and invented facts about your brand in generated answers - the defensive content playbook, monitoring, and correction workflow to shrink the surface area the models can hallucinate about.</description>
+  </item>
+  <item>
+    <title>The Source Matrix Strategy: Planning Every Type of Digital Real Estate</title>
+    <link>https://geo010.com/content/source-matrix-strategy.html</link>
+    <guid>https://geo010.com/content/source-matrix-strategy.html</guid>
+    <pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
+    <description>Own the four linked corporate assets that AI retrieves and cross-verifies - owned site, community answers, directories, and guest placements - and plan coverage so your sources corroborate each other.</description>
+  </item>
+  <item>
+    <title>A Realistic GEO Timeline: What to Expect When</title>
+    <link>https://geo010.com/cases/geo-timeline.html</link>
+    <guid>https://geo010.com/cases/geo-timeline.html</guid>
+    <pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
+    <description>The honest stages of GEO - crawl readiness, visibility, and category position - with observed 2-4 week and 3-6 month milestones from real programs, and the variables that stretch every timeline.</description>
+  </item>
+  <item>
+    <title>Why AI Answers Vary: What You Can Control</title>
+    <link>https://geo010.com/cases/why-ai-answers-vary.html</link>
+    <guid>https://geo010.com/cases/why-ai-answers-vary.html</guid>
+    <pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
+    <description>Engine drift, model updates, decoding randomness, and changing query intent explain the daily answer churn - and a citation baseline survives answers that differ from one day to the next.</description>
+  </item>
+  <item>
+    <title>Competitive AI Analysis: Benchmarking Your Market</title>
+    <link>https://geo010.com/metrics/competitive-ai-analysis.html</link>
+    <guid>https://geo010.com/metrics/competitive-ai-analysis.html</guid>
+    <pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
+    <description>A repeatable sweep of who wins AI answers in your category - engine scoring, citation counting, mention-type classification, and a one-page report template you run monthly.</description>
+  </item>
+  <item>
+    <title>GEO vs AEO: What's the Difference and How They Overlap</title>
+    <link>https://geo010.com/models/geo-vs-aeo.html</link>
+    <guid>https://geo010.com/models/geo-vs-aeo.html</guid>
+    <pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
+    <description>Answer Engine Optimization targets snippets and voice; GEO targets LLM-generated answers. Origins, mechanisms, metrics, and how one content asset serves both without confusing the two measurement chains.</description>
+  </item>
+  <item>
+    <title>Per-Engine Optimization: What Each AI Engine Actually Reads</title>
+    <link>https://geo010.com/technical/per-engine-optimization.html</link>
+    <guid>https://geo010.com/technical/per-engine-optimization.html</guid>
+    <pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
+    <description>GPTBot, ClaudeBot and PerplexityBot crawl differently and weight different signals. The per-engine layers to apply beyond the baseline, the three-input prioritization method, and per-engine measurement.</description>
   </item>
 </channel>
 </rss>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1911889082930844" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Protect Your Brand from AI Hallucinations - GEO Encyclopedia</title>
+<meta name="description" content="AI models will occasionally state false facts about your brand. Learn the four-layer protection stack that makes true facts easiest to retrieve, what correction routes exist, and what to monitor before a wrong answer spreads.">
+<link rel="canonical" href="https://geo010.com/brand/ai-hallucination-protection.html"/>
+<link rel="alternate" type="application/rss+xml" title="GEO Encyclopedia RSS" href="https://geo010.com/feed.xml">
+<meta property="og:title" content="How to Protect Your Brand from AI Hallucinations - GEO Encyclopedia"/>
+<meta property="og:description" content="A four-layer protection stack against AI hallucinating your brand: structured truth, retrieval-proofing, citations, and a correction-and-monitoring loop."/>
+<meta property="og:url" content="https://geo010.com/brand/ai-hallucination-protection.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="https://geo010.com/og-image.png"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="GEO Encyclopedia"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="How to Protect Your Brand from AI Hallucinations - GEO Encyclopedia"/>
+<meta name="twitter:description" content="A four-layer protection stack against AI hallucinating your brand."/>
+<meta name="twitter:image" content="https://geo010.com/og-image.png"/>
+<meta name="keywords" content="AI hallucination brand protection,hallucination prevention,GEO brand safety,false AI answers,brand mention monitoring,AI misinformation correction,structured data trust,Generative Engine Optimization,brand defense">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
+  .layout { display: flex; min-height: 100vh; }
+  .sidebar { width: 240px; flex-shrink: 0; background: #1a1a2e; color: #ccc; padding: 32px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+  .sidebar h3 { color: #fff; font-size: 1em; padding: 0 20px; margin-bottom: 20px; }
+  .sidebar a { display: block; padding: 8px 20px; color: #999; text-decoration: none; font-size: 0.9em; transition: all 0.15s; }
+  .sidebar a:hover, .sidebar a.active { color: #fff; background: rgba(255,255,255,0.08); }
+  .sidebar a.active { border-left: 3px solid #4fc3f7; }
+  .sidebar .current { color: #aaa; padding: 8px 20px; font-size: 0.85em; }
+  .sidebar .home-link { margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 12px; font-weight: 500; color: #4fc3f7; }
+  .nav-group-toggle { padding: 8px 20px; color: #aaa; font-size: 0.85em; cursor: pointer; user-select: none; transition: color 0.15s; display: flex; align-items: center; gap: 6px; }
+  .nav-group-toggle:hover { color: #fff; background: rgba(255,255,255,0.05); }
+  .nav-group-links { display: none; }
+  .nav-group.open .nav-group-links { display: block; }
+  .nav-group.open > .nav-group-toggle .arrow { transform: rotate(90deg); }
+  .arrow { display: inline-block; transition: transform 0.2s; font-size: 0.8em; }
+  .glossary-section { margin-top: 12px; border-top: 1px solid #333; padding-top: 12px; }
+  .main { flex: 1; max-width: 800px; margin: 0 auto; padding: 48px 32px 80px; }
+  .content { background: #fff; border-radius: 12px; padding: 40px 48px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .content .breadcrumb { color: #888; font-size: 0.85em; margin-bottom: 16px; }
+  .article-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: #888; font-size: 0.88em; margin: 4px 0 16px; }
+  .article-meta a { color: #0066cc; text-decoration: none; }
+  .article-meta a:hover { text-decoration: underline; }
+  .content .breadcrumb a { color: #0066cc; text-decoration: none; }
+  .content .breadcrumb a:hover { text-decoration: underline; }
+  .content h1 { font-size: 1.5em; margin: 40px 0 12px; color: #1a1a2e; padding-top: 8px; }
+  .content h1:first-of-type { margin-top: 0; }
+  .content h2 { font-size: 1.4em; margin: 32px 0 16px; color: #1a1a2e; padding-bottom: 8px; border-bottom: 1px solid #f0f0f0; }
+  .content h3 { font-size: 1.15em; margin: 24px 0 12px; color: #333; }
+  .content p { margin-bottom: 16px; color: #333; }
+  .content p:last-child { margin-bottom: 0; }
+  .content strong { color: #111; }
+  .content blockquote { margin: 16px 0; padding: 16px 20px; background: #f8f9ff; border-left: 4px solid #4fc3f7; border-radius: 0 8px 8px 0; color: #555; font-style: normal; }
+  .content blockquote strong { color: #1a1a2e; }
+  .content hr { margin: 32px 0; border: none; border-top: 1px solid #e8e8e8; }
+  .content ul, .content ol { margin: 8px 0 16px 24px; }
+  .content li { margin-bottom: 6px; color: #333; }
+  .content table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.93em; }
+  .content th { background: #f0f2f5; padding: 10px 14px; text-align: left; font-weight: 600; color: #333; border: 1px solid #e0e0e0; }
+  .content td { padding: 8px 14px; border: 1px solid #e8e8e8; color: #444; }
+  .content tr:nth-child(even) td { background: #fafafa; }
+  .content code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: #e74c3c; }
+  .content pre { background: #1a1a2e; color: #e6e6e6; border-radius: 8px; padding: 16px 20px; overflow-x: auto; margin: 16px 0 24px; font-size: 0.85em; line-height: 1.6; }
+  .content pre code { background: none; color: inherit; padding: 0; font-size: 1em; }
+  .content img { max-width: 100%; border-radius: 8px; margin: 16px 0; }
+  .glossary-link { color: #0066cc; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+  .glossary-link:hover { color: #004499; text-decoration-style: solid; }
+  .nav-links { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; }
+  .nav-links a { color: #0066cc; text-decoration: none; font-size: 0.95em; }
+  .nav-links a:hover { text-decoration: underline; }
+  .comments { margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; }
+  .comments h2 { font-size: 1.3em; margin-bottom: 16px; }
+  .comment-item { background: #fafbfc; border: 1px solid #eee; border-radius: 8px; padding: 14px 18px; margin-bottom: 12px; }
+  .comment-item .c-meta { color: #666; font-size: 0.85em; margin-bottom: 4px; }
+  .comment-item .c-body { color: #333; font-size: 0.95em; white-space: pre-wrap; word-break: break-word; }
+  .comment-empty { color: #999; font-size: 0.9em; margin-bottom: 12px; }
+  #comment-form { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+  #comment-form input, #comment-form textarea { font-family: inherit; font-size: 0.95em; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; background: #fff; color: #333; }
+  #comment-form textarea { min-height: 90px; resize: vertical; }
+  #comment-form button { align-self: flex-start; background: #1a1a2e; color: #fff; border: none; border-radius: 6px; padding: 10px 22px; font-size: 0.95em; cursor: pointer; }
+  #comment-form button:hover { background: #2a2a44; }
+  .comment-msg { font-size: 0.9em; margin-top: 4px; }
+  .comment-msg.ok { color: #2e7d32; }
+  .comment-msg.err { color: #c62828; }
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 24px 16px; }
+    .content { padding: 24px 20px; border-radius: 8px; }
+    .content h1 { font-size: 1.3em; }
+    .content h2 { font-size: 1.2em; }
+    .nav-links { flex-direction: column; gap: 12px; }
+  }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+</style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Protect Your Brand from AI Hallucinations",
+  "description": "AI models will occasionally state false facts about your brand. Learn the four-layer protection stack that makes true facts easiest to retrieve, what correction routes exist, and what to monitor before a wrong answer spreads.",
+  "author": { "@type": "Organization", "name": "GEO Encyclopedia Editorial Team", "url": "https://geo010.com/about.html" },
+  "datePublished": "2026-09-16",
+  "dateModified": "2026-09-16",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/brand/ai-hallucination-protection.html" },
+  "publisher": { "@type": "Organization", "name": "GEO Encyclopedia", "url": "https://geo010.com" },
+  "inLanguage": "en"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://geo010.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Brand Strategy",
+      "item": "https://geo010.com/brand-strategy.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to Protect Your Brand from AI Hallucinations",
+      "item": "https://geo010.com/brand/ai-hallucination-protection.html"
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I stop AI from hallucinating about my brand?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not entirely. Hallucinations are a property of large language models, and no brand can eliminate them. What you can do is make true, well-sourced facts the easiest thing for an answer engine to retrieve and justify, and build a monitoring loop that catches wrong answers early before they spread."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do most AI hallucinations about brands come from?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Two sources: low-quality or contradictory material in the retrieval set (outdated pages, rumor pages, chatbot-aggregated content), and the model filling gaps when it lacks good sources. Fixing the retrieval set — consistent official facts, dates, schema markup, and third-party corroboration — addresses most actionable cases."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I do when AI says something false about my brand?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Document the exact query and answer, check whether your own pages are consistent and up to date, publish or correct an authoritative fact page with a clear date, gather an independent corroborating source, and use the engine's feedback or correction channels. Then re-query for improvements over the following weeks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does structured data protect against hallucinations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Structured data like Organization, Person, and Article schema helps engines extract clean entity facts, which reduces ambiguity — but it is not a silver bullet. It works best as one layer of a stack that also includes plain language, consistent dates, and independent confirmation."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar">
+    <h3>📖 GEO Encyclopedia</h3>
+    <a href="../index.html" class="home-link">🏠 Home</a>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> I. Fundamentals</div>
+      <div class="nav-group-links">
+        <a href="../fundamentals/what-is-geo.html">What is GEO?</a>
+        <a href="../fundamentals/seo-vs-geo.html">Is SEO Dead?</a>
+        <a href="../fundamentals/eeat-trust-mechanism.html">E-E-A-T Trust</a>
+        <a href="../fundamentals/llms-txt-guide.html">LLMs.txt Guide</a>
+        <a href="../fundamentals/answer-assetization.html">Answer Assetization</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> II. Metrics</div>
+      <div class="nav-group-links">
+        <a href="../metrics/citation-share.html">Citation Share</a>
+        <a href="../metrics/entity-density.html">Entity Density</a>
+        <a href="../metrics/sheep-framework.html">SHEEP Framework</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> III. Models</div>
+      <div class="nav-group-links">
+        <a href="../models/3c-optimization-model.html">3C Model</a>
+        <a href="../models/geo-evolution.html">GEO Evolution</a>
+        <a href="../models/source-authority.html">Source Authority</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IV. Content</div>
+      <div class="nav-group-links">
+        <a href="../content/eeat-in-geo.html">E-E-A-T in GEO</a>
+        <a href="../content/knowledge-entropy.html">Knowledge Entropy</a>
+        <a href="../content/backlinks-in-geo.html">Backlinks in GEO</a>
+        <a href="../content/topical-authority.html">Topical Authority</a>
+        <a href="../content/content-freshness.html">Content Freshness</a>
+        <a href="../content/multimodal-content.html">Multimodal Content</a>
+        <a href="../content/question-driven-strategy.html">Question-Driven Strategy</a>
+        <a href="../content/local-geo-longtail.html">Local GEO</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> V. Technical</div>
+      <div class="nav-group-links">
+        <a href="../technical/schema-markup-guide.html">Schema Markup</a>
+        <a href="../technical/llms-txt-advanced.html">LLMs.txt Advanced</a>
+        <a href="../technical/entity-knowledge-graph.html">Entity & Knowledge Graph</a>
+        <a href="../technical/ai-crawler-management.html">AI Crawler Management</a>
+        <a href="../technical/geo-monitoring-tools.html">Monitoring Tools</a>
+        <a href="../technical/agenticgeo-tools.html">AgenticGEO</a>
+        <a href="../technical/tech-stack-overview.html">Tech Stack Overview</a>
+      </div>
+    </div>
+    <div class="nav-group open">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VI. Brand</div>
+      <div class="nav-group-links">
+        <a href="../brand/brand-as-source.html">Brand as Source</a>
+        <a href="../brand/eeat-brand-implementation.html">EEAT Brand</a>
+        <a href="../brand/crisis-pr-geo.html">Crisis PR</a>
+        <a href="ai-hallucination-protection.html" class="active">Hallucination Protection</a>
+        <a href="../brand/multi-brand-geo.html">Multi-Brand</a>
+        <a href="../brand/ecommerce-geo.html">E-Commerce</a>
+        <a href="../brand/b2b-brand-geo.html">B2B Brand</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VII. Industry</div>
+      <div class="nav-group-links">
+        <a href="../industry/healthcare-geo.html">Healthcare</a>
+        <a href="../industry/finance-geo.html">Finance</a>
+        <a href="../industry/education-geo.html">Education</a>
+        <a href="../industry/legal-geo.html">Legal</a>
+        <a href="../industry/local-services-geo.html">Local Services</a>
+        <a href="../industry/manufacturing-geo.html">Manufacturing</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> VIII. Cases</div>
+      <div class="nav-group-links">
+        <a href="../cases/zero-to-one-roadmap.html">Zero to One</a>
+        <a href="../cases/full-process-case.html">Full Case Study</a>
+        <a href="../cases/geo-ai-audit.html">AI-Readiness Audit</a>
+        <a href="../cases/black-hat-prevention.html">Black Hat Prevention</a>
+        <a href="../cases/geo-future-trends.html">Future Trends</a>
+        <a href="../cases/what-ai-assistants-say-citation-share.html">AI Answers: Citation Share</a>
+        <a href="../cases/what-ai-assistants-say-entity-density.html">AI Answers: Entity Density</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> IX. Data</div>
+      <div class="nav-group-links">
+        <a href="../data/core-metrics-system.html">Core Metrics</a>
+        <a href="../data/roi-calculation.html">ROI Calculator</a>
+        <a href="../data/crawler-behavior-data.html">Crawler Behavior Data</a>
+
+        <a href="../data/data-dashboard-setup.html">Data Dashboard</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-toggle"><span class="arrow">▸</span> 💬 Community</div>
+      <div class="nav-group-links">
+        <a href="../community.html">Community Home</a>
+        <a href="../community/what-is-json-ld.html">What is JSON-LD?</a>
+        <a href="../community/geo-content-template.html">The GEO Content Template</a>
+        <a href="../community/one-week-geo-readiness.html">One-Week GEO Readiness</a>
+        <a href="../community/two-week-crawler-data.html">Two-Week Crawler Data</a>
+        <a href="../community/geo-impact-attribution-new-site.html">Crawler Impact & Launch Checklist</a>
+      </div>
+    </div>
+  <div class="current glossary-section">📌 Glossary</div>
+  <a href="../glossary/geo.html">GEO</a>
+  <a href="../glossary/seo.html">SEO</a>
+  <a href="../glossary/rag.html">RAG</a>
+  <a href="../glossary/eeat.html">E-E-A-T</a>
+  <a href="../glossary/llms-txt.html">LLMs.txt</a>
+  <a href="../glossary/zero-click.html">Zero-Click Search</a>
+  <a href="../glossary/schema.html">Schema</a>
+  <a href="../glossary/answer-asset.html">Answer Assetization</a>
+  <a href="../glossary/ai-visibility.html">AI Visibility Index</a>
+  <a href="../glossary/ymyl.html">YMYL</a>
+  <div class="current glossary-section">📄 About</div>
+  <a href="../about.html">About &amp; Editorial Standards</a>
+  <a href="../privacy.html">Privacy Policy</a>
+  </nav>
+  <div class="main">
+    <div class="content">
+      <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../brand-strategy.html">Brand Strategy</a> › How to Protect Your Brand from AI Hallucinations</div>
+
+<div class="article-meta"><span>By <a href="../about.html">GEO Encyclopedia Editorial Team</a></span><span>·</span><span>Updated: 2026-09-16</span><span>·</span><span>Sources: multi-article synthesis; vendor-reported where noted</span></div>
+
+<h1>How to Protect Your Brand from AI Hallucinations</h1>
+
+<blockquote>An AI answer engine states something false about your brand: a wrong founding year, a merger that never happened, a product feature that does not exist, or a fabricated quote. The user believes it. Sometimes they screenshot it.</blockquote>
+<blockquote>Hallucinations cannot be eliminated — they are a structural property of large language models. But they can be <strong>made unlikely</strong>: with a defense stack that makes true facts the easiest facts for an AI to retrieve and justify. This article is that stack.</blockquote>
+
+<hr>
+
+<h2>What "AI Hallucinating Your Brand" Actually Means</h2>
+
+<p>A hallucination is a confident, fluent statement that does not match reality. When it involves your brand, three flavors dominate:</p>
+
+<ul>
+  <li><strong>Factual drift</strong> — wrong dates, numbers, or history. Usually the model interpolated from noisy sources.</li>
+  <li><strong>Attribution error</strong> — your brand wrongly associated with a claim, scandal, or product ("Brand X announced…" when it didn't). On many platforms this travels far, because <a href="../glossary/rag.html">retrieval</a> supplies context and the model writes fluently over it.</li>
+  <li><strong>Entity confusion</strong> — your brand conflated with a similarly named entity, or an invented entity stitched from fragments.</li>
+</ul>
+
+<p>All three share one root cause from your side: <strong>the model had no clean, consistent, well-sourced facts to retrieve</strong>. Attribution and confusion errors also connect to <a href="crisis-pr-geo.html">brand crisis dynamics</a> — a wrong answer that reaches scale behaves like a crisis you did not cause.</p>
+
+<h2>Why Hallucinations Happen — and What You Can Fix</h2>
+
+<p>Two mechanisms produce most brand hallucinations, and only one of them is fully addressable:</p>
+
+<div class="table-wrap"><table><thead><tr><th>Mechanism</th><th>How it works</th><th>Can brand work fix it?</th></tr></thead><tbody>
+<tr><td><strong>Retrieval-set contamination</strong></td><td>The model pulls a wrong, outdated, or rumor-based page into its context and states it as fact</td><td><strong>Yes</strong> — this is the majority of actionable cases. Clean and dominate the retrievable facts about your brand.</td></tr>
+<tr><td><strong>Parametric gap-filling</strong></td><td>No good source is retrieved, so the model improvises a plausible answer from trained weights</td><td><strong>Partly</strong> — you cannot remove the improvisation, but you can make it unnecessary by ensuring good sources are retrieved.</td></tr>
+</tbody></table></div>
+
+<p>The practical implication is important: most brand hallucinations are defeated <strong>before</strong> the user asks, by the quality of the fact supply — the same territory as <a href="brand-as-source.html">brand-as-source</a> and <a href="../models/source-authority.html">source authority</a>.</p>
+
+<h2>The Protection Stack: Make True Facts Easiest to Retrieve</h2>
+
+<p>Think of brand defense as four layers, each trapping a different failure mode:</p>
+
+<h3>Layer 1: Structured Truth (schema markup)</h3>
+<ul>
+  <li>Organization, Person, Product, and Article schema on every page that states a fact about the brand (<a href="../technical/schema-markup-guide.html">implementation guide</a>).</li>
+  <li>Dates, addresses, and people as typed fields, not prose — ambiguity is the parent of hallucination.</li>
+  <li>A consistent canonical entity ID (same sameAs links, same logo, same legal name everywhere).</li>
+</ul>
+
+<h3>Layer 2: A "Fact of Record" Authority Page</h3>
+<ul>
+  <li>Publish one authoritative fact page (About / Company Facts) with a <strong>visible last-updated date</strong> — freshness matters (<a href="../content/content-freshness.html">freshness in GEO</a>).</li>
+  <li>State founding year, headquarters, leadership, and product facts in plain sentences <em>and</em> in a table, so both retrieval and paraphrase work.</li>
+  <li>Never contradict yourself between pages; conflicts across your own properties are the number one invitation to fabrication.</li>
+</ul>
+
+<h3>Layer 3: Independent Corroboration</h3>
+<ul>
+  <li>The same facts echoed by third parties — press, reviews, directories, databases, industry reports — give the engine a justification loop it can cite.</li>
+  <li>Independent data is the strongest cure for <a href="eeat-brand-implementation.html">E-E-A-T</a> gaps and cuts into attribution errors, because the engine now has two independent witnesses.</li>
+  <li>Community platforms are heavily cited in AI answers; a deliberate <a href="../content/source-matrix-strategy.html">source matrix</a> puts your facts on the platforms the engines actually read.</li>
+</ul>
+
+<h3>Layer 4: Retrieval Hygiene</h3>
+<ul>
+  <li>Monitor which pages about your brand exist and what they say (spam or scraper pages, outdated press releases, hobbyist wikis).</li>
+  <li>Correct or noindex stale pages you control; request corrections / demonstrate outdatedness on major aggregators you do not.</li>
+  <li>Keep your <a href="../technical/llms-txt-advanced.html">llms.txt orientation</a> honest so crawlers map your facts correctly.</li>
+</ul>
+
+<blockquote><strong>Rule of thumb: a fact is hallucination-proof in inverse proportion to how hard it is to find a consistent, dated, citable source for it.</strong> The four layers are simply four ways of lowering that difficulty.</blockquote>
+
+<h2>What to Do When a Wrong Answer Names You</h2>
+
+<p>You will find false answers eventually — the monthly answer drift we document elsewhere (~40-60% of answers shift month to month, across engines) guarantees it. The response follows a repeatable loop:</p>
+
+<ol>
+  <li><strong>Document.</strong> Save the exact query, engine, date, and the false answer verbatim. Screenshot + URL. This is your evidence and your regression test.</li>
+  <li><strong>Diagnose the supply.</strong> Run the same query manually and look at what the engine could have retrieved. Which page or source plausibly fed the wrong answer?</li>
+  <li><strong>Fix the strongest lever.</strong> Update your own facts if any page is stale; publish the fact clearly if it is missing; seed an independent corroborating source if yours is alone.</li>
+  <li><strong>Report through available channels.</strong> Use the engine or platform's feedback / correction mechanism with the URL of your authoritative fact. Treat the report as one input, not a guarantee of change.</li>
+  <li><strong>Re-query weekly.</strong> Track the query in your <a href="../technical/track-ai-citations.html">citation/answer monitoring</a>; corrections propagate on model-update cycles, usually over weeks, rarely overnight.</li>
+</ol>
+
+<p>Consider pairing this with <a href="../cases/black-hat-prevention.html">black-hat awareness</a>: if a competitor can inject fake credibility about you, your layered fact supply is also the thing that makes the injection fail against your real record.</p>
+
+<h2>Monitoring: Catching the Wrong Answer Before It Spreads</h2>
+
+<p>Because you cannot see every screenshot, prioritize monitoring by <strong>blast radius</strong>:</p>
+
+<ul>
+  <li><strong>Weekly:</strong> your 10-20 highest-value brand queries across 2-3 engines, checking both mentions and factual accuracy — not just whether you are cited.</li>
+  <li><strong>Monthly:</strong> the same queries in review-comparison mode, plus mention-tracker sweeps (social and forum) for "Brand X [said/did]" attributions.</li>
+  <li><strong>Event-triggered:</strong> after any announcement, product launch, or leadership change — these are the moments false "facts" propagate.</li>
+</ul>
+
+<p>This is an extension of <a href="../data/geo-benchmarks.html">GEO benchmarking discipline</a>: same queries, same method, every cycle. Accuracy over time belongs in the same report as citation share.</p>
+
+<h2>What You Cannot Fix — and What That Means for Budget</h2>
+
+<p>Be honest about the limits so you do not overspend chasing a promise that does not exist:</p>
+
+<ul>
+  <li><strong>You cannot purge an engine's knowledge base on demand.</strong> Retraining and retrieval indices update on vendor timelines.</li>
+  <li><strong>You cannot control every third-party page,</strong> especially user-generated content that engines over-weight.</li>
+  <li><strong>You cannot make a model incapable of error.</strong> New models sometimes reset memorized associations; your defenses reduce the frequency and severity, not the probability to zero.</li>
+</ul>
+
+<p>The right mental model is insurance, not a vaccine: <strong>you are lowering the probability, shortening the half-life, and shrinking the blast radius of false answers about your brand</strong> — which is exactly what the strongest <a href="eeat-brand-implementation.html">E-E-A-T brand builders</a> do anyway.</p>
+
+<h2>FAQ</h2>
+
+<p><strong>Can I stop AI from hallucinating about my brand?</strong> Not entirely — hallucinations are a model property. You lower the probability by making true, well-sourced facts the easiest thing to retrieve, and you build a monitoring loop for early detection.</p>
+
+<p><strong>Where do most AI hallucinations about brands come from?</strong> Noisy or contradictory retrieval material (outdated pages, rumor pages, aggregator content) and the model filling gaps when good sources are missing. Fixing the retrieval set addresses most cases.</p>
+
+<p><strong>What should I do when AI says something false about my brand?</strong> Document the query and answer, fix the strongest source lever (update/correct/publish authoritative facts), add an independent corroborating source, use feedback channels, and re-query weekly through your monitoring.</p>
+
+<p><strong>Does structured data protect against hallucinations?</strong> It helps disambiguation and clean extraction, but it is one layer among four — combine it with plain-language facts, visible dates, and independent confirmation.</p>
+
+      <div class="nav-links">
+        <a href="crisis-pr-geo.html">← Crisis PR</a>
+        <a href="../brand-strategy.html">📖 Brand Strategy</a>
+        <a href="multi-brand-geo.html">Multi-Brand →</a>
+      </div>
+
+      <div class="comments" id="comments" data-page="/brand/ai-hallucination-protection.html">
+        <h2>Discussion</h2>
+        <div id="comments-list"><p class="comment-empty">Loading comments…</p></div>
+        <form id="comment-form" autocomplete="off">
+          <input type="text" name="author" placeholder="Your name" maxlength="40" required>
+          <input type="email" name="email" placeholder="Email (optional, never displayed)" maxlength="80">
+          <textarea name="body" placeholder="Share your thoughts or ask a question…" maxlength="1000" required></textarea>
+          <button type="submit">Post comment</button>
+          <div class="comment-msg" id="comment-msg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3QR6VvmXkab0M8Cu",ck:"3QR6VvmXkab0M8Cu"})</script>
+
+
+<script>
+(function(){
+  var box = document.getElementById('comments');
+  if (!box) return;
+  var list = document.getElementById('comments-list');
+  var form = document.getElementById('comment-form');
+  var msg = document.getElementById('comment-msg');
+  function esc(s){ var d=document.createElement('div'); d.textContent=s||''; return d.innerHTML; }
+  function load(){
+    fetch('/api/comments?page=' + encodeURIComponent(box.getAttribute('data-page')))
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        var items = data.comments || [];
+        if (!items.length) { list.innerHTML = '<p class="comment-empty">No comments yet. Start the discussion below.</p>'; return; }
+        list.innerHTML = items.map(function(c){
+          return '<div class="comment-item"><div class="c-meta">' + esc(c.author) + ' · ' + esc(c.date) + '</div><div class="c-body">' + esc(c.body) + '</div></div>';
+        }).join('');
+      })
+      .catch(function(){ list.innerHTML = '<p class="comment-empty">Comments unavailable right now.</p>'; });
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    msg.className = 'comment-msg';
+    msg.textContent = '';
+    var body = form.body.value.trim();
+    if (body.length < 2) { msg.className = 'comment-msg err'; msg.textContent = 'Please write at least 2 characters.'; return; }
+    fetch('/api/comments', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ page: box.getAttribute('data-page'), author: form.author.value.trim(), email: form.email.value.trim(), body: body })
+    })
+    .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); })
+    .then(function(res){
+      if (res.ok) {
+        msg.className = 'comment-msg ok';
+        msg.textContent = res.j.message || 'Thanks! Your comment is awaiting approval.';
+        form.reset();
+        load();
+      } else {
+        msg.className = 'comment-msg err';
+        msg.textContent = (res.j && res.j.error) || 'Could not post your comment.';
+      }
+    })
+    .catch(function(){ msg.className = 'comment-msg err'; msg.textContent = 'Network error — please try again.'; });
+  });
+  load();
+})();
+</script>
+<script>
+document.querySelectorAll('.nav-group-toggle').forEach(function(toggle) {
+  toggle.addEventListener('click', function() {
+    this.parentElement.classList.toggle('open');
+  });
+});
+var active = document.querySelector('.sidebar a.active');
+if (active) {
+  var group = active.closest('.nav-group');
+  if (group) { group.classList.add('open'); }
+}
+</script>
+</body>
+</html>

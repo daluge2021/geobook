@@ -98,6 +98,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://geo010.com/metrics/competitive-ai-analysis.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Models -->
   <url>
     <loc>https://geo010.com/models/3c-optimization-model.html</loc>
@@ -117,6 +123,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://geo010.com/models/geo-vs-aeo.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Content -->
   <url>
     <loc>https://geo010.com/content/eeat-in-geo.html</loc>
@@ -133,6 +145,12 @@
   <url>
     <loc>https://geo010.com/content/backlinks-in-geo.html</loc>
     <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://geo010.com/content/source-matrix-strategy.html</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -227,6 +245,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://geo010.com/technical/per-engine-optimization.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Brand -->
   <url>
     <loc>https://geo010.com/brand/brand-as-source.html</loc>
@@ -243,6 +267,12 @@
   <url>
     <loc>https://geo010.com/brand/crisis-pr-geo.html</loc>
     <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://geo010.com/brand/ai-hallucination-protection.html</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -356,6 +386,18 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://geo010.com/cases/geo-timeline.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://geo010.com/cases/why-ai-answers-vary.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- Data -->
   <url>
     <loc>https://geo010.com/data/core-metrics-system.html</loc>
@@ -372,6 +414,18 @@
   <url>
     <loc>https://geo010.com/data/data-dashboard-setup.html</loc>
     <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://geo010.com/data/geo-benchmarks.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://geo010.com/data/ai-referral-attribution.html</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
