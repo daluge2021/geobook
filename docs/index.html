@@ -41,6 +41,7 @@
   .sidebar a { display: block; padding: 8px 20px; color: #999; text-decoration: none; font-size: 0.9em; transition: all 0.15s; }
   .sidebar a:hover, .sidebar a.active { color: #fff; background: rgba(255,255,255,0.08); }
   .sidebar a.active { border-left: 3px solid #4fc3f7; }
+  .sidebar a.new::after, .articles a.new::after { content: "NEW"; display: inline-block; margin-left: 6px; padding: 1px 6px; font-size: 10px; line-height: 1.5; font-weight: 700; color: #1a1a2e; background: #4fc3f7; border-radius: 8px; vertical-align: middle; }
   .sidebar .current { color: #aaa; padding: 8px 20px; font-size: 0.85em; }
   .sidebar .home-link { margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 12px; font-weight: 500; color: #4fc3f7; }
   .nav-group-toggle { padding: 8px 20px; color: #aaa; font-size: 0.85em; cursor: pointer; user-select: none; transition: color 0.15s; display: flex; align-items: center; gap: 6px; }
@@ -183,7 +184,7 @@
         <a href="metrics/citation-share.html">Citation Share</a>
         <a href="metrics/entity-density.html">Entity Density</a>
         <a href="metrics/sheep-framework.html">SHEEP Framework</a>
-        <a href="metrics/competitive-ai-analysis.html">Competitive AI Analysis</a>
+        <a class="new" href="metrics/competitive-ai-analysis.html">Competitive AI Analysis</a>
       </div>
     </div>
     <div class="nav-group">
@@ -192,7 +193,7 @@
         <a href="models/3c-optimization-model.html">3C Model</a>
         <a href="models/geo-evolution.html">GEO Evolution</a>
         <a href="models/source-authority.html">Source Authority</a>
-        <a href="models/geo-vs-aeo.html">GEO vs AEO</a>
+        <a class="new" href="models/geo-vs-aeo.html">GEO vs AEO</a>
       </div>
     </div>
     <div class="nav-group">
@@ -201,7 +202,7 @@
         <a href="content/eeat-in-geo.html">E-E-A-T in GEO</a>
         <a href="content/knowledge-entropy.html">Knowledge Entropy</a>
         <a href="content/backlinks-in-geo.html">Backlinks in GEO</a>
-        <a href="content/source-matrix-strategy.html">Source Matrix</a>
+        <a class="new" href="content/source-matrix-strategy.html">Source Matrix</a>
         <a href="content/topical-authority.html">Topical Authority</a>
         <a href="content/content-freshness.html">Content Freshness</a>
         <a href="content/multimodal-content.html">Multimodal Content</a>
@@ -221,7 +222,7 @@
         <a href="technical/agenticgeo-tools.html">AgenticGEO</a>
         <a href="technical/tech-stack-overview.html">Tech Stack Overview</a>
         <a href="technical/geo-tools-review.html">Tools Review</a>
-        <a href="technical/per-engine-optimization.html">Per-Engine Optimization</a>
+        <a class="new" href="technical/per-engine-optimization.html">Per-Engine Optimization</a>
       </div>
     </div>
     <div class="nav-group">
@@ -230,7 +231,7 @@
         <a href="brand/brand-as-source.html">Brand as Source</a>
         <a href="brand/eeat-brand-implementation.html">EEAT Brand</a>
         <a href="brand/crisis-pr-geo.html">Crisis PR</a>
-        <a href="brand/ai-hallucination-protection.html">Hallucination Protection</a>
+        <a class="new" href="brand/ai-hallucination-protection.html">Hallucination Protection</a>
         <a href="brand/multi-brand-geo.html">Multi-Brand</a>
         <a href="brand/ecommerce-geo.html">E-Commerce</a>
         <a href="brand/b2b-brand-geo.html">B2B Brand</a>
@@ -259,8 +260,8 @@
         <a href="cases/geo-future-trends.html">Future Trends</a>
         <a href="cases/what-ai-assistants-say-citation-share.html">AI Answers: Citation Share</a>
         <a href="cases/what-ai-assistants-say-entity-density.html">AI Answers: Entity Density</a>
-        <a href="cases/geo-timeline.html">GEO Timeline</a>
-        <a href="cases/why-ai-answers-vary.html">Why AI Answers Vary</a>
+        <a class="new" href="cases/geo-timeline.html">GEO Timeline</a>
+        <a class="new" href="cases/why-ai-answers-vary.html">Why AI Answers Vary</a>
       </div>
     </div>
     <div class="nav-group">
@@ -271,8 +272,8 @@
         <a href="data/crawler-behavior-data.html">Crawler Behavior Data</a>
 
         <a href="data/data-dashboard-setup.html">Data Dashboard</a>
-        <a href="data/geo-benchmarks.html">GEO Benchmarks</a>
-        <a href="data/ai-referral-attribution.html">AI Referral Attribution</a>
+        <a class="new" href="data/geo-benchmarks.html">GEO Benchmarks</a>
+        <a class="new" href="data/ai-referral-attribution.html">AI Referral Attribution</a>
       </div>
     </div>
     <div class="nav-group">
@@ -354,7 +355,7 @@
           <li><a href="metrics/citation-share.html">What is Citation Share? — The Core GEO Metric</a></li>
           <li><a href="metrics/entity-density.html">What is Entity Association Density?</a></li>
           <li><a href="metrics/sheep-framework.html">What is the SHEEP Framework? — 5 Steps to GEO</a></li>
-          <li><a href="metrics/competitive-ai-analysis.html">Competitive AI Analysis — Benchmarking AI Visibility in Your Market</a></li>
+          <li><a class="new" href="metrics/competitive-ai-analysis.html">Competitive AI Analysis — Benchmarking AI Visibility in Your Market</a></li>
         </ul>
       </div>
 
@@ -365,7 +366,7 @@
           <li><a href="models/3c-optimization-model.html">What is the 3C Optimization Model?</a></li>
           <li><a href="models/geo-evolution.html">How Has GEO Evolved? — From Manual to AI</a></li>
           <li><a href="models/source-authority.html">What is Source Authority? — AI's Trust Signal</a></li>
-          <li><a href="models/geo-vs-aeo.html">GEO vs AEO — Difference &amp; Overlap</a></li>
+          <li><a class="new" href="models/geo-vs-aeo.html">GEO vs AEO — Difference &amp; Overlap</a></li>
         </ul>
       </div>
 
@@ -376,7 +377,7 @@
           <li><a href="content/eeat-in-geo.html">How to Apply E-E-A-T in GEO Content Strategy?</a></li>
           <li><a href="content/knowledge-entropy.html">What is Knowledge Entropy? — What Content Does AI Prefer?</a></li>
           <li><a href="content/backlinks-in-geo.html">How Do Backlinks Work in GEO?</a></li>
-          <li><a href="content/source-matrix-strategy.html">The Source Matrix — Planning Every Type of Digital Real Estate</a></li>
+          <li><a class="new" href="content/source-matrix-strategy.html">The Source Matrix — Planning Every Type of Digital Real Estate</a></li>
           <li><a href="content/topical-authority.html">What is Topical Authority? — AI's Domain Expert</a></li>
           <li><a href="content/content-freshness.html">How Important is Content Freshness for GEO?</a></li>
           <li><a href="content/multimodal-content.html">How to Optimize Multimodal Content for GEO?</a></li>
@@ -398,7 +399,7 @@
           <li><a href="technical/agenticgeo-tools.html">What is AgenticGEO? — Autonomous Optimization</a></li>
           <li><a href="technical/tech-stack-overview.html">GEO Tech Stack Overview</a></li>
           <li><a href="technical/geo-tools-review.html">GEO Tools &amp; Software Review — What Works in 2026</a></li>
-          <li><a href="technical/per-engine-optimization.html">Per-Engine Optimization — What Each AI Engine Reads</a></li>
+          <li><a class="new" href="technical/per-engine-optimization.html">Per-Engine Optimization — What Each AI Engine Reads</a></li>
         </ul>
       </div>
 
@@ -409,7 +410,7 @@
           <li><a href="brand/brand-as-source.html">How to Build Brand as an AI-Recognized Source?</a></li>
           <li><a href="brand/eeat-brand-implementation.html">How to Implement E-E-A-T Brand Strategy?</a></li>
           <li><a href="brand/crisis-pr-geo.html">How to Handle Brand Crisis via GEO?</a></li>
-          <li><a href="brand/ai-hallucination-protection.html">How to Protect Your Brand from AI Hallucinations?</a></li>
+          <li><a class="new" href="brand/ai-hallucination-protection.html">How to Protect Your Brand from AI Hallucinations?</a></li>
           <li><a href="brand/multi-brand-geo.html">How to Do Multi-Brand GEO Strategy?</a></li>
           <li><a href="brand/ecommerce-geo.html">How to Optimize E-Commerce for GEO?</a></li>
           <li><a href="brand/b2b-brand-geo.html">How to Do B2B Brand GEO Strategy?</a></li>
@@ -440,8 +441,8 @@
           <li><a href="cases/geo-future-trends.html">What are GEO Future Trends in 2027-2028?</a></li>
           <li><a href="cases/what-ai-assistants-say-citation-share.html">What AI Assistants Say About Citation Share — A Four-Engine Field Test</a></li>
           <li><a href="cases/what-ai-assistants-say-entity-density.html">What AI Assistants Say About Entity Density — And How Claude Cited This Site</a></li>
-          <li><a href="cases/geo-timeline.html">A Realistic GEO Timeline — What to Expect When</a></li>
-          <li><a href="cases/why-ai-answers-vary.html">Why AI Answers Vary — And What You Can Control</a></li>
+          <li><a class="new" href="cases/geo-timeline.html">A Realistic GEO Timeline — What to Expect When</a></li>
+          <li><a class="new" href="cases/why-ai-answers-vary.html">Why AI Answers Vary — And What You Can Control</a></li>
         </ul>
       </div>
 
@@ -452,8 +453,8 @@
           <li><a href="data/core-metrics-system.html">What are the Core GEO Metrics?</a></li>
           <li><a href="data/roi-calculation.html">How to Calculate GEO ROI?</a></li>
           <li><a href="data/data-dashboard-setup.html">How to Build a GEO Data Dashboard?</a></li>
-          <li><a href="data/geo-benchmarks.html">GEO Benchmarks — What Good Looks Like by Industry</a></li>
-          <li><a href="data/ai-referral-attribution.html">AI Referral Attribution — When Ethically Possible</a></li>
+          <li><a class="new" href="data/geo-benchmarks.html">GEO Benchmarks — What Good Looks Like by Industry</a></li>
+          <li><a class="new" href="data/ai-referral-attribution.html">AI Referral Attribution — When Ethically Possible</a></li>
         </ul>
       </div>
 
