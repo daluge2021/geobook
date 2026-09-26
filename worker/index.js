@@ -162,10 +162,48 @@ const MIME = {
   '.pdf': 'application/pdf',
 };
 
+// 工具 / 扫描型 UA（SEO 审计器、批量采集脚本、HTTP 框架）。单独分类而不计入
+// "非 AI（人类）"，避免 python-requests 等整站采集把总请求与人类流量口径拉虚。
+// 命中优先级：AI 爬虫 > 工具/扫描 > 人类。命中工具类的请求仍会入库以便审计，
+// 但统计页单独展示，计算 AI 占比/人类流量时排除。
+const TOOL_BOTS = [
+  { name: 'Python-requests', re: /python-?requests/i },
+  { name: 'ReadOnlySEOAudit', re: /ReadOnlySEOAudit/i },
+  { name: 'SemrushBot', re: /SemrushBot/i },
+  { name: 'SERankingBacklinksBot', re: /SERankingBacklinksBot/i },
+  { name: 'AwarioBot', re: /AwarioBot/i },
+  { name: 'AhrefsBot', re: /AhrefsBot|AhrefsSiteAudit/i },
+  { name: 'MJ12bot', re: /MJ12bot/i },
+  { name: 'Screaming Frog', re: /Screaming Frog/i },
+  { name: 'YandexBot', re: /YandexBot/i },
+  { name: 'Baiduspider', re: /Baiduspider/i },
+  { name: 'SeznamBot', re: /SeznamBot/i },
+  { name: 'DotBot', re: /DotBot/i },
+  { name: 'NeevaBot', re: /NeevaBot/i },
+  { name: 'PetalBot', re: /PetalBot/i },
+  { name: 'WordPress', re: /^WordPress/i },
+  { name: 'Go-http-client', re: /Go-http-client/i },
+  { name: 'curl', re: /^curl\//i },
+  { name: 'wget', re: /Wget/i },
+  { name: 'Scrapy', re: /Scrapy/i },
+  { name: 'Java', re: /Java\/1\./i },
+  { name: 'okhttp', re: /okhttp/i },
+  { name: 'axios', re: /axios/i },
+  { name: 'node-fetch', re: /node-fetch/i },
+];
+
 function classifyCrawler(ua) {
   if (!ua) return null;
   for (const c of AI_CRAWLERS) {
     if (c.re.test(ua)) return c.name;
+  }
+  return null;
+}
+
+function classifyToolbot(ua) {
+  if (!ua) return null;
+  for (const t of TOOL_BOTS) {
+    if (t.re.test(ua)) return t.name;
   }
   return null;
 }
@@ -185,6 +223,23 @@ async function ensureRefererColumn(env) {
     console.error('referer migration failed:', e.message);
   }
   schemaChecked = true;
+}
+
+// tool_name 列：记录"工具/扫描"型请求（SEO 审计、批量采集）的分类名，供统计页
+// 单独展示，避免污染"人类/非 AI"口径。与 referer_host 一样惰性迁移。
+let toolSchemaChecked = false;
+async function ensureToolColumn(env) {
+  if (toolSchemaChecked) return;
+  try {
+    const { results } = await env.DB.prepare('PRAGMA table_info(crawler_logs)').all();
+    const cols = (results || []).map((r) => r.name);
+    if (!cols.includes('tool_name')) {
+      await env.DB.prepare('ALTER TABLE crawler_logs ADD COLUMN tool_name TEXT').run();
+    }
+  } catch (e) {
+    console.error('tool column migration failed:', e.message);
+  }
+  toolSchemaChecked = true;
 }
 
 /** Extract hostname from a Referer header, or null when absent/invalid/same-site. */
@@ -799,13 +854,13 @@ a { color: #0066cc; }
   );
 }
 
-async function logRequest(env, { ts, ua, crawler, path, status, isHtml, refHost }) {
+async function logRequest(env, { ts, ua, crawler, tool, path, status, isHtml, refHost }) {
   try {
     await env.DB.prepare(
-      `INSERT INTO crawler_logs (ts, date, ua, crawler_name, path, status, is_html, referer_host)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+      `INSERT INTO crawler_logs (ts, date, ua, crawler_name, tool_name, path, status, is_html, referer_host)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
     )
-      .bind(ts, ts.slice(0, 10), ua, crawler, path, status, isHtml ? 1 : 0, refHost || null)
+      .bind(ts, ts.slice(0, 10), ua, crawler, tool || null, path, status, isHtml ? 1 : 0, refHost || null)
       .run();
   } catch (e) {
     // logging must never break the site
@@ -814,7 +869,7 @@ async function logRequest(env, { ts, ua, crawler, path, status, isHtml, refHost 
 }
 
 function renderStatsPage(data) {
-  const { totals, byCrawler, byDate, byDateDaily, byPath, byReferrer, byClickPath, byEntry, recent } = data;
+  const { totals, byCrawler, byDate, byDateDaily, byPath, byReferrer, byClickPath, byEntry, byTool, recent } = data;
   const rows = (arr) =>
     arr
       .map(
@@ -822,16 +877,18 @@ function renderStatsPage(data) {
           `<tr${i % 2 ? ' class="alt"' : ''}><td>${r.label}</td><td>${r.n}</td></tr>`
       )
       .join('');
-  // 按天细分：总 = AI + 非 AI；点击仅计 referer 非空调试来源
+  // 按天细分：总 = AI + 工具/扫描 + 真人类；点击仅计 referer 非空调试来源
   const dailyRows = (arr) =>
     arr
       .map((r, i) => {
         const total = r.total || 0;
         const ai = r.ai || 0;
+        const tools = r.tools || 0;
         const clicks = r.clicks || 0;
         return (
           `<tr${i % 2 ? ' class="alt"' : ''}>` +
-          `<td>${r.label}</td><td>${total}</td><td>${ai}</td><td>${total - ai}</td>` +
+          `<td>${r.label}</td><td>${total}</td><td>${ai}</td><td>${tools}</td>` +
+          `<td>${total - ai - tools}</td>` +
           `<td>${clicks}</td><td>${total ? Math.round((ai / total) * 100) : 0}%</td></tr>`
         );
       })
@@ -876,9 +933,16 @@ a { color: #0066cc; }
       <div class="kpis">
         <div class="kpi"><div class="num">${totals.total}</div><div class="lbl">总请求</div></div>
         <div class="kpi"><div class="num">${totals.ai}</div><div class="lbl">AI 爬虫请求</div></div>
+        <div class="kpi"><div class="num">${totals.tools}</div><div class="lbl">工具/扫描</div></div>
         <div class="kpi"><div class="num">${totals.aiPct}%</div><div class="lbl">AI 占比</div></div>
         <div class="kpi"><div class="num">${totals.clicks}</div><div class="lbl">外部来源点击</div></div>
       </div>
+
+      <h2>按工具/扫描器统计</h2>
+      <div class="card"><table>
+        <tr><th>工具/扫描器</th><th>请求数</th></tr>
+        ${rows(byTool)}
+      </table></div>
 
       <h2>按爬虫统计</h2>
       <div class="card"><table>
@@ -892,9 +956,9 @@ a { color: #0066cc; }
         ${rows(byDate)}
       </table></div>
 
-      <h2>按日期细分（总 / AI / 非 AI / 点击）</h2>
+      <h2>按日期细分（总 / AI / 工具 / 真人类 / 点击）</h2>
       <div class="card"><table>
-        <tr><th>日期</th><th>总请求</th><th>AI</th><th>非 AI</th><th>点击</th><th>AI 占比</th></tr>
+        <tr><th>日期</th><th>总请求</th><th>AI</th><th>工具/扫描</th><th>真人类</th><th>点击</th><th>AI 占比</th></tr>
         ${dailyRows(byDateDaily)}
       </table></div>
 
@@ -943,11 +1007,13 @@ a { color: #0066cc; }
 
 async function handleStats(env) {
   await ensureRefererColumn(env);
+  await ensureToolColumn(env);
   const entryPlaceholders = [...AI_ENTRY_FILES].map(() => '?').join(',');
-  const [totals, byCrawler, byDate, byDateDaily, byPath, byReferrer, byClickPath, byEntry, recent] = await Promise.all([
+  const [totals, byCrawler, byDate, byDateDaily, byPath, byReferrer, byClickPath, byEntry, byTool, recent] = await Promise.all([
     env.DB.prepare(
       `SELECT COUNT(*) AS total,
               SUM(CASE WHEN crawler_name IS NOT NULL THEN 1 ELSE 0 END) AS ai,
+              SUM(CASE WHEN tool_name IS NOT NULL THEN 1 ELSE 0 END) AS tools,
               SUM(CASE WHEN referer_host IS NOT NULL THEN 1 ELSE 0 END) AS clicks
        FROM crawler_logs`
     ).first(),
@@ -964,6 +1030,7 @@ async function handleStats(env) {
       `SELECT date AS label,
               COUNT(*) AS total,
               SUM(CASE WHEN crawler_name IS NOT NULL THEN 1 ELSE 0 END) AS ai,
+              SUM(CASE WHEN tool_name IS NOT NULL THEN 1 ELSE 0 END) AS tools,
               SUM(CASE WHEN referer_host IS NOT NULL AND referer_host != '' THEN 1 ELSE 0 END) AS clicks
        FROM crawler_logs
        GROUP BY date ORDER BY date DESC LIMIT 14`
@@ -991,6 +1058,11 @@ async function handleStats(env) {
       .bind(...AI_ENTRY_FILES)
       .all(),
     env.DB.prepare(
+      `SELECT tool_name AS label, COUNT(*) AS n FROM crawler_logs
+       WHERE tool_name IS NOT NULL
+       GROUP BY tool_name ORDER BY n DESC LIMIT 15`
+    ).all(),
+    env.DB.prepare(
       `SELECT ts, crawler_name, ua, path, status, referer_host FROM crawler_logs
        ORDER BY id DESC LIMIT 20`
     ).all(),
@@ -998,9 +1070,17 @@ async function handleStats(env) {
 
   const total = totals?.total || 0;
   const ai = totals?.ai || 0;
+  const tools = totals?.tools || 0;
   const clicks = totals?.clicks || 0;
   const data = {
-    totals: { total, ai, clicks, aiPct: total ? Math.round((ai / total) * 100) : 0 },
+    totals: {
+      total,
+      ai,
+      tools,
+      clicks,
+      aiPct: total ? Math.round((ai / total) * 100) : 0,
+      toolPct: total ? Math.round((tools / total) * 100) : 0,
+    },
     byCrawler: byCrawler?.results || [],
     byDate: byDate?.results || [],
     byDateDaily: byDateDaily?.results || [],
@@ -1008,6 +1088,7 @@ async function handleStats(env) {
     byReferrer: byReferrer?.results || [],
     byClickPath: byClickPath?.results || [],
     byEntry: byEntry?.results || [],
+    byTool: byTool?.results || [],
     recent: recent?.results || [],
   };
   return new Response(renderStatsPage(data), {
@@ -1277,13 +1358,24 @@ export default {
     // Record: HTML pages, plus AI-crawler hits on key entry files (llms/robots/sitemap/feed/well-known)
     const ua = request.headers.get('user-agent') || '';
     const crawler = classifyCrawler(ua);
+    const tool = crawler ? null : classifyToolbot(ua);
     const isHtml = !STATIC_EXT.test(rawPath);
-    if (isHtml || (crawler && AI_ENTRY_FILES.has(rawPath))) {
+    // 记录规则（口径真实）：
+    //  - AI 爬虫：isHtml 的请求或访问入口文件一律记录（含 404，用于观察 AI 找错路径）；
+    //  - 非 AI（人类 / 工具/扫描）：只记录真实命中（status 200）的页面，404 路径猜解、
+    //    探测阈值（//wp/ 等 WordPress 扫描、phpunit eval-stdin、根路径猜子目录文章）不入库，
+    //    否则会污染总请求与"非 AI（人类）"口径。
+    const shouldLog = crawler
+      ? isHtml || AI_ENTRY_FILES.has(rawPath)
+      : isHtml && status === 200;
+    if (shouldLog) {
       await ensureRefererColumn(env);
+      if (tool) await ensureToolColumn(env);
       await logRequest(env, {
         ts: new Date().toISOString().slice(0, 19) + 'Z',
         ua,
         crawler,
+        tool,
         path: rawPath,
         status,
         isHtml,

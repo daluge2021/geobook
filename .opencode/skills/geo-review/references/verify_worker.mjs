@@ -5,14 +5,17 @@ const insertBinds = [];
 const commentBinds = [];
 let rateLimited = false;
 
-const DB_COLS = ['id', 'ts', 'date', 'ua', 'crawler_name', 'path', 'status', 'is_html', 'referer_host'];
+const DB_COLS = ['id', 'ts', 'date', 'ua', 'crawler_name', 'tool_name', 'path', 'status', 'is_html', 'referer_host'];
 
 const env = {
   COMMENTS_ADMIN_KEY: 'test-secret',
   DB: {
     prepare(sql) {
       if (/PRAGMA table_info/i.test(sql)) {
-        return { all: async () => ({ results: DB_COLS.map((name) => ({ name })) }) };
+        return {
+          all: async () => ({ results: DB_COLS.map((name) => ({ name })) }),
+          run: async () => { calls.push('DB:alter'); },
+        };
       }
       if (/CREATE TABLE IF NOT EXISTS comments/i.test(sql)) {
         return { run: async () => { calls.push('DB:comments-create'); } };
@@ -114,7 +117,7 @@ res = await worker.fetch(new Request('https://geo010.com/llms.txt', {
 check('entry file served', res.status === 200);
 check('AI entry file recorded', insertBinds.length === 1, `got ${insertBinds.length}`);
 check('entry crawler stored', insertBinds[0]?.[3] === 'GPTBot', insertBinds[0]?.[3]);
-check('entry is_html=0', insertBinds[0]?.[6] === 0, String(insertBinds[0]?.[6]));
+check('entry is_html=0', insertBinds[0]?.[7] === 0, String(insertBinds[0]?.[7]));
 
 // 非 AI 用户访问入口文件 → 不记录
 insertBinds.length = 0;
@@ -137,37 +140,60 @@ res = await worker.fetch(new Request('https://geo010.com/favicon.svg', {
 }), env);
 check('ordinary static asset not recorded', insertBinds.length === 0, `got ${insertBinds.length}`);
 
+// 非 AI 请求 404（路径猜解/探测）→ 不记录，避免污染总请求口径
+insertBinds.length = 0;
+globalThis.fetch = async (url) => new Response('Not Found', {
+  status: 404,
+  headers: { 'Content-Security-Policy': 'default-src \'none\'; sandbox', 'X-Frame-Options': 'deny' },
+});
+await worker.fetch(new Request('https://geo010.com//wp/', {
+  headers: { 'user-agent': 'python-requests/2.34.2' },
+}), env);
+check('non-AI 404 probe not recorded', insertBinds.length === 0, `got ${insertBinds.length}`);
+
+// 工具/扫描型 UA（python-requests）访问存在的 200 页 → 记录且带 tool_name
+insertBinds.length = 0;
+globalThis.fetch = async (url) => new Response('<html><body>ok</body></html>', {
+  status: 200,
+  headers: { 'Content-Security-Policy': 'default-src \'none\'; sandbox', 'X-Frame-Options': 'deny' },
+});
+await worker.fetch(new Request('https://geo010.com/glossary/geo.html', {
+  headers: { 'user-agent': 'python-requests/2.34.2' },
+}), env);
+check('tool request recorded', insertBinds.length === 1, `got ${insertBinds.length}`);
+check('tool name stored', insertBinds[0]?.[4] === 'Python-requests', String(insertBinds[0]?.[4]));
+
 // AI 访问 MCP manifest → 记录
 insertBinds.length = 0;
 res = await worker.fetch(new Request('https://geo010.com/.well-known/mcp', {
   headers: { 'user-agent': 'ClaudeBot/1.0' },
 }), env);
 check('mcp AI hit recorded', insertBinds.length === 1, `got ${insertBinds.length}`);
-check('mcp recorded path', insertBinds[0]?.[4] === '/.well-known/mcp', insertBinds[0]?.[4]);
+check('mcp recorded path', insertBinds[0]?.[5] === '/.well-known/mcp', insertBinds[0]?.[5]);
 check('mcp still 200 + json', res.status === 200 && (res.headers.get('Content-Type') || '').includes('application/json'));
 
-// Referrer tracking: 8 binds, 外部 host 被记录
+// Referrer tracking: 9 binds, 外部 host 被记录
 insertBinds.length = 0;
 await worker.fetch(new Request('https://geo010.com/index.html', {
   headers: { 'user-agent': 'Mozilla/5.0', 'Referer': 'https://chatgpt.com/c/abc' },
 }), env);
 check('referer record written', insertBinds.length === 1, `got ${insertBinds.length}`);
-check('referer bind has 8 args', insertBinds[0]?.length === 8, JSON.stringify(insertBinds[0]));
-check('external referer host stored', insertBinds[0]?.[7] === 'chatgpt.com', insertBinds[0]?.[7]);
+check('referer bind has 9 args', insertBinds[0]?.length === 9, JSON.stringify(insertBinds[0]));
+check('external referer host stored', insertBinds[0]?.[8] === 'chatgpt.com', insertBinds[0]?.[8]);
 
 // 同站 referer 置 null（避免自污染）
 insertBinds.length = 0;
 await worker.fetch(new Request('https://geo010.com/index.html', {
   headers: { 'user-agent': 'Mozilla/5.0', 'Referer': 'https://geo010.com/fundamentals/what-is-geo.html' },
 }), env);
-check('same-site referer dismissed', insertBinds[0]?.[7] === null, String(insertBinds[0]?.[7]));
+check('same-site referer dismissed', insertBinds[0]?.[8] === null, String(insertBinds[0]?.[8]));
 
 // 无 referer → null
 insertBinds.length = 0;
 await worker.fetch(new Request('https://geo010.com/index.html', {
   headers: { 'user-agent': 'Mozilla/5.0' },
 }), env);
-check('missing referer is null', insertBinds[0]?.[7] === null);
+check('missing referer is null', insertBinds[0]?.[8] === null);
 
 // stats 页含来源统计区块
 const statsRes = await worker.fetch(new Request('https://geo010.com/stats.html'), env);

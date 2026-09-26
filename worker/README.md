@@ -67,8 +67,15 @@ npx wrangler deploy
 | `CLOUDFLARE_API_TOKEN` | Cloudflare API token（不提交 git） |
 | `CLOUDFLARE_ACCOUNT_ID` | Cloudflare 账号 ID |
 
-## 说明
+## 统计口径
 
 - 仅记录 HTML 页面请求，静态资源（ico/png/svg/css/js 等）不记录
 - 统计页自身请求不记录，避免自污染
+- **AI 爬虫**：命中 `AI_CRAWLERS` 名单（含搜索引擎爬虫与 AI 引擎爬虫）的请求全记
+  （含 404，用于观察 AI 找错路径）
+- **工具/扫描**：`TOOL_BOTS` 名单（python-requests、*Audit、Semrush/SERanking、
+  Ahrefs/Screaming Frog、curl/wget、Go-http-client 等）单独写入 `tool_name` 列，
+  统计页单独展示，不混入"真人类"口径
+- **路径猜解/探测过滤**：非 AI 请求仅记录真实命中（200）的页面；404 的路径
+  猜解、WordPress/phpunit 等探测阈值不入库，避免污染总请求口径
 - token.txt 已加入 .gitignore，绝不提交
