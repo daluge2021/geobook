@@ -33,21 +33,6 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
-  .layout { display: flex; min-height: 100vh; }
-  .sidebar { width: 240px; flex-shrink: 0; background: #1a1a2e; color: #ccc; padding: 32px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
-  .sidebar h3 { color: #fff; font-size: 1em; padding: 0 20px; margin-bottom: 20px; }
-  .sidebar a { display: block; padding: 8px 20px; color: #999; text-decoration: none; font-size: 0.9em; transition: all 0.15s; }
-  .sidebar a:hover, .sidebar a.active { color: #fff; background: rgba(255,255,255,0.08); }
-  .sidebar a.active { border-left: 3px solid #4fc3f7; }
-  .sidebar .current { color: #aaa; padding: 8px 20px; font-size: 0.85em; }
-  .sidebar .home-link { margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 12px; font-weight: 500; color: #4fc3f7; }
-  .nav-group-toggle { padding: 8px 20px; color: #aaa; font-size: 0.85em; cursor: pointer; user-select: none; transition: color 0.15s; display: flex; align-items: center; gap: 6px; }
-  .nav-group-toggle:hover { color: #fff; background: rgba(255,255,255,0.05); }
-  .nav-group-links { display: none; }
-  .nav-group.open .nav-group-links { display: block; }
-  .nav-group.open > .nav-group-toggle .arrow { transform: rotate(90deg); }
-  .arrow { display: inline-block; transition: transform 0.2s; font-size: 0.8em; }
-  .glossary-section { margin-top: 12px; border-top: 1px solid #333; padding-top: 12px; }
   .main { flex: 1; max-width: 800px; margin: 0 auto; padding: 48px 32px 80px; }
   .content { background: #fff; border-radius: 12px; padding: 40px 48px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
   .content .breadcrumb { color: #888; font-size: 0.85em; margin-bottom: 16px; }
@@ -96,7 +81,6 @@
   .comment-msg.ok { color: #2e7d32; }
   .comment-msg.err { color: #c62828; }
   @media (max-width: 768px) {
-    .sidebar { display: none; }
     .main { padding: 24px 16px; }
     .content { padding: 24px 20px; border-radius: 8px; }
     .content h1 { font-size: 1.3em; }
@@ -104,7 +88,40 @@
     .nav-links { flex-direction: column; gap: 12px; }
   }
   .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-</style>
+
+
+  .site-header { background: #1a1a2e; color: #fff; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+  .navbar { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; min-height: 56px; gap: 16px; }
+  .navbar .brand { color: #4fc3f7; text-decoration: none; font-weight: 700; font-size: 1.02em; white-space: nowrap; }
+  .navbar .brand:hover { color: #fff; }
+  .topnav { display: flex; align-items: center; gap: 2px; }
+  .topnav > a, .topnav .dropbtn { color: #ccc; text-decoration: none; font-size: 0.92em; padding: 8px 12px; border-radius: 6px; cursor: pointer; background: none; border: none; font-family: inherit; line-height: 1.6; display: inline-flex; align-items: center; gap: 4px; }
+  .topnav > a:hover, .topnav > a.active, .topnav .dropbtn:hover, .topnav .dropbtn.active { color: #fff; background: rgba(255,255,255,0.12); }
+  .dropdown { position: relative; }
+  .dropdown-panel { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; border: 1px solid #e5e5e5; border-radius: 10px; box-shadow: 0 12px 32px rgba(0,0,0,0.18); padding: 18px 22px; gap: 26px; z-index: 9999; min-width: 900px; }
+  .dropdown:hover .dropdown-panel, .dropdown.open .dropdown-panel { display: flex; }
+  .dropdown-panel .col { min-width: 150px; }
+  .dropdown-panel h4 { font-size: 0.78em; color: #1a1a2e; margin: 16px 0 6px; text-transform: uppercase; letter-spacing: 0.4px; }
+  .dropdown-panel .col > h4:first-child { margin-top: 0; }
+  .dropdown-panel a { display: block; padding: 3px 0; color: #444; text-decoration: none; font-size: 0.9em; white-space: nowrap; }
+  .dropdown-panel a:hover { color: #0066cc; text-decoration: underline; }
+  .dropdown-panel a.active, .dropdown-panel h4.active { color: #0066cc; font-weight: 600; }
+  .dropdown-panel a.new::after, .articles a.new::after { content: "NEW"; display: inline-block; margin-left: 6px; padding: 0 6px; font-size: 10px; line-height: 1.5; font-weight: 700; color: #1a1a2e; background: #4fc3f7; border-radius: 8px; vertical-align: middle; }
+  .menu-toggle { display: none; background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; padding: 4px 8px; line-height: 1; }
+  .main { max-width: 1000px; }
+  @media (max-width: 767px) {
+    .menu-toggle { display: block; }
+    .navbar { flex-wrap: wrap; padding: 0 16px; }
+    .topnav { display: none; width: 100%; flex-direction: column; align-items: stretch; padding: 4px 4px 16px; }
+    .topnav.open { display: flex; }
+    .dropdown { width: 100%; }
+    .dropdown-panel { position: static; transform: none; min-width: 0; width: 100%; box-shadow: none; border: none; border-radius: 0; background: #22223b; padding: 4px 4px 8px; flex-direction: column; gap: 0; }
+    .dropdown-panel .col { width: 100%; min-width: 0; }
+    .dropdown-panel h4 { color: #4fc3f7; margin-top: 12px; }
+    .dropdown-panel a { color: #ccc; }
+    .topnav > a, .topnav .dropbtn { width: 100%; text-align: left; padding: 10px 12px; }
+  }
+  </style>
 
   <script type="application/ld+json">
 {
@@ -189,131 +206,115 @@
 </head>
 <body>
 <div class="layout">
-  <nav class="sidebar">
-    <h3>📖 GEO Encyclopedia</h3>
-    <a href="../index.html" class="home-link">🏠 Home</a>
-    <div class="nav-group">
-      <div class="nav-group-toggle"><span class="arrow">▸</span> I. Fundamentals</div>
-      <div class="nav-group-links">
-        <a href="../fundamentals/what-is-geo.html">What is GEO?</a>
-        <a href="../fundamentals/seo-vs-geo.html">Is SEO Dead?</a>
-        <a href="../fundamentals/eeat-trust-mechanism.html">E-E-A-T Trust</a>
-        <a href="../fundamentals/llms-txt-guide.html">LLMs.txt Guide</a>
-        <a href="../fundamentals/answer-assetization.html">Answer Assetization</a>
-      </div>
+  <header class="site-header">
+    <div class="navbar">
+      <a class="brand" href="../index.html">&#x1F4D6; GEO Encyclopedia</a>
+      <nav class="topnav" id="topnav">
+        <a href="../index.html" data-nav="home">Home</a>
+        <a href="../fundamentals/what-is-geo.html" data-nav="what">What is GEO</a>
+        <div class="dropdown" data-nav="chapters">
+          <button class="dropbtn" type="button">Chapters &#x25BE;</button>
+          <div class="dropdown-panel">
+            <div class="col">
+              <h4>I. Fundamentals</h4>
+              <a href="../fundamentals/what-is-geo.html">What is GEO?</a>
+              <a href="../fundamentals/seo-vs-geo.html">Is SEO Dead?</a>
+              <a href="../fundamentals/eeat-trust-mechanism.html">E-E-A-T Trust</a>
+              <a href="../fundamentals/llms-txt-guide.html">LLMs.txt Guide</a>
+              <a href="../fundamentals/answer-assetization.html">Answer Assetization</a>
+              <a href="../fundamentals/ai-vs-traditional-search.html">AI vs Traditional Search</a>
+              <a href="../fundamentals/geo-quick-start-checklist.html">GEO Quick Start Checklist</a>
+              <h4>II. Metrics</h4>
+              <a href="../metrics/citation-share.html">Citation Share</a>
+              <a href="../metrics/entity-density.html">Entity Density</a>
+              <a href="../metrics/sheep-framework.html">SHEEP Framework</a>
+              <a href="../metrics/competitive-ai-analysis.html" class="new">Competitive AI Analysis</a>
+              <h4>&#x1F4AC; Community</h4>
+              <a href="../community.html">Community Home</a>
+              <a href="../community/what-is-json-ld.html">What is JSON-LD?</a>
+              <a href="../community/geo-content-template.html">The GEO Content Template</a>
+              <a href="../community/one-week-geo-readiness.html">One-Week GEO Readiness</a>
+              <a href="../community/two-week-crawler-data.html">Two-Week Crawler Data</a>
+              <a href="../community/geo-impact-attribution-new-site.html">Crawler Impact &amp; Launch Checklist</a>
+            </div>
+            <div class="col">
+              <h4>III. Models</h4>
+              <a href="../models/3c-optimization-model.html">3C Model</a>
+              <a href="../models/geo-evolution.html">GEO Evolution</a>
+              <a href="../models/source-authority.html">Source Authority</a>
+              <a href="../models/geo-vs-aeo.html" class="new">GEO vs AEO</a>
+              <h4>IV. Content</h4>
+              <a href="../content/eeat-in-geo.html">E-E-A-T in GEO</a>
+              <a href="../content/knowledge-entropy.html">Knowledge Entropy</a>
+              <a href="../content/backlinks-in-geo.html">Backlinks in GEO</a>
+              <a href="../content/source-matrix-strategy.html" class="new">Source Matrix</a>
+              <a href="../content/topical-authority.html">Topical Authority</a>
+              <a href="../content/content-freshness.html">Content Freshness</a>
+              <a href="../content/multimodal-content.html">Multimodal Content</a>
+              <a href="../content/question-driven-strategy.html">Question-Driven Strategy</a>
+              <a href="../content/local-geo-longtail.html">Local GEO</a>
+            </div>
+            <div class="col">
+              <h4>V. Technical</h4>
+              <a href="../technical/schema-markup-guide.html">Schema Markup</a>
+              <a href="../technical/llms-txt-advanced.html">LLMs.txt Advanced</a>
+              <a href="../technical/entity-knowledge-graph.html">Entity &amp; Knowledge Graph</a>
+              <a href="../technical/ai-crawler-management.html">AI Crawler Management</a>
+              <a href="../technical/geo-monitoring-tools.html">Monitoring Tools</a>
+              <a href="../technical/track-ai-citations.html">Track AI Citations</a>
+              <a href="../technical/agenticgeo-tools.html">AgenticGEO</a>
+              <a href="../technical/tech-stack-overview.html">Tech Stack Overview</a>
+              <a href="../technical/geo-tools-review.html">Tools Review</a>
+              <a href="../technical/per-engine-optimization.html" class="new">Per-Engine Optimization</a>
+            </div>
+            <div class="col">
+              <h4>VI. Brand</h4>
+              <a href="../brand/brand-as-source.html">Brand as Source</a>
+              <a href="../brand/eeat-brand-implementation.html">EEAT Brand</a>
+              <a href="../brand/crisis-pr-geo.html">Crisis PR</a>
+              <a href="../brand/ai-hallucination-protection.html" class="new">Hallucination Protection</a>
+              <a href="../brand/multi-brand-geo.html">Multi-Brand</a>
+              <a href="../brand/ecommerce-geo.html">E-Commerce</a>
+              <a href="../brand/b2b-brand-geo.html">B2B Brand</a>
+              <h4>VII. Industry</h4>
+              <a href="../industry/healthcare-geo.html">Healthcare</a>
+              <a href="../industry/finance-geo.html">Finance</a>
+              <a href="../industry/education-geo.html">Education</a>
+              <a href="../industry/legal-geo.html">Legal</a>
+              <a href="../industry/local-services-geo.html">Local Services</a>
+              <a href="../industry/manufacturing-geo.html">Manufacturing</a>
+              <a href="../industry/saas-geo.html">SaaS</a>
+              <a href="../industry/ecommerce-product-geo.html">E-commerce Products</a>
+            </div>
+            <div class="col">
+              <h4>VIII. Cases</h4>
+              <a href="../cases/zero-to-one-roadmap.html">Zero to One</a>
+              <a href="../cases/full-process-case.html">Full Case Study</a>
+              <a href="../cases/geo-ai-audit.html">AI-Readiness Audit</a>
+              <a href="../cases/black-hat-prevention.html">Black Hat Prevention</a>
+              <a href="../cases/geo-future-trends.html">Future Trends</a>
+              <a href="../cases/what-ai-assistants-say-citation-share.html">AI Answers: Citation Share</a>
+              <a href="../cases/what-ai-assistants-say-entity-density.html">AI Answers: Entity Density</a>
+              <a href="../cases/geo-timeline.html" class="new">GEO Timeline</a>
+              <a href="../cases/why-ai-answers-vary.html" class="new">Why AI Answers Vary</a>
+              <h4>IX. Data</h4>
+              <a href="../data/core-metrics-system.html">Core Metrics</a>
+              <a href="../data/roi-calculation.html">ROI Calculator</a>
+              <a href="../data/crawler-behavior-data.html">Crawler Behavior Data</a>
+              <a href="../data/data-dashboard-setup.html">Data Dashboard</a>
+              <a href="../data/geo-benchmarks.html" class="new">GEO Benchmarks</a>
+              <a href="../data/ai-referral-attribution.html" class="new">AI Referral Attribution</a>
+            </div>
+          </div>
+        </div>
+        <a href="../community.html" data-nav="community">Community</a>
+        <a href="../glossary/geo.html" data-nav="glossary">Glossary</a>
+        <a href="../about.html" data-nav="about">About</a>
+        <a href="../contact.html" data-nav="contact">Contact</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-label="Menu" data-toggle="nav">&#x2630;</button>
     </div>
-    <div class="nav-group">
-      <div class="nav-group-toggle"><span class="arrow">▸</span> II. Metrics</div>
-      <div class="nav-group-links">
-        <a href="../metrics/citation-share.html">Citation Share</a>
-        <a href="../metrics/entity-density.html">Entity Density</a>
-        <a href="../metrics/sheep-framework.html">SHEEP Framework</a>
-      </div>
-    </div>
-    <div class="nav-group">
-      <div class="nav-group-toggle"><span class="arrow">▸</span> III. Models</div>
-      <div class="nav-group-links">
-        <a href="../models/3c-optimization-model.html">3C Model</a>
-        <a href="../models/geo-evolution.html">GEO Evolution</a>
-        <a href="../models/source-authority.html">Source Authority</a>
-      </div>
-    </div>
-    <div class="nav-group open">
-      <div class="nav-group-toggle"><span class="arrow">▸</span> IV. Content</div>
-      <div class="nav-group-links">
-        <a href="../content/eeat-in-geo.html">E-E-A-T in GEO</a>
-        <a href="../content/knowledge-entropy.html">Knowledge Entropy</a>
-        <a href="../content/backlinks-in-geo.html">Backlinks in GEO</a>
-        <a href="source-matrix-strategy.html" class="active">Source Matrix</a>
-        <a href="../content/topical-authority.html">Topical Authority</a>
-        <a href="../content/content-freshness.html">Content Freshness</a>
-        <a href="../content/multimodal-content.html">Multimodal Content</a>
-        <a href="../content/question-driven-strategy.html">Question-Driven Strategy</a>
-        <a href="../content/local-geo-longtail.html">Local GEO</a>
-      </div>
-    </div>
-    <div class="nav-group">
-      <div class="nav-group-toggle"><span class="arrow">▸</span> V. Technical</div>
-      <div class="nav-group-links">
-        <a href="../technical/schema-markup-guide.html">Schema Markup</a>
-        <a href="../technical/llms-txt-advanced.html">LLMs.txt Advanced</a>
-        <a href="../technical/entity-knowledge-graph.html">Entity & Knowledge Graph</a>
-        <a href="../technical/ai-crawler-management.html">AI Crawler Management</a>
-        <a href="../technical/geo-monitoring-tools.html">Monitoring Tools</a>
-        <a href="../technical/agenticgeo-tools.html">AgenticGEO</a>
-        <a href="../technical/tech-stack-overview.html">Tech Stack Overview</a>
-      </div>
-    </div>
-    <div class="nav-group">
-      <div class="nav-group-toggle"><span class="arrow">▸</span> VI. Brand</div>
-      <div class="nav-group-links">
-        <a href="../brand/brand-as-source.html">Brand as Source</a>
-        <a href="../brand/eeat-brand-implementation.html">EEAT Brand</a>
-        <a href="../brand/crisis-pr-geo.html">Crisis PR</a>
-        <a href="../brand/multi-brand-geo.html">Multi-Brand</a>
-        <a href="../brand/ecommerce-geo.html">E-Commerce</a>
-        <a href="../brand/b2b-brand-geo.html">B2B Brand</a>
-      </div>
-    </div>
-    <div class="nav-group">
-      <div class="nav-group-toggle"><span class="arrow">▸</span> VII. Industry</div>
-      <div class="nav-group-links">
-        <a href="../industry/healthcare-geo.html">Healthcare</a>
-        <a href="../industry/finance-geo.html">Finance</a>
-        <a href="../industry/education-geo.html">Education</a>
-        <a href="../industry/legal-geo.html">Legal</a>
-        <a href="../industry/local-services-geo.html">Local Services</a>
-        <a href="../industry/manufacturing-geo.html">Manufacturing</a>
-      </div>
-    </div>
-    <div class="nav-group">
-      <div class="nav-group-toggle"><span class="arrow">▸</span> VIII. Cases</div>
-      <div class="nav-group-links">
-        <a href="../cases/zero-to-one-roadmap.html">Zero to One</a>
-        <a href="../cases/full-process-case.html">Full Case Study</a>
-        <a href="../cases/geo-ai-audit.html">AI-Readiness Audit</a>
-        <a href="../cases/black-hat-prevention.html">Black Hat Prevention</a>
-        <a href="../cases/geo-future-trends.html">Future Trends</a>
-        <a href="../cases/what-ai-assistants-say-citation-share.html">AI Answers: Citation Share</a>
-        <a href="../cases/what-ai-assistants-say-entity-density.html">AI Answers: Entity Density</a>
-      </div>
-    </div>
-    <div class="nav-group">
-      <div class="nav-group-toggle"><span class="arrow">▸</span> IX. Data</div>
-      <div class="nav-group-links">
-        <a href="../data/core-metrics-system.html">Core Metrics</a>
-        <a href="../data/roi-calculation.html">ROI Calculator</a>
-        <a href="../data/crawler-behavior-data.html">Crawler Behavior Data</a>
-
-        <a href="../data/data-dashboard-setup.html">Data Dashboard</a>
-      </div>
-    </div>
-    <div class="nav-group">
-      <div class="nav-group-toggle"><span class="arrow">▸</span> 💬 Community</div>
-      <div class="nav-group-links">
-        <a href="../community.html">Community Home</a>
-        <a href="../community/what-is-json-ld.html">What is JSON-LD?</a>
-        <a href="../community/geo-content-template.html">The GEO Content Template</a>
-        <a href="../community/one-week-geo-readiness.html">One-Week GEO Readiness</a>
-        <a href="../community/two-week-crawler-data.html">Two-Week Crawler Data</a>
-        <a href="../community/geo-impact-attribution-new-site.html">Crawler Impact & Launch Checklist</a>
-      </div>
-    </div>
-  <div class="current glossary-section">📌 Glossary</div>
-  <a href="../glossary/geo.html">GEO</a>
-  <a href="../glossary/seo.html">SEO</a>
-  <a href="../glossary/rag.html">RAG</a>
-  <a href="../glossary/eeat.html">E-E-A-T</a>
-  <a href="../glossary/llms-txt.html">LLMs.txt</a>
-  <a href="../glossary/zero-click.html">Zero-Click Search</a>
-  <a href="../glossary/schema.html">Schema</a>
-  <a href="../glossary/answer-asset.html">Answer Assetization</a>
-  <a href="../glossary/ai-visibility.html">AI Visibility Index</a>
-  <a href="../glossary/ymyl.html">YMYL</a>
-  <div class="current glossary-section">📄 About</div>
-  <a href="../about.html">About &amp; Editorial Standards</a>
-  <a href="../privacy.html">Privacy Policy</a>
-  </nav>
+  </header>
   <div class="main">
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../content-strategy.html">Content Strategy</a> › Owned vs Third-Party Sources: The Source Matrix Strategy</div>
@@ -493,17 +494,40 @@
   load();
 })();
 </script>
+
+
 <script>
-document.querySelectorAll('.nav-group-toggle').forEach(function(toggle) {
-  toggle.addEventListener('click', function() {
-    this.parentElement.classList.toggle('open');
+(function(){
+  var tog = document.querySelector('[data-toggle="nav"]');
+  if (tog) {
+    tog.addEventListener('click', function(){
+      var nav = document.getElementById('topnav');
+      if (nav) { nav.classList.toggle('open'); }
+    });
+  }
+  document.querySelectorAll('.topnav .dropbtn').forEach(function(b){
+    b.addEventListener('click', function(e){
+      e.stopPropagation();
+      this.parentElement.classList.toggle('open');
+    });
   });
-});
-var active = document.querySelector('.sidebar a.active');
-if (active) {
-  var group = active.closest('.nav-group');
-  if (group) { group.classList.add('open'); }
-}
-</script>
-</body>
+  var seg = (location.pathname || '/').split('/').filter(Boolean);
+  var r = (seg[0] || 'index.html');
+  var chapterDirs = ['fundamentals','metrics','models','content','technical','brand','industry','cases','data'];
+  var key;
+  if (r === 'what-is-geo.html') { key = 'what'; }
+  else if (chapterDirs.indexOf(r) !== -1) { key = 'chapters'; }
+  else if (r === 'index.html' || r === '') { key = 'home'; }
+  else { key = r.replace('.html', ''); }
+  var t = document.querySelector('.topnav [data-nav="' + key + '"]');
+  if (t) {
+    if (t.classList.contains('dropdown')) {
+      var db = t.querySelector('.dropbtn');
+      if (db) { db.classList.add('active'); }
+    } else {
+      t.classList.add('active');
+    }
+  }
+})();
+</script></body>
 </html>
