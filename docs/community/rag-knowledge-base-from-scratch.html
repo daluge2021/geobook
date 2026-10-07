@@ -14,22 +14,22 @@
 <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1911889082930844" crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What Are Good GEO Benchmarks? Citation Rates, SOV and Q&A Share - GEO Encyclopedia</title>
-<meta name="description" content="GEO benchmarks that hold up to scrutiny: citation rate bands (8-15% minimal, 20-30% traction, 40%+ leader), a 15% share-of-voice leadership line, engine-by-engine citation counts, and how to build your own baseline.">
-<link rel="canonical" href="https://geo010.com/data/geo-benchmarks.html"/>
+<title>How I Built a RAG Knowledge Base That Passed 100% of Its Own Eval — 6 Debugging Lessons - GEO Encyclopedia</title>
+<meta name="description" content="Two merged field reports on building a from-scratch RAG knowledge base on SQLite plus numpy: filter-before-fuse retrieval, a 12-question eval, and the six debugging lessons — alias normalization, ordering bias, vector blind spots — that got it to 100%.">
+<link rel="canonical" href="https://geo010.com/community/rag-knowledge-base-from-scratch.html"/>
 <link rel="alternate" type="application/rss+xml" title="GEO Encyclopedia RSS" href="https://geo010.com/feed.xml">
-<meta property="og:title" content="What Are Good GEO Benchmarks? Citation Rates, SOV and Q&A Share - GEO Encyclopedia"/>
-<meta property="og:description" content="Citation rate bands (8-15% / 20-30% / 40%+), the 15% SOV leadership line, engine citation counts, and a method to build your own baseline instead of trusting vendor slides."/>
-<meta property="og:url" content="https://geo010.com/data/geo-benchmarks.html"/>
+<meta property="og:title" content="How I Built a RAG Knowledge Base That Passed 100% of Its Own Eval — 6 Debugging Lessons - GEO Encyclopedia"/>
+<meta property="og:description" content="Two merged field reports on a from-scratch RAG knowledge base on SQLite plus numpy: filter-before-fuse retrieval, a 12-question eval, and the six debugging lessons that got it to 100%."/>
+<meta property="og:url" content="https://geo010.com/community/rag-knowledge-base-from-scratch.html"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="https://geo010.com/og-image.png"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="GEO Encyclopedia"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="What Are Good GEO Benchmarks? Citation Rates, SOV and Q&A Share - GEO Encyclopedia"/>
-<meta name="twitter:description" content="Citation rate bands, the 15% SOV leadership line, engine citation counts, and building your own baseline."/>
+<meta name="twitter:title" content="How I Built a RAG Knowledge Base That Passed 100% of Its Own Eval — 6 Debugging Lessons - GEO Encyclopedia"/>
+<meta name="twitter:description" content="A from-scratch RAG knowledge base on SQLite plus numpy: filter-before-fuse retrieval, a 12-question eval, and the six debugging lessons behind a 100% score."/>
 <meta name="twitter:image" content="https://geo010.com/og-image.png"/>
-<meta name="keywords" content="GEO benchmarks,citation rate benchmark,citation share benchmark,share of voice benchmark,AI visibility benchmark,GEO KPI,B2B citation rate,Generative Engine Optimization,benchmark methodology">
+<meta name="keywords" content="RAG knowledge base,RAG debugging,filter before fuse,RRF fusion,retrieval evaluation,grounding LLMs,SQLite vectors,eval-driven development,AI answer accuracy,GEO">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
@@ -127,12 +127,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "What Are Good GEO Benchmarks? Citation Rates, SOV and Q&A Share",
-  "description": "GEO benchmarks that hold up to scrutiny: citation rate bands (8-15% minimal, 20-30% traction, 40%+ leader), a 15% share-of-voice leadership line, engine-by-engine citation counts, and how to build your own baseline.",
+  "headline": "How I Built a RAG Knowledge Base That Passed 100% of Its Own Eval \u2014 6 Debugging Lessons",
+  "description": "Two merged field reports on building a from-scratch RAG knowledge base on SQLite plus numpy: filter-before-fuse retrieval, a 12-question eval, and the six debugging lessons that got it to 100%.",
   "author": { "@type": "Organization", "name": "GEO Encyclopedia Editorial Team", "url": "https://geo010.com/about.html" },
-  "datePublished": "2026-09-16",
-  "dateModified": "2026-09-16",
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/data/geo-benchmarks.html" },
+  "datePublished": "2026-10-05",
+  "dateModified": "2026-10-05",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/community/rag-knowledge-base-from-scratch.html" },
   "publisher": { "@type": "Organization", "name": "GEO Encyclopedia", "url": "https://geo010.com" },
   "inLanguage": "en"
 }
@@ -151,14 +151,14 @@
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Data & Formulas",
-      "item": "https://geo010.com/data-formulas.html"
+      "name": "Community",
+      "item": "https://geo010.com/community.html"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "What Are Good GEO Benchmarks?",
-      "item": "https://geo010.com/data/geo-benchmarks.html"
+      "name": "RAG Knowledge Base from Scratch",
+      "item": "https://geo010.com/community/rag-knowledge-base-from-scratch.html"
     }
   ]
 }
@@ -170,34 +170,34 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is a good citation rate for GEO?",
+      "name": "Do I need a vector database to build a RAG knowledge base?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Directional B2B bands from monitoring vendors: 8-15% citation rate is a minimal but real presence, 20-30% is traction worth building on, and 40%+ is typical of a category leader. Treat these as heuristics, not guarantees, because definitions of citation rate vary between tools."
+        "text": "No. This build uses SQLite for the truth (entities, aliases, relations, chunk metadata) and numpy for a derived vector index aligned by chunk IDs. The relational layer answers deterministic questions; vectors handle only fuzzy semantics."
       }
     },
     {
       "@type": "Question",
-      "name": "What share of voice makes you an AI category leader?",
+      "name": "What does filter-before-fuse mean in retrieval?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A commonly cited industry heuristic is sustained share of voice around 15% or higher across your priority topic set, with citation-rate bands of 20-30% considered strong and 40%+ leader-level. Vendors publish these lines; your real target should be a moving advantage over the next competitor, not a fixed number."
+        "text": "Restrict which data is allowed to compete \u2014 per-model isolation, authority floors \u2014 before merging retrieval paths. If you filter after fusion, dead candidates occupy top-K slots and good chunks get squeezed out."
       }
     },
     {
       "@type": "Question",
-      "name": "How many citations do AI answers typically show?",
+      "name": "Why did a self-built eval matter more than the model?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Independent sampling in 2026 reports wide engine differences: Perplexity answers averaged around 20 citations per answer, while ChatGPT answers averaged closer to 8. The count matters less than whether your brand is in the answer at all, because engines format citations very differently."
+        "text": "Every change (chunking, recall paths, prompts) moves quality in both directions, so without a quantifiable measure, 'it seems better' is a coin flip. A 12-question eval with six checks each took the project from 94.4% to 100%."
       }
     },
     {
       "@type": "Question",
-      "name": "Should I trust vendor-published GEO benchmarks?",
+      "name": "Is a 100% score reliable?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use them as directional reference points, not contractual targets. Vendor definitions of citation rate and share of voice differ, and the same measurement can produce very different numbers. Build your own consistent baseline with a fixed query set and fixed formula, then compare movement over time."
+        "text": "No \u2014 it is 12 self-written questions with 6 checks each, on a 60-chunk toy corpus, with no real users and no out-of-domain queries. 100% means this eval, nothing more. The method transfers; the specific numbers do not."
       }
     }
   ]
@@ -318,119 +318,148 @@
   </header>
   <div class="main">
     <div class="content">
-      <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../data-formulas.html">Data & Formulas</a> › What Are Good GEO Benchmarks?</div>
+      <div class="breadcrumb"><a href="../index.html">Home</a> &#8250; <a href="../community.html">Community</a> &#8250; RAG Knowledge Base from Scratch</div>
 
-<div class="article-meta"><span>By <a href="../about.html">GEO Encyclopedia Editorial Team</a></span><span>·</span><span>Updated: 2026-09-16</span><span>·</span><span>Industry figures cross-referenced; vendor-reported where noted</span></div>
+<div class="article-meta"><span>By <a href="../about.html">GEO Encyclopedia Editorial Team</a></span><span>&middot;</span><span>Updated: 2026-10-05</span><span>&middot;</span><span>Merged from two field reports shared on Reddit and LinkedIn</span></div>
 
-<h1>What Are Good GEO Benchmarks? Citation Rates, SOV and Q&A Share</h1>
+<h1>How I Built a RAG Knowledge Base That Passed 100% of Its Own Eval &mdash; 6 Debugging Lessons</h1>
 
-<blockquote>"What's a good citation rate?" is one of the most common GEO questions, and the worst answer is a single number with a confident font. Different tools define the denominator differently, different categories have different baselines, and most published benchmarks come from the people selling the measurement.</blockquote>
-<blockquote>This article separates the benchmark numbers worth keeping from the ones worth ignoring, then gives you a method to build a baseline for <em>your</em> niche — which is the only benchmark that actually answers your question.</blockquote>
+<blockquote><strong>A RAG knowledge base is only as good as its evaluation</strong> &mdash; without a measurable eval, every tuning change is a coin flip.</blockquote>
+<blockquote>This merged field report (Reddit + LinkedIn) covers a Retrieval-Augmented Generation (RAG) system built from scratch on SQLite + numpy that scored <strong>100% on a self-written 12-question eval</strong>.</blockquote>
+<blockquote>The score is not the point. The six debugging lessons &mdash; alias normalization, ordering bias, vector blind spots, table blindness, query expansion, and post-check false positives &mdash; are the transferable part.</blockquote>
+<blockquote><strong>Demo data only</strong>: the build ran on a fictional REDMI K90 series dataset as an engineering exercise, not a real product review. All figures are illustrative.</blockquote>
 
 <hr>
 
-<h2>Why GEO Benchmarks Are Tricky</h2>
+<h2>What Did This RAG Build Actually Do?</h2>
 
-<p>Before any number, the static: <strong>GEO benchmarks are not like SEO benchmarks.</strong> In SEO, rank is a near-universal metric with settled definitions. In GEO, three things are still unsettled:</p>
+<p><strong>It built a question-answering knowledge base over a small product dataset that passed every check in its own evaluation</strong> &mdash; 12 questions, 6 checks each, iterating 94.4% &rarr; 98.6% &rarr; 100%. No vector database was involved; the whole engine is about 600 lines of Python over SQLite and numpy.</p>
 
-<ul>
-  <li><strong>The denominator.</strong> "Citation rate" can mean your citations divided by all citations (share), divided by total answers sampled, or divided by citations plus answer carry-overs. Same brand, same data, wildly different percentages — our <a href="../cases/what-ai-assistants-say-citation-share.html">four-engine field test</a> documented exactly this split.</li>
-  <li><strong>The engine mix.</strong> ChatGPT, Perplexity, Gemini, and Google AI Overviews cite at very different volumes and weights, so "my rate" depends on which engine you watched.</li>
-  <li><strong>The publisher incentive.</strong> Most benchmark tables are marketing. That doesn't make them wrong — it makes them directional. We label vendor-sourced values as such below.</li>
-</ul>
+<p>The reason this matters beyond a toy: grounding LLMs in your own data is becoming everyone's default problem, and most "hallucination" complaints are really data and retrieval problems wearing the model's face.</p>
 
-<p>With those caveats stated, here is the set of numbers that survives cross-checking.</p>
-
-<h2>The Benchmark Table Worth Keeping</h2>
-
-<div class="table-wrap"><table><thead><tr><th>Benchmark</th><th>Directional range</th><th>What it tells you</th><th>Source type</th></tr></thead><tbody>
-<tr><td><strong>Citation rate — minimal presence</strong></td><td>~8-15%</td><td>Your brand appears in AI answers for your topic set, but you are one of the crowd</td><td>Vendor-published (Omnius-type monitoring)</td></tr>
-<tr><td><strong>Citation rate — traction</strong></td><td>~20-30%</td><td>A clear, repeatable position that justifies compounding investment</td><td>Vendor-published</td></tr>
-<tr><td><strong>Citation rate — category leader</strong></td><td>~40%+</td><td>You are the default answer supplier for core queries</td><td>Vendor-published</td></tr>
-<tr><td><strong>Share of voice — leadership line</strong></td><td>~15%+ sustained</td><td>Above this, you are the market's mental default in AI answers</td><td>Vendor-published</td></tr>
-<tr><td><strong>Answer/citation page overlap with Google top-10</strong></td><td>~38% (and falling)</td><td>AI citation winners and Google rankers are mostly different pages — GEO is separate work from SEO</td><td>Ahrefs, 2026</td></tr>
-<tr><td><strong>Citations from brand-managed sources</strong></td><td>~86%</td><td>Your own site and properties dominate citation supply — owned content is the foundation</td><td>Yext (6.8M-citation analysis), 2025</td></tr>
-<tr><td><strong>Monthly answer drift</strong></td><td>~40-60% of answers change month to month</td><td>"Set and forget" doesn't work; monitor with a fixed methodology</td><td>MaximusLabs, 2026</td></tr>
+<div class="table-wrap"><table><thead><tr><th>Layer</th><th>Tool</th><th>Job</th></tr></thead><tbody>
+<tr><td>Truth</td><td>SQLite (<code>k90.db</code>)</td><td>Entities, aliases, relations, documents, chunks, authority, source</td></tr>
+<tr><td>Derived index</td><td>numpy (<code>vectors.npy</code>)</td><td>512-d embeddings aligned to chunk IDs via a JSON sidecar</td></tr>
+<tr><td>Consistency</td><td>Build-time check</td><td>Vector-to-chunk alignment verified after every rebuild</td></tr>
+<tr><td>Eval</td><td>12 questions &times; 6 checks</td><td>Normalization, retrieval, isolation, coverage, post-check, refusal</td></tr>
 </tbody></table></div>
 
-<p>The three most load-bearing rows are citation-rate bands, the 38% overlap, and the 86% owned-source figure. The overlap and owned-source rows are independent research; the bands are consistent across vendors even if exact cutoffs differ.</p>
+<p><strong>Demo data only, not a real product review</strong> &mdash; treat every number as illustrative.</p>
 
-<h2>Citation Rate Bands, Explained</h2>
+<h2>Why Should the Relational DB Be the Source of Truth?</h2>
 
-<p>The band structure exists because <strong>citation rate is a niche-relative number</strong>. In a small B2B category with three credible suppliers, a 15% citation rate is weak; in a crowded consumer category with forty quoted sources, 15% is excellent. Bands make the number interpretable without pretending precision:</p>
+<p><strong>Because business facts are deterministic, and vectors should only handle fuzzy semantics.</strong> Entities, aliases, relationships, authority levels and sources live in SQLite; vectors are a derived index you can rebuild at any time.</p>
 
-<ul>
-  <li><strong>Below ~8%:</strong> you are not reliably part of the answer supply. Work is still structural — crawl access, coverage of the <a href="../metrics/citation-share.html">core query set</a>, basic <a href="../models/source-authority.html">authority signals</a>.</li>
-  <li><strong>~8-15%:</strong> presence exists. This is the "we finally got cited" zone. The right reaction is to widen coverage, not to declare victory.</li>
-  <li><strong>~20-30%:</strong> traction. You now change what the category's default AI answer looks like. This is where internal stakeholders start believing, because competitors visibly lose share to you.</li>
-  <li><strong>~40%+:</strong> leadership. You are cited first and often, and marginal queries lean your way without you working them.</li>
-</ul>
+<p>If a question is deterministic (&ldquo;what&rsquo;s the battery in model X&rdquo;), answer it with SQL, not with a similarity score. This single decision eliminated most hallucination complaints before they could happen: to check &ldquo;this model&rsquo;s battery,&rdquo; the system queries SQL exactly &mdash; it never guesses through vectors.</p>
 
-<p>Use these to set internal expectations, and always measure the same denominator every month — consistency beats precision.</p>
+<p>The content model comes first: four tables (<code>products</code>, <code>aliases</code>, <code>relations</code>, <code>documents/chunks</code>). Ten documents were cut into 60 chunks, each tagged with <code>model_code</code> (which model it belongs to), <code>content_type</code> (parameter / FAQ / compare / review), <code>authority</code> (3 / 2 / 1) and <code>source</code>.</p>
 
-<h2>Share of Voice: The 15% Line</h2>
+<h2>How Does Retrieval Work Without a Vector DB?</h2>
 
-<p>If citation rate is your share of answers, <strong>share of voice (SOV) is your share of conversational mentions</strong> — whether the brand is named, positively contextualized, or recommended. Vendors commonly publish a ~15%+ sustained SOV as the "leadership" line, and it has face validity: in most markets, the category mental default sits north of one answer in six.</p>
-
-<p>SOV is also where the <strong>third-party share</strong> shows up. Independent studies repeatedly find community platforms over-represented in AI answers — Reddit alone accounts for a high-teens percentage of citations in several 2025-2026 analyses. For a commercial brand, that means your SOV ceiling depends partly on sources you do not control, which is why <a href="../content/source-matrix-strategy.html">owned plus third-party source strategy</a> matters: your own properties are ~86% of your addressable citation supply, but the visible competition includes platforms you cannot own.</p>
-
-<h2>Answer Layout and Citation Counts by Engine</h2>
-
-<p>Citation <em>counts</em> are the most misread benchmark in GEO. Independent 2026 sampling (MaximusLabs) shows Perplexity answers commonly carry roughly 20+ citations each, while ChatGPT answers average in the single digits to low double digits. This is a <strong>format difference, not a quality difference</strong>:</p>
-
-<div class="table-wrap"><table><thead><tr><th>Engine</th><th>Typical citation volume</th><th>What it means for your strategy</th></tr></thead><tbody>
-<tr><td>Perplexity</td><td>High (frequently 15-25 per answer)</td><td>Volume game — appearing in many answers compounds quickly; a 1-2% share is visible</td></tr>
-<tr><td>ChatGPT</td><td>Low (often under 10)</td><td>Winner-takes-most — being in the handful of cited sources is what counts</td></tr>
-<tr><td>Gemini / Google</td><td>Medium, answer-dependent</td><td>Blended with search results; entity and structured-data signals weigh heavily</td></tr>
-</tbody></table></div>
-
-<p>We cover engine-by-engine tactics in <a href="../technical/per-engine-optimization.html">per-engine optimization</a>. For benchmark purposes, the takeaway is: <strong>never compare your citation count across engines; compare only within one engine, against one fixed query set.</strong></p>
-
-<h2>What Not to Use Benchmarks For</h2>
-
-<ul>
-  <li><strong>Contractual performance guarantees.</strong> Vendor benchmarks are not a measurable KPI for your niche until you reproduce the exact denominator definition. Use them to set brackets, not SLAs.</li>
-  <li><strong>Cross-industry bragging.</strong> A 30% rate in a two-supplier niche is not comparable to 30% in a crowded consumer vertical. Always benchmark within your category.</li>
-  <li><strong>Timeline promises.</strong> Benchmarks describe a destination, not a speed. How fast you reach a band depends on starting authority — see our <a href="../cases/geo-timeline.html">GEO timeline analysis</a>.</li>
-</ul>
-
-<h2>How to Build Your Own Baseline</h2>
-
-<p>A benchmark you control beats a vendor slide every time. The method:</p>
+<p><strong>Four recall paths, filtered before fusion, merged with Reciprocal Rank Fusion (RRF).</strong> Single-path retrieval always misses; combining paths fixes most of it.</p>
 
 <ol>
-  <li><strong>Fix a query set.</strong> 20-50 questions your buyers actually ask, weighted to your revenue priorities. Save them verbatim; never edit the set silently.</li>
-  <li><strong>Fix a denominator.</strong> Write your formula down — for example "brand citations / total citations across all answers sampled" — and apply it identically every cycle.</li>
-  <li><strong>Sample multiple engines.</strong> Run the set in 2-3 engines you care about. Record separately; <a href="../metrics/competitive-ai-analysis.html">score yourself and 3-5 competitors</a> on the same questions.</li>
-  <li><strong>Measure monthly, report on trajectory.</strong> Given ~40-60% monthly answer drift, a single snapshot is noise. Your trend line over 3-4 months is the real benchmark.</li>
-  <li><strong>Anchor to revenue questions.</strong> A high citation rate on questions nobody asks is a vanity metric. Weight your baseline by commercial importance and fold it into the <a href="../data/core-metrics-system.html">core metrics system</a>.</li>
+  <li><strong>Exact path (SQL)</strong> &mdash; locks the model, guaranteeing every chunk of that model becomes a candidate.</li>
+  <li><strong>Contrast path</strong> &mdash; for comparison questions (&ldquo;what&rsquo;s the difference between A and B&rdquo;), it fetches only <code>content_type='compare'</code> chunks.</li>
+  <li><strong>Dense path</strong> &mdash; bge-small-zh-v1.5 embeddings (512-d) for semantic similarity.</li>
+  <li><strong>BM25 path</strong> &mdash; keyword exact match, which is what makes model names and parameter values work.</li>
 </ol>
 
-<p>Six months of clean monthly sampling will tell you more about "good for your niche" than any industry table — and it is the same discipline behind a functional <a href="../data/data-dashboard-setup.html">GEO data dashboard</a>.</p>
+<p>RRF merges the four by <strong>rank only, not score</strong> &mdash; the path scores live on incompatible scales (dense 0&ndash;1, BM25 0&ndash;30), so direct weighting is impossible; rank-only fusion sidesteps normalization entirely.</p>
+
+<blockquote><strong>Filter before you fuse.</strong> Decide which data is allowed to compete (per-model isolation, authority floors) <em>before</em> merging paths. If you filter after fusion, dead candidates occupy your top-5 slots and good chunks get squeezed out.</blockquote>
+
+<p>Two details that are easy to skip and expensive to miss:</p>
+
+<ul>
+  <li><strong>Filter-first ordering</strong> &mdash; a small design choice with an outsized effect on answer quality.</li>
+  <li><strong>Model isolation</strong> &mdash; single-model questions keep only the &ldquo;most specific&rdquo; match. It looks trivial; it caused the biggest bug (see lesson 1).</li>
+</ul>
+
+<h2>Why Should You Evaluate Before You Tune?</h2>
+
+<p><strong>Because every change moves quality in both directions, and &ldquo;it seems better&rdquo; is a coin flip.</strong> Chunking, recall-path count and prompts all have two-sided effects on quality; without a quantifiable measure, you cannot tell a win from a regression.</p>
+
+<p>The eval was therefore the <strong>first deliverable</strong>, built before any tuning: 12 questions covering six shapes &mdash; factual parameters, model comparison, capability judgment, cross-model contamination traps, honest refusal, and stock/availability &mdash; each passing six checks:</p>
+
+<ol>
+  <li><strong>Normalization</strong> &mdash; did it correctly resolve the model (alias mapping)?</li>
+  <li><strong>Retrieval</strong> &mdash; did the expected material appear in top-5?</li>
+  <li><strong>Model isolation</strong> &mdash; did another model&rsquo;s numbers leak into the answer? <em>(most critical)</em></li>
+  <li><strong>Coverage</strong> &mdash; are all required points present?</li>
+  <li><strong>Post-check</strong> &mdash; any speculative wording or unsourced numbers?</li>
+  <li><strong>Refusal</strong> &mdash; did it refuse when it should?</li>
+</ol>
+
+<p>The trajectory: <strong>94.4% &rarr; 98.6% &rarr; 100%</strong>. Every point of improvement was forced by a specific failing case &mdash; which is exactly why the score is credible as a regression harness, and exactly why it should not be read as a benchmark.</p>
+
+<h2>Which Six Debugging Lessons Cost the Most Time?</h2>
+
+<p><strong>The quality problems were almost never about the model</strong> &mdash; they were about data modeling, ordering bias and vocabulary gaps. These six are the gold in this report.</p>
+
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Lesson</th><th>The bug</th><th>The fix</th></tr></thead><tbody>
+<tr><td>1</td><td>Alias normalization &ne; substring logic</td><td><code>k90ultra</code> and <code>K90</code> have no shared substring, but their model codes share a <em>prefix</em>; string-contains logic picks the wrong &ldquo;most specific&rdquo; match</td><td>Use model-code prefixes, not alias strings, to keep only the most specific match</td></tr>
+<tr><td>2</td><td>SQL ORDER BY = insertion-time bias</td><td>The exact path returned chunks in DB order, so later docs (UGC reviews) systematically lost RRF fusion &mdash; that is recency of insertion, not relevance</td><td>Give every exact-match chunk the <strong>same rank (1)</strong>; introduce no ordering at all</td></tr>
+<tr><td>3</td><td>Sorting exact-path by dense score kills vector-blind spots</td><td>&ldquo;Photography&rdquo; (user words) never matched the doc&rsquo;s &ldquo;imaging specs&rdquo; &mdash; the chunk was <code>#None</code> in <em>both</em> dense and BM25, then dense-sorting pushed it out of top-5</td><td>Uniform rank again &mdash; any ordering carries a bias</td></tr>
+<tr><td>4</td><td>Table content is dense-blind</td><td>A multi-column spec-comparison table embeds terribly, yet it is exactly what comparison questions need</td><td>The contrast path repeats each compare-chunk <strong>3&times; in RRF</strong> &asymp; weight amplification</td></tr>
+<tr><td>5</td><td>Query expansion &gt; tweaking the embedder</td><td>Users say &ldquo;photography,&rdquo; docs say &ldquo;imaging specs&rdquo; &mdash; a vocabulary gap the embedder cannot see</td><td>Expand &ldquo;photography&rdquo; &rarr; imaging / camera / rendering, retrieve each variant, keep per-chunk <strong>MAX</strong> similarity (never SUM, so one variant cannot farm the score)</td></tr>
+<tr><td>6</td><td>Post-check can misfire</td><td>During an API timeout, the error string&rsquo;s port number <code>443</code> was flagged as a fabricated number</td><td>Verify only against numbers that are <em>supposed</em> to be in the materials; never treat error output as an answer</td></tr>
+</tbody></table></div>
+
+<p>One environmental bonus: API timeouts were infrastructure, not logic &mdash; retries, backoff, and lowering the timeout from 180s to 60s killed most of the flake.</p>
+
+<h2>How Much of the Method Transfers to a New Domain?</h2>
+
+<p><strong>The engine ports; the thresholds do not.</strong> The exact same engine was replicated on a second, unrelated topic by changing only three things: the data, the normalization rules, and the prompt. The new domain&rsquo;s independent 12-question eval also reached 100% after fixes &mdash; about 600 lines total, copied as three files (<code>geo_build</code> / <code>geo_query</code> / <code>geo_eval</code> as thin wrappers over the original engine).</p>
+
+<p>That transfer is the real deliverable: data modeling, filter-before-fuse, uniform ranks, query expansion and eval-first discipline are portable engineering. The specific numbers are not.</p>
+
+<blockquote><strong>Why this matters for grounding LLMs</strong>: the teams that win won&rsquo;t be the ones with the biggest vector database &mdash; they&rsquo;ll be the ones with a measurable eval, disciplined filtering, and the humility to treat &ldquo;the model is wrong&rdquo; as a prompt to check their data instead.</blockquote>
+
+<h2>Why Should You Read &ldquo;100%&rdquo; with a Grain of Salt?</h2>
+
+<p><strong>Because 100% means &ldquo;this self-built eval,&rdquo; nothing more.</strong> The honest limitations:</p>
+
+<ul>
+  <li><strong>12 questions I wrote myself</strong>, 6 checks each, on a <strong>60-chunk</strong> toy corpus &mdash; small, curated, not a benchmark.</li>
+  <li><strong>No real users, no A/B, no out-of-domain queries</strong> &mdash; the score says nothing about traffic you do not have.</li>
+  <li><strong>One model configuration</strong> (Qwen3-8B at temperature 0.1) &mdash; a bigger or different model would shift scores.</li>
+  <li><strong>Honesty is a feature, not a loophole</strong>: when data is missing, the right answer is &ldquo;not found in the knowledge base,&rdquo; and that refusal is something you can and should test for.</li>
+</ul>
+
+<p>Read the number as a <em>regression harness result</em>: it proves the pipeline did not break. It does not prove the system is right about the world.</p>
 
 <h2>FAQ</h2>
 
-<p><strong>What is a good citation rate for GEO?</strong> Directional B2B bands: 8-15% is minimal presence, 20-30% is traction, and 40%+ is leader-level. Definitions differ between tools, so keep your own denominator fixed.</p>
+<h3>Do I need a vector database to build a RAG knowledge base?</h3>
+<p>No. This build uses SQLite for the truth (entities, aliases, relations, chunk metadata) and numpy for a derived vector index aligned by chunk IDs. The relational layer answers deterministic questions; vectors handle only fuzzy semantics.</p>
 
-<p><strong>What share of voice makes you an AI category leader?</strong> A commonly cited heuristic is sustained SOV of 15%+ across priority topics. Your real target should be a growing advantage over the next competitor, not a fixed number.</p>
+<h3>What does filter-before-fuse mean in retrieval?</h3>
+<p>Restrict which data is allowed to compete &mdash; per-model isolation, authority floors &mdash; before merging retrieval paths. If you filter after fusion, dead candidates occupy top-K slots and good chunks get squeezed out.</p>
 
-<p><strong>How many citations do AI answers typically show?</strong> Independent sampling reports Perplexity answers averaging around 20+ citations and ChatGPT answers averaging under 10. Compare within one engine only.</p>
+<h3>Why did a self-built eval matter more than the model?</h3>
+<p>Every change (chunking, recall paths, prompts) moves quality in both directions, so without a quantifiable measure, &ldquo;it seems better&rdquo; is a coin flip. A 12-question eval with six checks each took the project from 94.4% to 100%.</p>
 
-<p><strong>Should I trust vendor-published GEO benchmarks?</strong> As directional references, yes; as targets, no. Build a fixed-query, fixed-formula baseline and measure movement over at least three months.</p>
+<h3>Is a 100% score reliable?</h3>
+<p>No &mdash; it is 12 self-written questions with 6 checks each, on a 60-chunk toy corpus, with no real users and no out-of-domain queries. 100% means <em>this eval</em>, nothing more. The method transfers; the specific numbers do not.</p>
+
+<h2>In Short</h2>
+
+<p><strong>Put the truth in the relational store, filter before you fuse, and make the eval your first deliverable</strong> &mdash; then let failing cases, not intuition, drive the tuning. That is how a 600-line SQLite + numpy RAG build went from 94.4% to passing its own eval, and how the same method moved cleanly to a second domain. The score was never the point; the measurable path to it was.</p>
 
       <div class="nav-links">
-        <a href="data-dashboard-setup.html">← Data Dashboard</a>
-        <a href="../data-formulas.html">📖 Data & Formulas</a>
-        <a href="ai-referral-attribution.html">AI Referral Attribution →</a>
+        <a href="geo-impact-attribution-new-site.html">&larr; Crawler Impact &amp; Launch Checklist</a>
+        <a href="../community.html">&#x1F4D6; Community</a>
+        <a href="../content/question-driven-strategy.html">Question-Driven Strategy &rarr;</a>
       </div>
 
-      <div class="comments" id="comments" data-page="/data/geo-benchmarks.html">
+      <div class="comments" id="comments" data-page="/community/rag-knowledge-base-from-scratch.html">
         <h2>Discussion</h2>
-        <div id="comments-list"><p class="comment-empty">Loading comments…</p></div>
+        <div id="comments-list"><p class="comment-empty">Loading comments&hellip;</p></div>
         <form id="comment-form" autocomplete="off">
           <input type="text" name="author" placeholder="Your name" maxlength="40" required>
           <input type="email" name="email" placeholder="Email (optional, never displayed)" maxlength="80">
-          <textarea name="body" placeholder="Share your thoughts or ask a question…" maxlength="1000" required></textarea>
+          <textarea name="body" placeholder="Share your thoughts or ask a question&hellip;" maxlength="1000" required></textarea>
           <button type="submit">Post comment</button>
           <div class="comment-msg" id="comment-msg"></div>
         </form>
@@ -457,7 +486,7 @@
         var items = data.comments || [];
         if (!items.length) { list.innerHTML = '<p class="comment-empty">No comments yet. Start the discussion below.</p>'; return; }
         list.innerHTML = items.map(function(c){
-          return '<div class="comment-item"><div class="c-meta">' + esc(c.author) + ' · ' + esc(c.date) + '</div><div class="c-body">' + esc(c.body) + '</div></div>';
+          return '<div class="comment-item"><div class="c-meta">' + esc(c.author) + ' &middot; ' + esc(c.date) + '</div><div class="c-body">' + esc(c.body) + '</div></div>';
         }).join('');
       })
       .catch(function(){ list.innerHTML = '<p class="comment-empty">Comments unavailable right now.</p>'; });

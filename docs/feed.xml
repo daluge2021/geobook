@@ -3,10 +3,17 @@
 <channel>
   <title>GEO Encyclopedia</title>
   <link>https://geo010.com</link>
-  <description>70 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
+  <description>71 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
   <language>en</language>
   <atom:link href="https://geo010.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 16 Sep 2026 00:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 05 Oct 2026 00:00:00 +0000</lastBuildDate>
+  <item>
+    <title>How I Built a RAG Knowledge Base That Passed 100% of Its Own Eval - 6 Debugging Lessons</title>
+    <link>https://geo010.com/community/rag-knowledge-base-from-scratch.html</link>
+    <guid>https://geo010.com/community/rag-knowledge-base-from-scratch.html</guid>
+    <pubDate>Mon, 05 Oct 2026 00:00:00 +0000</pubDate>
+    <description>Two merged field reports on building a from-scratch RAG knowledge base on SQLite plus numpy: filter-before-fuse retrieval, a 12-question eval, and the six debugging lessons — alias normalization, ordering bias, vector blind spots — that got it to 100%.</description>
+  </item>
   <item>
     <title>GEO Quick Start Checklist - 15-Minute Setup for AI Visibility</title>
     <link>https://geo010.com/fundamentals/geo-quick-start-checklist.html</link>

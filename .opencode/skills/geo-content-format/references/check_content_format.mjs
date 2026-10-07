@@ -245,7 +245,8 @@ function check(file) {
   // 结尾 nav-links（文章页）
   if (article) {
     add(html.includes('class="nav-links"'), 'nav-links 上下篇导航');
-    add(html.includes('class="active"'), '侧边栏当前页 active');
+    // 顶部导航改版后 active 由 JS 按 pathname 动态添加；接受新旧两种布局
+    add(html.includes('data-nav=') || html.includes('class="active"'), '导航当前页 active（data-nav 或静态 active）');
   }
 
   // 反模式：不应使用 <br> 排版；术语页除外
