@@ -99,7 +99,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto
   </style>
 
   <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"GEO Tech Stack Overview — Chapter 5 Technical Implementation Wrap-Up","description":"Complete GEO tech stack overview covering the four-layer architecture: infrastructure, optimization, monitoring, and automation. Includes deployment roadmap and enterprise size recommendations.","author":{"@type":"Organization","name":"GEO Encyclopedia","url":"https://geo010.com"},"datePublished":"2026-01-15","dateModified":"2026-08-16","mainEntityOfPage":{"@type":"WebPage","@id":"https://geo010.com/technical/tech-stack-overview.html"},"publisher":{"@type":"Organization","name":"GEO Encyclopedia","url":"https://geo010.com"},"inLanguage":"en"}
+{"@context":"https://schema.org","@type":"Article","headline":"GEO Tech Stack Overview — Chapter 5 Technical Implementation Wrap-Up","description":"Complete GEO tech stack overview covering the four-layer architecture: infrastructure, optimization, monitoring, and automation. Includes deployment roadmap and enterprise size recommendations.","author":{"@type":"Organization","name":"GEO Encyclopedia","url":"https://geo010.com"},"datePublished":"2026-01-15","dateModified":"2026-10-13","mainEntityOfPage":{"@type":"WebPage","@id":"https://geo010.com/technical/tech-stack-overview.html"},"publisher":{"@type":"Organization","name":"GEO Encyclopedia","url":"https://geo010.com"},"inLanguage":"en"}
 </script>
   <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the four-layer GEO tech stack architecture?","acceptedAnswer":{"@type":"Answer","text":"The GEO tech stack has four layers: L1 Infrastructure (robots.txt, sitemap.xml, server, SSL), L2 Optimization (Schema, LLMs.txt, entity recognition), L3 Monitoring (citation tracking, competitor analysis), and L4 Automation (AgenticGEO tools). Build from bottom to top, never skip layers."}},{"@type":"Question","name":"How long does it take to deploy the GEO tech stack?","acceptedAnswer":{"@type":"Answer","text":"A typical deployment roadmap spans 12 weeks: weeks 1-2 for L1 infrastructure, weeks 3-6 for L2 optimization, weeks 7-10 for L3 monitoring, and weeks 11-12 for L4 automation exploration."}},{"@type":"Question","name":"How much does GEO tech stack implementation cost?","acceptedAnswer":{"@type":"Answer","text":"Costs vary by enterprise size: small teams (under 50 content pieces) need almost zero cost plus time investment; medium teams (50-200 pieces) need about 800-1500 yuan monthly for tools; large enterprises (200+ pieces) need 5000-20000+ yuan monthly for tools, agents, and dedicated teams."}}]}
@@ -224,7 +224,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto
 <div class="content">
 <div class="breadcrumb"><a href="../index.html">Home</a> &gt; <a href="../technical-implementation.html">V. Technical</a> &gt; Tech Stack Overview</div>
 
-<div class="article-meta"><span>By <a href="../about.html">GEO Encyclopedia Editorial Team</a></span><span>·</span><span>Updated: 2026-07-28</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
+<div class="article-meta"><span>By <a href="../about.html">GEO Encyclopedia Editorial Team</a></span><span>·</span><span>Updated: 2026-10-10</span><span>·</span><span>This guide separates verified facts from vendor claims; external figures are linked to sources</span></div>
 
 <h1>GEO Tech Stack Overview — Chapter 5 Technical Implementation Wrap-Up</h1>
 
@@ -266,9 +266,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto
 
 <h3>L1 - Infrastructure Layer</h3>
 
-<p><strong>Core Goal:</strong> Ensure AI crawlers can smoothly access your website.</p>
+<p><strong>Core Goal:</strong> Help AI crawlers reach your website reliably.</p>
 
-<div class="table-wrap"><table><thead><tr><th>Tool/Configuration</th><th>Function</th><th>Priority</th><th>Cost</th></tr></thead><tbody><tr><td><strong>Robots.txt</strong></td><td>Tells AI crawlers which pages can be crawled</td><td>★★★★★</td><td>Almost zero</td></tr><tr><td><strong>Sitemap.xml</strong></td><td>Tells AI crawlers which important pages the site has</td><td>★★★★★</td><td>Almost zero</td></tr><tr><td><strong>Server Performance</strong></td><td>Ensures AI crawlers don't timeout when accessing</td><td>★★★★</td><td>May require server upgrade</td></tr><tr><td><strong>HTTPS/SSL</strong></td><td>Secure connection, AI crawlers prefer HTTPS sites</td><td>★★★★★</td><td>Free (Let's Encrypt)</td></tr><tr><td><strong>Mobile Adaptation</strong></td><td>AI crawlers may evaluate from mobile view</td><td>★★★</td><td>Depends on current site status</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Tool/Configuration</th><th>Function</th><th>Priority</th><th>Cost</th></tr></thead><tbody><tr><td><strong>Robots.txt</strong></td><td>Tells AI crawlers which pages can be crawled</td><td>★★★★★</td><td>Almost zero</td></tr><tr><td><strong>Sitemap.xml</strong></td><td>Tells AI crawlers which important pages the site has</td><td>★★★★★</td><td>Almost zero</td></tr><tr><td><strong>Server Performance</strong></td><td>Helps prevent AI crawler timeouts when accessing</td><td>★★★★</td><td>May require server upgrade</td></tr><tr><td><strong>HTTPS/SSL</strong></td><td>Secure connection, AI crawlers prefer HTTPS sites</td><td>★★★★★</td><td>Free (Let's Encrypt)</td></tr><tr><td><strong>Mobile Adaptation</strong></td><td>AI crawlers may evaluate from mobile view</td><td>★★★</td><td>Depends on current site status</td></tr></tbody></table></div>
 
 <p><strong>In one sentence: First get "letting AI in" right.</strong></p>
 
@@ -303,10 +303,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto
 <h3>Weeks 1-2: Complete L1 (Infrastructure)</h3>
 
 <ul>
-  <li>[ ] Configure robots.txt, ensure AI crawlers can access</li>
+  <li>[ ] Configure robots.txt, confirm AI crawlers can access</li>
   <li>[ ] Configure sitemap.xml, submit to major AI platforms</li>
   <li>[ ] Check server response speed</li>
-  <li>[ ] Ensure HTTPS is deployed</li>
+  <li>[ ] Confirm HTTPS is deployed</li>
   <li>[ ] Test if AI crawlers can crawl core pages</li>
 </ul>
 <h3>Weeks 3-6: Complete L2 (Optimization Layer)</h3>

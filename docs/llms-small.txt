@@ -27,10 +27,14 @@ Source: https://geo010.com/fundamentals/seo-vs-geo.html
 - [How to Start GEO from Zero?](https://geo010.com/cases/zero-to-one-roadmap.html): A phased 90-day GEO launch roadmap with milestones.
 - [The GEO Content Template](https://geo010.com/community/geo-content-template.html): The article structure this site uses — scenario opening, question H2s, answer-first blocks, comparison tables, FAQPage JSON-LD.
 
+## Chapter Overviews
+
+- [I. Fundamentals](https://geo010.com/fundamentals.html), [II. Metrics & Frameworks](https://geo010.com/metrics-frameworks.html), [III. Models & Methods](https://geo010.com/models-methods.html), [IV. Content Strategy](https://geo010.com/content-strategy.html), [V. Technical Implementation](https://geo010.com/technical-implementation.html), [VI. Brand Strategy](https://geo010.com/brand-strategy.html), [VII. Industry Applications](https://geo010.com/industry-applications.html), [VIII. Case Studies](https://geo010.com/case-studies.html), [IX. Data & Formulas](https://geo010.com/data-formulas.html): one-page overview and the full article list for each chapter.
+
 ## References
 
 - [Full llms.txt index](https://geo010.com/llms.txt): All 71 articles + 10 glossary terms by chapter.
 - [Sitemap](https://geo010.com/sitemap.xml): Complete URL inventory.
 - [Glossary](https://geo010.com/glossary/geo.html): Key GEO terms with primary sources.
 
-Last updated 2026-09-16.
+Last updated 2026-10-13.

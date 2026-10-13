@@ -15,11 +15,11 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1911889082930844"
      crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What is LLMs.txt? — AI Crawler Infrastructure - GEO Encyclopedia</title>
+<title>What is LLMs.txt? — A Guide for AI Crawlers - GEO Encyclopedia</title>
 <meta name="description" content="LLMs.txt is a plain text file placed in a website's root directory specifically for large language models, telling AI which pages are most important. Learn the format, differences from sitemap.xml, and a 30-minute implementation guide.">
 <link rel="canonical" href="https://geo010.com/glossary/llms-txt.html"/>
 <link rel="alternate" type="application/rss+xml" title="GEO Encyclopedia RSS" href="https://geo010.com/feed.xml">
-<meta property="og:title" content="What is LLMs.txt? — AI Crawler Infrastructure - GEO Encyclopedia"/>
+<meta property="og:title" content="What is LLMs.txt? — A Guide for AI Crawlers - GEO Encyclopedia"/>
 <meta property="og:description" content="LLMs.txt is a plain text file placed in a website's root directory specifically for large language models, telling AI which pages are most important."/>
 <meta property="og:url" content="https://geo010.com/glossary/llms-txt.html"/>
 <meta property="og:type" content="article"/>
@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="GEO Encyclopedia"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="What is LLMs.txt? — AI Crawler Infrastructure - GEO Encyclopedia"/>
+<meta name="twitter:title" content="What is LLMs.txt? — A Guide for AI Crawlers - GEO Encyclopedia"/>
 <meta name="twitter:description" content="LLMs.txt is a plain text file placed in a website's root directory specifically for large language models, telling AI which pages are most important."/>
 <meta name="twitter:image" content="https://geo010.com/og-image.png"/>
 <meta name="keywords" content="LLMs.txt,AI crawler,ChatGPT,GPTBot,website optimization,GEO"/>
@@ -129,8 +129,8 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "datePublished": "2026-07-28",
-  "dateModified": "2026-08-16",
-  "headline": "What is LLMs.txt? — AI Crawler Infrastructure - GEO Encyclopedia",
+  "dateModified": "2026-10-13",
+  "headline": "What is LLMs.txt? — A Guide for AI Crawlers",
   "description": "LLMs.txt is a plain text file placed in a website's root directory specifically for large language models, telling AI which pages are most important. This article covers LLMs.txt definition, differences from sitemap.xml, and a 30-minute implementation guide.",
   "url": "https://geo010.com/glossary/llms-txt.html",
   "image": "https://geo010.com/og-image.png",
@@ -270,13 +270,13 @@
 
       <div class="answer-box">
         <p><strong>One-sentence definition:</strong></p>
-        <p>LLMs.txt is a plain text file placed in a website's root directory (e.g., example.com/llms.txt), serving as a "website user manual" specifically for large language models, telling AI which pages are most important and what each page covers.</p>
+        <p>LLMs.txt is a plain text file placed in a website's root directory (e.g., example.com/llms.txt), offering large language models a structured summary of what a site contains and which pages are most important. It is a community proposal (llmstxt.org), not an official standard, and only engines that support it will read it.</p>
       </div>
 
-      <h2>1. GEO Foundation Layer: The "Prerequisite Zero" of All Optimization</h2>
+      <h2>1. GEO Foundation Layer: A Common Starting Point for Optimization</h2>
       <p>Many people make a common mistake when doing <a href="geo.html">GEO</a>: <strong>they jump straight into content.</strong> Researching materials, writing articles, adding <a href="schema.html">Schema</a> markup — only to find AI still doesn't respond.</p>
       <p>They overlook the most fundamental question: <strong>Can AI actually "see" your content?</strong></p>
-      <p>The GEO foundation layer must pass three gates:</p>
+      <p>The GEO foundation layer typically passes through three gates:</p>
       <ul>
         <li><strong>Crawl</strong> — Can AI connect to your server?</li>
         <li><strong>Parse</strong> — Can AI understand your pages?</li>
@@ -290,7 +290,7 @@
         <tr><td><strong>Format</strong></td><td>XML, machine-readable</td><td>Markdown, human-readable too</td></tr>
         <tr><td><strong>Semantics</strong></td><td>Only URLs and update frequency</td><td>One-sentence descriptions helping AI understand each page</td></tr>
         <tr><td><strong>Priority Hints</strong></td><td>priority field (but Google mostly ignores it)</td><td>Natural language ordering (most important first)</td></tr>
-        <tr><td><strong>Exclusion Rules</strong></td><td>Typically no exclusions</td><td>Can directly say "these pages don't need to be cited"</td></tr>
+        <tr><td><strong>Exclusion Rules</strong></td><td>Typically no exclusions</td><td>Suggests which pages are lower priority to crawl (advisory, and only read by supporting engines)</td></tr>
       </table></div>
       <p><strong>They are not replacements — they are complements.</strong></p>
 
@@ -314,16 +314,16 @@
 
       <h2>5. 30-Minute Implementation Guide</h2>
       <ol>
-        <li><strong>Check robots.txt (5 minutes)</strong> — Ensure AI crawlers are allowed</li>
+        <li><strong>Check robots.txt (5 minutes)</strong> — Confirm AI crawlers are allowed</li>
         <li><strong>Create LLMs.txt (10 minutes)</strong> — List the most important pages with descriptions</li>
         <li><strong>Test AI crawling capability (10 minutes)</strong> — Search brand keywords on Perplexity to test</li>
-        <li><strong>Check server response (5 minutes)</strong> — Ensure key pages respond within 500ms</li>
+        <li><strong>Check server response (5 minutes)</strong> — Confirm key pages respond within a reasonable time</li>
       </ol>
 
       <h2>6. Deep Reading</h2>
       <ul>
         <li><a href="../fundamentals.html">Chapter 1: Basic Concepts</a> — LLMs.txt's complete role in GEO</li>
-        <li><a href="geo.html">What is GEO?</a> — LLMs.txt is the most efficient action in the GEO foundation layer</li>
+        <li><a href="geo.html">What is GEO?</a> — LLMs.txt is a low-cost step in the GEO foundation layer</li>
         <li><a href="rag.html">What is RAG?</a> — How AI crawlers fetch and use LLMs.txt</li>
         <li><a href="seo.html">What is SEO?</a> — How LLMs.txt complements traditional SEO infrastructure</li>
       </ul>

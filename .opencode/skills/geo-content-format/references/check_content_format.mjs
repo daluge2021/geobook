@@ -85,19 +85,11 @@ function todayLocal() {
 
 // 已知例外（有意跳过，勿当质量问题）：
 // - monitor.html / stats.html：隐私统计页，故意无 JSON-LD 与 51.la 脚本（三重保护）
-// - docs 根目录旧章节页（fundamentals.html 等）：历史遗留孤儿页，不在 sitemap/llms.txt/导航中
+// - search.html：站内搜索 UI 页，故意 noindex（meta robots noindex,nofollow）
 const SKIP = new Set([
   'docs/monitor.html',
   'docs/stats.html',
-  'docs/fundamentals.html',
-  'docs/metrics-frameworks.html',
-  'docs/models-methods.html',
-  'docs/content-strategy.html',
-  'docs/technical-implementation.html',
-  'docs/brand-strategy.html',
-  'docs/industry-applications.html',
-  'docs/case-studies.html',
-  'docs/data-formulas.html',
+  'docs/search.html',
 ]);
 
 function collectFiles(target) {

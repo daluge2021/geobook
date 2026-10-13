@@ -1,6 +1,6 @@
 # GEO Encyclopedia
 
-> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 71 in-depth articles across 9 chapters plus a Community hub, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
+> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 71 in-depth articles across 9 chapters, a chapter overview page per chapter, plus a Community hub, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
 
 ## Quick Answers (AI-Priority Citations)
 
@@ -40,6 +40,7 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 
 ## I. Fundamentals
 
+- [I. Fundamentals — Chapter Overview](https://geo010.com/fundamentals.html): What the chapter covers and the full list of its 7 articles.
 - [What is GEO?](https://geo010.com/fundamentals/what-is-geo.html): Core definition and evidence from the Princeton Generative Engine Optimization paper.
 - [SEO vs GEO](https://geo010.com/fundamentals/seo-vs-geo.html): Side-by-side comparison of search engine and AI answer engine optimization.
 - [E-E-A-T Trust Mechanism](https://geo010.com/fundamentals/eeat-trust-mechanism.html): Why trust signals determine whether AI cites your content.
@@ -55,8 +56,17 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 - [What is the SHEEP Framework?](https://geo010.com/metrics/sheep-framework.html): A five-step framework for evaluating AI-generated search results.
 - [How to Run a Competitive AI Analysis?](https://geo010.com/metrics/competitive-ai-analysis.html): A repeatable sweep of who wins AI answers in your category — engine scoring, data collection, and a one-page report template.
 
+## II. Metrics & Frameworks
+
+- [II. Metrics & Frameworks — Chapter Overview](https://geo010.com/metrics-frameworks.html): What the chapter covers and the full list of its 4 articles.
+- [What is Citation Share?](https://geo010.com/metrics/citation-share.html): How often AI cites your brand — the core quantitative GEO metric.
+- [What is Entity Association Density?](https://geo010.com/metrics/entity-density.html): How interconnected the entities in your content are — one of the strongest citation predictors.
+- [What is the SHEEP Framework?](https://geo010.com/metrics/sheep-framework.html): A five-step framework for evaluating AI-generated search results.
+- [Competitive AI Analysis](https://geo010.com/metrics/competitive-ai-analysis.html): Benchmarking AI visibility across your market.
+
 ## III. Models & Methods
 
+- [III. Models & Methods — Chapter Overview](https://geo010.com/models-methods.html): What the chapter covers and the full list of its 4 articles.
 - [What is the 3C Optimization Model?](https://geo010.com/models/3c-optimization-model.html): Credibility, Clarity, and Context as the three levers of GEO.
 - [How Has GEO Evolved?](https://geo010.com/models/geo-evolution.html): Timeline from the Princeton paper to AutoGEO and AgenticGEO.
 - [What is Source Authority?](https://geo010.com/models/source-authority.html): How AI evaluates source authority and the 86% controllable-citation finding.
@@ -64,6 +74,7 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 
 ## IV. Content Strategy
 
+- [IV. Content Strategy — Chapter Overview](https://geo010.com/content-strategy.html): What the chapter covers and the full list of its 10 articles.
 - [How to Apply E-E-A-T in GEO Content?](https://geo010.com/content/eeat-in-geo.html): Practical content rules that build AI trust signals.
 - [What is Knowledge Entropy?](https://geo010.com/content/knowledge-entropy.html): Why fragmented content loses to consolidated answer assets.
 - [How Do Backlinks Work in GEO?](https://geo010.com/content/backlinks-in-geo.html): How link signals feed AI source selection.
@@ -77,6 +88,7 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 
 ## V. Technical Implementation
 
+- [V. Technical Implementation — Chapter Overview](https://geo010.com/technical-implementation.html): What the chapter covers and the full list of its 10 articles.
 - [How to Implement Schema Markup for GEO?](https://geo010.com/technical/schema-markup-guide.html): JSON-LD types that make your pages machine-readable to AI.
 - [How to Configure LLMs.txt and Robots.txt?](https://geo010.com/technical/llms-txt-advanced.html): Advanced configuration of the two orientation files.
 - [What is Entity Recognition & Knowledge Graph?](https://geo010.com/technical/entity-knowledge-graph.html): How AI builds entity graphs and how you signal your brand entity.
@@ -90,6 +102,7 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 
 ## VI. Brand Strategy
 
+- [VI. Brand Strategy — Chapter Overview](https://geo010.com/brand-strategy.html): What the chapter covers and the full list of its 7 articles.
 - [How to Build Brand as an AI-Recognized Source?](https://geo010.com/brand/brand-as-source.html): Making your brand the named source AI cites.
 - [How to Implement E-E-A-T Brand Strategy?](https://geo010.com/brand/eeat-brand-implementation.html): Aligning brand operations with AI trust requirements.
 - [How to Handle Brand Crisis via GEO?](https://geo010.com/brand/crisis-pr-geo.html): Managing reputation in AI answer engines.
@@ -100,6 +113,7 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 
 ## VII. Industry Applications
 
+- [VII. Industry Applications — Chapter Overview](https://geo010.com/industry-applications.html): What the chapter covers and the full list of its 8 articles.
 - [How to Do GEO for Healthcare?](https://geo010.com/industry/healthcare-geo.html): Credibility requirements in a high-stakes YMYL vertical.
 - [How to Do GEO for Finance?](https://geo010.com/industry/finance-geo.html): Trust and compliance in financial AI citations.
 - [How to Do GEO for Education?](https://geo010.com/industry/education-geo.html): Building authority in educational AI answers.
@@ -111,8 +125,9 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 
 ## VIII. Case Studies
 
+- [VIII. Case Studies — Chapter Overview](https://geo010.com/case-studies.html): What the chapter covers and the full list of its 9 articles.
 - [How to Start GEO from Zero?](https://geo010.com/cases/zero-to-one-roadmap.html): Complete 3-month launch roadmap with milestones.
-- [Full GEO Case Study](https://geo010.com/cases/full-process-case.html): End-to-end GEO project walkthrough with before/after metrics.
+- [Full GEO Case Study](https://geo010.com/cases/full-process-case.html): Composite, anonymized end-to-end GEO walkthrough with illustrative before/after figures.
 - [What is a GEO AI-Readiness Audit?](https://geo010.com/cases/geo-ai-audit.html): How GEO Encyclopedia audited its own AI-readiness across discovery, measurement, structured data, trust and canonicalization.
 - [How to Prevent Black Hat GEO?](https://geo010.com/cases/black-hat-prevention.html): Detecting manipulation risks and AI spam penalties.
 - [What are GEO Future Trends?](https://geo010.com/cases/geo-future-trends.html): Where AI search and GEO are heading.
@@ -123,6 +138,7 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 
 ## IX. Data & Formulas
 
+- [IX. Data & Formulas — Chapter Overview](https://geo010.com/data-formulas.html): What the chapter covers and the full list of its 6 articles.
 - [What are the Core GEO Metrics?](https://geo010.com/data/core-metrics-system.html): A unified metrics system for measuring GEO performance.
 - [How to Calculate GEO ROI?](https://geo010.com/data/roi-calculation.html): Formulas for valuing AI citations and referrals.
 - [How to Build a GEO Data Dashboard?](https://geo010.com/data/data-dashboard-setup.html): Setting up tracking infrastructure for GEO KPIs.
@@ -162,4 +178,4 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 
 ## No Private Pages
 
-- All content is public knowledge. AI crawlers welcome. Last updated 2026-09-16.
+- All content is public knowledge. AI crawlers welcome. Last updated 2026-10-13.
