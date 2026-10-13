@@ -43,6 +43,45 @@ function isCommentablePage(p) {
   return true;
 }
 
+// Legacy URL → current URL. The site used a chapter scheme (/ch01.html…/ch09.html)
+// plus a /en/ mirror and a Chinese /index-cn.html before the flat English
+// restructure. AI crawlers and external links still request those paths (D1 shows
+// ~900 content 404s), so a 301 turns them into real hits and preserves any link
+// equity. A few brand articles are also mis-linked under /industry/.
+const CHAPTER_REDIRECTS = {
+  '/ch01.html': '/fundamentals.html',
+  '/ch02.html': '/metrics-frameworks.html',
+  '/ch03.html': '/models-methods.html',
+  '/ch04.html': '/content-strategy.html',
+  '/ch05.html': '/technical-implementation.html',
+  '/ch06.html': '/brand-strategy.html',
+  '/ch07.html': '/industry-applications.html',
+  '/ch08.html': '/case-studies.html',
+  '/ch09.html': '/data-formulas.html',
+};
+
+const LEGACY_EXACT = {
+  '/index-cn.html': '/',
+  '/en': '/',
+  '/industry/crisis-pr-geo.html': '/brand/crisis-pr-geo.html',
+  '/industry/ecommerce-geo.html': '/brand/ecommerce-geo.html',
+  '/industry/b2b-brand-geo.html': '/brand/b2b-brand-geo.html',
+  '/industry/brand-as-source.html': '/brand/brand-as-source.html',
+  '/industry/eeat-brand-implementation.html': '/brand/eeat-brand-implementation.html',
+  '/industry/multi-brand-geo.html': '/brand/multi-brand-geo.html',
+};
+
+/** Map an obsolete request path to its current location, or null if not legacy. */
+function legacyRedirect(pathname) {
+  const p = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+  if (LEGACY_EXACT[p]) return LEGACY_EXACT[p];
+  if (CHAPTER_REDIRECTS[p]) return CHAPTER_REDIRECTS[p];
+  const enCh = p.match(/^\/en(\/ch0[1-9]\.html)$/);
+  if (enCh) return CHAPTER_REDIRECTS[enCh[1]] || null;
+  if (p.startsWith('/en/')) return p.slice(3) || '/';
+  return null;
+}
+
 const MCP_MANIFEST = {
   mcp_version: '1.0',
   server_name: 'GEO Encyclopedia',
@@ -85,6 +124,7 @@ const AI_CRAWLERS = [
   { name: 'KagiBot', re: /KagiBot/i },
   { name: 'Diffbot', re: /Diffbot/i },
   { name: 'ai2bot', re: /ai2bot/i },
+  { name: 'ExaSearchBot', re: /ExaSearchBot/i },
   { name: 'FacebookBot', re: /facebookexternalhit|Facebot/i },
 ];
 
@@ -104,6 +144,16 @@ const AI_ENTRY_FILES = new Set([
   '/.well-known/ai-plugin.json',
   '/.well-known/openapi.json',
 ]);
+
+// AI 爬虫 404 细分用。SQLite 无正则，用 LIKE 近似识别"探测/扫描型"路径（漏洞与
+// 配置字典猜解）；其余 404 归为"内容型"（外链或旧结构指向本站的真实栏目）。
+const PROBE_404_SQL = `(path LIKE '/api/%' OR path LIKE '/admin%' OR path LIKE '/.%'
+  OR path LIKE '%config%' OR path LIKE '%env%' OR path LIKE '%/.git%'
+  OR path LIKE '/fetch%' OR path LIKE '/proxy%' OR path LIKE '/webhook%'
+  OR path LIKE '/redirect%' OR path LIKE '/request%' OR path LIKE '/load%'
+  OR path LIKE '/out%' OR path LIKE '/read%' OR path LIKE '%graphql%'
+  OR path LIKE '%credentials%' OR path LIKE '%.php' OR path LIKE '%.properties%'
+  OR path LIKE '/telescope%' OR path LIKE '/actuator%' OR path LIKE '/_debugbar%')`;
 
 // 站点安全响应头。raw.githubusercontent.com 附带的沙箱 CSP
 // (default-src 'none'; sandbox) 会禁用页面全部脚本，必须删除；但删后要换成
@@ -190,6 +240,14 @@ const TOOL_BOTS = [
   { name: 'okhttp', re: /okhttp/i },
   { name: 'axios', re: /axios/i },
   { name: 'node-fetch', re: /node-fetch/i },
+  { name: 'aiohttp', re: /aiohttp/i },
+  { name: 'libwww-perl', re: /libwww-perl/i },
+  { name: 'Mediapartners-Google', re: /Mediapartners-Google/i },
+  { name: 'Google-Display-Ads-Bot', re: /Google-Display-Ads-Bot/i },
+  { name: 'PowerShell', re: /WindowsPowerShell/i },
+  { name: 'ShapBot', re: /ShapBot/i },
+  { name: 'SofyaBot', re: /SofyaBot/i },
+  { name: 'Palo Alto Scanner', re: /Palo Alto Networks|Cortex-Xpanse/i },
 ];
 
 function classifyCrawler(ua) {
@@ -869,7 +927,8 @@ async function logRequest(env, { ts, ua, crawler, tool, path, status, isHtml, re
 }
 
 function renderStatsPage(data) {
-  const { totals, byCrawler, byDate, byDateDaily, byPath, byReferrer, byClickPath, byEntry, byTool, recent } = data;
+  const { totals, byCrawler, byDate, byDateDaily, byPath, byReferrer, byClickPath, byEntry, byTool, ai404, ai404Paths, recent } = data;
+  const a404 = ai404 || { total: 0, scan: 0, content: 0 };
   const rows = (arr) =>
     arr
       .map(
@@ -968,6 +1027,20 @@ a { color: #0066cc; }
         ${rows(byPath)}
       </table></div>
 
+      <h2>AI 爬虫 404 细分</h2>
+      <div class="card"><table>
+        <tr><th>类型</th><th>数量</th></tr>
+        <tr><td>内容型（旧结构 / 外链指向真实栏目，应加 301）</td><td>${a404.content || 0}</td></tr>
+        <tr class="alt"><td>探测型（漏洞 / 配置字典猜解）</td><td>${a404.scan || 0}</td></tr>
+        <tr><td>合计</td><td>${a404.total || 0}</td></tr>
+      </table></div>
+
+      <h2>AI 找错的内容路径 Top</h2>
+      <div class="card"><table>
+        <tr><th>路径</th><th>请求数</th></tr>
+        ${rows(ai404Paths)}
+      </table></div>
+
       <h2>AI 入口文件访问（llms/robots/sitemap/feed/well-known）</h2>
       <div class="card"><table>
         <tr><th>路径</th><th>AI 爬虫访问数</th></tr>
@@ -1009,7 +1082,7 @@ async function handleStats(env) {
   await ensureRefererColumn(env);
   await ensureToolColumn(env);
   const entryPlaceholders = [...AI_ENTRY_FILES].map(() => '?').join(',');
-  const [totals, byCrawler, byDate, byDateDaily, byPath, byReferrer, byClickPath, byEntry, byTool, recent] = await Promise.all([
+  const [totals, byCrawler, byDate, byDateDaily, byPath, byReferrer, byClickPath, byEntry, byTool, ai404, ai404Paths, recent] = await Promise.all([
     env.DB.prepare(
       `SELECT COUNT(*) AS total,
               SUM(CASE WHEN crawler_name IS NOT NULL THEN 1 ELSE 0 END) AS ai,
@@ -1063,6 +1136,17 @@ async function handleStats(env) {
        GROUP BY tool_name ORDER BY n DESC LIMIT 15`
     ).all(),
     env.DB.prepare(
+      `SELECT COUNT(*) AS total,
+              SUM(CASE WHEN ${PROBE_404_SQL} THEN 1 ELSE 0 END) AS scan,
+              SUM(CASE WHEN NOT (${PROBE_404_SQL}) THEN 1 ELSE 0 END) AS content
+       FROM crawler_logs WHERE crawler_name IS NOT NULL AND status = 404`
+    ).first(),
+    env.DB.prepare(
+      `SELECT path AS label, COUNT(*) AS n FROM crawler_logs
+       WHERE crawler_name IS NOT NULL AND status = 404 AND NOT (${PROBE_404_SQL})
+       GROUP BY path ORDER BY n DESC LIMIT 15`
+    ).all(),
+    env.DB.prepare(
       `SELECT ts, crawler_name, ua, path, status, referer_host FROM crawler_logs
        ORDER BY id DESC LIMIT 20`
     ).all(),
@@ -1089,6 +1173,8 @@ async function handleStats(env) {
     byClickPath: byClickPath?.results || [],
     byEntry: byEntry?.results || [],
     byTool: byTool?.results || [],
+    ai404: ai404 || { total: 0, scan: 0, content: 0 },
+    ai404Paths: ai404Paths?.results || [],
     recent: recent?.results || [],
   };
   return new Response(renderStatsPage(data), {
@@ -1272,6 +1358,15 @@ export default {
     if (url.hostname === 'www.geo010.com') {
       const target = new URL(request.url);
       target.host = 'geo010.com';
+      return Response.redirect(target.toString(), 301);
+    }
+
+    // Legacy paths → 301 to the current URL (old chapter pages, /en/ mirror,
+    // CN index, and brand articles mis-linked under /industry/).
+    const legacy = legacyRedirect(rawPath);
+    if (legacy) {
+      const target = new URL(request.url);
+      target.pathname = legacy;
       return Response.redirect(target.toString(), 301);
     }
 
