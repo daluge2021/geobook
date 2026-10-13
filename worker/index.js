@@ -1428,8 +1428,11 @@ export default {
       return new Response('Bad request', { status: 400 });
     }
 
-    // Block secret/config path-scanning before it reaches the origin.
-    if (isSuspiciousPath(clean)) {
+    // Block secret/config path-scanning before it reaches the origin. But never block
+    // the site's own declared AI entry files (summary.json, .well-known/*.json): these
+    // are legitimate static JSON that AI crawlers must be able to read, even though the
+    // scanner filter matches ".json" to catch config-file probing.
+    if (isSuspiciousPath(clean) && !AI_ENTRY_FILES.has(clean)) {
       return new Response(NOT_FOUND_HTML, {
         status: 404,
         headers: (() => {
