@@ -162,11 +162,12 @@ const PROBE_404_SQL = `(path LIKE '/api/%' OR path LIKE '/admin%' OR path LIKE '
 // 51.la 统计/评论前端会被禁用。
 const CSP_HEADER = [
   "default-src 'none'",
-  "script-src 'unsafe-inline' https://sdk.51.la",
+  "script-src 'unsafe-inline' https://sdk.51.la https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://googleads.g.doubleclick.net https://securepubads.g.doubleclick.net https://adservice.google.com https://www.googletagmanager.com https://www.google-analytics.com https://www.googletagservices.com https://fundingchoicesmessages.google.com https://www.google.com https://www.gstatic.com",
   "style-src 'unsafe-inline'",
   "img-src 'self' data: https:",
   "font-src 'self' data:",
   "connect-src 'self' https:",
+  "frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://securepubads.g.doubleclick.net https://www.google.com https://www.googletagmanager.com https://fundingchoicesmessages.google.com https://*.doubleclick.net https://*.google.com https://*.googlesyndication.com",
   "frame-ancestors 'none'",
   "base-uri 'none'",
   "form-action 'self'",

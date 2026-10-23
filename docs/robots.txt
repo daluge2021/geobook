@@ -7,6 +7,12 @@ Allow: /
 Disallow: /private/
 Disallow: /stats.html
 
+# AdSense crawler
+User-agent: Mediapartners-Google
+Allow: /
+Disallow: /private/
+Disallow: /stats.html
+
 User-agent: Google-Extended
 Allow: /
 Disallow: /private/
