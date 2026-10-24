@@ -1,12 +1,12 @@
 /**
- * GEO Encyclopedia — AI Crawler Access Logger
+ * GEO Encyclopedia 鈥?AI Crawler Access Logger
  *
  * Sits in front of the static content of geo010.com.
  * 1. Classifies each request by User-Agent (AI crawler vs. human).
  * 2. Writes one row per HTML page request into D1.
  * 3. Serves /stats.html (rendered server-side, no client JS).
  * 4. Forwards everything else to raw.githubusercontent.com (serves the docs/
- *    files directly — this origin does not validate the Host header, unlike
+ *    files directly 鈥?this origin does not validate the Host header, unlike
  *    GitHub Pages, whose custom-domain routing requires Host: geo010.com).
  *
  * Note: Cloudflare Workers fetch() cannot override the Host header, and the
@@ -43,7 +43,7 @@ function isCommentablePage(p) {
   return true;
 }
 
-// Legacy URL → current URL. The site used a chapter scheme (/ch01.html…/ch09.html)
+// Legacy URL 鈫?current URL. The site used a chapter scheme (/ch01.html鈥?ch09.html)
 // plus a /en/ mirror and a Chinese /index-cn.html before the flat English
 // restructure. AI crawlers and external links still request those paths (D1 shows
 // ~900 content 404s), so a 301 turns them into real hits and preserves any link
@@ -61,6 +61,16 @@ const CHAPTER_REDIRECTS = {
 };
 
 const LEGACY_EXACT = {
+  '/glossary/en/rag.html': '/glossary/rag.html',
+  '/glossary/en/answer-asset.html': '/glossary/answer-asset.html',
+  '/glossary/en/geo.html': '/glossary/geo.html',
+  '/glossary/en/llms-txt.html': '/glossary/llms-txt.html',
+  '/glossary/en/schema.html': '/glossary/schema.html',
+  '/glossary/en/eeat.html': '/glossary/eeat.html',
+  '/glossary/en/seo.html': '/glossary/seo.html',
+  '/glossary/en/ymyl.html': '/glossary/ymyl.html',
+  '/glossary/en/zero-click.html': '/glossary/zero-click.html',
+  '/glossary/en/ai-visibility.html': '/glossary/ai-visibility.html',
   '/index-cn.html': '/',
   '/en': '/',
   '/industry/crisis-pr-geo.html': '/brand/crisis-pr-geo.html',
@@ -130,9 +140,7 @@ const AI_CRAWLERS = [
 
 const STATIC_EXT = /\.(ico|png|jpe?g|gif|svg|webp|css|js|json|xml|txt|woff2?|map|md)(\?.*)?$/i;
 
-// AI 爬虫进入站点的关键入口文件。静态扩展默认不记录，但这些路径是 GEO 的
-// 核心观测点（AI 是否读取 robots/llms/sitemap/feed/well-known），爬虫访问需单独记录。
-const AI_ENTRY_FILES = new Set([
+// AI 鐖櫕杩涘叆绔欑偣鐨勫叧閿叆鍙ｆ枃浠躲€傞潤鎬佹墿灞曢粯璁や笉璁板綍锛屼絾杩欎簺璺緞鏄?GEO 鐨?// 鏍稿績瑙傛祴鐐癸紙AI 鏄惁璇诲彇 robots/llms/sitemap/feed/well-known锛夛紝鐖櫕璁块棶闇€鍗曠嫭璁板綍銆?const AI_ENTRY_FILES = new Set([
   '/llms.txt',
   '/robots.txt',
   '/sitemap.xml',
@@ -145,9 +153,8 @@ const AI_ENTRY_FILES = new Set([
   '/.well-known/openapi.json',
 ]);
 
-// AI 爬虫 404 细分用。SQLite 无正则，用 LIKE 近似识别"探测/扫描型"路径（漏洞与
-// 配置字典猜解）；其余 404 归为"内容型"（外链或旧结构指向本站的真实栏目）。
-const PROBE_404_SQL = `(path LIKE '/api/%' OR path LIKE '/admin%' OR path LIKE '/.%'
+// AI 鐖櫕 404 缁嗗垎鐢ㄣ€係QLite 鏃犳鍒欙紝鐢?LIKE 杩戜技璇嗗埆"鎺㈡祴/鎵弿鍨?璺緞锛堟紡娲炰笌
+// 閰嶇疆瀛楀吀鐚滆В锛夛紱鍏朵綑 404 褰掍负"鍐呭鍨?锛堝閾炬垨鏃х粨鏋勬寚鍚戞湰绔欑殑鐪熷疄鏍忕洰锛夈€?const PROBE_404_SQL = `(path LIKE '/api/%' OR path LIKE '/admin%' OR path LIKE '/.%'
   OR path LIKE '%config%' OR path LIKE '%env%' OR path LIKE '%/.git%'
   OR path LIKE '/fetch%' OR path LIKE '/proxy%' OR path LIKE '/webhook%'
   OR path LIKE '/redirect%' OR path LIKE '/request%' OR path LIKE '/load%'
@@ -155,12 +162,9 @@ const PROBE_404_SQL = `(path LIKE '/api/%' OR path LIKE '/admin%' OR path LIKE '
   OR path LIKE '%credentials%' OR path LIKE '%.php' OR path LIKE '%.properties%'
   OR path LIKE '/telescope%' OR path LIKE '/actuator%' OR path LIKE '/_debugbar%')`;
 
-// 站点安全响应头。raw.githubusercontent.com 附带的沙箱 CSP
-// (default-src 'none'; sandbox) 会禁用页面全部脚本，必须删除；但删后要换成
-// 允许内联脚本/样式与 51.la 的自定义 CSP，避免整站无 CSP 防护（防 XSS）。
-// R1 约束：script-src 必须含 'unsafe-inline' 与 sdk.51.la，否则侧边栏折叠/
-// 51.la 统计/评论前端会被禁用。
-const CSP_HEADER = [
+// 绔欑偣瀹夊叏鍝嶅簲澶淬€俽aw.githubusercontent.com 闄勫甫鐨勬矙绠?CSP
+// (default-src 'none'; sandbox) 浼氱鐢ㄩ〉闈㈠叏閮ㄨ剼鏈紝蹇呴』鍒犻櫎锛涗絾鍒犲悗瑕佹崲鎴?// 鍏佽鍐呰仈鑴氭湰/鏍峰紡涓?51.la 鐨勮嚜瀹氫箟 CSP锛岄伩鍏嶆暣绔欐棤 CSP 闃叉姢锛堥槻 XSS锛夈€?// R1 绾︽潫锛歴cript-src 蹇呴』鍚?'unsafe-inline' 涓?sdk.51.la锛屽惁鍒欎晶杈规爮鎶樺彔/
+// 51.la 缁熻/璇勮鍓嶇浼氳绂佺敤銆?const CSP_HEADER = [
   "default-src 'none'",
   "script-src 'unsafe-inline' https://sdk.51.la https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://googleads.g.doubleclick.net https://securepubads.g.doubleclick.net https://adservice.google.com https://www.googletagmanager.com https://www.google-analytics.com https://www.googletagservices.com https://fundingchoicesmessages.google.com https://www.google.com https://www.gstatic.com",
   "style-src 'unsafe-inline'",
@@ -181,7 +185,7 @@ const SECURITY_HEADERS = {
   'Strict-Transport-Security': 'max-age=31536000',
 };
 
-/** 删除 raw 源的沙箱头，并应用站点自定义安全头。html=true 时附加 CSP。 */
+/** 鍒犻櫎 raw 婧愮殑娌欑澶达紝骞跺簲鐢ㄧ珯鐐硅嚜瀹氫箟瀹夊叏澶淬€俬tml=true 鏃堕檮鍔?CSP銆?*/
 function applySecurityHeaders(headers, html = true) {
   headers.delete('Content-Security-Policy');
   headers.delete('X-Frame-Options');
@@ -213,11 +217,9 @@ const MIME = {
   '.pdf': 'application/pdf',
 };
 
-// 工具 / 扫描型 UA（SEO 审计器、批量采集脚本、HTTP 框架）。单独分类而不计入
-// "非 AI（人类）"，避免 python-requests 等整站采集把总请求与人类流量口径拉虚。
-// 命中优先级：AI 爬虫 > 工具/扫描 > 人类。命中工具类的请求仍会入库以便审计，
-// 但统计页单独展示，计算 AI 占比/人类流量时排除。
-const TOOL_BOTS = [
+// 宸ュ叿 / 鎵弿鍨?UA锛圫EO 瀹¤鍣ㄣ€佹壒閲忛噰闆嗚剼鏈€丠TTP 妗嗘灦锛夈€傚崟鐙垎绫昏€屼笉璁″叆
+// "闈?AI锛堜汉绫伙級"锛岄伩鍏?python-requests 绛夋暣绔欓噰闆嗘妸鎬昏姹備笌浜虹被娴侀噺鍙ｅ緞鎷夎櫄銆?// 鍛戒腑浼樺厛绾э細AI 鐖櫕 > 宸ュ叿/鎵弿 > 浜虹被銆傚懡涓伐鍏风被鐨勮姹備粛浼氬叆搴撲互渚垮璁★紝
+// 浣嗙粺璁￠〉鍗曠嫭灞曠ず锛岃绠?AI 鍗犳瘮/浜虹被娴侀噺鏃舵帓闄ゃ€?const TOOL_BOTS = [
   { name: 'Python-requests', re: /python-?requests/i },
   { name: 'ReadOnlySEOAudit', re: /ReadOnlySEOAudit/i },
   { name: 'SemrushBot', re: /SemrushBot/i },
@@ -284,9 +286,7 @@ async function ensureRefererColumn(env) {
   schemaChecked = true;
 }
 
-// tool_name 列：记录"工具/扫描"型请求（SEO 审计、批量采集）的分类名，供统计页
-// 单独展示，避免污染"人类/非 AI"口径。与 referer_host 一样惰性迁移。
-let toolSchemaChecked = false;
+// tool_name 鍒楋細璁板綍"宸ュ叿/鎵弿"鍨嬭姹傦紙SEO 瀹¤銆佹壒閲忛噰闆嗭級鐨勫垎绫诲悕锛屼緵缁熻椤?// 鍗曠嫭灞曠ず锛岄伩鍏嶆薄鏌?浜虹被/闈?AI"鍙ｅ緞銆備笌 referer_host 涓€鏍锋儼鎬ц縼绉汇€?let toolSchemaChecked = false;
 async function ensureToolColumn(env) {
   if (toolSchemaChecked) return;
   try {
@@ -409,23 +409,23 @@ async function handleSearch(url) {
 const FAQS = [
   {
     en: [/\bgeo\b/, /generative engine optimization/],
-    zh: ['什么是geo', 'geo是什么', 'geo 是什么', 'geo是什么？', '生成式引擎优化', 'geo的意思'],
+    zh: ['浠€涔堟槸geo', 'geo鏄粈涔?, 'geo 鏄粈涔?, 'geo鏄粈涔堬紵', '鐢熸垚寮忓紩鎿庝紭鍖?, 'geo鐨勬剰鎬?],
     enText:
-      'GEO (Generative Engine Optimization) is the practice of structuring and optimizing content so AI answer engines — ChatGPT, Perplexity, Google AI Overviews, Claude and similar — can find, understand and cite your brand when users ask questions. The encyclopedia covers it end to end; the definition article is the best place to start.',
+      'GEO (Generative Engine Optimization) is the practice of structuring and optimizing content so AI answer engines 鈥?ChatGPT, Perplexity, Google AI Overviews, Claude and similar 鈥?can find, understand and cite your brand when users ask questions. The encyclopedia covers it end to end; the definition article is the best place to start.',
     zhText:
-      'GEO（Generative Engine Optimization，生成式引擎优化）是指优化你的内容，让 ChatGPT、Perplexity、Google AI Overviews、Claude 等 AI 回答引擎在用户提问时能找到、理解并引用你的品牌。知识库有完整体系，推荐从定义篇读起。',
+      'GEO锛圙enerative Engine Optimization锛岀敓鎴愬紡寮曟搸浼樺寲锛夋槸鎸囦紭鍖栦綘鐨勫唴瀹癸紝璁?ChatGPT銆丳erplexity銆丟oogle AI Overviews銆丆laude 绛?AI 鍥炵瓟寮曟搸鍦ㄧ敤鎴锋彁闂椂鑳芥壘鍒般€佺悊瑙ｅ苟寮曠敤浣犵殑鍝佺墝銆傜煡璇嗗簱鏈夊畬鏁翠綋绯伙紝鎺ㄨ崘浠庡畾涔夌瘒璇昏捣銆?,
     sources: [
       { title: 'What is GEO? (Glossary)', url: 'https://geo010.com/glossary/geo.html' },
-      { title: 'What is GEO? — The Full Guide', url: 'https://geo010.com/fundamentals/what-is-geo.html' },
+      { title: 'What is GEO? 鈥?The Full Guide', url: 'https://geo010.com/fundamentals/what-is-geo.html' },
     ],
   },
   {
     en: [/llms\.txt/, /\bllms\b/, /for large language models/],
-    zh: ['llms.txt', 'llms 文件', '站点摘要文件'],
+    zh: ['llms.txt', 'llms 鏂囦欢', '绔欑偣鎽樿鏂囦欢'],
     enText:
-      'llms.txt is a plain-text file placed in the root of a site that lists the most important pages with short summaries — an orientation layer that helps AI crawlers and LLMs understand what the site covers, similar to how sitemap.xml helps search engines.',
+      'llms.txt is a plain-text file placed in the root of a site that lists the most important pages with short summaries 鈥?an orientation layer that helps AI crawlers and LLMs understand what the site covers, similar to how sitemap.xml helps search engines.',
     zhText:
-      'llms.txt 是放在网站根目录的纯文本文件，用一小段文字列出站内最重要的页面——它像 sitemap.xml 之于搜索引擎那样，帮助 AI 爬虫和大模型快速了解你站点的结构与主题。',
+      'llms.txt 鏄斁鍦ㄧ綉绔欐牴鐩綍鐨勭函鏂囨湰鏂囦欢锛岀敤涓€灏忔鏂囧瓧鍒楀嚭绔欏唴鏈€閲嶈鐨勯〉闈⑩€斺€斿畠鍍?sitemap.xml 涔嬩簬鎼滅储寮曟搸閭ｆ牱锛屽府鍔?AI 鐖櫕鍜屽ぇ妯″瀷蹇€熶簡瑙ｄ綘绔欑偣鐨勭粨鏋勪笌涓婚銆?,
     sources: [
       { title: 'LLMs.txt Guide', url: 'https://geo010.com/fundamentals/llms-txt-guide.html' },
       { title: 'What is LLMs.txt? (Glossary)', url: 'https://geo010.com/glossary/llms-txt.html' },
@@ -433,45 +433,45 @@ const FAQS = [
   },
   {
     en: [/seo dead/, /seo vs geo/, /is seo/, /difference between seo/, /seo and geo/],
-    zh: ['seo死了', 'seo已死', 'seo和geo', 'seo与geo', 'seo vs geo', 'seo区别'],
+    zh: ['seo姝讳簡', 'seo宸叉', 'seo鍜実eo', 'seo涓巊eo', 'seo vs geo', 'seo鍖哄埆'],
     enText:
       'SEO is not dead. GEO and SEO overlap and compound: the technical SEO basics remain prerequisites, while GEO adds answer-engine-specific signals such as question H2s, structured data and llms.txt for being cited inside AI answers.',
     zhText:
-      'SEO 并没有死。GEO 与 SEO 是重叠且相互放大的关系：技术 SEO 基本功仍是一切的前提，GEO 在此之上叠加针对回答引擎的信号（问题式小标题、结构化数据、llms.txt），让 AI 在答案里引用你。',
+      'SEO 骞舵病鏈夋銆侴EO 涓?SEO 鏄噸鍙犱笖鐩镐簰鏀惧ぇ鐨勫叧绯伙細鎶€鏈?SEO 鍩烘湰鍔熶粛鏄竴鍒囩殑鍓嶆彁锛孏EO 鍦ㄦ涔嬩笂鍙犲姞閽堝鍥炵瓟寮曟搸鐨勪俊鍙凤紙闂寮忓皬鏍囬銆佺粨鏋勫寲鏁版嵁銆乴lms.txt锛夛紝璁?AI 鍦ㄧ瓟妗堥噷寮曠敤浣犮€?,
     sources: [
       { title: 'Is SEO Dead?', url: 'https://geo010.com/fundamentals/seo-vs-geo.html' },
     ],
   },
   {
     en: [/citation share/, /citation/],
-    zh: ['引用占比', '引用份额', 'citation share', '引用率'],
+    zh: ['寮曠敤鍗犳瘮', '寮曠敤浠介', 'citation share', '寮曠敤鐜?],
     enText:
-      'Citation share is the share of AI-generated answers in your market that cite your brand as a source — the core GEO performance metric. It is typically measured by polling key questions across answer engines (ChatGPT, Perplexity, Google AI Overviews, Copilot) and counting how often your brand appears as a reference.',
+      'Citation share is the share of AI-generated answers in your market that cite your brand as a source 鈥?the core GEO performance metric. It is typically measured by polling key questions across answer engines (ChatGPT, Perplexity, Google AI Overviews, Copilot) and counting how often your brand appears as a reference.',
     zhText:
-      '引用占比（citation share）指在你的目标市场里，AI 生成的回答中引用你的品牌作为来源的比例——这是 GEO 最核心的绩效指标。通常做法是：在 ChatGPT、Perplexity、Google AI Overviews、Copilot 等引擎上反复提问关键问题，统计你的品牌被引用为来源的次数占比。',
+      '寮曠敤鍗犳瘮锛坈itation share锛夋寚鍦ㄤ綘鐨勭洰鏍囧競鍦洪噷锛孉I 鐢熸垚鐨勫洖绛斾腑寮曠敤浣犵殑鍝佺墝浣滀负鏉ユ簮鐨勬瘮渚嬧€斺€旇繖鏄?GEO 鏈€鏍稿績鐨勭哗鏁堟寚鏍囥€傞€氬父鍋氭硶鏄細鍦?ChatGPT銆丳erplexity銆丟oogle AI Overviews銆丆opilot 绛夊紩鎿庝笂鍙嶅鎻愰棶鍏抽敭闂锛岀粺璁′綘鐨勫搧鐗岃寮曠敤涓烘潵婧愮殑娆℃暟鍗犳瘮銆?,
     sources: [
-      { title: 'Citation Share — Metrics', url: 'https://geo010.com/metrics/citation-share.html' },
-      { title: 'Track AI Citations — Technical', url: 'https://geo010.com/technical/track-ai-citations.html' },
+      { title: 'Citation Share 鈥?Metrics', url: 'https://geo010.com/metrics/citation-share.html' },
+      { title: 'Track AI Citations 鈥?Technical', url: 'https://geo010.com/technical/track-ai-citations.html' },
     ],
   },
   {
     en: [/entity density/, /entity/],
-    zh: ['实体密度', 'entity density', '实体'],
+    zh: ['瀹炰綋瀵嗗害', 'entity density', '瀹炰綋'],
     enText:
       'Entity density measures how many unique, meaningful named entities appear in content relative to word count (typically per 1,000 words), and how clearly they are connected. Higher entity density helps AI engines map your content to a topic graph and cite it with confidence.',
     zhText:
-      '实体密度（entity density）衡量内容中出现的独特、有意义的命名实体数量（通常按每 1000 词计数），以及这些实体间的关联是否清晰。实体密度越高，AI 引擎越容易把你的内容映射进主题图谱并放心引用。',
+      '瀹炰綋瀵嗗害锛坋ntity density锛夎　閲忓唴瀹逛腑鍑虹幇鐨勭嫭鐗广€佹湁鎰忎箟鐨勫懡鍚嶅疄浣撴暟閲忥紙閫氬父鎸夋瘡 1000 璇嶈鏁帮級锛屼互鍙婅繖浜涘疄浣撻棿鐨勫叧鑱旀槸鍚︽竻鏅般€傚疄浣撳瘑搴﹁秺楂橈紝AI 寮曟搸瓒婂鏄撴妸浣犵殑鍐呭鏄犲皠杩涗富棰樺浘璋卞苟鏀惧績寮曠敤銆?,
     sources: [
-      { title: 'Entity Density — Metrics', url: 'https://geo010.com/metrics/entity-density.html' },
+      { title: 'Entity Density 鈥?Metrics', url: 'https://geo010.com/metrics/entity-density.html' },
     ],
   },
   {
     en: [/schema/, /structured data/, /json-ld/],
-    zh: ['结构化数据', 'schema', 'json-ld', 'jsonld', '微数据'],
+    zh: ['缁撴瀯鍖栨暟鎹?, 'schema', 'json-ld', 'jsonld', '寰暟鎹?],
     enText:
-      'Structured data is machine-readable markup (JSON-LD with Schema.org vocabulary) that describes what each page means. Markup such as Article, FAQPage, Organization and BreadcrumbList lets AI engines extract clean, confident facts instead of guessing — it is a core GEO trust signal.',
+      'Structured data is machine-readable markup (JSON-LD with Schema.org vocabulary) that describes what each page means. Markup such as Article, FAQPage, Organization and BreadcrumbList lets AI engines extract clean, confident facts instead of guessing 鈥?it is a core GEO trust signal.',
     zhText:
-      '结构化数据是机器可读的标记（基于 Schema.org 词表的 JSON-LD），用来描述每个页面的含义。Article、FAQPage、Organization、BreadcrumbList 等标记让 AI 引擎能直接提取干净可信的事实而不是去猜——这是 GEO 的重要信任信号。',
+      '缁撴瀯鍖栨暟鎹槸鏈哄櫒鍙鐨勬爣璁帮紙鍩轰簬 Schema.org 璇嶈〃鐨?JSON-LD锛夛紝鐢ㄦ潵鎻忚堪姣忎釜椤甸潰鐨勫惈涔夈€侫rticle銆丗AQPage銆丱rganization銆丅readcrumbList 绛夋爣璁拌 AI 寮曟搸鑳界洿鎺ユ彁鍙栧共鍑€鍙俊鐨勪簨瀹炶€屼笉鏄幓鐚溾€斺€旇繖鏄?GEO 鐨勯噸瑕佷俊浠讳俊鍙枫€?,
     sources: [
       { title: 'Schema Markup Guide', url: 'https://geo010.com/technical/schema-markup-guide.html' },
       { title: 'What is JSON-LD?', url: 'https://geo010.com/community/what-is-json-ld.html' },
@@ -479,11 +479,11 @@ const FAQS = [
   },
   {
     en: [/e-?e-?a-?t/, /experience.*expertise/, /expertise.*authoritative/],
-    zh: ['eeat', 'e-e-a-t', '经验', '专业知识', '权威'],
+    zh: ['eeat', 'e-e-a-t', '缁忛獙', '涓撲笟鐭ヨ瘑', '鏉冨▉'],
     enText:
-      'E-E-A-T stands for Experience, Expertise, Authoritativeness and Trust — the quality framework (rooted in Googles search quality guidelines) that shapes how much credibility AI engines assign to a source. High E-E-A-T means authorship, citations, primary data and transparent sourcing.',
+      'E-E-A-T stands for Experience, Expertise, Authoritativeness and Trust 鈥?the quality framework (rooted in Googles search quality guidelines) that shapes how much credibility AI engines assign to a source. High E-E-A-T means authorship, citations, primary data and transparent sourcing.',
     zhText:
-      'E-E-A-T 是 Experience（经验）、Expertise（专业度）、Authoritativeness（权威性）、Trust（可信度）四要素，源于 Google 搜索质量指南的质量框架。AI 引擎会据此判断一个来源的可信度，高 E-E-A-T 意味着署名清楚、引用来源、有一手数据、来源透明。',
+      'E-E-A-T 鏄?Experience锛堢粡楠岋級銆丒xpertise锛堜笓涓氬害锛夈€丄uthoritativeness锛堟潈濞佹€э級銆乀rust锛堝彲淇″害锛夊洓瑕佺礌锛屾簮浜?Google 鎼滅储璐ㄩ噺鎸囧崡鐨勮川閲忔鏋躲€侫I 寮曟搸浼氭嵁姝ゅ垽鏂竴涓潵婧愮殑鍙俊搴︼紝楂?E-E-A-T 鎰忓懗鐫€缃插悕娓呮銆佸紩鐢ㄦ潵婧愩€佹湁涓€鎵嬫暟鎹€佹潵婧愰€忔槑銆?,
     sources: [
       { title: 'E-E-A-T in GEO', url: 'https://geo010.com/content/eeat-in-geo.html' },
       { title: 'E-E-A-T Trust Mechanism', url: 'https://geo010.com/fundamentals/eeat-trust-mechanism.html' },
@@ -491,11 +491,11 @@ const FAQS = [
   },
   {
     en: [/how.*(start|begin).*geo/, /start(ing)? with geo/, /roadmap/, /from zero/, /get started/],
-    zh: ['怎么开始', '如何开始', '从零开始', '开启', '入门', '新手', '第一步', 'roadmap', '路线图', '检查清单', 'checklist'],
+    zh: ['鎬庝箞寮€濮?, '濡備綍寮€濮?, '浠庨浂寮€濮?, '寮€鍚?, '鍏ラ棬', '鏂版墜', '绗竴姝?, 'roadmap', '璺嚎鍥?, '妫€鏌ユ竻鍗?, 'checklist'],
     enText:
       'The fastest path: audit your current AI visibility, fix crawlability and orientation (robots.txt, llms.txt, sitemap), add structured data, create question-driven answer content, then measure citation share and iterate. The GEO Quick Start checklist can be done in 15 minutes.',
     zhText:
-      '最快路径：先审计当前 AI 可见度，修复可抓取性与"自我介绍"（robots.txt、llms.txt、sitemap），加结构化数据，创作问题驱动的回答型内容，然后测量引用占比并迭代。15 分钟的 GEO Quick Start 检查清单可以直接上手。',
+      '鏈€蹇矾寰勶細鍏堝璁″綋鍓?AI 鍙搴︼紝淇鍙姄鍙栨€т笌"鑷垜浠嬬粛"锛坮obots.txt銆乴lms.txt銆乻itemap锛夛紝鍔犵粨鏋勫寲鏁版嵁锛屽垱浣滈棶棰橀┍鍔ㄧ殑鍥炵瓟鍨嬪唴瀹癸紝鐒跺悗娴嬮噺寮曠敤鍗犳瘮骞惰凯浠ｃ€?5 鍒嗛挓鐨?GEO Quick Start 妫€鏌ユ竻鍗曞彲浠ョ洿鎺ヤ笂鎵嬨€?,
     sources: [
       { title: 'GEO Quick Start Checklist', url: 'https://geo010.com/fundamentals/geo-quick-start-checklist.html' },
       { title: 'Zero to One GEO Roadmap', url: 'https://geo010.com/cases/zero-to-one-roadmap.html' },
@@ -503,11 +503,11 @@ const FAQS = [
   },
   {
     en: [/monitor/, /measure.*(ai|crawler|crawl)/, /track.*(ai|crawler)/, /stats/, /analytics/],
-    zh: ['监控', '统计', '数据分析', '跟踪抓捕', '怎么测量', '怎么看数据', '爬虫数据'],
+    zh: ['鐩戞帶', '缁熻', '鏁版嵁鍒嗘瀽', '璺熻釜鎶撴崟', '鎬庝箞娴嬮噺', '鎬庝箞鐪嬫暟鎹?, '鐖櫕鏁版嵁'],
     enText:
-      'You can monitor AI visibility in two ways: (1) AI crawler analytics — Bing Webmaster Tools is the only major free source of AI citation-share data, since Bing powers Copilot, ChatGPT search and Perplexity; (2) direct answer polling across engines to count citations.',
+      'You can monitor AI visibility in two ways: (1) AI crawler analytics 鈥?Bing Webmaster Tools is the only major free source of AI citation-share data, since Bing powers Copilot, ChatGPT search and Perplexity; (2) direct answer polling across engines to count citations.',
     zhText:
-      '监控 AI 可见度有两条路径：(1) AI 爬虫统计——由于 Bing 是 Copilot、ChatGPT 搜索和 Perplexity 的后端，Bing Webmaster Tools 是唯一免费提供引用数据的主流工具；(2) 在各引擎直接答题轮询，统计引用次数。',
+      '鐩戞帶 AI 鍙搴︽湁涓ゆ潯璺緞锛?1) AI 鐖櫕缁熻鈥斺€旂敱浜?Bing 鏄?Copilot銆丆hatGPT 鎼滅储鍜?Perplexity 鐨勫悗绔紝Bing Webmaster Tools 鏄敮涓€鍏嶈垂鎻愪緵寮曠敤鏁版嵁鐨勪富娴佸伐鍏凤紱(2) 鍦ㄥ悇寮曟搸鐩存帴绛旈杞锛岀粺璁″紩鐢ㄦ鏁般€?,
     sources: [
       { title: 'AI Crawler Management', url: 'https://geo010.com/technical/ai-crawler-management.html' },
       { title: 'Track AI Citations', url: 'https://geo010.com/technical/track-ai-citations.html' },
@@ -515,10 +515,10 @@ const FAQS = [
   },
   {
     en: [/contact|email|reach you|get in touch/],
-    zh: ['联系', '邮箱', '联系方式', '发邮件', '合作'],
+    zh: ['鑱旂郴', '閭', '鑱旂郴鏂瑰紡', '鍙戦偖浠?, '鍚堜綔'],
     enText:
       'You can reach the GEO Encyclopedia team via the contact page.',
-    zhText: '你可以通过 contact 页面联系 GEO Encyclopedia 团队。',
+    zhText: '浣犲彲浠ラ€氳繃 contact 椤甸潰鑱旂郴 GEO Encyclopedia 鍥㈤槦銆?,
     sources: [
       { title: 'Contact', url: 'https://geo010.com/contact.html' },
     ],
@@ -535,7 +535,7 @@ const CHAT_SUGGESTIONS = [
 function langOf(q) {
   const cjk = (q.match(/[\u4e00-\u9fff]/g) || []).length;
   // Any meaningful CJK presence (>= 2 characters) counts as Chinese-language mode,
-  // so mixed queries like "llms.txt 是什么" answer in Chinese.
+  // so mixed queries like "llms.txt 鏄粈涔? answer in Chinese.
   return cjk >= 2 ? 'zh' : 'en';
 }
 
@@ -581,11 +581,11 @@ function snippetFor(doc, terms, lang) {
       if (i === -1) continue;
       const start = Math.max(0, i - 90);
       const end = Math.min(text.length, i + t.length + 150);
-      return text.slice(start, end).replace(/\s+/g, ' ').trim() + '…';
+      return text.slice(start, end).replace(/\s+/g, ' ').trim() + '鈥?;
     }
   }
   const s = (doc.summary || '').trim();
-  return s.length > 260 ? s.slice(0, 260) + '…' : s;
+  return s.length > 260 ? s.slice(0, 260) + '鈥? : s;
 }
 
 function chatReply(payload) {
@@ -613,7 +613,7 @@ async function ensureChatTable(env) {
   chatTableChecked = true;
 }
 
-// Simple per-IP in-memory rate limit (no identity stored on disk — stays anonymous).
+// Simple per-IP in-memory rate limit (no identity stored on disk 鈥?stays anonymous).
 const chatRate = new Map();
 function chatRateLimited(request) {
   const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
@@ -642,7 +642,7 @@ async function handleChat(request, env) {
     return json({ error: 'Please ask a question between 3 and 300 characters.' }, 400);
   }
   if (chatRateLimited(request)) {
-    return json({ error: 'Too many questions — please wait a moment.' }, 429);
+    return json({ error: 'Too many questions 鈥?please wait a moment.' }, 429);
   }
 
   const lang = langOf(q);
@@ -675,8 +675,8 @@ async function handleChat(request, env) {
       lang,
       text:
         lang === 'zh'
-          ? '知识库暂时不可用（索引加载失败），请稍后再试。'
-          : 'The knowledge index is temporarily unavailable — please try again in a moment.',
+          ? '鐭ヨ瘑搴撴殏鏃朵笉鍙敤锛堢储寮曞姞杞藉け璐ワ級锛岃绋嶅悗鍐嶈瘯銆?
+          : 'The knowledge index is temporarily unavailable 鈥?please try again in a moment.',
       sources: [],
     });
   }
@@ -695,7 +695,7 @@ async function handleChat(request, env) {
 
   if (top.length === 0) {
     const zhText =
-      '我目前在英文知识库中最接近你的问题。建议用这些英文问题重新提问，能拿到直接答案：';
+      '鎴戠洰鍓嶅湪鑻辨枃鐭ヨ瘑搴撲腑鏈€鎺ヨ繎浣犵殑闂銆傚缓璁敤杩欎簺鑻辨枃闂閲嶆柊鎻愰棶锛岃兘鎷垮埌鐩存帴绛旀锛?;
     const enText =
       'I could not find a direct match in the encyclopedia. Try one of these questions:';
     return chatReply({
@@ -712,7 +712,7 @@ async function handleChat(request, env) {
     lang,
     text:
       lang === 'zh'
-        ? '我为你匹配到知识库中相关的内容（站点内容为英文，以下为摘要）：'
+        ? '鎴戜负浣犲尮閰嶅埌鐭ヨ瘑搴撲腑鐩稿叧鐨勫唴瀹癸紙绔欑偣鍐呭涓鸿嫳鏂囷紝浠ヤ笅涓烘憳瑕侊級锛?
         : 'Here is what the encyclopedia says:',
     sources: top.map(({ doc, terms }) => ({
       title: doc.title,
@@ -771,7 +771,7 @@ async function handleCommentPost(request, env) {
 
   if (!isCommentablePage(page)) return json({ error: 'Comments are only accepted on site pages.' }, 400);
   if (!author || author.length > 40) return json({ error: 'Please enter a name (max 40 characters).' }, 400);
-  if (body.length < 2 || body.length > 1000) return json({ error: 'Message must be 2–1000 characters.' }, 400);
+  if (body.length < 2 || body.length > 1000) return json({ error: 'Message must be 2鈥?000 characters.' }, 400);
   if (/<[a-z/!][^>]*>/i.test(body)) return json({ error: 'HTML is not allowed in comments.' }, 400);
   if (email && (email.length > 80 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) {
     return json({ error: 'Invalid email address.' }, 400);
@@ -863,7 +863,7 @@ async function handleAdminComments(request, env) {
   const pendingRows = (pending?.results || [])
     .map(
       (r) =>
-        `<tr><td>${r.id}</td><td>${escapeHtml(r.page)}</td><td>${escapeHtml(r.author)}</td><td>${r.date}</td><td>${escapeHtml(r.body)}</td><td><a href="/api/comments?action=approve&amp;id=${r.id}&amp;key=${encodeURIComponent(key)}">Approve</a> · <a href="/api/comments?action=delete&amp;id=${r.id}&amp;key=${encodeURIComponent(key)}">Delete</a></td></tr>`
+        `<tr><td>${r.id}</td><td>${escapeHtml(r.page)}</td><td>${escapeHtml(r.author)}</td><td>${r.date}</td><td>${escapeHtml(r.body)}</td><td><a href="/api/comments?action=approve&amp;id=${r.id}&amp;key=${encodeURIComponent(key)}">Approve</a> 路 <a href="/api/comments?action=delete&amp;id=${r.id}&amp;key=${encodeURIComponent(key)}">Delete</a></td></tr>`
     )
     .join('') || '<tr><td colspan="6">No pending comments.</td></tr>';
   const recentRows = (recent?.results || [])
@@ -877,7 +877,7 @@ async function handleAdminComments(request, env) {
     `<!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8"><meta name="robots" content="noindex, nofollow">
-<title>Comments Admin — GEO Encyclopedia</title>
+<title>Comments Admin 鈥?GEO Encyclopedia</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; background: #f5f5f5; line-height: 1.7; color: #222; }
@@ -895,7 +895,7 @@ a { color: #0066cc; }
 <body>
 <div class="main">
 <h1>Comments Admin</h1>
-<p class="sub">geo010.com · moderation queue</p>
+<p class="sub">geo010.com 路 moderation queue</p>
 <h2>Pending (${(pending?.results || []).length})</h2>
 <table><tr><th>ID</th><th>Page</th><th>Author</th><th>Date</th><th>Body</th><th>Action</th></tr>${pendingRows}</table>
 <h2>Recent 50</h2>
@@ -937,7 +937,7 @@ function renderStatsPage(data) {
           `<tr${i % 2 ? ' class="alt"' : ''}><td>${r.label}</td><td>${r.n}</td></tr>`
       )
       .join('');
-  // 按天细分：总 = AI + 工具/扫描 + 真人类；点击仅计 referer 非空调试来源
+  // 鎸夊ぉ缁嗗垎锛氭€?= AI + 宸ュ叿/鎵弿 + 鐪熶汉绫伙紱鐐瑰嚮浠呰 referer 闈炵┖璋冭瘯鏉ユ簮
   const dailyRows = (arr) =>
     arr
       .map((r, i) => {
@@ -960,7 +960,7 @@ function renderStatsPage(data) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>AI Crawler Log — GEO Encyclopedia</title>
+<title>AI Crawler Log 鈥?GEO Encyclopedia</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; background: #f5f5f5; line-height: 1.9; color: #222; }
@@ -988,90 +988,90 @@ a { color: #0066cc; }
   <div class="main">
     <div class="content">
       <h1>AI Crawler Access Log</h1>
-      <p class="sub">geo010.com · 爬虫与请求抓取统计（仅供内部查看）</p>
+      <p class="sub">geo010.com 路 鐖櫕涓庤姹傛姄鍙栫粺璁★紙浠呬緵鍐呴儴鏌ョ湅锛?/p>
 
       <div class="kpis">
-        <div class="kpi"><div class="num">${totals.total}</div><div class="lbl">总请求</div></div>
-        <div class="kpi"><div class="num">${totals.ai}</div><div class="lbl">AI 爬虫请求</div></div>
-        <div class="kpi"><div class="num">${totals.tools}</div><div class="lbl">工具/扫描</div></div>
-        <div class="kpi"><div class="num">${totals.aiPct}%</div><div class="lbl">AI 占比</div></div>
-        <div class="kpi"><div class="num">${totals.clicks}</div><div class="lbl">外部来源点击</div></div>
+        <div class="kpi"><div class="num">${totals.total}</div><div class="lbl">鎬昏姹?/div></div>
+        <div class="kpi"><div class="num">${totals.ai}</div><div class="lbl">AI 鐖櫕璇锋眰</div></div>
+        <div class="kpi"><div class="num">${totals.tools}</div><div class="lbl">宸ュ叿/鎵弿</div></div>
+        <div class="kpi"><div class="num">${totals.aiPct}%</div><div class="lbl">AI 鍗犳瘮</div></div>
+        <div class="kpi"><div class="num">${totals.clicks}</div><div class="lbl">澶栭儴鏉ユ簮鐐瑰嚮</div></div>
       </div>
 
-      <h2>按工具/扫描器统计</h2>
+      <h2>鎸夊伐鍏?鎵弿鍣ㄧ粺璁?/h2>
       <div class="card"><table>
-        <tr><th>工具/扫描器</th><th>请求数</th></tr>
+        <tr><th>宸ュ叿/鎵弿鍣?/th><th>璇锋眰鏁?/th></tr>
         ${rows(byTool)}
       </table></div>
 
-      <h2>按爬虫统计</h2>
+      <h2>鎸夌埇铏粺璁?/h2>
       <div class="card"><table>
-        <tr><th>爬虫</th><th>请求数</th></tr>
+        <tr><th>鐖櫕</th><th>璇锋眰鏁?/th></tr>
         ${rows(byCrawler)}
       </table></div>
 
-      <h2>按日期统计</h2>
+      <h2>鎸夋棩鏈熺粺璁?/h2>
       <div class="card"><table>
-        <tr><th>日期</th><th>请求数</th></tr>
+        <tr><th>鏃ユ湡</th><th>璇锋眰鏁?/th></tr>
         ${rows(byDate)}
       </table></div>
 
-      <h2>按日期细分（总 / AI / 工具 / 真人类 / 点击）</h2>
+      <h2>鎸夋棩鏈熺粏鍒嗭紙鎬?/ AI / 宸ュ叿 / 鐪熶汉绫?/ 鐐瑰嚮锛?/h2>
       <div class="card"><table>
-        <tr><th>日期</th><th>总请求</th><th>AI</th><th>工具/扫描</th><th>真人类</th><th>点击</th><th>AI 占比</th></tr>
+        <tr><th>鏃ユ湡</th><th>鎬昏姹?/th><th>AI</th><th>宸ュ叿/鎵弿</th><th>鐪熶汉绫?/th><th>鐐瑰嚮</th><th>AI 鍗犳瘮</th></tr>
         ${dailyRows(byDateDaily)}
       </table></div>
 
-      <h2>热门被抓取页面</h2>
+      <h2>鐑棬琚姄鍙栭〉闈?/h2>
       <div class="card"><table>
-        <tr><th>路径</th><th>请求数</th></tr>
+        <tr><th>璺緞</th><th>璇锋眰鏁?/th></tr>
         ${rows(byPath)}
       </table></div>
 
-      <h2>AI 爬虫 404 细分</h2>
+      <h2>AI 鐖櫕 404 缁嗗垎</h2>
       <div class="card"><table>
-        <tr><th>类型</th><th>数量</th></tr>
-        <tr><td>内容型（旧结构 / 外链指向真实栏目，应加 301）</td><td>${a404.content || 0}</td></tr>
-        <tr class="alt"><td>探测型（漏洞 / 配置字典猜解）</td><td>${a404.scan || 0}</td></tr>
-        <tr><td>合计</td><td>${a404.total || 0}</td></tr>
+        <tr><th>绫诲瀷</th><th>鏁伴噺</th></tr>
+        <tr><td>鍐呭鍨嬶紙鏃х粨鏋?/ 澶栭摼鎸囧悜鐪熷疄鏍忕洰锛屽簲鍔?301锛?/td><td>${a404.content || 0}</td></tr>
+        <tr class="alt"><td>鎺㈡祴鍨嬶紙婕忔礊 / 閰嶇疆瀛楀吀鐚滆В锛?/td><td>${a404.scan || 0}</td></tr>
+        <tr><td>鍚堣</td><td>${a404.total || 0}</td></tr>
       </table></div>
 
-      <h2>AI 找错的内容路径 Top</h2>
+      <h2>AI 鎵鹃敊鐨勫唴瀹硅矾寰?Top</h2>
       <div class="card"><table>
-        <tr><th>路径</th><th>请求数</th></tr>
+        <tr><th>璺緞</th><th>璇锋眰鏁?/th></tr>
         ${rows(ai404Paths)}
       </table></div>
 
-      <h2>AI 入口文件访问（llms/robots/sitemap/feed/well-known）</h2>
+      <h2>AI 鍏ュ彛鏂囦欢璁块棶锛坙lms/robots/sitemap/feed/well-known锛?/h2>
       <div class="card"><table>
-        <tr><th>路径</th><th>AI 爬虫访问数</th></tr>
+        <tr><th>璺緞</th><th>AI 鐖櫕璁块棶鏁?/th></tr>
         ${rows(byEntry)}
       </table></div>
 
-      <h2>外部来源点击 Top</h2>
+      <h2>澶栭儴鏉ユ簮鐐瑰嚮 Top</h2>
       <div class="card"><table>
-        <tr><th>来源域名</th><th>点击数</th></tr>
+        <tr><th>鏉ユ簮鍩熷悕</th><th>鐐瑰嚮鏁?/th></tr>
         ${rows(byReferrer)}
       </table></div>
 
-      <h2>被点击页面 Top（最近 7 天）</h2>
+      <h2>琚偣鍑婚〉闈?Top锛堟渶杩?7 澶╋級</h2>
       <div class="card"><table>
-        <tr><th>路径</th><th>点击数</th></tr>
+        <tr><th>璺緞</th><th>鐐瑰嚮鏁?/th></tr>
         ${rows(byClickPath)}
       </table></div>
 
-      <h2>最近 20 条记录</h2>
+      <h2>鏈€杩?20 鏉¤褰?/h2>
       <div class="card"><table>
-        <tr><th>时间</th><th>爬虫</th><th>路径</th><th>状态</th><th>来源</th></tr>
+        <tr><th>鏃堕棿</th><th>鐖櫕</th><th>璺緞</th><th>鐘舵€?/th><th>鏉ユ簮</th></tr>
         ${recent
           .map(
             (r) =>
-              `<tr><td>${r.ts}</td><td>${r.crawler_name || r.ua || '—'}</td><td>${r.path}</td><td>${r.status}</td><td>${r.referer_host || '—'}</td></tr>`
+              `<tr><td>${r.ts}</td><td>${r.crawler_name || r.ua || '鈥?}</td><td>${r.path}</td><td>${r.status}</td><td>${r.referer_host || '鈥?}</td></tr>`
           )
           .join('')}
       </table></div>
 
-      <p class="footer">GEO Encyclopedia · private stats endpoint</p>
+      <p class="footer">GEO Encyclopedia 路 private stats endpoint</p>
     </div>
   </div>
 </div>
@@ -1206,9 +1206,7 @@ function sanitizePath(raw) {
   return '/' + segs.join('/');
 }
 
-// 敏感路径探测防护：常见的 secret/config 字典扫描路径一律不转发源站。
-// 命中即 404（保持与源站一致的外观，不暴露拦截意图）。
-const SUSPICIOUS_PATH_RE =
+// 鏁忔劅璺緞鎺㈡祴闃叉姢锛氬父瑙佺殑 secret/config 瀛楀吀鎵弿璺緞涓€寰嬩笉杞彂婧愮珯銆?// 鍛戒腑鍗?404锛堜繚鎸佷笌婧愮珯涓€鑷寸殑澶栬锛屼笉鏆撮湶鎷︽埅鎰忓浘锛夈€?const SUSPICIOUS_PATH_RE =
   /\.(env|git|svn|bak|old|log|ini|conf|cfg|config|yaml|yml|json|sql|sh|py|key|pem|crt|tfstate)(\.|$)|\.(git|svn|hg)\/|\.aws\/|\.ssh\/|\.npmrc|\.boto|\.s3cfg|\.rclone\.conf|wp-(admin|login|json|content)|xmlrpc\.php|(^|\/)\.env(\b|\.)|settings\.py|web\.config|terraform|composer\.lock|\.env\.|storage\/logs|(^|\/)server\.key|graphql(\b|$)/i;
 
 function isSuspiciousPath(p) {
@@ -1244,7 +1242,7 @@ async function fetchFile(path) {
 
 // Assistant chat widget, injected into every ordinary HTML page before </body>.
 // The site CSP allows inline scripts/styles (no 'self'), so the widget is fully
-// inlined — no external asset, no changes to any static page needed.
+// inlined 鈥?no external asset, no changes to any static page needed.
 const ASSISTANT_WIDGET = `
 <div id="geo-assistant" style="position:fixed;bottom:16px;right:16px;z-index:9999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif;line-height:1.6;">
 <style>
@@ -1274,25 +1272,25 @@ const ASSISTANT_WIDGET = `
 @media (max-width:768px){#ga-panel{width:100vw;max-width:100vw;bottom:0;right:0;height:70vh;max-height:70vh;border-radius:14px 14px 0 0}}
 </style>
 <div id="ga-panel" role="dialog" aria-label="GEO assistant">
-<div id="ga-head"><b>GEO Assistant</b><button id="ga-close" aria-label="Close">×</button></div>
+<div id="ga-head"><b>GEO Assistant</b><button id="ga-close" aria-label="Close">脳</button></div>
 <div id="ga-msgs"></div>
 <div id="ga-actions" style="padding:0 12px;background:#f5f5f5"></div>
-<div id="ga-inputrow"><input id="ga-input" type="text" placeholder="Ask about GEO…（可中文提问）" autocomplete="off"><button id="ga-send">Send</button></div>
+<div id="ga-inputrow"><input id="ga-input" type="text" placeholder="Ask about GEO鈥︼紙鍙腑鏂囨彁闂級" autocomplete="off"><button id="ga-send">Send</button></div>
 </div>
-<button id="ga-fab" aria-label="Open assistant">🤖</button>
+<button id="ga-fab" aria-label="Open assistant">馃</button>
 <script>
 (function(){
 var FAB='#ga-fab',PANEL='#ga-panel',MSGS='#ga-msgs',ACT='#ga-actions',INP='#ga-input',BTN='#ga-send',CLOSE='#ga-close';
 var root=document.getElementById('geo-assistant');
 var msgs=document.getElementById(MSGS.slice(1));
-var welcome="Hi! I answer quick questions about Generative Engine Optimization. Ask in English or Chinese — 中文提问也可以。";
+var welcome="Hi! I answer quick questions about Generative Engine Optimization. Ask in English or Chinese 鈥?涓枃鎻愰棶涔熷彲浠ャ€?;
 var suggestions=['What is GEO?','What is llms.txt?','How do I measure citation share?','How do I start GEO from zero?'];
 function addMsg(t,who,srcs,chips){
   var d=document.createElement('div');d.className='ga-msg '+who;d.textContent=t;
   if(srcs&&srcs.length){
     var box=document.createElement('div');box.className='ga-src';
     srcs.forEach(function(s){
-      if(s.url){var a=document.createElement('a');a.href=s.url;a.target='_blank';a.rel='noopener';a.textContent='🔗 '+s.title;box.appendChild(a);}
+      if(s.url){var a=document.createElement('a');a.href=s.url;a.target='_blank';a.rel='noopener';a.textContent='馃敆 '+s.title;box.appendChild(a);}
       else{var c=document.createElement('span');c.textContent=s.title;box.appendChild(c);}
       if(s.snippet){var sn=document.createElement('div');sn.className='ga-snip';sn.textContent=s.snippet;box.appendChild(sn);}
     });
@@ -1310,12 +1308,12 @@ function send(text){
   .then(function(r){return r.json().then(function(d){return {ok:r.ok,d:d};});})
   .then(function(res){
     if(!res.ok||!res.d.text){
-      addMsg('No answer right now — please try again.','bot');return;
+      addMsg('No answer right now 鈥?please try again.','bot');return;
     }
     if(res.d.suggestions){addMsg(res.d.text,'bot');renderChips(res.d.sources);return;}
     addMsg(res.d.text,'bot',res.d.sources);
   })
-  .catch(function(){addMsg('Network error — please refresh and try again.','bot');});
+  .catch(function(){addMsg('Network error 鈥?please refresh and try again.','bot');});
 }
 function renderChips(srcs){
   var act=document.getElementById(ACT.slice(1));act.innerHTML='';
@@ -1344,7 +1342,7 @@ function injectAssistant(html) {
 
 const NOT_FOUND_HTML = `<!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>404 — GEO Encyclopedia</title>
+<head><meta charset="UTF-8"><title>404 鈥?GEO Encyclopedia</title>
 <style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;background:#f5f5f5;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;color:#222}div{text-align:center}p{color:#666;margin-top:8px}a{color:#0066cc}</style>
 </head>
 <body><div><h1>404</h1><p>Page not found or has been moved.</p><a href="/">Back to Home</a></div></body>
@@ -1362,7 +1360,7 @@ export default {
       return Response.redirect(target.toString(), 301);
     }
 
-    // Legacy paths → 301 to the current URL (old chapter pages, /en/ mirror,
+    // Legacy paths 鈫?301 to the current URL (old chapter pages, /en/ mirror,
     // CN index, and brand articles mis-linked under /industry/).
     const legacy = legacyRedirect(rawPath);
     if (legacy) {
@@ -1371,17 +1369,17 @@ export default {
       return Response.redirect(target.toString(), 301);
     }
 
-    // Stats page — never logged, never cached
+    // Stats page 鈥?never logged, never cached
     if (rawPath === STATS_PATH) {
       return handleStats(env);
     }
 
-    // Site search API — reads the generated article index (never logged)
+    // Site search API 鈥?reads the generated article index (never logged)
     if (rawPath === SEARCH_PATH || rawPath === SEARCH_PATH + '/') {
       return handleSearch(url);
     }
 
-    // Site assistant chat API — local FAQ + knowledge-index answers (anonymous log)
+    // Site assistant chat API 鈥?local FAQ + knowledge-index answers (anonymous log)
     if (rawPath === CHAT_PATH || rawPath === CHAT_PATH + '/') {
       return handleChat(request, env);
     }
@@ -1459,12 +1457,8 @@ export default {
     const crawler = classifyCrawler(ua);
     const tool = crawler ? null : classifyToolbot(ua);
     const isHtml = !STATIC_EXT.test(rawPath);
-    // 记录规则（口径真实）：
-    //  - AI 爬虫：isHtml 的请求或访问入口文件一律记录（含 404，用于观察 AI 找错路径）；
-    //  - 非 AI（人类 / 工具/扫描）：只记录真实命中（status 200）的页面，404 路径猜解、
-    //    探测阈值（//wp/ 等 WordPress 扫描、phpunit eval-stdin、根路径猜子目录文章）不入库，
-    //    否则会污染总请求与"非 AI（人类）"口径。
-    const shouldLog = crawler
+    // 璁板綍瑙勫垯锛堝彛寰勭湡瀹烇級锛?    //  - AI 鐖櫕锛歩sHtml 鐨勮姹傛垨璁块棶鍏ュ彛鏂囦欢涓€寰嬭褰曪紙鍚?404锛岀敤浜庤瀵?AI 鎵鹃敊璺緞锛夛紱
+    //  - 闈?AI锛堜汉绫?/ 宸ュ叿/鎵弿锛夛細鍙褰曠湡瀹炲懡涓紙status 200锛夌殑椤甸潰锛?04 璺緞鐚滆В銆?    //    鎺㈡祴闃堝€硷紙//wp/ 绛?WordPress 鎵弿銆乸hpunit eval-stdin銆佹牴璺緞鐚滃瓙鐩綍鏂囩珷锛変笉鍏ュ簱锛?    //    鍚﹀垯浼氭薄鏌撴€昏姹備笌"闈?AI锛堜汉绫伙級"鍙ｅ緞銆?    const shouldLog = crawler
       ? isHtml || AI_ENTRY_FILES.has(rawPath)
       : isHtml && status === 200;
     if (shouldLog) {
