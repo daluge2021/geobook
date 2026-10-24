@@ -1,0 +1,12 @@
+第 1 步：复制下面的脚本并将其粘贴在您网站的 <head></head> 标记之间
+将下面的代码放置在您的 AMP 网站 HTML 的 head 标记之间，放置一次即可。此脚本用于加载相关的 amp-auto-ads 库。
+
+<script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+</script>
+第 2 步：复制 AMP 自动广告代码并将其粘贴在您的网页上，紧跟在 <body> 标记之后
+复制下面的代码并将其粘贴在您要展示广告的网页上，紧跟在 <body> 标记之后。此代码的放置位置并不反映广告的展示位置。
+
+<amp-auto-ads type="adsense"
+        data-ad-client="ca-pub-1911889082930844">
+</amp-auto-ads>
