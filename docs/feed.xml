@@ -3,17 +3,10 @@
 <channel>
   <title>GEO Encyclopedia</title>
   <link>https://geo010.com</link>
-  <description>71 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
+  <description>66 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
   <language>en</language>
   <atom:link href="https://geo010.com/feed.xml" rel="self" type="application/rss+xml"/>
   <lastBuildDate>Mon, 05 Oct 2026 00:00:00 +0000</lastBuildDate>
-  <item>
-    <title>How I Built a RAG Knowledge Base That Passed 100% of Its Own Eval - 6 Debugging Lessons</title>
-    <link>https://geo010.com/community/rag-knowledge-base-from-scratch.html</link>
-    <guid>https://geo010.com/community/rag-knowledge-base-from-scratch.html</guid>
-    <pubDate>Mon, 05 Oct 2026 00:00:00 +0000</pubDate>
-    <description>Two merged field reports on building a from-scratch RAG knowledge base on SQLite plus numpy: filter-before-fuse retrieval, a 12-question eval, and the six debugging lessons — alias normalization, ordering bias, vector blind spots — that got it to 100%.</description>
-  </item>
   <item>
     <title>GEO Quick Start Checklist - 15-Minute Setup for AI Visibility</title>
     <link>https://geo010.com/fundamentals/geo-quick-start-checklist.html</link>
@@ -190,27 +183,6 @@
     <description>Learn how to manage AI crawlers including GPTBot, Google-Extended, PerplexityBot. Covers the 4 core differences from search crawlers.</description>
   </item>
   <item>
-    <title>GEO Monitoring Tool Selection and Usage</title>
-    <link>https://geo010.com/technical/geo-monitoring-tools.html</link>
-    <guid>https://geo010.com/technical/geo-monitoring-tools.html</guid>
-    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
-    <description>Comprehensive guide to GEO monitoring tools. Compare free and paid options including Profound, SEMrush, BrightEdge. Covers tool feature matrix and common pitfalls.</description>
-  </item>
-  <item>
-    <title>AgenticGEO Tool Introduction</title>
-    <link>https://geo010.com/technical/agenticgeo-tools.html</link>
-    <guid>https://geo010.com/technical/agenticgeo-tools.html</guid>
-    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
-    <description>Introduction to AgenticGEO - the autonomous driving for GEO. Learn about AI Agent systems that automate monitoring, analysis, optimization, and iteration.</description>
-  </item>
-  <item>
-    <title>GEO Tech Stack Overview</title>
-    <link>https://geo010.com/technical/tech-stack-overview.html</link>
-    <guid>https://geo010.com/technical/tech-stack-overview.html</guid>
-    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
-    <description>Complete GEO tech stack overview covering the four-layer architecture: infrastructure, optimization, monitoring, and automation.</description>
-  </item>
-  <item>
     <title>How to Build Your Brand as an AI-Recognized Source?</title>
     <link>https://geo010.com/brand/brand-as-source.html</link>
     <guid>https://geo010.com/brand/brand-as-source.html</guid>
@@ -314,13 +286,6 @@
     <guid>https://geo010.com/cases/black-hat-prevention.html</guid>
     <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
     <description>Learn how to identify and prevent black hat GEO tactics. Covers content injection, fake authority citations, and white hat GEO best practices.</description>
-  </item>
-  <item>
-    <title>GEO Future Trends 2027-2028</title>
-    <link>https://geo010.com/cases/geo-future-trends.html</link>
-    <guid>https://geo010.com/cases/geo-future-trends.html</guid>
-    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
-    <description>Explore GEO future trends: full-modal optimization, platform-specific strategies, AI-driven automation, and pre-emptive embedding.</description>
   </item>
   <item>
     <title>Citation Share &amp; Semantic Coverage - The Two Core Metrics of GEO</title>

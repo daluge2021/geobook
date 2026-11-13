@@ -1,6 +1,6 @@
 # GEO Encyclopedia
 
-> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 71 in-depth articles across 9 chapters, a chapter overview page per chapter, plus a Community hub, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
+> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 66 in-depth articles across 9 chapters, a chapter overview page per chapter, plus a Community hub, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
 
 ## Quick Answers (AI-Priority Citations)
 
@@ -93,10 +93,7 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 - [How to Configure LLMs.txt and Robots.txt?](https://geo010.com/technical/llms-txt-advanced.html): Advanced configuration of the two orientation files.
 - [What is Entity Recognition & Knowledge Graph?](https://geo010.com/technical/entity-knowledge-graph.html): How AI builds entity graphs and how you signal your brand entity.
 - [How to Manage AI Crawler Access?](https://geo010.com/technical/ai-crawler-management.html): Allowing GPTBot, PerplexityBot, ClaudeBot and friends while staying safe.
-- [Which GEO Monitoring Tools to Use?](https://geo010.com/technical/geo-monitoring-tools.html): Dashboards and metrics for tracking AI visibility.
 - [How to Track AI Citations](https://geo010.com/technical/track-ai-citations.html): Server log analysis, crawler monitoring, and brand mention tracking to measure GEO performance.
-- [What is AgenticGEO?](https://geo010.com/technical/agenticgeo-tools.html): How agent-based tools automate GEO workflows.
-- [GEO Tech Stack Overview](https://geo010.com/technical/tech-stack-overview.html): The full toolkit for running a GEO program.
 - [GEO Tools & Software Review](https://geo010.com/technical/geo-tools-review.html): Honest review of AI visibility trackers, schema generators, content optimizers, and DIY crawler monitoring.
 - [Per-Engine Optimization: What Each AI Engine Actually Reads](https://geo010.com/technical/per-engine-optimization.html): GPTBot, ClaudeBot, PerplexityBot and friends crawl differently — per-engine layers beyond the baseline, with prioritization and monitoring.
 
@@ -130,7 +127,6 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 - [Full GEO Case Study](https://geo010.com/cases/full-process-case.html): Composite, anonymized end-to-end GEO walkthrough with illustrative before/after figures.
 - [What is a GEO AI-Readiness Audit?](https://geo010.com/cases/geo-ai-audit.html): How GEO Encyclopedia audited its own AI-readiness across discovery, measurement, structured data, trust and canonicalization.
 - [How to Prevent Black Hat GEO?](https://geo010.com/cases/black-hat-prevention.html): Detecting manipulation risks and AI spam penalties.
-- [What are GEO Future Trends?](https://geo010.com/cases/geo-future-trends.html): Where AI search and GEO are heading.
 - [What AI Assistants Say About Citation Share](https://geo010.com/cases/what-ai-assistants-say-citation-share.html): A September 2026 field test comparing how ChatGPT, Claude, Perplexity and Grok define citation share — the shared formula, the two denominator camps, and the ~12% ranking-to-citation overlap.
 - [What AI Assistants Say About Entity Density](https://geo010.com/cases/what-ai-assistants-say-entity-density.html): Four engines on an unstandardized metric — and how Claude reproduced this site's definition verbatim with a source link.
 - [A Realistic GEO Timeline: What to Expect When](https://geo010.com/cases/geo-timeline.html): The honest stages of GEO — crawl readiness, visibility, and category position — with observed 2-4 week and 3-6 month milestones from real programs.
@@ -153,7 +149,6 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 - [How We Made GEO Encyclopedia AI-Discoverable in One Week](https://geo010.com/community/one-week-geo-readiness.html): A site-owner playbook with our real data — 2,335 crawler log records, 72 GPTBot visits, a new article crawled within 24 hours, and the 264 junk requests we filtered out.
 - [What Actually Gets Your Site Crawled by AI?](https://geo010.com/community/two-week-crawler-data.html): Two weeks of crawl logs stripped of scanner noise — which GEO changes drove real AI crawler visits, why AI discovery endpoints got zero requests, and how to spot an attack wearing a crawler's name.
 - [What GEO Work Actually Moves AI Crawlers?](https://geo010.com/community/geo-impact-attribution-new-site.html): Per-measure attribution of two weeks of AI crawler traffic to nine GEO changes, plus the exact launch checklist for a new site — and two earlier conclusions we corrected with the logs.
-- [How I Built a RAG Knowledge Base That Passed 100% of Its Own Eval](https://geo010.com/community/rag-knowledge-base-from-scratch.html): Two merged field reports on a from-scratch SQLite + numpy RAG — filter-before-fuse retrieval, a 12-question eval, and the six debugging lessons that took the score from 94.4% to 100%.
 
 ## Glossary
 

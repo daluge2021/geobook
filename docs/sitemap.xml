@@ -240,25 +240,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://geo010.com/technical/geo-monitoring-tools.html</loc>
-    <lastmod>2026-10-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://geo010.com/technical/track-ai-citations.html</loc>
-    <lastmod>2026-10-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://geo010.com/technical/agenticgeo-tools.html</loc>
-    <lastmod>2026-10-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://geo010.com/technical/tech-stack-overview.html</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -411,12 +393,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://geo010.com/cases/geo-future-trends.html</loc>
-    <lastmod>2026-10-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://geo010.com/cases/what-ai-assistants-say-citation-share.html</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
@@ -516,12 +492,6 @@
   </url>
   <url>
     <loc>https://geo010.com/community/geo-impact-attribution-new-site.html</loc>
-    <lastmod>2026-10-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://geo010.com/community/rag-knowledge-base-from-scratch.html</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
