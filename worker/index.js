@@ -35,7 +35,7 @@ const CHAT_PATH = '/api/chat';
 // Comment pages must look like a real site page (/foo.html or /section/foo.html),
 // never an API, admin, stats or well-known path.
 const COMMENT_PAGE_RE = /^\/([a-z0-9-]+\.html|[a-z0-9-]+\/[a-z0-9-]+\.html)$/i;
-const COMMENT_DENY = ['/stats.html', '/monitor.html', ADMIN_COMMENTS_PATH];
+const COMMENT_DENY = ['/stats.html', ADMIN_COMMENTS_PATH];
 function isCommentablePage(p) {
   if (!COMMENT_PAGE_RE.test(p)) return false;
   if (COMMENT_DENY.includes(p)) return false;
@@ -89,6 +89,7 @@ const LEGACY_EXACT = {
   '/technical/tech-stack-overview.html': '/fundamentals/geo-quick-start-checklist.html',
   '/cases/geo-future-trends.html': '/models/geo-evolution.html',
   '/community/rag-knowledge-base-from-scratch.html': '/community/geo-content-template.html',
+  '/monitor.html': '/data/crawler-behavior-data.html',
 };
 
 /** Map an obsolete request path to its current location, or null if not legacy. */
@@ -104,7 +105,7 @@ function legacyRedirect(pathname) {
 
 const MCP_MANIFEST = {
   mcp_version: '1.0',
-  server_name: 'GEO Encyclopedia',
+  server_name: 'GEO Notes',
   server_version: '1.0.0',
   description:
     'A static English-language knowledge base about Generative Engine Optimization (GEO). ' +

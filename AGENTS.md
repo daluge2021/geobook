@@ -1,10 +1,10 @@
-# AGENTS.md — GEO Encyclopedia
+# AGENTS.md — GEO Notes
 
 > 本文件供 AI 编码助手（如 opencode）在操作此仓库时使用。
 
 ## 项目概述
 
-GEO Encyclopedia（geo010.com）是一个纯英文静态文档网站，托管于 GitHub Pages，前端接入 Cloudflare Worker 用于 AI 爬虫访问日志。内容是英文 Generative Engine Optimization（生成式引擎优化）知识体系，包含 9 大章节（I.–IX.）共 45 篇深度文章 + 10 个术语（Glossary）。每篇文章是 docs/ 下一个独立 HTML 文件，无 Markdown 源。
+GEO Notes（geo010.com）是一个纯英文静态文档网站，托管于 GitHub Pages，前端接入 Cloudflare Worker 用于 AI 爬虫访问日志。内容是英文 Generative Engine Optimization（生成式引擎优化）知识体系，包含 9 大章节（I.–IX.）共 66 篇文章 + 10 个术语（Glossary）+ 10 个章节索引页与 15 个根页面（sitemap 共 91 条）。每篇文章是 docs/ 下一个独立 HTML 文件，无 Markdown 源。
 
 ## 构建/测试/部署
 
@@ -31,14 +31,14 @@ GEOhtml/
 └── docs/                  # GitHub Pages 根目录
     ├── index.html         # 首页
     ├── what-is-geo.html   # GEO 概述页（canonical 指向 fundamentals 完整版）
-    ├── about.html / contact.html / monitor.html / stats.html
+    ├── about.html / contact.html / stats.html
     ├── llms.txt / robots.txt / sitemap.xml / feed.xml / summary.json
     ├── og-image.svg / og-image.png / favicon.svg
     ├── .well-known/       # ai.txt / ai.json / llms.txt / ai-plugin.json / openapi.json
     ├── CNAME              # geo010.com（不要修改）
     ├── fundamentals/ metrics/ models/ content/ technical/   # 9 大章节子目录
     ├── brand/ industry/ cases/ data/ glossary/
-    └── geoplan/           # 内部规划文档（.md，随站发布但不影响导航）
+    └── (geoplan/ 已移出发布目录，位于仓库根 geoplan/)
 ```
 
 ## 代码规范
