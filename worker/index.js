@@ -89,17 +89,33 @@ const LEGACY_EXACT = {
   '/technical/tech-stack-overview.html': '/fundamentals/geo-quick-start-checklist.html',
   '/cases/geo-future-trends.html': '/models/geo-evolution.html',
   '/community/rag-knowledge-base-from-scratch.html': '/community/geo-content-template.html',
-  '/monitor.html': '/data/crawler-behavior-data.html',
+  '/monitor.html': '/',
 };
 
-/** Map an obsolete request path to its current location, or null if not legacy. */
+// Pages held back from publication until first-party data can be added
+// (2026-11-13). These are 302, deliberately temporary: each URL returns to its
+// own address once the data exists. Do not convert these to 301.
+const HELD_BACK = {
+  '/industry/healthcare-geo.html': '/industry-applications.html',
+  '/industry/finance-geo.html': '/industry-applications.html',
+  '/industry/education-geo.html': '/industry-applications.html',
+  '/industry/legal-geo.html': '/industry-applications.html',
+  '/data/roi-calculation.html': '/data-formulas.html',
+  '/data/geo-benchmarks.html': '/data-formulas.html',
+  '/data/ai-referral-attribution.html': '/data-formulas.html',
+};
+
+/** Map an obsolete request path to its current location, or null if not legacy.
+ *  Returns { to, code } so held-back pages can answer 302 while true legacy URLs
+ *  keep the permanent 301. */
 function legacyRedirect(pathname) {
   const p = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
-  if (LEGACY_EXACT[p]) return LEGACY_EXACT[p];
-  if (CHAPTER_REDIRECTS[p]) return CHAPTER_REDIRECTS[p];
+  if (HELD_BACK[p]) return { to: HELD_BACK[p], code: 302 };
+  if (LEGACY_EXACT[p]) return { to: LEGACY_EXACT[p], code: 301 };
+  if (CHAPTER_REDIRECTS[p]) return { to: CHAPTER_REDIRECTS[p], code: 301 };
   const enCh = p.match(/^\/en(\/ch0[1-9]\.html)$/);
-  if (enCh) return CHAPTER_REDIRECTS[enCh[1]] || null;
-  if (p.startsWith('/en/')) return p.slice(3) || '/';
+  if (enCh) return CHAPTER_REDIRECTS[enCh[1]] ? { to: CHAPTER_REDIRECTS[enCh[1]], code: 301 } : null;
+  if (p.startsWith('/en/')) return { to: p.slice(3) || '/', code: 301 };
   return null;
 }
 
@@ -1388,8 +1404,8 @@ export default {
     const legacy = legacyRedirect(rawPath);
     if (legacy) {
       const target = new URL(request.url);
-      target.pathname = legacy;
-      return Response.redirect(target.toString(), 301);
+      target.pathname = legacy.to;
+      return Response.redirect(target.toString(), legacy.code);
     }
 
     // Stats page — never logged, never cached

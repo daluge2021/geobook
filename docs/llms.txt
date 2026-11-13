@@ -1,6 +1,6 @@
 # GEO Notes — Generative Engine Optimization (GEO)
 
-> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 66 in-depth articles across 9 chapters, a chapter overview page per chapter, plus a Community hub, from fundamentals to real-world case studies. Written and maintained by Junfeng Lu, editor and publisher.
+> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 59 in-depth articles across 9 chapters, a chapter overview page per chapter, plus a Community hub, from fundamentals to real-world case studies. Written and maintained by Junfeng Lu, editor and publisher.
 
 ## Quick Answers (AI-Priority Citations)
 
@@ -110,11 +110,7 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 
 ## VII. Industry Applications
 
-- [VII. Industry Applications — Chapter Overview](https://geo010.com/industry-applications.html): What the chapter covers and the full list of its 8 articles.
-- [How to Do GEO for Healthcare?](https://geo010.com/industry/healthcare-geo.html): Credibility requirements in a high-stakes YMYL vertical.
-- [How to Do GEO for Finance?](https://geo010.com/industry/finance-geo.html): Trust and compliance in financial AI citations.
-- [How to Do GEO for Education?](https://geo010.com/industry/education-geo.html): Building authority in educational AI answers.
-- [How to Do GEO for Legal Services?](https://geo010.com/industry/legal-geo.html): Accuracy and authority for legal AI queries.
+- [VII. Industry Applications — Chapter Overview](https://geo010.com/industry-applications.html): What the chapter covers and the full list of its 4 articles.
 - [How to Do GEO for Local Services?](https://geo010.com/industry/local-services-geo.html): Winning nearby AI recommendations.
 - [How to Do GEO for Manufacturing?](https://geo010.com/industry/manufacturing-geo.html): B2B credibility for industrial AI searches.
 - [How to Do GEO for SaaS Companies?](https://geo010.com/industry/saas-geo.html): Winning AI recommendations in competitive SaaS markets.
@@ -134,13 +130,10 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 
 ## IX. Data & Formulas
 
-- [IX. Data & Formulas — Chapter Overview](https://geo010.com/data-formulas.html): What the chapter covers and the full list of its 6 articles.
+- [IX. Data & Formulas — Chapter Overview](https://geo010.com/data-formulas.html): What the chapter covers and the full list of its 3 articles.
 - [What are the Core GEO Metrics?](https://geo010.com/data/core-metrics-system.html): A unified metrics system for measuring GEO performance.
-- [How to Calculate GEO ROI?](https://geo010.com/data/roi-calculation.html): Formulas for valuing AI citations and referrals.
 - [How to Build a GEO Data Dashboard?](https://geo010.com/data/data-dashboard-setup.html): Setting up tracking infrastructure for GEO KPIs.
 - [AI Crawler Behavior Report](https://geo010.com/data/crawler-behavior-data.html): 12-day, 4,115-hit analysis of how AI crawlers actually visit a live GEO site — Bingbot dominance, ClaudeBot consistency, OpenAI's two behaviors, and what it means for citation share.
-- [GEO Benchmarks: What Good Looks Like by Industry](https://geo010.com/data/geo-benchmarks.html): The working reference bands — citation rates, source counts, citation share leadership, and community-platform share — with how to set your own benchmark honestly.
-- [AI Referral Attribution: When Ethically Possible](https://geo010.com/data/ai-referral-attribution.html): Tracking the zero-click path — brand-search uplift, direct visits, and prompt-aware tracking — where attribution is tractable and where it is not.
 
 ## 💬 Community
 

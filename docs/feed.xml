@@ -3,7 +3,7 @@
 <channel>
   <title>GEO Notes</title>
   <link>https://geo010.com</link>
-  <description>66 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
+  <description>59 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
   <language>en</language>
   <atom:link href="https://geo010.com/feed.xml" rel="self" type="application/rss+xml"/>
   <lastBuildDate>Mon, 05 Oct 2026 00:00:00 +0000</lastBuildDate>
@@ -225,34 +225,6 @@
     <description>Master B2B brand GEO strategy - becoming AI's recommended choice for procurement decisions with whitepapers, case studies, and authority building.</description>
   </item>
   <item>
-    <title>How to Do GEO for Healthcare?</title>
-    <link>https://geo010.com/industry/healthcare-geo.html</link>
-    <guid>https://geo010.com/industry/healthcare-geo.html</guid>
-    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
-    <description>Master healthcare GEO strategy - high authority requirements, compliance risks, and trust building for medical brands in AI search.</description>
-  </item>
-  <item>
-    <title>How to Do GEO for Finance?</title>
-    <link>https://geo010.com/industry/finance-geo.html</link>
-    <guid>https://geo010.com/industry/finance-geo.html</guid>
-    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
-    <description>Master finance GEO strategy - balancing compliance, trust, and competition for financial brands in AI search.</description>
-  </item>
-  <item>
-    <title>How to Do GEO for Education?</title>
-    <link>https://geo010.com/industry/education-geo.html</link>
-    <guid>https://geo010.com/industry/education-geo.html</guid>
-    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
-    <description>Master education GEO strategy - making AI your course consultant for schools, training institutions, and online learning platforms.</description>
-  </item>
-  <item>
-    <title>How to Do GEO for Legal Services?</title>
-    <link>https://geo010.com/industry/legal-geo.html</link>
-    <guid>https://geo010.com/industry/legal-geo.html</guid>
-    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
-    <description>Master legal services GEO strategy - becoming AI's trusted attorney through legal knowledge base, personal branding, and compliance.</description>
-  </item>
-  <item>
     <title>How to Do GEO for Local Services?</title>
     <link>https://geo010.com/industry/local-services-geo.html</link>
     <guid>https://geo010.com/industry/local-services-geo.html</guid>
@@ -337,13 +309,6 @@
     <description>The complete GEO metrics framework - from outcome metrics to asset metrics to process metrics. Learn the three-layer metrics system.</description>
   </item>
   <item>
-    <title>How to Calculate GEO ROI?</title>
-    <link>https://geo010.com/data/roi-calculation.html</link>
-    <guid>https://geo010.com/data/roi-calculation.html</guid>
-    <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
-    <description>The complete GEO ROI calculation model - traffic value method, brand exposure method, and conversion value method.</description>
-  </item>
-  <item>
     <title>How to Build a GEO Data Dashboard?</title>
     <link>https://geo010.com/data/data-dashboard-setup.html</link>
     <guid>https://geo010.com/data/data-dashboard-setup.html</guid>
@@ -412,20 +377,6 @@
     <guid>https://geo010.com/cases/what-ai-assistants-say-entity-density.html</guid>
     <pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
     <description>Four engines on an unstandardized metric - and how Claude reproduced GEO Notes's entity association density definition verbatim with a source link.</description>
-  </item>
-  <item>
-    <title>GEO Benchmarks: What Good Looks Like by Industry</title>
-    <link>https://geo010.com/data/geo-benchmarks.html</link>
-    <guid>https://geo010.com/data/geo-benchmarks.html</guid>
-    <pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
-    <description>The working reference bands for GEO performance - citation rates, sources per answer, citation-share leadership, and community-platform share - and how to set your own benchmark honestly instead of trusting a vendor number.</description>
-  </item>
-  <item>
-    <title>AI Referral Attribution: When Ethically Possible</title>
-    <link>https://geo010.com/data/ai-referral-attribution.html</link>
-    <guid>https://geo010.com/data/ai-referral-attribution.html</guid>
-    <pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
-    <description>How to track the zero-click path from AI answers to your brand - brand-search uplift, direct visits, and prompt-aware tracking where attribution is tractable, and why raw referral reports miss most of it.</description>
   </item>
   <item>
     <title>How to Protect Your Brand from AI Hallucinations?</title>

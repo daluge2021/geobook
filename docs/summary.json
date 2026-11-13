@@ -1,6 +1,6 @@
 {
   "name": "GEO Notes",
-  "description": "A complete English-language knowledge base on Generative Engine Optimization (GEO): 66 in-depth articles and 10 glossary terms across 9 chapters, each with an overview page, plus a Community hub, covering how AI answer engines select, cite, and recommend brands.",
+  "description": "A complete English-language knowledge base on Generative Engine Optimization (GEO): 59 in-depth articles and 10 glossary terms across 9 chapters, each with an overview page, plus a Community hub, covering how AI answer engines select, cite, and recommend brands.",
   "url": "https://geo010.com",
   "language": "en",
   "updated": "2026-11-13",
@@ -56,7 +56,7 @@
       "number": "VII",
       "title": "Industry Applications",
       "url": "https://geo010.com/industry-applications.html",
-      "articleCount": 8
+      "articleCount": 4
     },
     {
       "number": "VIII",
@@ -68,7 +68,7 @@
       "number": "IX",
       "title": "Data & Formulas",
       "url": "https://geo010.com/data-formulas.html",
-      "articleCount": 6
+      "articleCount": 3
     },
     {
       "title": "Community",
