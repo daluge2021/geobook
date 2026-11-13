@@ -152,6 +152,7 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 
 ## Glossary
 
+- [GEO Glossary index](https://geo010.com/glossary.html): All ten terms in one page, one line each, with the full guide for each.
 - [What is GEO?](https://geo010.com/glossary/geo.html): Generative Engine Optimization defined, with primary sources.
 - [What is SEO?](https://geo010.com/glossary/seo.html): Search Engine Optimization and its limits in AI search.
 - [What is RAG?](https://geo010.com/glossary/rag.html): Retrieval-Augmented Generation and how AI uses your content.

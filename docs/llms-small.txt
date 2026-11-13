@@ -35,6 +35,6 @@ Source: https://geo010.com/fundamentals/seo-vs-geo.html
 
 - [Full llms.txt index](https://geo010.com/llms.txt): All 66 articles + 10 glossary terms by chapter.
 - [Sitemap](https://geo010.com/sitemap.xml): Complete URL inventory.
-- [Glossary](https://geo010.com/glossary/geo.html): Key GEO terms with primary sources.
+- [Glossary](https://geo010.com/glossary.html): Ten GEO terms, one line each, each linked to its full guide.
 
 Last updated 2026-10-13.

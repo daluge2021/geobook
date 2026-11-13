@@ -3,7 +3,7 @@
   "description": "A complete English-language knowledge base on Generative Engine Optimization (GEO): 66 in-depth articles and 10 glossary terms across 9 chapters, each with an overview page, plus a Community hub, covering how AI answer engines select, cite, and recommend brands.",
   "url": "https://geo010.com",
   "language": "en",
-  "updated": "2026-10-13",
+  "updated": "2026-11-13",
   "keywords": [
     "GEO",
     "Generative Engine Optimization",
@@ -76,7 +76,7 @@
       "articleCount": 5
     }
   ],
-  "glossary": "https://geo010.com/glossary/geo.html",
+  "glossary": "https://geo010.com/glossary.html",
   "privacy": "https://geo010.com/privacy.html",
   "feed": "https://geo010.com/feed.xml",
   "sitemap": "https://geo010.com/sitemap.xml"
