@@ -120,7 +120,7 @@
     "worksFor": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" }
   },
   "datePublished": "2026-01-15",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/fundamentals/answer-assetization.html" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -297,7 +297,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="what-is-geo.html">I. Fundamentals</a> › Answer Assetization</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-07-28</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
 
 <h1>What Is Answer Assetization — Letting AI Advertise for You</h1>
 
@@ -544,40 +544,27 @@
 
 <hr>
 
-<h2>VII. A Complete Hands-On Scenario</h2>
+<h2>VII. A Worked Case: This Site's Own Answer Asset</h2>
 
-<p>Suppose you're a brand in <strong>online English education</strong> that wants to earn AI recommendations through GEO.</p>
+<p>The scenario below is not a client story. It is what happened to the page you are reading when we put it in front of four engines in September 2026 — the same test described in our <a href="../cases/what-ai-assistants-say-entity-density.html">entity density field test</a>.</p>
 
-<p><strong>Week 1: Collect Questions</strong></p>
-<p>Extracted 186 customer questions from the customer service system, filtered down to the TOP 30 high-frequency questions, including:</p>
-<ul>
-  <li>"Which platform is best for adults learning English?"</li>
-  <li>"How long does it take to learn English from zero?"</li>
-  <li>"Is online English training reliable?"</li>
-  <li>"How can working professionals use fragmented time to learn English?"</li>
-</ul>
-<p><strong>Weeks 2-3: Write Answer Assets</strong></p>
-<p>Write answer pages for all 30 questions. Taking "Which platform is best for adults learning English?" as an example:</p>
+<p><strong>The asset.</strong> A definition-first page: one sentence answer at the top, the term's provenance, its close cousins, and a worked example. No lead-in, no "in today's fast-moving digital landscape".</p>
 
-<p>Title: Which Platform Is Best for Adults Learning English? — 2026 Comparison Guide</p>
+<p><strong>The test.</strong> We asked ChatGPT, Claude, Perplexity and Grok the same question: <em>what is entity association density in GEO?</em> Then we recorded what each engine said and whether it named this site.</p>
 
-<p>First sentence: For adult English learning, the most recommended platforms in 2026 include XX (best for beginners), XX (best for speaking improvement), and XX (best for exam preparation). We compared them across four dimensions: curriculum, instructor quality, pricing, and user feedback.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Engine</th><th>What it said</th><th>Did it cite us?</th></tr></thead>
+  <tbody>
+    <tr><td>ChatGPT</td><td>Not a standardized metric like citation share; nearest concept is keyword density versus entity association</td><td>No</td></tr>
+    <tr><td>Claude</td><td>No canonical definition found; then, with the page in context, restated our definition almost word for word</td><td>Yes — with a link</td></tr>
+    <tr><td>Grok</td><td>No established definition; pointed to brand association density (2019 <em>JPBM</em> paper) and a vendor's entity-density metric</td><td>No</td></tr>
+    <tr><td>Perplexity</td><td>Treated it as an emerging GEO/AEO metric with a published definition</td><td>Partly — described the concept, attributed loosely</td></tr>
+  </tbody>
+</table></div>
 
-<p><strong>Week 4: Add Schema and Publish</strong></p>
-<p>Add FAQ Schema to all answer pages, publish them under the website's /faq/ directory, and update LLMs.txt.</p>
+<p><strong>What the case shows.</strong> The answer asset did not create demand for the term — three engines said the term was not standard, and that is a fair reading. What it did do is make the page <em>extractable</em> the moment an engine had it in context: Claude reproduced the opening definition rather than paraphrasing it into mush. That is the whole point of writing for extraction. A vague page gives an engine nothing to lift; a definition-first page gives it a sentence it can quote without editing.</p>
 
-<p><strong>Week 5: Establish Visibility Baseline</strong></p>
-<p>Search "which platform is best for adults learning English" on ChatGPT and Doubao, recording which brands appear in the answers and whether your own brand is mentioned.</p>
-
-<p><strong>Month 2: Re-measure</strong></p>
-<p>Search the same question again to see if your brand has gone from "not mentioned" to "cited." If not, analyze whether the answer pages need optimization.</p>
-
-<p><strong>What three months is designed to produce — targets, not a measured client result:</strong></p>
-<ul>
-  <li>Brand mention in AI answers moves from "absent" to appearing in the top three for the priority questions</li>
-  <li>Branded search lifts as a side effect — people who hear a name in an answer still search it</li>
-  <li>A measurable share of enquiries starts with "I saw you recommended by an AI" — track it as its own source, not inside organic</li>
-</ul>
+<p><strong>What it does not show.</strong> This is one query, on one day, with no model versions recorded and no repeated sampling. It is not evidence that answer assets "get you cited" in general, and we would not present it to a client as a rate of return. It is evidence that structure changes what an engine can do with your page once it is retrieved — which is the part you control.</p>
 
 <h2>VIII. Summary</h2>
 

@@ -114,7 +114,7 @@
   "description": "Understand how E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) determines whether AI will cite your content, and how to build AI trust.",
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "datePublished": "2026-01-15",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/fundamentals/eeat-trust-mechanism.html" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -291,16 +291,14 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="what-is-geo.html">I. Fundamentals</a> › E-E-A-T Trust Mechanism</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-07-28</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
 
 <h1>Why Should AI Trust You? — A Deep GEO Interpretation of E-E-A-T</h1>
 
-<blockquote>Imagine you're the marketing director of a medical device company. Someone asks on ChatGPT:</blockquote>
-<blockquote>"Which domestic CT scanner brand has the most mature technology?"</blockquote>
-<blockquote>The AI's answer mentions your competitors — but not you.</blockquote>
-<blockquote>You ask the AI: "Why didn't you recommend us? Our technology is ahead!"</blockquote>
-<blockquote>AI is essentially asking one question: <strong>"Why should I trust you?"</strong></blockquote>
-<blockquote>This "trust" problem is exactly what E-E-A-T aims to solve.</blockquote>
+<blockquote><strong>The version of this we actually lived through:</strong> in September 2026 this site already held dozens of articles on generative engine optimization. We asked ChatGPT, Claude, Perplexity and Grok the same question — what does GEO mean — and read the answers.</blockquote>
+<blockquote>The answers leaned on vendor blogs, Wikipedia and a handful of agency explainers. Our own pages, some of them 2,000 words long, were not among the sources we saw cited.</blockquote>
+<blockquote>Nothing was broken. The site simply had not yet given an engine enough reason to treat it as an accountable source: a named author, a stated method, dates it could check, and a body of work that points back to the same entity.</blockquote>
+<blockquote>That gap — between "well written" and "safe to cite" — is exactly what E-E-A-T describes. This page works through the four signals, then shows what we could and could not move on our own site.</blockquote>
 
 <hr>
 
@@ -491,6 +489,31 @@
 
 <p><strong>Days 6-7: Pursue Third-Party Citations</strong></p>
 <p>List the 3 most authoritative media outlets/institutions in your industry and create a plan to "get cited by them" (e.g., co-publish a white paper, participate in industry reports, accept interviews, etc.).</p>
+
+<hr>
+
+<h2>VII. What We Could Measure on Our Own Site</h2>
+
+<p>E-E-A-T is a quality judgment, not a metric, so no log can tell you your own score. What crawl logs can tell you is whether the entity you are building is being read at all, and how consistently. Here is the honest split between what we changed and what we could observe.</p>
+
+<p><strong>What we changed</strong> (all of it visible in the page source and in this site's revision history): a named author with a linked author page, a publisher and author entity in JSON-LD on every article, <code>datePublished</code> and <code>dateModified</code> kept in sync with the visible "Updated" line, a real About page describing who writes the site and how, a working contact address, and removal of pages that duplicated each other.</p>
+
+<p><strong>What the logs showed</strong> over the 12 days from 21 August to 1 September 2026, across 4,115 crawler requests and 13 identified crawlers:</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Crawler</th><th>Requests</th><th>Unique pages</th><th>Active days</th><th>What it suggests</th></tr></thead>
+  <tbody>
+    <tr><td>Bingbot</td><td>326</td><td>95</td><td>12 of 12</td><td>Broadest daily coverage; feeds several answer surfaces</td></tr>
+    <tr><td>ClaudeBot</td><td>254</td><td>38</td><td>11 of 12</td><td>Narrow but reliable: returns to the same pages instead of sweeping</td></tr>
+    <tr><td>Googlebot</td><td>216</td><td>68</td><td>11 of 12</td><td>Indexing coverage, not citation behaviour</td></tr>
+    <tr><td>GPTBot</td><td>45</td><td>33</td><td>11 of 12</td><td>Deep single-pass traversal of content pages</td></tr>
+    <tr><td>PerplexityBot</td><td>29</td><td>24</td><td>7 of 12</td><td>Low volume, wide page spread</td></tr>
+  </tbody>
+</table></div>
+
+<p>The pattern that matters for E-E-A-T is not volume, it is <em>return behaviour</em>. ClaudeBot came back to a small set of pages almost every day, which is what a system re-checking whether a source is still current looks like. Bingbot touched 95 distinct pages, more than any other crawler. Neither number proves trust — it proves the pages are being re-read, which is the precondition for being cited.</p>
+
+<blockquote><strong>Method and limits:</strong> one site, 12 consecutive days, user-agent labels as recorded by a Cloudflare Worker in front of the origin. User agents can be spoofed, so the daily report cross-checks paths and status codes before counting a request; roughly 2,744 scanner requests with null or forged agents were excluded. Crawl behaviour is not citation behaviour, and nothing here isolates the effect of the schema and author changes from the effect of publishing new pages in the same window.</blockquote>
 
 <hr>
 

@@ -120,7 +120,7 @@
     "worksFor": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" }
   },
   "datePublished": "2026-01-15",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/metrics/citation-share.html" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -297,7 +297,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../metrics-frameworks.html">II. Metrics & Frameworks</a> › Citation Share & Semantic Coverage</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-10-10</span><span>·</span><span>Worked examples use illustrative assumptions; external figures are linked to sources</span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>Worked examples use illustrative assumptions; external figures are linked to sources</span></div>
 
 <h1>Citation Share & Semantic Coverage — The Two Core Metrics of GEO</h1>
 
@@ -471,35 +471,24 @@
   <li><strong>Maturity phase</strong> (months 6-12): Citation share to 30%+, semantic coverage to 70%+ <em>(example)</em></li>
 <hr>
 </ul>
-<h2>V. An Illustrative Worked Scenario</h2>
+<h2>V. Worked Example: One Question, Three Denominators</h2>
 
-<p>This is an anonymized, illustrative scenario assembled to show how the metrics move together — not a controlled client measurement. Query counts, model versions, and sampling windows are not disclosed.</p>
+<p>We ran a small field test in September 2026: the same question — <em>what is citation share in GEO?</em> — put to ChatGPT, Claude, Perplexity and Grok, with the answers read side by side. Every engine agreed on the shape of the formula. None of them agreed on the denominator, and the arithmetic shows why that matters more than the wording.</p>
 
-<p>A brand in <strong>online English education</strong> began measuring GEO metrics in week 6:</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Formula as described</th><th>Example the engine gave</th><th>Result</th><th>What it measures</th></tr></thead>
+  <tbody>
+    <tr><td>Responses that cite you ÷ responses sampled</td><td>25 of 100 answers</td><td>25%</td><td>Absolute presence — "how often am I in the room"</td></tr>
+    <tr><td>Your citations ÷ all citations on the query set</td><td>4 of 80 citations</td><td>5%</td><td>Competitive share — "how much of the evidence is mine"</td></tr>
+    <tr><td>Your citation instances ÷ all citation instances</td><td>35 of 250</td><td>14%</td><td>Volume-weighted share, sensitive to one source being cited repeatedly</td></tr>
+  </tbody>
+</table></div>
 
-<p><strong>Baseline data (before GEO optimization):</strong></p>
-<ul>
-  <li>Citation share: 0% (never mentioned in AI answers)</li>
-  <li>Semantic coverage: ~15% (only covering "how much does English training cost" and "adult English courses" — two dimensions)</li>
-</ul>
-<p><strong>Actions taken:</strong></p>
-<ul>
-  <li>Covered new dimensions: Added 6 new dimensions including "learning English from zero," "English learning for working professionals," "business English conversation," and "IELTS preparation"</li>
-  <li>Produced 3-5 "answer assetization" content pieces per dimension, with answer-first format</li>
-</ul>
-<p><strong>Retest at week 10:</strong></p>
-<ul>
-  <li>Citation share: Improved from 0% to 8% — AI began citing their content for "learning English from zero" and "adult English training" topics</li>
-  <li>Semantic coverage: Improved from 15% to 45%</li>
-</ul>
-<p><strong>Retest at week 20:</strong></p>
-<ul>
-  <li>Citation share: 8% → 22%</li>
-  <li>Semantic coverage: 45% → 68%</li>
-</ul>
-<p><strong>Observation in this example:</strong> The citation share growth curve and the semantic coverage growth curve moved together — each time a new semantic dimension was added and new content was introduced, the following week's citation share ticked up. This is a single illustrative case, not evidence of a general causal law.</p>
+<p>Same brand, same query set, three defensible numbers between 5% and 25%. If your dashboard reports "citation share" without stating which denominator it uses, the number is not comparable to anything — including its own value last quarter, if the vendor changed methodology in between.</p>
 
-<hr>
+<p><strong>The protocol we use instead.</strong> Five fields are fixed before the first measurement and never changed mid-stream: (1) the query set, written down and versioned; (2) the engines and the exact model or product tier; (3) the number of samples per query — one sample per query is noise, not measurement; (4) the denominator, chosen once; (5) the date window, because model updates move answers. Everything else — sentiment, position in the answer, whether the link was followed — is recorded as a companion field, never folded into the headline number.</p>
+
+<p><strong>What we do not publish.</strong> We do not state a citation share for this site. Our query set is small, our sampling is monthly and manual, and a precise-looking percentage would imply a precision we have not earned. What we can show is directional and dated: which pages were retrieved, which answers quoted us, and on what date — the raw evidence, not a score derived from it.</p>
 
 <h2>What Do AI Assistants Themselves Say About Citation Share?</h2>
 

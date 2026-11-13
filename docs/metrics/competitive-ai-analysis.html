@@ -130,7 +130,7 @@
   "description": "A repeatable method for competitive AI analysis: fixed query sets, a presence scale (absent/mention/cite/recommend), per-engine scoring, and how to read the leaderboard without over-claiming.",
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "datePublished": "2026-09-16",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/metrics/competitive-ai-analysis.html" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -315,7 +315,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../metrics-frameworks.html">Metrics & Frameworks</a> › How to Benchmark Competitors in AI Answers</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-09-16</span><span>·</span><span>Methodology outlined; no proprietary data required</span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>Methodology outlined; no proprietary data required</span></div>
 
 <h1>How to Benchmark Competitors in AI Answers</h1>
 
@@ -401,6 +401,29 @@
 <h2>Automation Notes (and When to Stay Manual)</h2>
 
 <p>Start manual — a spreadsheet and 30-60 minutes per cycle is enough to learn the rhythm. Tools that offer competitive AI tracking can scale the query library and engine count once your rubric is locked, but <strong>do not let a tool redefine your scoring scale mid-program</strong>; continuity beats tool fidelity. Also keep double-blind checks early on (two people scoring the same answers) to confirm the rubric is shared.</p>
+
+<hr>
+
+<h2>Worked Scoring: One Query Set, Scored Honestly</h2>
+
+<p>The scale only means something if you can see it applied to evidence you could check. Here is the same exercise run on this site — not on a hypothetical competitor — using the four-engine test from September 2026 and the crawl logs from August.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Dimension</th><th>Evidence we actually hold</th><th>Score</th></tr></thead>
+  <tbody>
+    <tr><td>Presence across engines</td><td>1 of 4 engines cited the page with a link, 1 described the concept with loose attribution, 2 did not mention it</td><td>2 of 4</td></tr>
+    <tr><td>Accuracy of the description</td><td>Claude's restatement matched our opening definition closely enough to quote; no engine misattributed a claim to us</td><td>3 of 3</td></tr>
+    <tr><td>Crawl coverage</td><td>7+ distinct crawlers reached the page in 15 days; GPTBot traversed 121 content pages site-wide</td><td>Strong</td></tr>
+    <tr><td>Stability over time</td><td>One sample, one date — no basis for a trend</td><td>Not scored</td></tr>
+    <tr><td>Competitor comparison</td><td>We did not sample competitor queries in the same window</td><td>Not scored</td></tr>
+  </tbody>
+</table></div>
+
+<p>Two rows are deliberately blank. A leaderboard built on one sample is a story, not a measurement, and the most common failure in competitive AI analysis is filling blank cells with impressions. If you cannot score a dimension, write "not scored" and record what you would need to score it — for stability, three monthly samples; for competitor comparison, a fixed query set that includes their brand terms.</p>
+
+<p>Notice also what the crawl data adds that the answer test cannot. The answer test tells you whether you were cited on one day; the crawl log tells you whether the pages were being read at all in the weeks around it. Used together, they separate "the engine never saw the page" from "the engine saw the page and chose someone else" — two problems with completely different fixes.</p>
+
+<blockquote><strong>Method and limits:</strong> the four-engine result is a single query, single date, with no model versions recorded. Crawl figures are 12- and 15-day windows in August 2026 on one site. Scores are ordinal judgments against stated evidence, not measurements, and should be re-scored only when the evidence behind them changes.</blockquote>
 
 <h2>FAQ</h2>
 

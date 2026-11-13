@@ -113,7 +113,7 @@
   "description": "Entity association density and content cross-verification — commonly cited factors that may influence whether AI cites your content. Yext research on 6.8 million AI citations.",
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "datePublished": "2026-01-15",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/metrics/entity-density.html" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -290,7 +290,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../metrics-frameworks.html">II. Metrics & Frameworks</a> › Entity Association Density & Content Cross-Verification</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-10-10</span><span>·</span><span>Worked examples use illustrative assumptions; external figures are linked to sources</span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>Worked examples use illustrative assumptions; external figures are linked to sources</span></div>
 
 <h1>Entity Association Density & Content Cross-Verification — Making AI Think You "Know Your Stuff"</h1>
 
@@ -429,27 +429,30 @@
 <p>Build multiple layers of evidence around a single core argument:</p>
 <ul>
   <li>Data evidence: Gartner report shows…</li>
-  <li>Case evidence: After Company X implemented our solution…</li>
+  <li>Case evidence: a named customer result you can link to, with dates and numbers…</li>
   <li>Authority endorsement: The solution passed XX certification</li>
   <li>Academic support: Consistent with XX University's research findings</li>
 </ul>
 <p>The more dimensions of evidence, the higher the cross-verification "score."</p>
 
-<h3>Content Cross-Verification: A Composite Example</h3>
+<h3>Content Cross-Verification: What the Evidence Actually Supports</h3>
 
-<p>A composite example, assembled from how brands in this category typically work rather than from one named client: a medical-device brand wants to become a recommended source for "domestic CT technology" in AI Q&amp;A.</p>
+<p>We are not going to invent a brand to illustrate this. The mechanism is well documented without one: Yext's 2025 analysis of 6.8 million AI citations found that 86% came from sources a brand manages and can verify — its own site, its listings, its reviews — rather than from unattributed third-party commentary (<a href="https://www.yext.com/research/article/ai-citations-user-locations-query-context" target="_blank" rel="noopener">report</a>). Cross-verification is what happens when those verifiable layers agree with each other.</p>
 
-<p>What they did:</p>
-<ol>
-  <li><strong>Cited authoritative sources</strong>: Included National Health Commission statistics, industry white papers, and academic papers on their website</li>
-  <li><strong>Sought third-party citations</strong>: Co-published the "Domestic CT Technology Development White Paper" with the China Association for Medical Devices Industry (leveraging the association's authority while making the association their "endorser")</li>
-  <li><strong>Made data verifiable</strong>: Product pages annotated the sources of technical parameters (e.g., "Dose control technology certified by XX; experimental data verifiable in XX journal")</li>
-</ol>
-<p><strong>Results after 6 months:</strong> When users asked ChatGPT "which domestic CT brand has mature technology," the AI's answer included this brand, accompanied by: "According to the China Association for Medical Devices Industry's '2025 Domestic CT Technology White Paper,' XX brand is a leader in dose control technology…"</p>
+<p>Structurally, that means three layers, each of which a reader or a retrieval system can check independently:</p>
 
-<p>— This is a perfect "cross-verification" style citation: AI didn't cite the brand's own marketing copy, but <strong>an authoritative third party's evaluation of the brand</strong>.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Layer</th><th>What you publish</th><th>What makes it checkable</th></tr></thead>
+  <tbody>
+    <tr><td>Primary</td><td>A data page or specification on your own domain</td><td>Stated method, dates, and units — not adjectives</td></tr>
+    <tr><td>Third-party</td><td>A trade body, standard, or publication that names you</td><td>A resolvable link and a date; an association logo is not evidence</td></tr>
+    <tr><td>Independent</td><td>Research, filings, or reporting you did not commission</td><td>Author, outlet, and a claim that survives being read in context</td></tr>
+  </tbody>
+</table></div>
 
-<p><em>Note on this example: the brand is anonymized and the account is illustrative, not a controlled measurement. Exact query counts, model versions, and sampling windows are not disclosed, so treat the outcome as a directional illustration rather than reproducible evidence.</em></p>
+<p>Where the layers agree, an engine has something to corroborate. Where they conflict — your page says one number, a directory says another — the safer behaviour for an answer engine is to hedge or to cite someone else, which is exactly what practitioners describe as "the brand AI won't commit to."</p>
+
+<blockquote><strong>Why there is no case study here:</strong> we have not run a full cross-verification programme on this site, and a composite "brand X did Y and got Z" story would be invented data dressed as evidence. When we do run it, it will be published as a dated log with the queries and the answers, in the same format as our <a href="../community/geo-impact-attribution-new-site.html">crawler attribution study</a>.</blockquote>
 
 <hr>
 
@@ -512,6 +515,30 @@
   <li>[ ] Is your brand information consistent across different internet sources?</li>
   <li>[ ] Can you construct a "multi-source evidence chain" to support your core argument?</li>
 </ul>
+
+<hr>
+
+<h2>What Happened When We Published the Definition</h2>
+
+<p>This page defines a term that, as of September 2026, had no standard definition. That makes it a useful test case: if definition-first structure helps an engine extract and attribute a concept, the effect should be visible here before anywhere else.</p>
+
+<p><strong>First, retrieval.</strong> In the 15 days from 4 to 19 August 2026, the entity-density page was reached by seven or more distinct crawlers — more than any other single article on the site in that window. That is not a citation, but it is the precondition: the page was in front of the systems that answer questions.</p>
+
+<p><strong>Second, extraction.</strong> In the September 2026 four-engine test, we asked ChatGPT, Claude, Perplexity and Grok what entity association density means. Three said the term is not standardized — ChatGPT pointed to keyword density versus entity association, Claude said it could find no canonical source, Grok cited a 2019 <em>Journal of Product &amp; Brand Management</em> paper on brand association density. Claude, given the page in context, then restated our opening definition almost word for word and linked back to it.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Signal</th><th>What we observed</th><th>What it supports</th></tr></thead>
+  <tbody>
+    <tr><td>Crawl reach</td><td>7+ crawlers on this page in 15 days</td><td>Definition pages get read when they are linked from the sitemap and homepage</td></tr>
+    <tr><td>Extractability</td><td>Claude reproduced the opening sentence rather than paraphrasing</td><td>Answer-first structure survives retrieval intact</td></tr>
+    <tr><td>Term status</td><td>3 of 4 engines: "not a standardized metric"</td><td>Being first to define a term does not make the term standard — and it does not guarantee citation</td></tr>
+    <tr><td>Attribution</td><td>1 of 4 engines linked back</td><td>Attribution is partial even when the content is used</td></tr>
+  </tbody>
+</table></div>
+
+<p>The honest reading: structure changed what an engine could do with the page once it was retrieved, and that is a real, repeatable effect you can design for. It did not make the concept authoritative across engines. If you are building entity density into your own pages, the lesson is to write the definition so it can be lifted in one sentence, then earn the surrounding authority separately — schema, citations from others, and time.</p>
+
+<blockquote><strong>Method and limits:</strong> one page, one query, one date, four engines, no recorded model versions and no repeated samples. Crawl counts come from a Cloudflare Worker log with user agents cross-checked against paths and status codes. Neither figure is a rate: treat them as an existence proof, not a benchmark.</blockquote>
 
       <div class="nav-links">
         <a href="citation-share.html">← Citation Share</a>

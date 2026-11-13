@@ -120,7 +120,7 @@
     "worksFor": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" }
   },
   "datePublished": "2026-01-15",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/fundamentals/llms-txt-guide.html" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -297,7 +297,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="what-is-geo.html">I. Fundamentals</a> › LLMs.txt Guide</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-10-10</span><span>·</span><span>This guide separates verified facts from vendor claims; external figures are linked to sources</span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>This guide separates verified facts from vendor claims; external figures are linked to sources</span></div>
 
 <h1>What Is LLMs.txt? A Practical Guide for the AI Crawler Era</h1>
 
@@ -550,6 +550,26 @@
 <p><strong>You spent tens of thousands on content and optimization. Shouldn't you spend 10 minutes ensuring AI can read it?</strong></p>
 
 <hr>
+
+<hr>
+
+<h2>VII. What 15 Days of Crawl Logs Say About LLMs.txt</h2>
+
+<p>Most guides describe <code>llms.txt</code> as the file AI crawlers "check first." Our own server logs are less flattering, and they are worth reading before you spend a week on it. Between 4 and 19 August 2026 we logged every request to this site through a Cloudflare Worker; <code>llms.txt</code> was requested <strong>four times in 15 days</strong>, twice by GPTBot. Over the same window <code>robots.txt</code> was fetched 104 times by ClaudeBot alone, and <code>sitemap.xml</code> 104 times.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Path</th><th>Requests, 4–19 Aug 2026</th><th>Which crawlers</th><th>What it means</th></tr></thead>
+  <tbody>
+    <tr><td><code>/robots.txt</code></td><td>104 from ClaudeBot alone; 32 Googlebot, 26 OAI-SearchBot, 17 Bingbot</td><td>Nearly every major crawler</td><td>The real front door</td></tr>
+    <tr><td><code>/sitemap.xml</code></td><td>104 from ClaudeBot, 11 Bingbot, 9 GPTBot</td><td>ClaudeBot, Bingbot, GPTBot</td><td>The real map</td></tr>
+    <tr><td><code>/llms.txt</code></td><td>4</td><td>GPTBot (2), Amazonbot, Googlebot</td><td>Read occasionally, never an entry point</td></tr>
+    <tr><td><code>/ai/summary.json</code>, <code>/ai/faq.json</code></td><td>0</td><td>None</td><td>Not fetched by any crawler we saw</td></tr>
+  </tbody>
+</table></div>
+
+<p>The practical conclusion: keep <code>llms.txt</code>, because it costs one file and ten minutes, and because a crawler that does read it gets a clean map of what you consider canonical. But do not treat it as a discovery mechanism, and never let it replace <code>robots.txt</code> and a valid <code>sitemap.xml</code> — those are the files that were actually read on a near-daily cadence. If a consultant sells you "LLMs.txt optimization" as the core of a GEO programme, this table is the question to ask them.</p>
+
+<blockquote><strong>Method and limits:</strong> one site, 15 consecutive days, requests identified by user agent and cross-checked against path and status code, with our own deployment checks filtered out. Four requests is a small number: it supports "not a primary entry point on this site in August 2026", not "no engine will ever read it". Retrieval behaviour can change with any model or crawler release.</blockquote>
 
       <div class="nav-links">
         <a href="eeat-trust-mechanism.html">← E-E-A-T Trust</a>
