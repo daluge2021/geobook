@@ -119,7 +119,7 @@
     "worksFor": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" }
   },
   "datePublished": "2026-01-15",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/technical/schema-markup-guide.html" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -296,7 +296,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../technical-implementation.html">V. Technical</a> › Schema Markup Guide</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-10-10</span><span>·</span><span>This guide separates verified facts from vendor claims; external figures are linked to sources</span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>This guide separates verified facts from vendor claims; external figures are linked to sources</span></div>
 
 <h1>Structured Data for GEO — The Complete Guide to Schema Markup</h1>
 
@@ -529,6 +529,26 @@
 <blockquote>
 <strong>Want to see Schema's core types with code examples?</strong> Read: <a href="../glossary/schema.html">What is Schema? — Structured Data for AI Understanding (Glossary) →</a>
 </blockquote>
+
+<hr>
+
+<h2>What We Shipped, and What It Did (and Did Not) Do</h2>
+
+<p>Structured data is the part of GEO where claims are easiest to check, so here is the audit of our own implementation rather than another list of types.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>What we implemented</th><th>Where</th><th>Verified how</th><th>Observed effect</th></tr></thead>
+  <tbody>
+    <tr><td>Article + Organization + BreadcrumbList on every article</td><td>76 article pages, in <code>&lt;head&gt;</code></td><td>230 JSON-LD blocks parsed without error; Rich Results Test on a sample</td><td>None isolable in logs — crawlers were already reading the pages</td></tr>
+    <tr><td><code>datePublished</code> / <code>dateModified</code></td><td>Every article, synced to the visible "Updated" line</td><td>Script comparison across all pages; 76 of 76 match</td><td>Makes freshness claims checkable; no measured lift</td></tr>
+    <tr><td>FAQPage</td><td>Homepage and several guides</td><td>Validators pass</td><td>0 AI crawler requests attributable to the FAQ block in 15 days</td></tr>
+    <tr><td>DefinedTermSet</td><td>The glossary index</td><td>Validators pass; each term links to its guide</td><td>Glossary pages are crawled; citation effect unmeasured</td></tr>
+  </tbody>
+</table></div>
+
+<p>Two lessons from doing it properly. First, placement matters more than people admit: JSON-LD injected at the end of <code>&lt;body&gt;</code> by a tag manager is a different risk profile from JSON-LD in <code>&lt;head&gt;</code>, because any script failure silently removes the markup with no visible symptom. Second, validity is not impact. A validator will tell you the graph parses; only your logs and your engine tests tell you whether anyone used it.</p>
+
+<blockquote><strong>Method and limits:</strong> validity checked by parsing every JSON-LD block and by running a sample through Google's Rich Results Test. The "0 FAQ requests" figure is a 15-day window on one site — evidence of no crawl effect, not of no citation effect.</blockquote>
 
       <div class="nav-links">
         <a href="../content-strategy.html">← Chapter 4: Content Strategy</a>

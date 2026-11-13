@@ -116,7 +116,7 @@
   "description": "Learn how to build Brand as Source - when your brand itself becomes an authoritative information source that AI cites automatically, without needing content optimization.",
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "datePublished": "2026-01-15",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/brand/brand-as-source.html" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -261,7 +261,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../brand-strategy.html">VI. Brand Strategy</a> › Brand as Source</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-07-28</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
 
 <h1>How to Build Your Brand as an AI-Recognized Source?</h1>
 
@@ -414,6 +414,27 @@
 <p><strong>For most brands, "Brand as Source" is not where they are now, but the direction they're heading.</strong> Every content optimization, every media collaboration, every brand image improvement moves you toward this goal.</p>
 
 <p><strong>GEO isn't just about "getting AI to cite your content" — the ultimate GEO is "making AI unable to do without your brand."</strong></p>
+
+<hr>
+
+<h2>Making This Site One Entity: What We Changed</h2>
+
+<p>"Be the source" is a strategy, but entity consistency is a checklist, and the checklist is where most sites fail. Here is ours, with the verification method for each item.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Signal</th><th>What it looks like here</th><th>How to verify</th></tr></thead>
+  <tbody>
+    <tr><td>One name everywhere</td><td>"GEO Notes" in title tags, <code>og:site_name</code>, JSON-LD <code>Organization.name</code>, and the logo alt text</td><td>Search the source of any two pages and compare</td></tr>
+    <tr><td>One author identity</td><td>Junfeng Lu, linked from every byline to a single About page</td><td>Click the byline</td></tr>
+    <tr><td>One canonical URL per concept</td><td>Legacy <code>/en/</code> and <code>/glossary/en/</code> paths 301 to canonical pages</td><td>Worker redirect map</td></tr>
+    <tr><td>One description of what the site is</td><td><code>llms.txt</code>, <code>.well-known/ai.txt</code>, About page, and homepage all describe the same scope</td><td>Compare the four files</td></tr>
+    <tr><td>No orphan duplicates</td><td>Five thin pages removed; every removal 301'd</td><td>Sitemap has no URLs that 404</td></tr>
+  </tbody>
+</table></div>
+
+<p>None of this makes a brand a source. It removes the reasons an engine might treat the brand as several unrelated fragments — which is the precondition. The uncomfortable part is what we cannot show: our own crawl logs record that these pages were read, not that the entity resolved cleanly. Entity resolution happens inside systems we cannot inspect.</p>
+
+<blockquote><strong>Method and limits:</strong> the checklist is verifiable by inspection; the effect is not. We report no before/after entity metrics because we have no access to the knowledge graph being built about this domain.</blockquote>
 
       <div class="nav-links">
         <a href="../brand-strategy.html">← Chapter 6: Brand Strategy</a>

@@ -130,7 +130,7 @@
   "description": "GPTBot, ClaudeBot, PerplexityBot and friends crawl differently, weight different signals, and read llms.txt differently. How per-engine optimization actually works and what to prioritize.",
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "datePublished": "2026-09-16",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/technical/per-engine-optimization.html" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -315,7 +315,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../technical-implementation.html">Technical Implementation</a> › Per-Engine Optimization: What Each AI Engine Actually Reads</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-09-16</span><span>·</span><span>Crawler behavior: observed on geo010.com + vendor documentation</span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>Crawler behavior: observed on geo010.com + vendor documentation</span></div>
 
 <h1>Per-Engine Optimization: What Each AI Engine Actually Reads</h1>
 
@@ -407,6 +407,32 @@
 <p><strong>Do all AI engines read llms.txt?</strong> No. Only a minority read it and Google's AI products are not using it. Publish it as a low-cost standard control file, never as the only channel.</p>
 
 <p><strong>How do I optimize for each engine without making extra content sets?</strong> Universal answer assets plus per-engine layers on distribution, freshness, structured data, and monitoring. You optimize reach per engine; the answer stays the same.</p>
+
+<hr>
+
+<h2>The Per-Engine Table, Filled In With Our Own Numbers</h2>
+
+<p>Earlier sections describe how each engine behaves. Here is what we actually observed on this site over 12 days (21 August – 1 September 2026), so you can see which of those descriptions are evidenced and which are inference.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Engine</th><th>Crawler</th><th>Requests</th><th>Unique pages</th><th>Active days</th><th>Reading</th></tr></thead>
+  <tbody>
+    <tr><td>Microsoft / Copilot</td><td>Bingbot</td><td>326</td><td>95</td><td>12 of 12</td><td>Broadest and most consistent coverage</td></tr>
+    <tr><td>Anthropic</td><td>ClaudeBot</td><td>254</td><td>38</td><td>11 of 12</td><td>Narrow set, high return frequency</td></tr>
+    <tr><td>Google</td><td>Googlebot</td><td>216</td><td>68</td><td>11 of 12</td><td>Indexing pass, not an answer-engine signal</td></tr>
+    <tr><td>Amazon</td><td>Amazonbot</td><td>178</td><td>117</td><td>11 of 12</td><td>Widest page surface, mid-pack volume</td></tr>
+    <tr><td>OpenAI (search)</td><td>OAI-SearchBot</td><td>111</td><td>80</td><td>12 of 12</td><td>Steady, Bing-backed</td></tr>
+    <tr><td>OpenAI (user-triggered)</td><td>ChatGPT-User</td><td>61</td><td>45</td><td>4 of 12</td><td>Bursty — 57 requests in one day, then silence</td></tr>
+    <tr><td>OpenAI (training)</td><td>GPTBot</td><td>45</td><td>33</td><td>11 of 12</td><td>Deep single passes through content</td></tr>
+    <tr><td>Perplexity</td><td>PerplexityBot</td><td>29</td><td>24</td><td>7 of 12</td><td>Low volume, wide page spread</td></tr>
+  </tbody>
+</table></div>
+
+<p>The row that changes how you prioritise is ChatGPT-User: 61 requests concentrated in four days, one of them at 57 requests. That is a user asking a question and the system fetching pages to answer it — not a scheduler. Which means the pages most likely to be fetched are the ones an engine can extract from quickly, and the optimisation target is the first two sentences of a section, not the crawl budget.</p>
+
+<p>The row that most often gets over-read is Googlebot. A Google indexing pass tells you the page is eligible for search; it says nothing about whether an answer engine will quote it. We keep the two columns separate on purpose.</p>
+
+<blockquote><strong>Method and limits:</strong> one site, 12 days, Worker logs, forged user agents excluded (about 2,744 scanner requests). Crawler identity is inferred from user agent plus path and status checks; vendor attribution (which engine uses which crawler) is public documentation, not something we measured.</blockquote>
 
       <div class="nav-links">
         <a href="geo-tools-review.html">← Tool Reviews</a>
