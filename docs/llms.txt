@@ -1,6 +1,6 @@
-# GEO Encyclopedia
+# GEO Notes — Generative Engine Optimization (GEO)
 
-> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 66 in-depth articles across 9 chapters, a chapter overview page per chapter, plus a Community hub, from fundamentals to real-world case studies. Maintained by the Junfeng Lu.
+> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 66 in-depth articles across 9 chapters, a chapter overview page per chapter, plus a Community hub, from fundamentals to real-world case studies. Written and maintained by Junfeng Lu, editor and publisher.
 
 ## Quick Answers (AI-Priority Citations)
 
@@ -35,7 +35,7 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 
 ## About & Contact
 
-- [About GEO Encyclopedia — Editorial Standards & E-E-A-T](https://geo010.com/about.html): The site's positioning, editorial standards, and E-E-A-T commitments.
+- [About GEO Notes — Editorial Standards & E-E-A-T](https://geo010.com/about.html): The site's positioning, editorial standards, and E-E-A-T commitments.
 - [Contact Us](https://geo010.com/contact.html): How to reach the editorial team.
 
 ## I. Fundamentals
@@ -125,7 +125,7 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 - [VIII. Case Studies — Chapter Overview](https://geo010.com/case-studies.html): What the chapter covers and the full list of its 9 articles.
 - [How to Start GEO from Zero?](https://geo010.com/cases/zero-to-one-roadmap.html): Complete 3-month launch roadmap with milestones.
 - [Full GEO Case Study](https://geo010.com/cases/full-process-case.html): Composite, anonymized end-to-end GEO walkthrough with illustrative before/after figures.
-- [What is a GEO AI-Readiness Audit?](https://geo010.com/cases/geo-ai-audit.html): How GEO Encyclopedia audited its own AI-readiness across discovery, measurement, structured data, trust and canonicalization.
+- [What is a GEO AI-Readiness Audit?](https://geo010.com/cases/geo-ai-audit.html): How GEO Notes audited its own AI-readiness across discovery, measurement, structured data, trust and canonicalization.
 - [How to Prevent Black Hat GEO?](https://geo010.com/cases/black-hat-prevention.html): Detecting manipulation risks and AI spam penalties.
 - [What AI Assistants Say About Citation Share](https://geo010.com/cases/what-ai-assistants-say-citation-share.html): A September 2026 field test comparing how ChatGPT, Claude, Perplexity and Grok define citation share — the shared formula, the two denominator camps, and the ~12% ranking-to-citation overlap.
 - [What AI Assistants Say About Entity Density](https://geo010.com/cases/what-ai-assistants-say-entity-density.html): Four engines on an unstandardized metric — and how Claude reproduced this site's definition verbatim with a source link.
@@ -146,7 +146,7 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 
 - [What is JSON-LD?](https://geo010.com/community/what-is-json-ld.html): Structured data format for GEO — the JSON-LD vs Microdata comparison and homepage schema breakdown.
 - [The GEO Content Template](https://geo010.com/community/geo-content-template.html): How we structure every article for AI citation — scenario opening, question H2s, answer-first blocks, comparison tables, FAQPage JSON-LD, and the pre-publish checklist.
-- [How We Made GEO Encyclopedia AI-Discoverable in One Week](https://geo010.com/community/one-week-geo-readiness.html): A site-owner playbook with our real data — 2,335 crawler log records, 72 GPTBot visits, a new article crawled within 24 hours, and the 264 junk requests we filtered out.
+- [How We Made GEO Notes AI-Discoverable in One Week](https://geo010.com/community/one-week-geo-readiness.html): A site-owner playbook with our real data — 2,335 crawler log records, 72 GPTBot visits, a new article crawled within 24 hours, and the 264 junk requests we filtered out.
 - [What Actually Gets Your Site Crawled by AI?](https://geo010.com/community/two-week-crawler-data.html): Two weeks of crawl logs stripped of scanner noise — which GEO changes drove real AI crawler visits, why AI discovery endpoints got zero requests, and how to spot an attack wearing a crawler's name.
 - [What GEO Work Actually Moves AI Crawlers?](https://geo010.com/community/geo-impact-attribution-new-site.html): Per-measure attribution of two weeks of AI crawler traffic to nine GEO changes, plus the exact launch checklist for a new site — and two earlier conclusions we corrected with the logs.
 

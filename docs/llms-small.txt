@@ -1,4 +1,4 @@
-# GEO Encyclopedia
+# GEO Notes — Generative Engine Optimization (GEO)
 
 > Compact core-read list for LLMs: the 12 highest-value pages on Generative Engine Optimization (GEO). For the full annotated index of all 66 articles and 10 glossary terms, see /llms.txt.
 

@@ -1,7 +1,7 @@
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "GEO Encyclopedia",
+  "name": "GEO Notes",
   "url": "https://geo010.com",
   "description": "A complete English-language knowledge base on Generative Engine Optimization (GEO): how AI answer engines select, cite, and recommend brands, plus the practical playbooks to get cited.",
   "language": "en",

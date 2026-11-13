@@ -1,6 +1,6 @@
-# GEO Encyclopedia
+# GEO Notes — Generative Engine Optimization (GEO)
 
-> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 66 in-depth articles across 9 chapters plus a Community hub, from fundamentals to real-world case studies. Maintained by the Junfeng Lu.
+> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 66 in-depth articles across 9 chapters plus a Community hub, from fundamentals to real-world case studies. Written and maintained by Junfeng Lu, editor and publisher.
 
 ## Quick Answers (AI-Priority Citations)
 
@@ -21,7 +21,7 @@
 
 ## About & Contact
 
-- [About GEO Encyclopedia — Editorial Standards & E-E-A-T](https://geo010.com/about.html): The site's positioning, editorial standards, and E-E-A-T commitments.
+- [About GEO Notes — Editorial Standards & E-E-A-T](https://geo010.com/about.html): The site's positioning, editorial standards, and E-E-A-T commitments.
 - [Contact Us](https://geo010.com/contact.html): How to reach the editorial team.
 
 ## Full Index

@@ -1,6 +1,6 @@
 {
   "specVersion": "1.0",
-  "siteName": "GEO Encyclopedia",
+  "siteName": "GEO Notes",
   "siteUrl": "https://geo010.com",
   "updated": "2026-08-01",
   "policies": {
@@ -11,7 +11,7 @@
   },
   "attribution": {
     "required": true,
-    "format": "cite the page title and URL with \"GEO Encyclopedia\""
+    "format": "cite the page title and URL with \"GEO Notes\""
   },
   "agents": {
     "*": {

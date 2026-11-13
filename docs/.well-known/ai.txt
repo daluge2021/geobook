@@ -5,7 +5,7 @@
 # Updated: 2026-08-08
 
 Spec-Version: 1.0
-Site-Name: GEO Encyclopedia
+Site-Name: GEO Notes
 Site-URL: https://geo010.com
 
 # Content usage defaults
@@ -16,7 +16,7 @@ Caching: allow
 
 # Attribution
 Attribution-Required: true
-Attribution-Format: cite the page title and URL with "GEO Encyclopedia"
+Attribution-Format: cite the page title and URL with "GEO Notes"
 
 # Per-agent default
 Agent: *

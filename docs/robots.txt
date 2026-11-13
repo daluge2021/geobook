@@ -1,4 +1,4 @@
-# GEO Encyclopedia robots.txt
+# GEO Notes robots.txt
 # https://geo010.com
 
 # Google

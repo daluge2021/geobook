@@ -14,20 +14,20 @@
 <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1911889082930844" crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GEO AI-Readiness Audit — A Knowledge Site's Own GEO Walkthrough - GEO Encyclopedia</title>
-<meta name="description" content="A real GEO case study: how GEO Encyclopedia audited its own AI-readiness — llms.txt, ai.txt, MCP discovery, AI crawler logging, structured data, E-E-A-T, CSP headers and canonicalization — and what it teaches about GEO.">
+<title>GEO AI-Readiness Audit — A Knowledge Site's Own GEO Walkthrough - GEO Notes</title>
+<meta name="description" content="A real GEO case study: how GEO Notes audited its own AI-readiness — llms.txt, ai.txt, MCP discovery, AI crawler logging, structured data, E-E-A-T, CSP headers and canonicalization — and what it teaches about GEO.">
 <link rel="canonical" href="https://geo010.com/cases/geo-ai-audit.html"/>
-<link rel="alternate" type="application/rss+xml" title="GEO Encyclopedia RSS" href="https://geo010.com/feed.xml">
-<meta property="og:title" content="GEO AI-Readiness Audit — A Knowledge Site's Own GEO Walkthrough - GEO Encyclopedia"/>
-<meta property="og:description" content="A real GEO case study: how GEO Encyclopedia audited its own AI-readiness — llms.txt, ai.txt, MCP discovery, AI crawler logging, structured data, E-E-A-T, CSP headers and canonicalization — and what it teaches about GEO."/>
+<link rel="alternate" type="application/rss+xml" title="GEO Notes RSS" href="https://geo010.com/feed.xml">
+<meta property="og:title" content="GEO AI-Readiness Audit — A Knowledge Site's Own GEO Walkthrough - GEO Notes"/>
+<meta property="og:description" content="A real GEO case study: how GEO Notes audited its own AI-readiness — llms.txt, ai.txt, MCP discovery, AI crawler logging, structured data, E-E-A-T, CSP headers and canonicalization — and what it teaches about GEO."/>
 <meta property="og:url" content="https://geo010.com/cases/geo-ai-audit.html"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="https://geo010.com/og-image.png"/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:site_name" content="GEO Encyclopedia"/>
+<meta property="og:site_name" content="GEO Notes"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="GEO AI-Readiness Audit — A Knowledge Site's Own GEO Walkthrough - GEO Encyclopedia"/>
-<meta name="twitter:description" content="A real GEO case study: how GEO Encyclopedia audited its own AI-readiness — llms.txt, ai.txt, MCP discovery, AI crawler logging, structured data, E-E-A-T, CSP headers and canonicalization — and what it teaches about GEO."/>
+<meta name="twitter:title" content="GEO AI-Readiness Audit — A Knowledge Site's Own GEO Walkthrough - GEO Notes"/>
+<meta name="twitter:description" content="A real GEO case study: how GEO Notes audited its own AI-readiness — llms.txt, ai.txt, MCP discovery, AI crawler logging, structured data, E-E-A-T, CSP headers and canonicalization — and what it teaches about GEO."/>
 <meta name="twitter:image" content="https://geo010.com/og-image.png"/>
 <meta name="keywords" content="GEO case study,AI crawler,llms.txt,ai.txt,MCP SEP-1960,E-E-A-T,structured data,JSON-LD,AI visibility,canonicalization">
 <style>
@@ -112,12 +112,12 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "GEO AI-Readiness Audit — A Knowledge Site's Own GEO Walkthrough",
-  "description": "A real GEO case study: how GEO Encyclopedia audited its own AI-readiness — llms.txt, ai.txt, MCP discovery, AI crawler logging, structured data, E-E-A-T, CSP headers and canonicalization — and what it teaches about GEO.",
+  "description": "A real GEO case study: how GEO Notes audited its own AI-readiness — llms.txt, ai.txt, MCP discovery, AI crawler logging, structured data, E-E-A-T, CSP headers and canonicalization — and what it teaches about GEO.",
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "datePublished": "2026-08-07",
   "dateModified": "2026-10-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/cases/geo-ai-audit.html" },
-  "publisher": { "@type": "Organization", "name": "GEO Encyclopedia", "url": "https://geo010.com" },
+  "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
 }
 </script>
@@ -144,7 +144,7 @@
     },
     {
       "@type": "Question",
-      "name": "What does GEO Encyclopedia's own audit show?",
+      "name": "What does GEO Notes's own audit show?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "The audit found concrete issues that were fixed: adding /ai/summary.json and FAQPage schema, correcting crawler access rules, adding a sandbox CSP header that had blocked scripts, and consolidating duplicate URLs — each fix was verified against real crawler logs."
@@ -184,7 +184,7 @@
 <div class="layout">
   <header class="site-header">
     <div class="navbar">
-      <a class="brand" href="../index.html">&#x1F4D6; GEO Encyclopedia</a>
+      <a class="brand" href="../index.html">&#x1F4D6; GEO Notes</a>
       <nav class="topnav" id="topnav">
         <a href="../index.html" data-nav="home">Home</a>
         <a href="../fundamentals/what-is-geo.html" data-nav="what">What is GEO</a>
@@ -343,7 +343,7 @@
 
 <h2>IV. Step Four: Earn Trust — E-E-A-T Is Not a Slogan</h2>
 
-<p>We also unified the site's brand identity to English (<strong>GEO Encyclopedia</strong>), completed <code>About</code> / <code>Contact</code> pages, and de-indexed stale redirect pages that were creating duplicate signals.</p>
+<p>We also unified the site's brand identity to English (<strong>GEO Notes</strong>), completed <code>About</code> / <code>Contact</code> pages, and de-indexed stale redirect pages that were creating duplicate signals.</p>
 
 <p>Every one of those maps to <a href="../glossary/eeat.html" class="glossary-link">E-E-A-T</a>:</p>
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 <channel>
-  <title>GEO Encyclopedia</title>
+  <title>GEO Notes</title>
   <link>https://geo010.com</link>
   <description>66 in-depth articles on Generative Engine Optimization, from fundamentals to implementation. Master the GEO playbook for AI-era brand growth.</description>
   <language>en</language>
@@ -71,7 +71,7 @@
     <description>Two weeks of crawl logs stripped of scanner noise - which GEO changes drove real AI crawler visits, why AI discovery endpoints got zero requests.</description>
   </item>
   <item>
-    <title>How We Made GEO Encyclopedia AI-Discoverable in One Week</title>
+    <title>How We Made GEO Notes AI-Discoverable in One Week</title>
     <link>https://geo010.com/community/one-week-geo-readiness.html</link>
     <guid>https://geo010.com/community/one-week-geo-readiness.html</guid>
     <pubDate>Wed, 12 Aug 2026 00:00:00 +0000</pubDate>
@@ -393,11 +393,11 @@
     <description>Learn what answer assetization is, how to build an answer asset library, and how to measure AI visibility.</description>
   </item>
   <item>
-    <title>GEO Encyclopedia Community</title>
+    <title>GEO Notes Community</title>
     <link>https://geo010.com/community.html</link>
     <guid>https://geo010.com/community.html</guid>
     <pubDate>Sat, 08 Aug 2026 00:00:00 +0000</pubDate>
-    <description>Join the GEO Encyclopedia community: explore community articles, join the discussion, and contact the editorial team.</description>
+    <description>Join the GEO Notes community: explore community articles, join the discussion, and contact the editorial team.</description>
   </item>
 <item>
     <title>What AI Assistants Say About Citation Share - A Four-Engine Field Test</title>
@@ -411,7 +411,7 @@
     <link>https://geo010.com/cases/what-ai-assistants-say-entity-density.html</link>
     <guid>https://geo010.com/cases/what-ai-assistants-say-entity-density.html</guid>
     <pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
-    <description>Four engines on an unstandardized metric - and how Claude reproduced GEO Encyclopedia's entity association density definition verbatim with a source link.</description>
+    <description>Four engines on an unstandardized metric - and how Claude reproduced GEO Notes's entity association density definition verbatim with a source link.</description>
   </item>
   <item>
     <title>GEO Benchmarks: What Good Looks Like by Industry</title>

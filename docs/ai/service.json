@@ -1,7 +1,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "GEO Encyclopedia Knowledge Base",
+  "name": "GEO Notes Knowledge Base",
   "serviceType": ["Knowledge Base", "Digital Publication", "GEO Education"],
   "url": "https://geo010.com",
   "description": "An open, English-language knowledge base on Generative Engine Optimization: 66 in-depth articles across 9 chapters, 10 glossary terms, and a Community hub, covering how AI answer engines select, cite, and recommend brands.",
@@ -9,7 +9,7 @@
   "availableLanguage": "en",
   "provider": {
     "@type": "Organization",
-    "name": "GEO Encyclopedia",
+    "name": "GEO Notes",
     "url": "https://geo010.com",
     "logo": { "@type": "ImageObject", "url": "https://geo010.com/favicon.svg" },
     "email": "contact@geo010.com",
