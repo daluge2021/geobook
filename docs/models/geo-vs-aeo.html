@@ -130,7 +130,7 @@
   "description": "Answer Engine Optimization (AEO) targets featured snippets and voice answers; Generative Engine Optimization (GEO) targets LLM-generated answers. Origins, mechanisms, metrics, and how one content asset serves both.",
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "datePublished": "2026-09-16",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/models/geo-vs-aeo.html" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -315,7 +315,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../models-methods.html">Models & Methods</a> › GEO vs AEO: What's the Difference and How They Overlap</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-09-16</span><span>·</span><span>Terminology: Princeton GEO paper (2024) and answer-engine practice</span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>Terminology: Princeton GEO paper (2024) and answer-engine practice</span></div>
 
 <h1>GEO vs AEO: What's the Difference and How They Overlap</h1>
 
@@ -412,6 +412,28 @@
 <p><strong>Is GEO just a rebrand of AEO?</strong> No, but they genuinely overlap. They differ in mechanism, metric, and content depth, while sharing question-driven structure, schema, and trust signals.</p>
 
 <p><strong>Should I run AEO and GEO as separate programs?</strong> Separate the measurement, not the content. One answer-first asset can win a snippet and be retrieved by an LLM; track snippet win-rate and citation share separately.</p>
+
+<hr>
+
+<h2>One Query, Two Behaviours</h2>
+
+<p>The cleanest way to see the difference is to watch a single question produce two different kinds of output. In September 2026 we asked ChatGPT, Claude, Perplexity and Grok the same thing — <em>what is entity association density in GEO?</em> — and recorded whether each engine produced an answer, and whether it named a source for it.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Engine</th><th>What it produced</th><th>AEO signal</th><th>GEO signal</th></tr></thead>
+  <tbody>
+    <tr><td>ChatGPT</td><td>A direct definition by contrast: keyword density versus entity association</td><td>Complete</td><td>None — no source named</td></tr>
+    <tr><td>Claude</td><td>An answer, then our definition restated almost verbatim, with a link</td><td>Complete</td><td>Strong — named and linked</td></tr>
+    <tr><td>Perplexity</td><td>A summary that described the concept and attributed it loosely</td><td>Complete</td><td>Partial — attribution without a clear owner</td></tr>
+    <tr><td>Grok</td><td>An answer that pointed to a 2019 <em>JPBM</em> paper on brand association density</td><td>Complete</td><td>Present, but attributed to someone else</td></tr>
+  </tbody>
+</table></div>
+
+<p>Read the table as a warning: <strong>every engine satisfied AEO, and only one satisfied GEO.</strong> A page can be perfectly answer-shaped — clear question, one-sentence answer, no preamble — and still lose the citation to a paper from 2019 or to nobody at all. That is why the two disciplines are not the same job.</p>
+
+<p>Practically, this changes what you build. AEO work stops when the answer is clear. GEO work continues into the parts that make an engine willing to name you: a definition it can quote without editing, a date it can check, a method it can follow, and an entity it can resolve to one author and one domain. If your content plan ends at "answer the question," you have done half the work and none of the attribution.</p>
+
+<blockquote><strong>Method and limits:</strong> one query, one date, four engines, no recorded model versions, no repeated samples. The table records what each engine returned on that day, not a stable property of the engine.</blockquote>
 
       <div class="nav-links">
         <a href="source-authority.html">← Source Authority</a>

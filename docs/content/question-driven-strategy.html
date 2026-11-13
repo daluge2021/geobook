@@ -119,7 +119,7 @@
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "datePublished": "2026-01-15",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/content/question-driven-strategy.html" },
   "url": "https://geo010.com/content/question-driven-strategy.html",
   "image": "https://geo010.com/og-image.png",
@@ -282,7 +282,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../content-strategy.html">IV. Content Strategy</a> › How to Build a Question-Driven Content Strategy for GEO?</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-07-28</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
 
 <h1>Question-Driven Content Strategy — Using Users' Real Questions to Drive Content Production</h1>
 
@@ -511,6 +511,28 @@
 <p>In the GEO era, "answering accurately" is 100 times more important than "writing more" — because AI doesn't need your lengthy treatise; it needs the precise answer that directly addresses the user's question.</p>
 
 <p><strong>Encyclopedias give you standard answers, whitepapers give you systematic answers, and media endorsement gives your answers third-party authoritative validation. Combined, you build a complete "answer moat" on the questions users care about most.</strong></p>
+
+<hr>
+
+<h2>The Ten Questions We Actually Wrote Against</h2>
+
+<p>The worked example above is a planning exercise with placeholder numbers. Here is the version with real pages behind it: this site's glossary contains ten terms, and each definition page was written as the answer to one question a reader would actually type.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Page</th><th>Question it answers</th><th>What we observed, September 2026</th></tr></thead>
+  <tbody>
+    <tr><td>Glossary: GEO</td><td>What is generative engine optimization?</td><td>Definitional query; engines answered from vendor blogs and Wikipedia</td></tr>
+    <tr><td>Glossary: zero-click search</td><td>What does zero-click mean?</td><td>Term is standard; low differentiation</td></tr>
+    <tr><td>Glossary: llms.txt</td><td>What is llms.txt?</td><td>Engines answer confidently; our logs show the file itself is rarely fetched (4 requests in 15 days)</td></tr>
+    <tr><td>Entity association density</td><td>What is entity association density?</td><td>3 of 4 engines: "not a standard metric"; 1 quoted our definition with a link</td></tr>
+  </tbody>
+</table></div>
+
+<p>The pattern is the useful part. On terms that already have an owner — GEO, zero-click, llms.txt — a clear answer earns nothing, because the engine already has better-established sources. On a term with no owner, the first clear definition gets repeated, but only by the engine that retrieves it. Question-driven content does not create demand; it decides who gets quoted when demand already exists.</p>
+
+<p>That should change how you pick questions. Start from questions where the answer is contested or missing, not from questions with high search volume — volume is a search-era signal, and the engines already have a page for those.</p>
+
+<blockquote><strong>Method and limits:</strong> four of ten glossary pages are shown; the citation result is one query on one date with no repeated samples. The mapping from question to page is real; the outcome is not a rate.</blockquote>
 
       <div class="nav-links">
         <a href="multimodal-content.html">← Multimodal Content</a>

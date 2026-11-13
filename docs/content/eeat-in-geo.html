@@ -119,7 +119,7 @@
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "datePublished": "2026-01-15",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/content/eeat-in-geo.html" },
   "url": "https://geo010.com/content/eeat-in-geo.html",
   "image": "https://geo010.com/og-image.png",
@@ -282,7 +282,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../content-strategy.html">IV. Content Strategy</a> › How to Apply E-E-A-T in GEO Content Strategy?</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-07-28</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
 
 <h1>E-E-A-T in GEO: From Google's Standard to the AI Trust Code</h1>
 
@@ -509,6 +509,30 @@
 <blockquote>
 <strong>Want to dive deeper into E-E-A-T's four dimensions and GEO implementation checklist?</strong> Read: <a href="../glossary/eeat.html">What is E-E-A-T? — The Trust Gold Standard in the GEO Era (Glossary) →
 </a></blockquote>
+
+<hr>
+
+<h2>Applying This to Our Own Site: Six Changes and What They Cost</h2>
+
+<p>E-E-A-T advice is easy to write and hard to falsify, so here is the version we ran on this site in 2026 — what we changed, where a reader can check it, and what the logs could and could not tell us afterwards.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Change</th><th>Where you can verify it</th><th>What we observed</th></tr></thead>
+  <tbody>
+    <tr><td>Named author with a linked author page</td><td>Every article's byline and the About page</td><td>No measurable effect in logs — crawl logs do not record trust</td></tr>
+    <tr><td>Author and publisher in JSON-LD on every article</td><td>Page source, <code>application/ld+json</code></td><td>Machine-readable identity, checkable with Google's Rich Results Test</td></tr>
+    <tr><td>Visible update date kept in sync with <code>dateModified</code></td><td>The "Updated:" line versus the JSON-LD block</td><td>Verifiable by inspection; 76 pages currently match</td></tr>
+    <tr><td>A real About page: who writes, how, and with what AI assistance</td><td>about.html</td><td>Removes the "anonymous content farm" reading, which no schema can fix</td></tr>
+    <tr><td>A working contact address and a 7-day correction policy</td><td>contact.html and about.html</td><td>Gives a reader a route to challenge a claim</td></tr>
+    <tr><td>Deleting pages that duplicated each other</td><td>301 map in the Worker</td><td>Five thin pages removed, each redirected to the closest surviving article</td></tr>
+  </tbody>
+</table></div>
+
+<p>The pattern in the third column is the honest part. Five of six changes are not measurable in a crawl log, because crawl logs record retrieval, not judgment. The only evidence that any of it mattered is downstream: in the September 2026 test, one engine quoted this site's definition and linked back — and that happened on a page whose author, dates and definitions were all resolvable in one hop.</p>
+
+<p>That is the right way to hold E-E-A-T: as a set of conditions that make citation <em>possible</em>, not a lever that produces it on demand. Anyone who sells you "E-E-A-T optimization" with a before-and-after citation chart is measuring something else, or measuring nothing.</p>
+
+<blockquote><strong>Method and limits:</strong> single site, single author, one year of changes. We did not run a controlled before/after, so nothing here isolates the effect of any one change — including the schema.</blockquote>
 
       <div class="nav-links">
         <span></span>

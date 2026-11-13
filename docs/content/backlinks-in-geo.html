@@ -119,7 +119,7 @@
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "datePublished": "2026-01-15",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/content/backlinks-in-geo.html" },
   "url": "https://geo010.com/content/backlinks-in-geo.html",
   "image": "https://geo010.com/og-image.png",
@@ -282,7 +282,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../content-strategy.html">IV. Content Strategy</a> › How Do Backlinks Work in GEO? — From Votes to Endorsements</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-07-28</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
 
 <h1>The New Role of Backlinks in GEO — From "Ranking Votes" to "Trust Endorsements"</h1>
 
@@ -375,7 +375,7 @@
 <ul>
   <li>AI crawlers directly extract Q&A pairs without needing to "analyze" from the body text</li>
   <li>When AI cites, it can pinpoint to your provided standard answer</li>
-  <li>FAQ page citation rates on other websites are <strong>over 3 times higher</strong> than before FAQ markup</li>
+  <li>The "3× citation lift" figure that circulates in GEO advice has no traceable source; our own logs show no crawl effect from FAQ markup (see the log table at the end of this page)</li>
 </ul>
 <h3>How Do FAQs Promote Backlinks?</h3>
 
@@ -479,6 +479,28 @@
 <p>Good content attracts good links, good links improve AI's trust in you — this is a positive cycle.</p>
 
 <p><strong>What black-hat links chase is "short-term numbers" at the cost of "long-term reputation." That's an equation you should be able to calculate clearly.</strong></p>
+
+<hr>
+
+<h2>What 15 Days of Logs Say About Links and FAQs</h2>
+
+<p>Backlink strategy is the part of GEO we can least verify, and it is worth saying so before the advice. This site has no backlink tool in its stack, so we cannot tell you what our link profile does to AI citations. What we can tell you is what crawlers did with the link-bearing surfaces we control.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Surface</th><th>What we measured, 4–19 Aug 2026</th><th>Reading</th></tr></thead>
+  <tbody>
+    <tr><td><code>sitemap.xml</code></td><td>104 requests from ClaudeBot, 11 Bingbot, 9 GPTBot</td><td>The highest-value link list you own</td></tr>
+    <tr><td>Internal links</td><td>GPTBot traversed 121 content pages, including a full-site pass on 17 August</td><td>Internal linking is how a deep crawler finds the long tail</td></tr>
+    <tr><td>FAQPage markup</td><td>0 AI crawler requests attributable to the FAQ block after it shipped</td><td>A citation-layer lever, not a crawl-layer one</td></tr>
+    <tr><td>Inbound links from other domains</td><td>Not measured — no backlink tool</td><td>Unknown, and we will not guess</td></tr>
+  </tbody>
+</table></div>
+
+<p>The FAQ result is the one that contradicts most published advice, including the sentence further up this page claiming FAQ pages are cited "over 3 times" more often. We removed that claim: we could not find the study behind it, and our own logs show no crawl effect. That does not mean FAQ markup is worthless — it may still help an engine extract a clean answer at the citation stage. It does mean nobody should buy it expecting a traffic chart to move.</p>
+
+<p>For backlinks specifically, the defensible position is narrower than the sales pitch: links still shape which domains are treated as part of a topic's conversation, but the mechanism runs through entity resolution and corroboration, not through PageRank arithmetic applied to AI answers. If you cannot measure it, spend on it last.</p>
+
+<blockquote><strong>Method and limits:</strong> one site, 15 days, Worker logs with user agents cross-checked against paths and status codes. "0 FAQ visits" means no request we could attribute to that block in that window — not proof that no engine ever used it.</blockquote>
 
       <div class="nav-links">
         <a href="knowledge-entropy.html">← Knowledge Entropy</a>

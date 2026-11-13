@@ -119,7 +119,7 @@
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "datePublished": "2026-01-15",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/content/knowledge-entropy.html" },
   "url": "https://geo010.com/content/knowledge-entropy.html",
   "image": "https://geo010.com/og-image.png",
@@ -282,7 +282,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../content-strategy.html">IV. Content Strategy</a> › What is Knowledge Entropy? — What Content Does AI Prefer?</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-07-28</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
 
 <h1>Knowledge Entropy and Content Temperature — What Kind of Content Does AI Like?</h1>
 
@@ -491,6 +491,27 @@ High-entropy content has a low "compression rate" — AI reads 500 words and sti
 Performance monitoring continuously "adjusts the temperature" of content over time — using data feedback to find the optimal balance of knowledge density and human touch.</p>
 
 <p><strong>Use "low entropy" so AI can understand, use "room temperature" so AI can trust — when both dimensions are in place, your content is truly "AI-friendly."</strong></p>
+
+<hr>
+
+<h2>A Label We Use, Not a Standard Term</h2>
+
+<p>This page uses "knowledge entropy" as a writing heuristic. It is not an established GEO metric, no engine defines it, and if you ask four assistants about it you should expect the same answer we got when we tested a neighbouring coinage: <em>no standard definition exists</em>. In September 2026, three of four engines said exactly that about entity association density; only one, given the page in context, restated our definition and linked back.</p>
+
+<p>That does not make the idea useless. It makes it a lens, and lenses need a measurable proxy if you want to manage them. The closest one we can defend is <strong>unique named entities per 1,000 words</strong>, counted over a filtered label set — a number you can compute with any named-entity model and compare across drafts of the same page.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Use the term as…</th><th>Good for</th><th>Not good for</th></tr></thead>
+  <tbody>
+    <tr><td>A drafting heuristic</td><td>Spotting paragraphs that restate the same idea in different words</td><td>Scoring a page against a competitor</td></tr>
+    <tr><td>A proxy metric (entities per 1,000 words)</td><td>Comparing two drafts of your own page</td><td>Comparing across topics — a legal definition and a product page have different natural densities</td></tr>
+    <tr><td>A citation predictor</td><td>Nothing. We have no data supporting that claim</td><td>Anything — do not put it in a dashboard as a KPI</td></tr>
+  </tbody>
+</table></div>
+
+<p>Where the concept earns its place is in editing. A paragraph that names five entities and shows how they relate gives a retrieval system several facts to extract; a paragraph that says "CRM systems are increasingly important" gives it none. You do not need a metric to act on that — you need to read your own draft and notice which sentences carry information.</p>
+
+<blockquote><strong>Disclosure:</strong> "knowledge entropy" is our own framing, not a term from the literature. We mark it as such because a coined term presented as an industry standard is exactly the kind of thing that gets a site classified as low-value.</blockquote>
 
       <div class="nav-links">
         <a href="eeat-in-geo.html">← E-E-A-T in GEO</a>

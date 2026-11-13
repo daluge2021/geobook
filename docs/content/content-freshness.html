@@ -119,7 +119,7 @@
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "datePublished": "2026-01-15",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/content/content-freshness.html" },
   "url": "https://geo010.com/content/content-freshness.html",
   "image": "https://geo010.com/og-image.png",
@@ -282,7 +282,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../content-strategy.html">IV. Content Strategy</a> › How Important is Content Freshness for GEO?</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-07-28</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
 
 <h1>Content Freshness and Timeliness Strategy — How Much Does AI Care About "New" Content?</h1>
 
@@ -461,6 +461,29 @@
 <p>A simple but effective practice: spend at least 20% of your content creation time each month on "updating old content" instead of putting everything into "writing new content."</p>
 
 <p><strong>New content helps you expand coverage; old content updates help you maintain share. Walking on both legs keeps you steady.</strong></p>
+
+<hr>
+
+<h2>What Freshness Looked Like in the Logs</h2>
+
+<p>Freshness advice usually stops at "update your content." The question worth asking is whether anything visible happens afterwards. In August 2026 we had the instrumentation to check, and the answer is: sometimes, on the days we also published something new.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Date</th><th>Total requests</th><th>What shipped that day</th></tr></thead>
+  <tbody>
+    <tr><td>08-08</td><td>281</td><td>GPTBot 59 requests; site-wide freshness pass</td></tr>
+    <tr><td>08-10</td><td>459</td><td>Template articles, security headers</td></tr>
+    <tr><td>08-12</td><td>356</td><td>New article crawled 10× on launch day; homepage FAQPage</td></tr>
+    <tr><td>08-13</td><td>502</td><td>GPTBot 95; a spoofed-GPTBot attack blocked by the Worker</td></tr>
+    <tr><td>08-17</td><td>—</td><td>GPTBot single pass touching 60 pages</td></tr>
+  </tbody>
+</table></div>
+
+<p>Three of the five spikes coincide with a freshness pass and a new page on the same day — which is exactly why we will not claim the freshness pass caused them. The confound is structural: the days we update dates are the days we also publish. Anyone selling "content refresh" as a standalone lever should be asked how they separated the two.</p>
+
+<p>What we can say with confidence is narrower and still useful: a stale <code>dateModified</code> is a self-inflicted wound. If a page was materially edited and the date still says last year, every downstream system that checks freshness is reading a false statement. We now keep the visible "Updated" line and the JSON-LD <code>dateModified</code> in sync across all 76 article pages, and you can verify it by viewing source on any of them.</p>
+
+<blockquote><strong>Method and limits:</strong> daily totals from Worker logs, 4–19 August 2026. Correlation only — no controlled comparison, and the sample is one site over two weeks.</blockquote>
 
       <div class="nav-links">
         <a href="topical-authority.html">← Topical Authority</a>

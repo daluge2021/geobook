@@ -119,7 +119,7 @@
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "datePublished": "2026-08-21",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/content/multilingual-geo.html" },
   "url": "https://geo010.com/content/multilingual-geo.html",
   "image": "https://geo010.com/og-image.png",
@@ -290,7 +290,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../content-strategy.html">IV. Content Strategy</a> — Multilingual GEO Strategy</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-08-21</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
 
 <h1>Multilingual GEO Strategy — How to Get Cited by AI in Every Language</h1>
 
@@ -440,6 +440,26 @@
 </ol>
 
 <p><strong>In short:</strong> multilingual GEO is not a translation project — it is N independent answer-asset strategies sharing one technical skeleton. Get hreflang right, localize the substance, prove yourself with local sources, and measure each market on its own terms. Brands that treat every language as a first-class GEO market will own citations in places their competitors have not even started looking.</p>
+
+<hr>
+
+<h2>Our Multilingual Setup, Such as It Is</h2>
+
+<p>This site publishes English only, so treat everything above as method rather than experience. What we do have is a small, checkable hreflang and redirect setup that shows how the plumbing should look.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Piece</th><th>What we did</th><th>Why it matters for AI retrieval</th></tr></thead>
+  <tbody>
+    <tr><td>Legacy <code>/glossary/en/*</code> URLs</td><td>301 to the canonical English definition page</td><td>One URL per concept — no duplicate entity for an engine to reconcile</td></tr>
+    <tr><td>Canonical tags</td><td>Self-referencing on every page</td><td>Prevents a translated or legacy copy from splitting attribution</td></tr>
+    <tr><td><code>hreflang</code></td><td>Not used — no translated versions exist</td><td>Adding it without real translations creates false signals</td></tr>
+    <tr><td>Translated content</td><td>None</td><td>We have no multilingual citation data, and will not invent any</td></tr>
+  </tbody>
+</table></div>
+
+<p>The failure mode we avoided is the common one: publishing machine-translated pages for a dozen locales, each with near-duplicate content and a canonical pointing at itself. That does not create twelve entities; it creates one entity with twelve competing copies, and a retrieval system has to guess which one is authoritative. If you cannot maintain a language, do not publish it — a 301 to the canonical English page is a better answer than a thin translation.</p>
+
+<blockquote><strong>Disclosure:</strong> no multilingual experiment was run for this article. The setup above is verifiable in the Worker redirect map and in each page's <code>&lt;link rel="canonical"&gt;</code>; the claims about translated-content risk are reasoning from how deduplication works, not measured results.</blockquote>
 
       <div class="nav-links">
         <a href="local-geo-longtail.html">← Local GEO &amp; Long-Tail</a>

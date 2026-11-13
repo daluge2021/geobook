@@ -116,7 +116,7 @@
   "description": "Trace the three generations of GEO evolution — from manual operations to AutoGEO tools to AgenticGEO autonomous agents.",
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "datePublished": "2026-01-15",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/models/geo-evolution.html" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -293,7 +293,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../models-methods.html">III. Models & Methods</a> › How Has GEO Evolved? — From Manual to AI Self-Optimization</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-07-28</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>All data is linked to <a href="../about.html">verifiable sources</a></span></div>
 
 <h1>Three Generations of GEO Evolution — From Manual Operations to AI Self-Optimization</h1>
 
@@ -479,6 +479,27 @@
 <p>The "future" promised by the third generation is tempting, but don't over-rely on it before it matures.</p>
 
 <p><strong>GEO's evolution won't stop here. The fourth generation — Multi-Agent GEO — may disrupt current thinking again before long.</strong> But regardless of how it changes, GEO's core logic remains the same: do content well, do credibility well, do coverage well. These are GEO's "constants." On top of the constants, use ever-evolving tools to improve efficiency.</p>
+
+<hr>
+
+<h2>IV. Where This Site Actually Sits</h2>
+
+<p>A three-generation model is a useful map and a dangerous label: it is easy to describe a trend and call it your position. Here is our own position, stated plainly, because it is the only case we can document line by line.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Generation</th><th>What it would look like in practice</th><th>What we actually do in 2026</th></tr></thead>
+  <tbody>
+    <tr><td>1 — Manual</td><td>A person asks engines, reads answers, edits pages, re-asks</td><td>Yes. The September 2026 four-engine test was run by hand and recorded by hand</td></tr>
+    <tr><td>2 — Tool-assisted</td><td>Logging and extraction at scale, human decides</td><td>Partly. A Cloudflare Worker writes every request to D1 — 4,115 crawler requests in 12 days — but the reading of those logs is still manual</td></tr>
+    <tr><td>3 — Agentic</td><td>An agent proposes edits, measures, and iterates without a human in the loop</td><td>No, and we would not claim it. We have not seen a verifiable public example of this working end to end</td></tr>
+  </tbody>
+</table></div>
+
+<p>Why we have not moved to generation three is not scepticism about agents. It is that the measurement layer is the bottleneck. Without a fixed query set, a baseline, and dated samples, an agent optimising in a loop produces faster guesses, not better answers — and the logs will happily confirm whatever it just did.</p>
+
+<p>What three years did change, measurably, is the discovery layer. In 12 days this site received 4,115 crawler requests from 13 identified crawlers: Bingbot 326, ClaudeBot 254, Googlebot 216, Amazonbot 178, OAI-SearchBot 111. In 2023 the same site would have seen Googlebot and little else. The machinery around content got denser; the content itself still has to be worth retrieving.</p>
+
+<blockquote><strong>Method and limits:</strong> the crawl figures come from our own Worker logs for 21 August – 1 September 2026, with forged and null user agents excluded (about 2,744 requests). The generation labels are a narrative device, not a measured classification.</blockquote>
 
       <div class="nav-links">
         <a href="3c-optimization-model.html">← 3C Model</a>
