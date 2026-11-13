@@ -14,7 +14,7 @@
 <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The GEO Content Template — How We Structure Every Article So AI Cites Us - GEO Notes</title>
-<meta name="description" content="A GEO content template built from real pages on GEO Notes: scenario opening, question H2s, answer-first blocks, comparison tables, FAQPage JSON-LD, and the pre-publish checklist we run on all 50 articles.">
+<meta name="description" content="A GEO content template built from real pages on GEO Notes: scenario opening, question H2s, answer-first blocks, comparison tables, FAQPage JSON-LD, and the pre-publish checklist we run on all 66 articles.">
 <link rel="canonical" href="https://geo010.com/community/geo-content-template.html"/>
 <link rel="alternate" type="application/rss+xml" title="GEO Notes RSS" href="https://geo010.com/feed.xml">
 <meta property="og:title" content="The GEO Content Template — How We Structure Every Article So AI Cites Us - GEO Notes"/>
@@ -127,10 +127,10 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "The GEO Content Template — How We Structure Every Article So AI Cites Us",
-  "description": "A GEO content template built from real pages on GEO Notes: scenario opening, question H2s, answer-first blocks, comparison tables, FAQPage JSON-LD, and the pre-publish checklist we run on all 50 articles.",
+  "description": "A GEO content template built from real pages on GEO Notes: scenario opening, question H2s, answer-first blocks, comparison tables, FAQPage JSON-LD, and the pre-publish checklist we run on all 66 articles.",
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "datePublished": "2026-08-10",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/community/geo-content-template.html" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -315,12 +315,12 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../community.html">Community</a> › The GEO Content Template</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-08-10</span><span>·</span><span>Every example below is a live page on this site</span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>Every example below is a live page on this site</span></div>
 
 <h1>The GEO Content Template — How We Structure Every Article So AI Cites Us</h1>
 
 <blockquote>Suppose you publish a well-researched article about Generative Engine Optimization (GEO). You promote it, wait a few weeks, then ask ChatGPT about the topic — and it quotes a competitor instead of you.</blockquote>
-<blockquote>That gap is what this template closes. We have written 50 articles on this site, watched what AI actually retrieves and quotes, and distilled it into one repeatable structure.</blockquote>
+<blockquote>That gap is what this template closes. We have written 66 articles on this site, watched what AI actually retrieves and quotes, and distilled it into one repeatable structure.</blockquote>
 <blockquote>Every example in this article is a real page on GEO Notes. Open it in a new tab and verify — then copy the skeleton, not just the advice.</blockquote>
 
 <hr>
@@ -489,6 +489,30 @@ You've already done some GEO optimization…&lt;/blockquote&gt;</code></pre>
 
 <h3>How often should I update dateModified?</h3>
 <p>Every substantive edit. Keep <code>datePublished</code> as the creation date and set <code>dateModified</code> to the last real content change, and keep the sitemap <code>&lt;lastmod&gt;</code> in sync. Freshness is a trust signal for AI: an answer that says it was updated last month beats one that looks two years old.</p>
+
+<hr>
+
+<h2>What the Template Actually Produced</h2>
+
+<p>This template has been applied to every article on the site — 66 at the last count, not the "50" an earlier version of this page claimed. Here is what that produced, measured rather than asserted.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Template element</th><th>Observed outcome</th><th>Verdict</th></tr></thead>
+  <tbody>
+    <tr><td>Scenario opening instead of a definition</td><td>No measurable effect on retrieval; readers scroll past it</td><td>Keep for humans, do not count it as GEO</td></tr>
+    <tr><td>Question-shaped H2s</td><td>New pages crawled within a day; one article crawled 10 times on launch</td><td>Works for discovery, weakly evidenced for citation</td></tr>
+    <tr><td>Answer-first blocks</td><td>One engine reproduced a definition almost verbatim and linked back</td><td>The single strongest element in the template</td></tr>
+    <tr><td>Comparison tables</td><td>Extractable as a unit; our data pages are built around them</td><td>Keep, but they do not guarantee attribution</td></tr>
+    <tr><td>FAQPage JSON-LD on every page</td><td>0 AI crawler requests attributable in 15 days</td><td>Cheap to keep, not a growth lever</td></tr>
+    <tr><td>Pre-publish checklist</td><td>Caught dead links, broken tags and date mismatches before publication</td><td>The least glamorous, most reliable part</td></tr>
+  </tbody>
+</table></div>
+
+<p>The pattern is consistent with everything else we have measured: structure determines what an engine can extract, and nothing in the template determines whether it will. If you copy one thing, copy the answer-first block and the checklist. If you copy the FAQ markup expecting traffic, you will be disappointed for the same reason we were.</p>
+
+<p>One correction to the page above: the claim that every example here is a live page still holds, and you can verify any of them. The article count has moved on, and we have stopped quoting a round number in marketing copy — the sitemap is the authority.</p>
+
+<blockquote><strong>Method and limits:</strong> crawl figures from 12- and 15-day log windows (August 2026); citation from one hand-run four-engine test in September 2026. Single site, single template — no A/B comparison against an alternative structure.</blockquote>
 
       <div class="nav-links">
         <a href="../community.html">← Community</a>

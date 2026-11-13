@@ -114,7 +114,7 @@
   "description": "The complete GEO metrics framework — from outcome metrics to asset metrics to process metrics. Learn the three-layer metrics system for data-driven GEO decision making.",
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "datePublished": "2026-01-15",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/data/core-metrics-system.html" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -259,7 +259,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="core-metrics-system.html">IX. Data & Formulas</a> › GEO Core Metrics System</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-10-10</span><span>·</span><span>Worked examples use illustrative assumptions; external figures are linked to sources</span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>Worked examples use illustrative assumptions; external figures are linked to sources</span></div>
 
 <h1>GEO Core Metrics System — Data-Driven GEO Decision Making</h1>
 
@@ -464,6 +464,29 @@
 <p>When you notice citation share declining, don't just ask "why did it drop" — check the Asset layer metrics: Is there a gap in semantic coverage? Has source authority changed? Has structured data been broken? Then check the Process layer: Has content output decreased recently? Has update frequency dropped?</p>
 
 <p><strong>Data isn't the answer — data is the clue that points to the answer. Learning to read data is far more important than learning to "make data."</strong></p>
+
+<hr>
+
+<h2>The Numbers We Actually Track (and the Ones We Refuse To)</h2>
+
+<p>A metrics framework is only credible if someone runs it. Here is the set we maintain on this site, how each is collected, and the one we deliberately leave blank.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Metric</th><th>How it is collected</th><th>Current value (Aug–Sep 2026)</th><th>What it cannot tell you</th></tr></thead>
+  <tbody>
+    <tr><td>Crawler requests by bot</td><td>Cloudflare Worker, one row per request, user agent normalised</td><td>4,115 in 12 days, 13 crawlers</td><td>Whether the crawl led to a citation</td></tr>
+    <tr><td>Unique pages reached</td><td>Same log, <code>COUNT(DISTINCT path)</code></td><td>Bingbot 95, Amazonbot 117, ClaudeBot 38</td><td>Whether the page was read or merely fetched</td></tr>
+    <tr><td>Active days per crawler</td><td>Same log, grouped by date</td><td>ClaudeBot 11 of 12, ChatGPT-User 4 of 12</td><td>Why the cadence differs</td></tr>
+    <tr><td>Intervention attribution</td><td>Ship date cross-referenced with path-level traffic</td><td>robots.txt and sitemap highest; <code>/ai/</code> endpoints 0</td><td>Causality — other changes shipped the same week</td></tr>
+    <tr><td>Citation presence</td><td>Hand-run four-engine test, answers recorded</td><td>1 of 4 engines, one query, 13 September 2026</td><td>Anything about other queries or other days</td></tr>
+    <tr><td>Freshness integrity</td><td>Script comparing visible date to <code>dateModified</code></td><td>76 of 76 pages match</td><td>Whether engines care</td></tr>
+    <tr><td>Citation share (%)</td><td>Not computed</td><td>—</td><td>Deliberately blank: our sample is too small to state a percentage honestly</td></tr>
+  </tbody>
+</table></div>
+
+<p>That last row is the discipline this whole framework is meant to enforce. A number you cannot defend is worse than no number, because it will be quoted back at you in a budget meeting. If your query set is twelve questions sampled once a month, report "cited in 3 of 12 sampled answers on 12 November" rather than "25% citation share" — the first is auditable, the second invites a comparison you will lose.</p>
+
+<blockquote><strong>Method and limits:</strong> crawl metrics come from one site Worker logs; the citation metric is a single hand-run sample. The framework is a reporting discipline, not a benchmark — the values above are this site, not targets.</blockquote>
 
       <div class="nav-links">
         <a href="../case-studies.html">← Chapter 8: Case Studies</a>

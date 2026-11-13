@@ -130,7 +130,7 @@
   "description": "GEO benchmarks that hold up to scrutiny: citation rate bands (8-15% minimal, 20-30% traction, 40%+ leader), a 15% share-of-voice leadership line, engine-by-engine citation counts, and how to build your own baseline.",
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "datePublished": "2026-09-16",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/data/geo-benchmarks.html" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -315,7 +315,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../data-formulas.html">Data & Formulas</a> › What Are Good GEO Benchmarks?</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-09-16</span><span>·</span><span>Industry figures cross-referenced; vendor-reported where noted</span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>Industry figures cross-referenced; vendor-reported where noted</span></div>
 
 <h1>What Are Good GEO Benchmarks? Citation Rates, SOV and Q&A Share</h1>
 
@@ -412,6 +412,28 @@
 <p><strong>How many citations do AI answers typically show?</strong> Independent sampling reports Perplexity answers averaging around 20+ citations and ChatGPT answers averaging under 10. Compare within one engine only.</p>
 
 <p><strong>Should I trust vendor-published GEO benchmarks?</strong> As directional references, yes; as targets, no. Build a fixed-query, fixed-formula baseline and measure movement over at least three months.</p>
+
+<hr>
+
+<h2>Our Measured Numbers, Next to the Published Benchmarks</h2>
+
+<p>Benchmarks are useful for planning and dangerous for reporting. The table below puts the vendor-published ranges this page cites next to what we actually measured, so you can see where they agree and where the gap is.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Question</th><th>Published range (vendor-sourced)</th><th>What we measured</th></tr></thead>
+  <tbody>
+    <tr><td>How fast do AI crawlers find a new page?</td><td>Days to weeks, depending on authority</td><td>Hours to one day: a new article was crawled 10 times on its launch day (12 August 2026)</td></tr>
+    <tr><td>When do citations appear?</td><td>3–6 months for first meaningful presence</td><td>One citation on one query in month two — far earlier, and far narrower than the range implies</td></tr>
+    <tr><td>How much crawler traffic should a small site expect?</td><td>Rarely stated</td><td>4,115 requests in 12 days, of which 2,744 were scanners and excluded</td></tr>
+    <tr><td>Does llms.txt drive discovery?</td><td>Often described as important</td><td>4 requests in 15 days, versus 104 for robots.txt</td></tr>
+  </tbody>
+</table></div>
+
+<p>Two things explain the gaps. First, a new site with 66 pages on one topic is a different animal from the enterprise sites most benchmarks describe. Second, "first citation" and "citation share" are different events: we can point to one engine quoting one definition, and we cannot point to a share of anything. Benchmarks collapse those into a single timeline, which is why they mislead.</p>
+
+<p>Use the published ranges to set expectations with a client, and your own logs to set them with yourself. When the two disagree, the logs win — they are the only numbers that describe your site.</p>
+
+<blockquote><strong>Method and limits:</strong> our figures are 12- and 15-day windows on one site plus one hand-run engine test. Published ranges are as cited earlier on this page and remain vendor-published, not independently audited.</blockquote>
 
       <div class="nav-links">
         <a href="data-dashboard-setup.html">← Data Dashboard</a>

@@ -539,7 +539,7 @@
 <div class="table-wrap"><table>
   <thead><tr><th>What we implemented</th><th>Where</th><th>Verified how</th><th>Observed effect</th></tr></thead>
   <tbody>
-    <tr><td>Article + Organization + BreadcrumbList on every article</td><td>76 article pages, in <code>&lt;head&gt;</code></td><td>230 JSON-LD blocks parsed without error; Rich Results Test on a sample</td><td>None isolable in logs — crawlers were already reading the pages</td></tr>
+    <tr><td>Article + Organization + BreadcrumbList on every article</td><td>76 pages, in <code>&lt;head&gt;</code></td><td>230 JSON-LD blocks parsed without error; Rich Results Test on a sample</td><td>None isolable in logs — crawlers were already reading the pages</td></tr>
     <tr><td><code>datePublished</code> / <code>dateModified</code></td><td>Every article, synced to the visible "Updated" line</td><td>Script comparison across all pages; 76 of 76 match</td><td>Makes freshness claims checkable; no measured lift</td></tr>
     <tr><td>FAQPage</td><td>Homepage and several guides</td><td>Validators pass</td><td>0 AI crawler requests attributable to the FAQ block in 15 days</td></tr>
     <tr><td>DefinedTermSet</td><td>The glossary index</td><td>Validators pass; each term links to its guide</td><td>Glossary pages are crawled; citation effect unmeasured</td></tr>

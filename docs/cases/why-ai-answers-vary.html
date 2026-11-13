@@ -130,7 +130,7 @@
   "description": "Same question, different answer a week later: model updates, retrieval-set changes, and sampling variance. Why AI answer fluctuation is normal, how much drift to expect, and what it means for GEO promises.",
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "datePublished": "2026-09-16",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/cases/why-ai-answers-vary.html" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -315,7 +315,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../case-studies.html">Case Studies</a> › Why AI Answers Change</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-09-16</span><span>·</span><span>Drift figures: independent monitor (MaximusLabs), 2026</span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>Drift figures: independent monitor (MaximusLabs), 2026</span></div>
 
 <h1>Why AI Answers Change: Result Fluctuation and the Myth of Guaranteed Rankings</h1>
 
@@ -385,6 +385,28 @@
 <p><strong>Can a GEO vendor guarantee I appear in ChatGPT's answer?</strong> No legitimately. Guaranteed placement contradicts how retrieval and generation work; treat it as a red flag and measure sustained trajectory instead.</p>
 
 <p><strong>How do I reduce the impact of fluctuation?</strong> Layer sources, strengthen entity structure, keep content fresh, measure on a fixed cadence, and set expectations on quarters — not days.</p>
+
+<hr>
+
+<h2>Four Engines, One Question, Four Different Answers</h2>
+
+<p>The mechanisms above explain why answers vary. Here is the variation itself, recorded by hand in September 2026 when the same definitional question went to four engines.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Engine</th><th>Shape of the answer</th><th>Sources it named</th></tr></thead>
+  <tbody>
+    <tr><td>ChatGPT</td><td>Definition by contrast, then a caveat that no standard exists</td><td>None in the answer text</td></tr>
+    <tr><td>Claude</td><td>Searched, reported no canonical definition, then restated this site definition when the page was in context</td><td>This site, with a link</td></tr>
+    <tr><td>Perplexity</td><td>Treats the term as emerging; summarised a definition</td><td>Loose attribution, no single owner</td></tr>
+    <tr><td>Grok</td><td>No established definition; offered the nearest academic concept</td><td>A 2019 <em>JPBM</em> paper on brand association density</td></tr>
+  </tbody>
+</table></div>
+
+<p>Look at what differs: not just wording, but <em>whether the engine searched at all</em>, and whether it treated "no standard definition" as an answer or as a gap to fill. That is why a single monthly check tells you almost nothing. An engine that says "this is not standardized" today may cite a source tomorrow, not because its model changed but because retrieval returned something worth quoting.</p>
+
+<p>The practical consequence for measurement: record the sources alongside the answer, not just whether you were mentioned. "Cited by 1 of 4" is a data point; "cited by the one engine that retrieved the page, while the other three answered from parametric memory" is an explanation you can act on.</p>
+
+<blockquote><strong>Method and limits:</strong> one query, one date, four consumer products, no model versions recorded, no repeated samples. Presented as an illustration of variance, not an estimate of its size.</blockquote>
 
       <div class="nav-links">
         <a href="geo-timeline.html">← GEO Timeline</a>

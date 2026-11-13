@@ -130,7 +130,7 @@
   "description": "AI assistants rarely send a referrer, include tracking params, or even a click. Practical attribution methods: AI-specific landing fingerprints, self-reported sources, direct-traffic spikes, behavior signatures, and multi-touch timing.",
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "datePublished": "2026-09-16",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/data/ai-referral-attribution.html" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -315,7 +315,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../data-formulas.html">Data & Formulas</a> › How to Attribute AI Referrals</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-09-16</span><span>·</span><span>Practical methods; no vendor data required</span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>Practical methods; no vendor data required</span></div>
 
 <h1>How to Attribute AI Referrals: Tracking Traffic and Leads from AI</h1>
 
@@ -417,6 +417,29 @@
 <p><strong>What are the most reliable signals that traffic came from AI?</strong> Landing on an answer page, direct-traffic timing near a known answer win, deep sessions, self-reported source, and consistent month-over-month patterns.</p>
 
 <p><strong>How should I account for AI influence that produces no click?</strong> Track the zero-click path: AI mention → branded search / direct visit. Attribute multi-touch: AI as first touch, search as last, in your ROI model.</p>
+
+<hr>
+
+<h2>Why We Do Not Report an AI Referral Number</h2>
+
+<p>Attribution models assume you can see where a visit came from. For AI answers, you usually cannot. Our Worker records the <code>Referer</code> header on every request, and in practice AI-mediated visits arrive with no referrer or a generic one — indistinguishable from someone typing the URL.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Signal</th><th>What we can see in our logs</th><th>Attribution value</th></tr></thead>
+  <tbody>
+    <tr><td>Referrer header</td><td>Present for classic search and social; absent or generic for most direct traffic</td><td>Cannot separate AI-assisted visits from direct</td></tr>
+    <tr><td>Crawler identity</td><td>Clear: 13 crawlers, 4,115 requests in 12 days</td><td>Tells you what was read, not who acted on it</td></tr>
+    <tr><td>Query text</td><td>Not transmitted</td><td>None</td></tr>
+    <tr><td>Landing page</td><td>Recorded</td><td>Useful: a definition page as an entry point is a weak AI signal</td></tr>
+    <tr><td>Self-reported attribution</td><td>Only via the contact form, if the sender says so</td><td>High value, tiny volume</td></tr>
+  </tbody>
+</table></div>
+
+<p>Given that, the defensible approach is triangulation rather than precision: crawler logs tell you which pages were read, a hand-run engine test tells you which pages were quoted, and landing-page data tells you which pages people arrive on. Where all three point at the same page, you have a plausible AI-influenced path. Where they do not, you have noise.</p>
+
+<p>What we refuse to do is publish a headline like "18% of traffic came from AI" when the mechanism does not exist to support it. If a vendor shows you that number, ask to see the referrer strings. In our logs, they are not there.</p>
+
+<blockquote><strong>Method and limits:</strong> observation from one site Worker logs, August–September 2026. Absence of attributable referrers in our logs is not proof that no AI-referred traffic exists — only that it cannot be separated from direct.</blockquote>
 
       <div class="nav-links">
         <a href="geo-benchmarks.html">← GEO Benchmarks</a>

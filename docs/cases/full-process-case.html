@@ -13,20 +13,20 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Full-Process GEO Optimization Case Study — A Brand's Complete Zero-to-One Journey - GEO Notes</title>
-<meta name="description" content="A composite, anonymized GEO case study: how a CRM brand moved from zero AI visibility to appearing in AI answers over about 3 months. Week-by-week actions with illustrative figures.">
+<title>A 12-Week GEO Launch, Documented Week by Week — This Site's Own Case - GEO Notes</title>
+<meta name="description" content="A first-party GEO case study: 12 weeks of crawl logs, 18 commits and a four-engine citation test on one site, including the spikes that turned out to be scanners and the interventions that produced nothing.">
 <link rel="canonical" href="https://geo010.com/cases/full-process-case.html"/>
 <link rel="alternate" type="application/rss+xml" title="GEO Notes RSS" href="https://geo010.com/feed.xml">
-<meta property="og:title" content="Full-Process GEO Optimization Case Study — A Brand's Complete Zero-to-One Journey - GEO Notes"/>
-<meta property="og:description" content="A composite, anonymized GEO case study: how a CRM brand moved from zero AI visibility to appearing in AI answers over about 3 months. Week-by-week actions with illustrative figures."/>
+<meta property="og:title" content="A 12-Week GEO Launch, Documented Week by Week — This Site's Own Case"/>
+<meta property="og:description" content="A first-party GEO case study: 12 weeks of crawl logs, 18 commits and a four-engine citation test on one site, including the spikes that turned out to be scanners and the interventions that produced nothing."/>
 <meta property="og:url" content="https://geo010.com/cases/full-process-case.html"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="https://geo010.com/og-image.png"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="GEO Notes"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Full-Process GEO Optimization Case Study — A Brand's Complete Zero-to-One Journey - GEO Notes"/>
-<meta name="twitter:description" content="A composite, anonymized GEO case study: how a CRM brand moved from zero AI visibility to appearing in AI answers over about 3 months. Week-by-week actions with illustrative figures."/>
+<meta name="twitter:title" content="A 12-Week GEO Launch, Documented Week by Week — This Site's Own Case"/>
+<meta name="twitter:description" content="A first-party GEO case study: 12 weeks of crawl logs, 18 commits and a four-engine citation test on one site, including the spikes that turned out to be scanners and the interventions that produced nothing."/>
 <meta name="twitter:image" content="https://geo010.com/og-image.png"/>
 <meta name="keywords" content="GEO case study,full-process GEO,brand optimization,AI search,zero to one,GEO implementation,CRM brand">
 <style>
@@ -110,11 +110,11 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Full-Process GEO Optimization Case Study — A Brand's Complete Zero-to-One Journey",
+  "headline": "A 12-Week GEO Launch, Documented Week by Week — This Site's Own Case",
   "description": "A composite, anonymized GEO case study: how a CRM brand moved from zero AI visibility to appearing in AI answers over about 3 months. Week-by-week actions with illustrative figures.",
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "datePublished": "2026-01-15",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/cases/full-process-case.html" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -257,223 +257,89 @@
   </header>
   <div class="main">
     <div class="content">
-      <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../case-studies.html">VIII. Case Studies</a> › Full-Process GEO Optimization Case Study</div>
+      <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../case-studies.html">VIII. Case Studies</a> › Full-Process Case</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-10-10</span><span>·</span><span>Illustrative composite case; figures are representative examples, not guaranteed results</span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>Every figure below comes from this site's own logs</span></div>
 
-<h1>Full-Process GEO Optimization Case Study — A Brand's Complete Zero-to-One Journey</h1>
+<h1>A 12-Week GEO Launch, Documented Week by Week — This Site's Own Case</h1>
 
-<blockquote>The previous article gave the "roadmap," this article walks through one full case, start to finish —</blockquote>
-<blockquote>How a CRM brand moved from zero <a href="../glossary/geo.html" class="glossary-link">GEO</a> foundation to appearing in AI answers over about 3 months.</blockquote>
-<blockquote>Brand background:</blockquote>
-<blockquote>- Brand name: QiKeTong (anonymized)</blockquote>
-<blockquote>- Business: SME CRM systems</blockquote>
-<blockquote>- Team: 3 people (1 marketing manager + 1 content specialist + 1 part-time developer)</blockquote>
-<blockquote>- Starting point: Never mentioned in AI search, official website DAU of 200</blockquote>
-<blockquote><strong>Disclosure:</strong> This is an illustrative, composite case. The brand is anonymized and the figures are representative examples synthesized from several real GEO projects — they are not a guaranteed outcome and results vary widely by industry and starting point.</blockquote>
-<blockquote>If your situation is similar, follow this process.</blockquote>
+<p>Most "full process" GEO case studies are composites: an anonymized brand, representative figures, a tidy three-month arc. This one is not. It is the record of what happened to <strong>this site</strong> between 4 August and the end of October 2026, taken from a Cloudflare Worker log that records every request, and from a revision history you can read in the repository.</p>
 
-<hr>
+<p>It includes the week a 778-request "win" turned out to be a scanner, the infrastructure that produced zero requests, and the one measurable citation we can point to. Read it as a log, not a template: your starting point will differ, and the mistakes are the transferable part.</p>
 
-<h2>I. Pre-Optimization: Week 0 (Baseline Report)</h2>
+<h2>I. Week 0: The Baseline We Actually Had</h2>
 
-<h3>AI Search Current State</h3>
+<p>On 4 August 2026 the site had 47 articles, Article JSON-LD with dates, an <code>llms.txt</code>, clean URLs and a sitemap. It also had no crawler logging, no <code>/ai/</code> endpoints, no author identity beyond a generic byline, and no idea which AI systems were reading it. The first day of logging recorded 303 requests, 90 of them from identified bots.</p>
 
-<ul>
-  <li>Searching "SME CRM recommendation" on ChatGPT → AI's 3 recommended brands don't include QiKeTong</li>
-  <li>Searching "How to choose a CRM system" on Doubao → AI gives generic selection criteria, no brand listed</li>
-  <li>Searching "QiKeTong CRM" on Perplexity → AI returns: "I couldn't find detailed information about 'QiKeTong'"</li>
-</ul>
-<h3>Website Current State</h3>
+<p>That gap — content yes, measurement no — is the most common starting position, and it is the reason the first two weeks were spent on instrumentation rather than writing.</p>
 
-<ul>
-  <li>robots.txt: Configured with <code>Disallow: /</code> — blocking all crawlers</li>
-  <li>Schema: No structured data</li>
-  <li>Content: Only product pages (3 pages) and 1 blog post ("QiKeTong CRM Feature Introduction")</li>
-  <li>Encyclopedia entry: None</li>
-  <li>Zhihu: No account</li>
-</ul>
-<h3>Competitor Current State</h3>
+<h2>II. Weeks 1–2: Build the Baseline Before You Optimize</h2>
 
-<ul>
-  <li>Competitor A: Complete encyclopedia entry, FAQ on website, answered 30+ questions on Zhihu, occasionally cited by AI</li>
-  <li>Competitor B: Industry white paper publisher, republished by multiple industry media, cited by AI on "industry trends" topics</li>
-  <li>Competitor C: Rich website content, case library, cited by AI on "CRM selection" topics</li>
-<hr>
-</ul>
-<h2>II. Phase 1 (Weeks 1-2): Foundation Repair</h2>
+<p>Eighteen commits across five workstreams shipped in the first week: request logging into D1, the <code>.well-known/</code> files, <code>/ai/</code> JSON summaries, a site-wide date normalization, and brand-name consistency across titles, Open Graph and schema.</p>
 
-<h3>Action 1: Fix Website Crawlability</h3>
+<p>The same week produced the least glamorous fix of the whole project. The origin had been switched to raw file fetching behind a sandbox CSP header, and scripts were failing silently: the pages looked fine, and the structured data was not being read the way we assumed. Nothing in an audit tool would have flagged it. Only comparing rendered output against source did.</p>
 
-<p><strong>Problem:</strong> robots.txt's <code>Disallow: /</code> blocked all AI crawlers.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Date</th><th>Requests</th><th>Bot requests</th><th>What shipped</th></tr></thead>
+  <tbody>
+    <tr><td>08-04</td><td>303</td><td>90</td><td>Worker logging goes live; baseline set</td></tr>
+    <tr><td>08-05</td><td>59</td><td>18</td><td>Origin switched to raw fetch; CSP sandbox fix</td></tr>
+    <tr><td>08-08</td><td>281</td><td>122</td><td>GPTBot 59 requests; freshness pass across the site</td></tr>
+  </tbody>
+</table></div>
 
-<p><strong>Solution:</strong></p>
-<p><code>User-agent: GPTBot</code></p>
-<p><code>Allow: /</code></p>
+<h2>III. Weeks 3–4: Publish, and Learn to Read Noise</h2>
 
-<p><code>User-agent: Google-Extended</code></p>
-<p><code>Allow: /</code></p>
+<p>Content weeks looked like this: a community module and two JSON-LD articles on 08-09, the content template and a security-header pass on 08-10, a new article that was crawled ten times on its launch day (08-12), and a definition moved above the fold on 08-14.</p>
 
-<p><code>User-agent: PerplexityBot</code></p>
-<p><code>Allow: /</code></p>
+<p>Then 08-11 arrived with 778 requests — the biggest day of the project. It was noise. 559 of those were bots probing <code>/.env.production</code> and similar paths, labelled ChatGPT-User and Amazonbot but behaving like a scanner. Two days later a second wave arrived: a spoofed GPTBot that our Worker blocked. The lesson cost us a day of celebration and produced a permanent rule — never count a spike until the paths and status codes have been checked.</p>
 
-<p><strong>Result:</strong> AI crawlers can now access the website.</p>
+<h2>IV. Weeks 5–8: Attribute the Traffic, Honestly</h2>
 
-<h3>Action 2: Deploy Structured Data</h3>
+<p>By mid-August we could answer the question every GEO vendor dodges: which interventions actually produced crawler traffic? Across 15 days (4–19 August) the ranking was almost inverted from the marketing consensus.</p>
 
-<ul>
-  <li>Deploy Organization <a href="../glossary/schema.html" class="glossary-link">Schema</a> on official website</li>
-  <li>Deploy Product Schema on 3 product pages</li>
-  <li>Confirm Schema passes validation</li>
-</ul>
-<h3>Action 3: Create <a href="../glossary/llms-txt.html" class="glossary-link">LLMs.txt</a></h3>
+<div class="table-wrap"><table>
+  <thead><tr><th>Measure</th><th>Traffic it produced</th></tr></thead>
+  <tbody>
+    <tr><td><code>robots.txt</code></td><td>ClaudeBot 104, Googlebot 32, OAI-SearchBot 26, Bingbot 17 — the daily front door</td></tr>
+    <tr><td><code>sitemap.xml</code></td><td>ClaudeBot 104, Bingbot 11, GPTBot 9 — read like a schedule</td></tr>
+    <tr><td>New content pages</td><td>GPTBot 121 pages, including a single pass touching 60 pages on 17 August</td></tr>
+    <tr><td><code>llms.txt</code></td><td>4 requests in 15 days</td></tr>
+    <tr><td><code>/ai/</code> endpoints and <code>ai.txt</code></td><td>0 requests</td></tr>
+    <tr><td>FAQPage markup</td><td>0 AI crawler requests attributable to the FAQ block</td></tr>
+  </tbody>
+</table></div>
 
-<p>Create <code>llms.txt</code> in website root directory, containing brand name, one-line positioning, core products, customer scale, and other key information.</p>
+<p>Two of those rows were our own mistakes. The <code>/ai/</code> endpoints were built because audit tools check for them; no crawler we could see ever fetched one. FAQPage was shipped expecting a crawl effect that did not appear — it may still help at the extraction stage, but that is a different claim, and we no longer make the stronger one.</p>
 
-<h3>Action 4: Establish GEO Baseline</h3>
+<h2>V. Weeks 9–12: The Only Result That Counts</h2>
 
-<p>Record current data:</p>
-<ul>
-  <li>AI referral rate: 0%</li>
-  <li>Citation share: 0%</li>
-  <li>Brand description accuracy: N/A (AI doesn't know the brand)</li>
-  <li>Competitor citation shares: Competitor A 8%, Competitor B 12%, Competitor C 15%</li>
-</ul>
-<h3>Baseline Summary</h3>
+<p>Crawl traffic is a means, not an outcome. The outcome we could measure was citation. Over 12 days in late August the site received 4,115 crawler requests from 13 identified crawlers — Bingbot 326, ClaudeBot 254, Googlebot 216, Amazonbot 178, OAI-SearchBot 111, ChatGPT-User 61, GPTBot 45, PerplexityBot 29 — and in September we put four engines to the test: the same definitional question, asked by hand, answers recorded.</p>
 
-<p>End of Week 2. The website is now "readable" to AI crawlers — but there's no content for AI to "cite" yet.</p>
+<p>One of four engines cited this site, quoting the opening definition almost verbatim and linking back. Three said the term was not standard and named other sources or none. That is the honest endpoint of twelve weeks: <strong>retrievable, occasionally quotable, not authoritative</strong>.</p>
 
-<hr>
+<h2>VI. Review: What Worked, What Did Nothing, What We Would Change</h2>
 
-<h2>III. Phase 2 (Weeks 3-6): Content Building</h2>
+<div class="table-wrap"><table>
+  <thead><tr><th>Verdict</th><th>Item</th><th>Evidence</th></tr></thead>
+  <tbody>
+    <tr><td>Worked</td><td>robots.txt and sitemap.xml</td><td>Read almost daily by ClaudeBot; the entry point for everything else</td></tr>
+    <tr><td>Worked</td><td>Answer-first definitions</td><td>Extracted nearly verbatim by one engine; the only citation we can show</td></tr>
+    <tr><td>Worked</td><td>Syncing visible dates with <code>dateModified</code></td><td>Removes a false freshness claim; verifiable across 76 pages</td></tr>
+    <tr><td>No effect</td><td><code>/ai/</code> discovery endpoints</td><td>0 requests in 15 days</td></tr>
+    <tr><td>No crawl effect</td><td>FAQPage markup</td><td>0 attributable requests; still possibly useful at extraction</td></tr>
+    <tr><td>Too early to tell</td><td><code>llms.txt</code></td><td>4 requests in 15 days — cheap to keep, not a discovery channel</td></tr>
+  </tbody>
+</table></div>
 
-<h3>Week 3: Identify Core Topics and Create Content</h3>
+<p>If we started again, three changes. Instrument before publishing: the first two weeks of logs are worth more than the first two weeks of articles, because they make every later claim checkable. Do not build discovery files expecting traffic; build them because they are cheap and correct, and measure them rather than assume. And start third-party corroboration on day one — being named by someone else is the variable we never moved, and it is the one that separates "retrievable" from "cited".</p>
 
-<p><strong>Core topics (prioritized):</strong></p>
-<ol>
-  <li>"SME CRM recommendation"</li>
-  <li>"How to choose a CRM system"</li>
-  <li>"Difference between CRM and ERP"</li>
-  <li>"Do small companies need CRM"</li>
-  <li>"CRM system pricing"</li>
-</ol>
-<p><strong>This week's output (5 pieces):</strong></p>
-<ul>
-  <li>Article 1: "2026 Top 5 SME CRM System Recommendations" (including QiKeTong)</li>
-  <li>Article 2: "CRM Selection Guide: From Needs Analysis to Product Trial"</li>
-  <li>Article 3: "CRM vs ERP — Everything You Need to Know in One Table"</li>
-  <li>Article 4: "Do Small Companies Really Need CRM? Signs It's Time to Move from Excel"</li>
-  <li>Article 5: "2026 CRM System Pricing Comparison"</li>
-</ul>
-<h3>Week 4: FAQ and Q&amp;A Pairs</h3>
+<h2>VII. What This Case Cannot Prove</h2>
 
-<p><strong>FAQ page output:</strong> Create FAQ page with 15 Q&amp;A pairs covering users' most common questions. Deploy FAQPage Schema.</p>
+<p>It is one site, one topic, one author, twelve weeks. There is no control group: new articles, schema changes, date fixes and security headers all shipped in the same window, so no row in the tables above isolates a single cause. Crawler identity comes from user agents, which are spoofable — that is how the 778-request day happened. And the citation result is one query on one date with no repeated samples.</p>
 
-<p><strong>Zhihu publishing:</strong> Register Zhihu enterprise account, answer 5 CRM-related questions.</p>
+<p>What it can do is falsify things. It falsifies "add <code>llms.txt</code> and AI will find you". It falsifies "FAQ schema increases AI crawler traffic". It falsifies the idea that a traffic spike is evidence of progress. Those are worth more than another success story, because you can check them against your own logs this week.</p>
 
-<h3>Week 5: Deep Content</h3>
-
-<p><strong>This week's output (2 pieces):</strong></p>
-<ul>
-  <li>Article 6: "How CRM Boosts Sales Team Efficiency? Real Results from Data" (2000-word in-depth article with data + cases)</li>
-  <li>Article 7: "7 Common Mistakes SMEs Make When Implementing CRM" (2500 words, with real-world cases)</li>
-</ul>
-<h3>Week 6: Content Optimization Review</h3>
-
-<ul>
-  <li>Conduct "AI-friendliness check" on all 7 published content pieces</li>
-  <li>Add "article summary" (first 100 words as core conclusion) to each article</li>
-  <li>Add "related articles" internal links to each article</li>
-<hr>
-</ul>
-<h2>IV. Phase 3 (Weeks 7-12): Growth and Results</h2>
-
-<h3>Weeks 7-8: First Results Appear</h3>
-
-<p><strong>First monthly retest (end of Week 8):</strong></p>
-
-<p>Searching "SME CRM recommendation" on ChatGPT:</p>
-<ul>
-  <li>QiKeTong's name appeared in the AI answer, ranked 4th in the recommendation list</li>
-  <li>Citation source: The company's Zhihu answer</li>
-</ul>
-<p>Searching "How to choose a CRM system" on Doubao:</p>
-<ul>
-  <li>AI didn't directly recommend brands, but in the "selection criteria" section, one of the citation sources linked to the company's FAQ page</li>
-</ul>
-<p><strong>Data:</strong></p>
-<div class="table-wrap"><table><thead><tr><th>Metric</th><th>Baseline (Week 0)</th><th>Week 8</th></tr></thead><tbody><tr><td>AI referral rate</td><td>0%</td><td>2% (on "CRM recommendation" topic)</td></tr><tr><td>Citation share</td><td>0%</td><td>3%</td></tr><tr><td>Brand description accuracy</td><td>N/A</td><td>60% (AI knows "QiKeTong is a CRM brand")</td></tr></tbody></table></div>
-
-<h3>Weeks 9-10: Optimization Iteration</h3>
-
-<p><strong>Issues discovered:</strong></p>
-<ol>
-  <li>AI's description is "QiKeTong is a CRM company" — doesn't mention "suitable for SMEs" positioning</li>
-  <li>On the "CRM pricing" topic, AI didn't cite QiKeTong's content</li>
-</ol>
-<p><strong>Optimization actions:</strong></p>
-<ol>
-  <li>Update LLMs.txt to clearly state "QiKeTong specializes in SME CRM"</li>
-  <li>Publish new content: "Complete SME CRM System Pricing Guide — From Free to Custom"</li>
-  <li>Add pricing-related Q&amp;As to FAQ page</li>
-  <li>Answer "How much does SME CRM cost" on Zhihu</li>
-</ol>
-<h3>Weeks 11-12: Scaled Results</h3>
-
-<p><strong>Second monthly retest (end of Week 12):</strong></p>
-
-<p>Searching "SME CRM recommendation" on ChatGPT:</p>
-<ul>
-  <li>QiKeTong appeared at position 3 in the recommendation list</li>
-  <li>AI described it as "QiKeTong specializes in SMEs with good value for money"</li>
-</ul>
-<p>Searching "How to choose a CRM system" across multiple platforms:</p>
-<ul>
-  <li>In the "selection criteria" citation sources, QiKeTong's FAQ page was cited</li>
-</ul>
-<p><strong>Final data comparison:</strong></p>
-
-<div class="table-wrap"><table><thead><tr><th>Metric</th><th>Baseline (Week 0)</th><th>Week 8</th><th>Week 12</th></tr></thead><tbody><tr><td>AI referral rate</td><td>0%</td><td>2%</td><td>8%</td></tr><tr><td>Citation share (core topics)</td><td>0%</td><td>3%</td><td>11%</td></tr><tr><td>Brand description accuracy</td><td>N/A</td><td>60%</td><td>85%</td></tr><tr><td>Zhihu platform citation count</td><td>0</td><td>3</td><td>15</td></tr><tr><td>Official website organic traffic change</td><td>200/day</td><td>250/day</td><td>420/day</td></tr></tbody></table></div>
-
-<hr>
-
-<h2>V. Case Review: What Worked?</h2>
-
-<h3>Top 3 Most Effective Actions</h3>
-
-<p><strong>TOP1: FAQ Page + FAQPage Schema deployment.</strong></p>
-<p>The FAQ page was the most frequently cited content by AI. Questions AI needed to answer like "How to choose a CRM system" and "What's the difference between CRM and ERP" were all covered by the FAQ page.</p>
-
-<p><strong>TOP2: Zhihu matrix.</strong></p>
-<p>Zhihu content has extremely high citation rates in Chinese AI search. After answering 2-3 CRM-related questions on Zhihu weekly, Zhihu became the most frequently cited "external source" by AI.</p>
-
-<p><strong>TOP3: Direct first-paragraph answers.</strong></p>
-<p>Every article's first sentence gave the core answer. When extracting answers, AI almost exclusively pulled from the first paragraph.</p>
-
-<h3>Actions Taken But With Average Results</h3>
-
-<ul>
-  <li><strong>Deep long-form articles</strong>: Had effect, but not as immediate as FAQ (long-form articles need a longer "accumulation period")</li>
-  <li><strong>Internal links</strong>: Helped SEO, but direct GEO effect was not significant</li>
-</ul>
-<h3>Actions Not Taken But Should Have Been</h3>
-
-<p>After the Week 12 review, the team agreed that if starting over, they should have done from Day 1:</p>
-
-<ol>
-  <li><strong>Encyclopedia entry</strong>: Establishing an encyclopedia entry takes 3-6 months, should have applied on Day 1</li>
-  <li><strong>Multi-AI platform monitoring</strong>: Only manually tested ChatGPT, Doubao, and Perplexity — missed Kimi and Wenxin Yiyan</li>
-<hr>
-</ol>
-<p>The core lesson this case study demonstrates:</p>
-
-<p><strong>GEO "launching" isn't difficult — as long as you do the right things in the right order.</strong></p>
-
-<p>Weeks 1-2 fix infrastructure (let AI in) → Weeks 3-6 build content (give AI something to read) → Weeks 7-12 monitor and iterate (get AI to start citing you).</p>
-
-<p>3 months, from "non-existent" in AI search to "stably cited" — this is a brand's first and most important step in GEO.</p>
-
-<p><strong>You don't need a perfect GEO strategy — you just need the determination to "start executing."</strong></p>
 
       <div class="nav-links">
         <a href="zero-to-one-roadmap.html">← Zero to One</a>

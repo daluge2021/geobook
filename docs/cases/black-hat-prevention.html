@@ -113,7 +113,7 @@
   "description": "Learn how to identify and prevent black hat GEO tactics. Covers content injection, fake authority citations, cross-linking networks, and white hat GEO best practices.",
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "datePublished": "2026-01-15",
-  "dateModified": "2026-10-13",
+  "dateModified": "2026-11-13",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geo010.com/cases/black-hat-prevention.html" },
   "publisher": { "@type": "Organization", "name": "GEO Notes", "url": "https://geo010.com" },
   "inLanguage": "en"
@@ -258,7 +258,7 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../case-studies.html">VIII. Case Studies</a> › Identifying and Preventing Black Hat GEO</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-10-10</span><span>·</span><span>Editorial guidance; examples are illustrative</span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-13</span><span>·</span><span>Editorial guidance; examples are illustrative</span></div>
 
 <h1>Identifying and Preventing Black Hat GEO — Protecting Your Brand's "Integrity" in the AI Ecosystem</h1>
 
@@ -445,6 +445,28 @@
 <p>When black hat GEO no longer works, <strong>brands that used black hat tactics lose not just "optimization results" but their "credibility record" in the AI ecosystem.</strong></p>
 
 <p><strong>White hat GEO may be "slow" — but every step accumulates trust assets for your brand. In the AI era, the most valuable asset is "trust."</strong></p>
+
+<hr>
+
+<h2>Attacks We Actually Logged</h2>
+
+<p>Black-hat GEO advice is usually abstract. These are the four tactics we have seen against this site in its own logs, with the numbers, because recognising the pattern is most of the defence.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Pattern</th><th>What it looked like</th><th>How it was caught</th></tr></thead>
+  <tbody>
+    <tr><td>Scanner wearing a crawler name</td><td>08-11: 778 requests, 559 of them bots probing <code>/.env.production</code> and similar paths, labelled ChatGPT-User and Amazonbot</td><td>Path and status review — no AI crawler fetches <code>.env</code> files</td></tr>
+    <tr><td>Spoofed GPTBot</td><td>08-13: a burst claiming to be GPTBot, blocked at the Worker</td><td>User agent claimed, behaviour did not match the documented pattern</td></tr>
+    <tr><td>Null user-agent flood</td><td>2,744 requests in 12 days with no usable agent string</td><td>Excluded from crawler totals and reviewed separately</td></tr>
+    <tr><td>Self-inflicted 404s</td><td>08-15: Amazonbot made 82 requests, 67 of them 404s from its own URL-parsing bug</td><td>Status-code grouping; the fix was canonical URL hygiene, not blocking</td></tr>
+  </tbody>
+</table></div>
+
+<p>The last row is the one people misread. A crawler generating hundreds of 404s looks like an attack and is usually a parsing problem on your side: trailing slashes, encoded characters, links to retired paths. Blocking it would have removed a legitimate reader; fixing the URLs removed the noise.</p>
+
+<p>The defensive principle that comes out of these four: identity is a claim, behaviour is evidence. Any rule you write should test paths and status codes, not just the user-agent string — and any "AI traffic" dashboard that counts a spike without that check is reporting attacks as growth.</p>
+
+<blockquote><strong>Method and limits:</strong> four incidents, one site, August 2026. The counts are exact from our logs; attribution of intent is inference — we know what the requests did, not who sent them.</blockquote>
 
       <div class="nav-links">
         <a href="full-process-case.html">← Full Case Study</a>
