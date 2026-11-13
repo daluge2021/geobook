@@ -12,8 +12,8 @@
     "name": "GEO Encyclopedia",
     "url": "https://geo010.com",
     "logo": { "@type": "ImageObject", "url": "https://geo010.com/favicon.svg" },
-    "email": "my360930109@gmail.com",
-    "contactPoint": { "@type": "ContactPoint", "email": "my360930109@gmail.com", "contactType": "customer support" }
+    "email": "contact@geo010.com",
+    "contactPoint": { "@type": "ContactPoint", "email": "contact@geo010.com", "contactType": "customer support" }
   },
   "termsOfService": "Free to read and link. Editorial corrections and feedback are welcome via the contact page.",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }

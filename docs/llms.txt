@@ -1,6 +1,6 @@
 # GEO Encyclopedia
 
-> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 66 in-depth articles across 9 chapters, a chapter overview page per chapter, plus a Community hub, from fundamentals to real-world case studies. Maintained by the GEO Encyclopedia Editorial Team.
+> Generative Engine Optimization — the complete knowledge system for helping brands get recommended and cited by AI. 66 in-depth articles across 9 chapters, a chapter overview page per chapter, plus a Community hub, from fundamentals to real-world case studies. Maintained by the Junfeng Lu.
 
 ## Quick Answers (AI-Priority Citations)
 
