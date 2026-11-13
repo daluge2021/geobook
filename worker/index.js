@@ -61,6 +61,8 @@ const CHAPTER_REDIRECTS = {
 };
 
 const LEGACY_EXACT = {
+  '/glossary': '/glossary.html',
+  '/glossary/': '/glossary.html',
   '/glossary/en/rag.html': '/glossary/rag.html',
   '/glossary/en/answer-asset.html': '/glossary/answer-asset.html',
   '/glossary/en/geo.html': '/glossary/geo.html',
