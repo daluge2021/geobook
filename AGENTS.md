@@ -4,7 +4,7 @@
 
 ## 项目概述
 
-GEO Notes（geo010.com）是一个纯英文静态文档网站，托管于 GitHub Pages，前端接入 Cloudflare Worker 用于 AI 爬虫访问日志。内容是英文 Generative Engine Optimization（生成式引擎优化）知识体系，包含 9 大章节（I.–IX.）共 59 篇文章 + 10 个术语（Glossary）+ 10 个章节索引页与 15 个根页面（sitemap 共 84 条）。另有 7 篇文章暂存于仓库根 drafts/（4 篇行业页 + geo-benchmarks / ai-referral-attribution / roi-calculation），等待补充 GSC / Bing WMT 导出与收入确认等第一方数据后恢复上线，恢复步骤见 drafts/RESTORE.md；Worker 对这 7 个 URL 回 302 到对应章节页。每篇文章是 docs/ 下一个独立 HTML 文件，无 Markdown 源。
+GEO Notes（geo010.com）是一个纯英文静态文档网站，托管于 GitHub Pages，前端接入 Cloudflare Worker 用于 AI 爬虫访问日志。内容是英文 Generative Engine Optimization（生成式引擎优化）知识体系，包含 9 大章节（I.–IX.）共 60 篇文章 + 10 个术语（Glossary）+ 10 个章节索引页与 15 个根页面（sitemap 共 85 条）。另有 7 篇文章暂存于仓库根 drafts/（4 篇行业页 + geo-benchmarks / ai-referral-attribution / roi-calculation），等待补充 GSC / Bing WMT 导出与收入确认等第一方数据后恢复上线，恢复步骤见 drafts/RESTORE.md；Worker 对这 7 个 URL 回 302 到对应章节页。每篇文章是 docs/ 下一个独立 HTML 文件，无 Markdown 源。
 
 ## 构建/测试/部署
 
