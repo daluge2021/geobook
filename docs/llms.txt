@@ -127,7 +127,7 @@ Source: https://geo010.com/cases/zero-to-one-roadmap.html
 - [What AI Assistants Say About Entity Density](https://geo010.com/cases/what-ai-assistants-say-entity-density.html): Four engines on an unstandardized metric — and how Claude reproduced this site's definition verbatim with a source link.
 - [A Realistic GEO Timeline: What to Expect When](https://geo010.com/cases/geo-timeline.html): The honest stages of GEO — crawl readiness, visibility, and category position — with observed 2-4 week and 3-6 month milestones from real programs.
 - [Why AI Answers Vary: What You Can Control](https://geo010.com/cases/why-ai-answers-vary.html): Engine drift, updates, randomness, and changing query intent — and why a citation baseline survives answers that differ day to day.
-- [Tool Site Launch Audit: Six Pages, Two Calculators, Zero Schema](https://geo010.com/cases/tool-site-launch-audit.html): A one-week build log of a small calculator site — the four structural choices that help engines read a tool page, the three omissions (no schema, no crawl logging, no named author) that repeat our own documented mistake, and the 30/60/90-day test with explicit falsifiers.
+- [Tool Site Launch Audit: Six Pages, Two Calculators, Zero Schema](https://geo010.com/cases/tool-site-launch-audit.html): A one-week build log of a calculator site checked against verified-bot data — 16,545 requests, 7,994 404s, 86 verified AI Crawler + 16 AI Search hits, and the spoofed GPTBot/PerplexityBot traffic that inflates UA-based dashboards.
 
 ## IX. Data & Formulas
 

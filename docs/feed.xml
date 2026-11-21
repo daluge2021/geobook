@@ -12,7 +12,7 @@
     <link>https://geo010.com/cases/tool-site-launch-audit.html</link>
     <guid>https://geo010.com/cases/tool-site-launch-audit.html</guid>
     <pubDate>Sat, 21 Nov 2026 00:00:00 +0000</pubDate>
-    <description>A build log of a six-page calculator site: which structural choices make a tool page readable by AI engines, which omissions repeat our own documented mistake, and the signals that will decide whether it was worth building.</description>
+    <description>A six-page calculator site audited against Cloudflare verified-bot data: 16,545 requests in one week, only 102 real AI crawls, and three omissions we had already documented.</description>
   </item>
   <item>
     <title>GEO Quick Start Checklist - 15-Minute Setup for AI Visibility</title>
