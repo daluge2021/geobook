@@ -8,11 +8,11 @@
   <atom:link href="https://geo010.com/feed.xml" rel="self" type="application/rss+xml"/>
   <lastBuildDate>Sat, 21 Nov 2026 00:00:00 +0000</lastBuildDate>
   <item>
-    <title>Six Pages, Two Calculators, Zero Schema — A One-Week Tool Site, Audited as a GEO Asset</title>
+    <title>Eight Pages, Full Schema, 102 Real Crawlers: A Tool Site Audited Against Verified Bots</title>
     <link>https://geo010.com/cases/tool-site-launch-audit.html</link>
     <guid>https://geo010.com/cases/tool-site-launch-audit.html</guid>
     <pubDate>Sat, 21 Nov 2026 00:00:00 +0000</pubDate>
-    <description>A six-page calculator site audited against Cloudflare verified-bot data: 16,545 requests in one week, only 102 real AI crawls, and three omissions we had already documented.</description>
+    <description>Eight pages, JSON-LD on every page, 4,694 words: a tool site audited against verified-bot data. 16,545 requests, 102 real AI crawls.</description>
   </item>
   <item>
     <title>GEO Quick Start Checklist - 15-Minute Setup for AI Visibility</title>

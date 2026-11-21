@@ -13,22 +13,22 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Six Pages, Two Calculators, Zero Schema — A One-Week Tool Site, Audited as a GEO Asset - GEO Notes</title>
-<meta name="description" content="A six-page calculator site audited against Cloudflare verified-bot data: 16,545 requests in one week, only 102 real AI crawls, and three omissions we had already documented.">
+<title>Eight Pages, Full Schema, 102 Real Crawlers: A Tool Site Audited Against Verified Bots - GEO Notes</title>
+<meta name="description" content="Eight pages, JSON-LD on every page, 4,694 words: a tool site audited against verified-bot data. 16,545 requests, 102 real AI crawls.">
 <link rel="canonical" href="https://geo010.com/cases/tool-site-launch-audit.html"/>
 <link rel="alternate" type="application/rss+xml" title="GEO Notes RSS" href="https://geo010.com/feed.xml">
-<meta property="og:title" content="Six Pages, Two Calculators, Zero Schema — A One-Week Tool Site, Audited as a GEO Asset"/>
-<meta property="og:description" content="A six-page calculator site audited against Cloudflare verified-bot data: 16,545 requests in one week, only 102 real AI crawls, and three omissions we had already documented."/>
+<meta property="og:title" content="Eight Pages, Full Schema, 102 Real Crawlers: A Tool Site Audited Against Verified Bots"/>
+<meta property="og:description" content="Eight pages, JSON-LD on every page, 4,694 words: a tool site audited against verified-bot data. 16,545 requests, 102 real AI crawls."/>
 <meta property="og:url" content="https://geo010.com/cases/tool-site-launch-audit.html"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="https://geo010.com/og-image.png"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="GEO Notes"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Six Pages, Two Calculators, Zero Schema — A One-Week Tool Site, Audited as a GEO Asset"/>
-<meta name="twitter:description" content="A six-page calculator site audited against Cloudflare verified-bot data: 16,545 requests in one week, only 102 real AI crawls, and three omissions we had already documented."/>
+<meta name="twitter:title" content="Eight Pages, Full Schema, 102 Real Crawlers: A Tool Site Audited Against Verified Bots"/>
+<meta name="twitter:description" content="Eight pages, JSON-LD on every page, 4,694 words: a tool site audited against verified-bot data. 16,545 requests, 102 real AI crawls."/>
 <meta name="twitter:image" content="https://geo010.com/og-image.png"/>
-<meta name="keywords" content="tool page GEO,verified bot,user agent spoofing,AI crawler data,Cloudflare analytics,build log,thin content">
+<meta name="keywords" content="tool page GEO,verified bot,user agent spoofing,AI crawler data,Cloudflare analytics,JSON-LD audit,thin content">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.9; color: #1a1a1a; background: #f5f5f5; }
@@ -110,8 +110,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Six Pages, Two Calculators, Zero Schema — A One-Week Tool Site, Audited as a GEO Asset",
-  "description": "A six-page calculator site audited against Cloudflare verified-bot data: 16,545 requests in one week, only 102 real AI crawls, and three omissions we had already documented.",
+  "headline": "Eight Pages, Full Schema, 102 Real Crawlers: A Tool Site Audited Against Verified Bots",
+  "description": "Eight pages, JSON-LD on every page, 4,694 words: a tool site audited against verified-bot data. 16,545 requests, 102 real AI crawls.",
   "author": { "@type": "Person", "name": "Junfeng Lu", "url": "https://geo010.com/about.html#author" },
   "datePublished": "2026-11-21",
   "dateModified": "2026-11-21",
@@ -252,141 +252,132 @@
     <div class="content">
       <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../case-studies.html">VIII. Case Studies</a> › Tool Site Launch Audit</div>
 
-<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-21</span><span>·</span><span>Page inventory measured from the build; traffic figures from the site's own Cloudflare zone analytics, 14–21 November 2026</span></div>
+<div class="article-meta"><span>By <a href="../about.html">Junfeng Lu</a></span><span>·</span><span>Updated: 2026-11-21</span><span>·</span><span>Page figures measured from the pages served on 21 November 2026; traffic figures from that site's Cloudflare zone analytics, 14–21 November 2026</span></div>
 
-<h1>Six Pages, Two Calculators, Zero Schema — A One-Week Tool Site, Audited as a GEO Asset</h1>
+<h1>Eight Pages, Full Schema, 102 Real Crawlers: A Tool Site Audited Against Verified Bots</h1>
 
-<p>On 10 November 2026 a small calculator site went live: a homepage, two tool pages, an About page, a Contact page and a privacy policy. Six URLs in total, built over a handful of evenings on a static generator, deployed to a free CDN, shipped with no blog, no author page and no structured data.</p>
+<p>On 10 November 2026 a small calculator site went live: a homepage, three calculator pages, one how-to guide, an About page, a Contact page and a privacy policy. Eight URLs, roughly 4,700 words of visible text, structured data on every page, deployed as static HTML to a CDN. No blog, no author page, no first-party crawl log.</p>
 
-<p>This is the audit of that build. Not a success story — twelve days is far too early for one — but a check of a claim repeated constantly in GEO writing: <strong>that tool pages are the easy win</strong>. They are easy to publish. Whether they are easy to get cited is a different question, and the first week of real measurement made the difference unusually concrete.</p>
+<p>This is the audit of that build — including a correction. The first version of this audit reported six URLs and zero JSON-LD. Both numbers were wrong, because the audit measured a build directory that had been superseded instead of the pages the URL actually returned. Section III is about that mistake, because it is the most reusable thing here: <strong>a checklist applied to the wrong artifact produces confident, wrong conclusions</strong>.</p>
 
-<blockquote><strong>Disclosure:</strong> the site described here was built by the same author. No client work is involved, no domain is named and no link between the two sites is published, to keep this page a structural example rather than a cross-promotion. Traffic figures come from the site's own Cloudflare zone analytics (including <code>verifiedBotCategory</code>), queried on 21 November 2026 for the window 14–21 November.</blockquote>
+<blockquote><strong>Disclosure:</strong> the site described here was built by the same author. No client work is involved, no domain is named and no link between the two sites is published, to keep this page a structural example rather than a cross-promotion. Page figures were measured from the pages served on 21 November 2026. Traffic figures come from that site's own Cloudflare zone analytics, including <code>verifiedBotCategory</code>, for 14–21 November 2026.</blockquote>
 
-<h2>I. What Actually Shipped, in Numbers</h2>
+<h2>I. What Is Actually There</h2>
 
-<p>Word counts below are the visible text of each built page with markup and scripts stripped — the same measurement a reader or an extraction model would see, not the size of the HTML file.</p>
+<p>Word counts below are visible text with markup and scripts stripped — what a reader or an extraction model sees, not the size of the file. Structured data was read from the served HTML, not from the repository.</p>
 
 <div class="table-wrap"><table>
-  <thead><tr><th>Page</th><th>Words of visible text</th><th>Interactive element</th><th>Structured data</th></tr></thead>
+  <thead><tr><th>URL</th><th>Words</th><th>Structured data present</th></tr></thead>
   <tbody>
-    <tr><td>Homepage</td><td>114</td><td>Tool directory (2 cards)</td><td>None</td></tr>
-    <tr><td>Percentage calculator</td><td>317</td><td>3 calculators + FAQ</td><td>None</td></tr>
-    <tr><td>Date difference calculator</td><td>222</td><td>1 calculator</td><td>None</td></tr>
-    <tr><td>About</td><td>213</td><td>—</td><td>None</td></tr>
-    <tr><td>Privacy policy</td><td>299</td><td>—</td><td>None</td></tr>
-    <tr><td>Contact</td><td>~60</td><td>Mail link</td><td>None</td></tr>
+    <tr><td><code>/</code></td><td>117</td><td>WebSite, Organization</td></tr>
+    <tr><td><code>/tools/percentage-calculator/</code></td><td>777</td><td>WebApplication, BreadcrumbList, FAQPage (4 Q&amp;A)</td></tr>
+    <tr><td><code>/tools/percentage-calculator-for-grades/</code></td><td>1,238</td><td>WebApplication, BreadcrumbList, FAQPage (6 Q&amp;A)</td></tr>
+    <tr><td><code>/tools/date-difference-calculator/</code></td><td>775</td><td>WebApplication, BreadcrumbList, FAQPage (4 Q&amp;A)</td></tr>
+    <tr><td><code>/guides/how-to-calculate-grade-percentage/</code></td><td>1,159</td><td>Article, BreadcrumbList, FAQPage (4 Q&amp;A)</td></tr>
+    <tr><td><code>/about/</code></td><td>172</td><td>WebSite, Organization</td></tr>
+    <tr><td><code>/contact/</code></td><td>103</td><td>WebSite, Organization</td></tr>
+    <tr><td><code>/privacy-policy/</code></td><td>353</td><td>WebSite, Organization</td></tr>
   </tbody>
 </table></div>
 
-<p>Technically the build is clean: static HTML output, one inline style block per page, no client-side framework, <code>robots.txt</code> allowing everything and pointing at a six-URL sitemap, unique title and meta description on every page. The homepage HTML is about 7 KB. Nothing about the delivery layer is a liability.</p>
+<p>Two things stand out, and they point in opposite directions. The content pages are not thin: 775 to 1,238 words each, with the calculation rule stated in text next to each widget, and an FAQ block that is marked up rather than decorative. The support pages are thin: a 117-word homepage, a 172-word About page and a 103-word Contact page carry the site's trust signals, and they are the weakest text on the domain.</p>
 
-<p>What is missing is on the machine-readability layer, and — as the next three sections show — on the measurement layer, which turned out to matter more than expected.</p>
+<p>So the honest starting point is not "what did they forget". It is: <strong>a site can satisfy the on-page checklist and still be invisible</strong>, which is the rest of this page.</p>
 
-<h2>II. Four Decisions That Were Right</h2>
+<h2>II. What the Checklist Did Buy</h2>
 
-<p><strong>One intent per URL.</strong> Percentage math and date math are separate pages with separate titles. There is no "all tools" landing page competing with them for the same query — the directory lives on the homepage and links out. When a site has three URLs that could answer the same question, engines pick one and the other two become noise.</p>
+<p>It is worth separating what structured data provably does from what GEO writing claims it does, because the two are not the same.</p>
 
-<p><strong>The method is written next to the tool.</strong> The percentage page does not only return a number; it states the rule: convert the percent to a decimal and multiply, so 15% of 200 is 0.15 × 200 = 30. That sentence is the extractable unit. A widget alone gives an engine nothing to quote — the explanation is the part that can be attributed.</p>
+<p><strong>Entity resolution.</strong> <code>WebSite</code> and <code>Organization</code> are emitted sitewide with a stable <code>@id</code>, and the tool pages reference that same node. A parser can tell that eight URLs are one publisher, not eight unrelated tools. That is a definitional fix, cheap and unambiguous.</p>
 
-<p><strong>Edge cases are stated, not hidden.</strong> The date page declares that month and year breakdowns account for varying month lengths and leap years, and that reversed inputs are swapped rather than rejected. Rules written in text are checkable; behaviour buried in a script is not. This is also the only part of a calculator page that a competing engine cannot reproduce from first principles in one line.</p>
+<p><strong>Typed answers.</strong> Each <code>FAQPage</code> lists questions that also appear as visible text. The markup and the prose say the same thing, which is the only version that survives review: FAQ markup with questions not on the page is a policy violation, not an optimisation.</p>
 
-<p><strong>No framework hydration.</strong> The answer text exists in the served HTML. An engine that fetches without executing JavaScript sees the same explanation a browser does. This is a low bar that a surprising number of tool sites fail, because the explanation is often rendered client-side along with the result.</p>
+<p><strong>Breadcrumbs as structure, not decoration.</strong> <code>BreadcrumbList</code> mirrors the visible trail, so the tools sit under a known parent rather than floating as roots.</p>
 
-<h2>III. Three Omissions We Had Already Documented</h2>
+<p><strong>One intent per URL.</strong> Percentage math, grade weighting and date math are three pages with three titles. There is no catch-all "all tools" landing page competing with them — the directory lives on the homepage and links out.</p>
 
-<p>These are not novel mistakes. All three appear in this site's own <a href="full-process-case.html">12-week launch record</a>, which makes repeating them the useful part of this audit.</p>
+<p>What none of that does is generate demand. This site has had <code>FAQPage</code> on four pages since launch, and our own crawl logs elsewhere on this site recorded no attributable traffic from FAQ markup in fifteen days of measurement. Treat markup as an extraction and entity fix. Selling it as a traffic fix is the mistake we already corrected once in our <a href="full-process-case.html">12-week launch record</a>, and it would be strange to make it twice.</p>
 
-<p><strong>1. No structured data at all.</strong> Zero of six pages carry JSON-LD — no <code>SoftwareApplication</code>, no <code>FAQPage</code> even where an FAQ block is visibly present, no <code>HowTo</code> for the hand-calculation steps. Our earlier logs showed FAQPage produced no measurable crawler traffic, so this is not framed as a traffic fix. It is an extraction and entity fix, and the benefit is plausible but unmeasured. Claiming more would repeat a mistake we already corrected once.</p>
+<h2>III. The Error Worth Keeping</h2>
 
-<p><strong>2. No measurement for the first eight days.</strong> The build shipped without analytics or request logging, so for over a week the question "has anything actually fetched these pages" had no answer. Measurement was added on day eight. It paid for itself within an hour, in the most uncomfortable way — see the next section.</p>
+<p>The first version of this audit reported six URLs, zero JSON-LD on any page, and no analytics. The served site had eight URLs, JSON-LD on all eight, and a Cloudflare Web Analytics beacon on every page.</p>
 
-<p><strong>3. No named entity behind the site.</strong> About says "we", Contact is a mail link, and there is no person, no <code>sameAs</code>, no author page. For arithmetic this costs less than it would for a medical or financial claim, because the calculation can be verified without trusting the author. But it removes the cheapest trust signal available, and it leaves the site with nothing to attach an entity to when an engine tries to decide whether this source is a source.</p>
+<p>The cause was mundane and completely avoidable: the audit read a local build directory left over from the launch day, while a later deploy had added two pages and the entire structured-data layer. The repository was not the site. Nobody had diffed the two.</p>
 
-<h2>IV. Where a Tool Page Wins, and Where It Cannot</h2>
+<p>Three checks would have caught it in under a minute, and they are now the first step of any page audit here:</p>
 
-<p>The structural advantage is real and it is about intent, not markup. A query like "percentage change from 40 to 55" has one correct answer and an exact matching page. There is no editorial angle to argue about, no freshness decay — percentage arithmetic does not expire — and repeat use is normal, which is why tool pages hold attention in a way article pages rarely do.</p>
+<ul>
+  <li><strong>Count from the served sitemap.</strong> Fetch <code>/sitemap-index.xml</code>, follow the child, count <code>&lt;loc&gt;</code> entries. Eight, not six.</li>
+  <li><strong>Parse the served HTML for <code>ld+json</code>.</strong> Not a grep of the source tree — a parse of what the URL returns, with <code>@type</code> values listed.</li>
+  <li><strong>Measure words on the served page.</strong> If a page claims 317 words and the live page has 777, the measurement is describing something else.</li>
+</ul>
 
-<p>The hard limit is just as real. An assistant can compute 15% of 200 without any source at all. So the citable asset is never the number; it is the part of the page that explains <em>which</em> convention was used, <em>how</em> edge cases are handled, and <em>why</em> two reasonable calculators disagree.</p>
+<p>Every downstream conclusion inherits the error. In the first version, a whole section proposed adding schema that was already present, because the audit had reported its absence. That is the failure mode to watch for: <strong>a confident recommendation that solves a problem which does not exist is harder to spot than a wrong number</strong>, because it reads as expertise.</p>
+
+<h2>IV. The Measurement That Actually Matters</h2>
+
+<p>Seven days of zone analytics for this site: <strong>16,545 requests</strong>. Cloudflare verifies bot identity independently of the user agent, and the verified categories for the same window are:</p>
 
 <div class="table-wrap"><table>
-  <thead><tr><th>What a user asks</th><th>Can an engine answer without a source?</th><th>What the page must contain to be cited</th></tr></thead>
+  <thead><tr><th>Category</th><th>Requests</th><th>Breakdown</th></tr></thead>
   <tbody>
-    <tr><td>"What is 15% of 200?"</td><td>Yes — pure arithmetic</td><td>Nothing. No citation is winnable here.</td></tr>
-    <tr><td>"How is percentage change calculated?"</td><td>Yes, but conventions differ</td><td>The stated formula, with one worked example</td></tr>
-    <tr><td>"Why do two date calculators give different month counts?"</td><td>Rarely — this is a convention question</td><td>Named month-length and leap-year handling, plus the swap rule</td></tr>
-    <tr><td>"Which calculator handles inclusive date ranges?"</td><td>No — requires a specific tool's behaviour</td><td>An explicit statement of inclusive versus exclusive counting</td></tr>
+    <tr><td>AI Crawler (verified)</td><td>86</td><td>ClaudeBot 46, Amazonbot 20, RiverBot 12, Reflectionbot 7, meta-externalagent 1</td></tr>
+    <tr><td>AI Search (verified)</td><td>16</td><td>Applebot 8, ShapBot 8</td></tr>
+    <tr><td>Search Engine Crawler (verified)</td><td>238</td><td>Google and Bing crawl on their own schedules</td></tr>
+    <tr><td>Unverified — everything else</td><td>16,092</td><td>Humans, scanners, and every agent that failed verification</td></tr>
   </tbody>
 </table></div>
 
-<p>Read the table as a filter. Three of these four rows are winnable, and all three are won by prose that most tool sites skip in favour of a bigger button. The page that ships only the first row is competing on a query where every engine is already correct.</p>
-
-<h2>V. 16,545 Requests, 102 Crawlers: What the First Week of Measurement Deleted</h2>
-
-<p>When analytics went in on day eight, the first week of data looked like success: a six-page site no one had heard of was receiving <strong>16,545 requests in seven days</strong>. Broken down by user agent, the named crawlers looked busy — GPTBot, OAI-SearchBot, PerplexityBot, ClaudeBot, ChatGPT-User, Googlebot, bingbot, all present.</p>
-
-<p>None of that survived three cross-checks: the country the request came from, whether Cloudflare had <em>verified</em> the bot against its published IP ranges, and what the request actually asked for.</p>
+<p>Now compare that with what the logs say if you sort by user agent instead:</p>
 
 <div class="table-wrap"><table>
-  <thead><tr><th>Claimed user agent</th><th>Requests</th><th>Where from</th><th>Verified by Cloudflare?</th><th>Verdict</th></tr></thead>
+  <thead><tr><th>User agent claims to be</th><th>Requests by UA</th><th>Main source country</th><th>Verified?</th></tr></thead>
   <tbody>
-    <tr><td>GPTBot</td><td>120</td><td>Brazil, 120/120</td><td>No</td><td>Fake</td></tr>
-    <tr><td>OAI-SearchBot</td><td>74</td><td>Brazil, all</td><td>No</td><td>Fake</td></tr>
-    <tr><td>PerplexityBot</td><td>56–84</td><td>Brazil, all</td><td>No</td><td>Fake</td></tr>
-    <tr><td>ChatGPT-User</td><td>42–82</td><td>Brazil 82, Finland 3</td><td>No</td><td>Fake</td></tr>
-    <tr><td>ClaudeBot</td><td>280</td><td>Brazil 234, US 46</td><td>US portion only</td><td>Mostly fake</td></tr>
-    <tr><td>Googlebot</td><td>128–435</td><td>US 228, Brazil 204</td><td>US portion only</td><td>Mixed</td></tr>
-    <tr><td>bingbot</td><td>77–112</td><td>Brazil 101, US 11</td><td>US portion only</td><td>Mostly fake</td></tr>
+    <tr><td>GPTBot</td><td>120</td><td>Brazil</td><td>Never — zero verified GPTBot requests in the window</td></tr>
+    <tr><td>OAI-SearchBot</td><td>74</td><td>Brazil</td><td>Never</td></tr>
+    <tr><td>PerplexityBot</td><td>56–84</td><td>Brazil</td><td>Never</td></tr>
+    <tr><td>ChatGPT-User</td><td>42–82</td><td>Brazil (82), Finland (3)</td><td>Never</td></tr>
+    <tr><td>ClaudeBot</td><td>234</td><td>Brazil 234, US 46</td><td>Partly — 46 verified, from the US</td></tr>
+    <tr><td>Googlebot</td><td>128–435</td><td>US and Brazil</td><td>Partly</td></tr>
+    <tr><td>bingbot</td><td>77–112</td><td>Brazil, US</td><td>Partly</td></tr>
   </tbody>
 </table></div>
 
-<p>The tell is not subtle once you look at the paths: the same Brazilian block spent the week requesting <code>/robots.txt</code>, then <code>/files../.env</code>, <code>/supabase/config.toml</code>, <code>/nacos/v1/cs/configs</code> and <code>/api/.env.bak</code>. That is a vulnerability scanner wearing a crawler's name. One day alone took 3,778 requests from Brazil.</p>
-
-<p>Cloudflare's own verifier settles it. Across the same seven days, the categories it actually confirmed were:</p>
-
-<div class="table-wrap"><table>
-  <thead><tr><th>Verified category</th><th>Requests</th><th>Who it actually was</th></tr></thead>
-  <tbody>
-    <tr><td>Search Engine Crawler</td><td>238</td><td>Google, Bing and peers from their real ranges</td></tr>
-    <tr><td>AI Crawler</td><td>86</td><td>ClaudeBot 46, Amazonbot 20, RiverBot 12, Reflectionbot 7, meta-externalagent 1 — all US</td></tr>
-    <tr><td>AI Search</td><td>16</td><td>Applebot 8, ShapBot 8 — all US</td></tr>
-    <tr><td>Page Preview</td><td>19</td><td>Link-unfurling agents</td></tr>
-    <tr><td>Search Engine Optimization</td><td>24</td><td>SEO tool crawlers</td></tr>
-    <tr><td>Advertising &amp; Marketing</td><td>2</td><td>Ad verification</td></tr>
-    <tr><td><strong>No verified category</strong></td><td><strong>16,092</strong></td><td>Browsers, scanners, and every spoofed UA above</td></tr>
-  </tbody>
-</table></div>
-
-<p>Two details matter more than the totals. First, <strong>GPTBot and PerplexityBot never appear in the verified list at all</strong> — every request claiming to be them was fake. Second, the largest single source country was not Brazil: it was Belgium with 4,843 requests, ahead of Brazil's 3,833 and the United States' 1,703. The scanner cluster is not one country; it is a rotating set of proxies, and the UA is just decoration.</p>
-
-<p>The status codes complete the picture:</p>
-
-<div class="table-wrap"><table>
-  <thead><tr><th>Status</th><th>Requests</th><th>Reading</th></tr></thead>
-  <tbody>
-    <tr><td>404</td><td>7,994</td><td>Probes for files that do not exist</td></tr>
-    <tr><td>301</td><td>5,832</td><td>Redirects — never reached a page</td></tr>
-    <tr><td>504</td><td>1,342</td><td>Gateway timeouts, including on <code>/</code>, <code>/about/</code> and <code>/contact/</code></td></tr>
-    <tr><td>200</td><td>1,085</td><td>Of which only 213 came from verified crawlers</td></tr>
-    <tr><td>403 / 308 / other</td><td>~230</td><td>Blocks and canonicalization</td></tr>
-  </tbody>
-</table></div>
-
-<p>So the number that describes reality is not 16,545. It is <strong>102 verified AI-crawler requests in seven days</strong> — about fifteen a day across six pages, two and a half per page per day — plus 238 search-engine crawls. That is a site being discovered, slowly, by machines that are genuinely allowed to be there. It is also, not coincidentally, consistent with the other half of the picture: search clicks in single digits and an average position near 40.</p>
+<p>The most-claimed names — GPTBot, OAI-SearchBot, PerplexityBot, ChatGPT-User — have <strong>zero</strong> verified requests on this site in seven days. Every request wearing those names was a scanner. The three status codes tell the same story from another angle: 7,994 responses were 404, 5,832 were 301, 1,342 were 504, and only 1,085 were 200. Most of the traffic is probing for files that do not exist: <code>/.env</code>, <code>/supabase/config.toml</code>, <code>/api/.env.bak</code>, <code>/nacos/v1/cs/configs</code>.</p>
 
 <blockquote><strong>The transferable rule:</strong> a crawler table ranked by user agent measures <em>what scanners prefer to impersonate</em>, not what AI systems are reading. Scanners claim the most famous names, so UA-based analysis is biased upward precisely for the crawlers people care most about. Any GEO dashboard without verified-bot or IP-range validation is measuring the attacker's taste.</blockquote>
 
-<p>One operational note came out of the same data, and it is not about GEO. Of the 1,342 timeouts, the top paths include the homepage and real pages, not only scan targets. Scan volume can push a small origin into timeouts, and a page that times out is a page a real crawler will retry later or drop. That is worth a WAF rule on the known probe paths and a look at why the origin is slow under load — before it becomes a crawl-budget problem rather than a nuisance.</p>
+<p>For this site the real number is <strong>102 verified AI requests in seven days</strong> — 86 crawler, 16 search — across eight pages. About fifteen a day, under two per page per day. That is a site being discovered, slowly, by machines that are genuinely allowed to be there. It is a start, not a result.</p>
+
+<h2>V. The Support Layer Is the Weak Part</h2>
+
+<p>With schema, word count and delivery already in place, the remaining deficits are all about who is behind the site. These are verifiable from the pages themselves:</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Signal</th><th>Current state</th><th>Why it matters</th></tr></thead>
+  <tbody>
+    <tr><td>Author identity</td><td>The guide's <code>Article.author</code> points at the organisation node. No named person, no author page.</td><td>Entity-level trust attaches to people. An organisation-only byline is the weakest form of attribution.</td></tr>
+    <tr><td>Page freshness</td><td><code>datePublished</code> and <code>dateModified</code> are both 2026-11-10 on the guide</td><td>No revision history means no evidence the content is maintained</td></tr>
+    <tr><td>Homepage text</td><td>117 words</td><td>The most-linked page has the least text; the directory is the entire body</td></tr>
+    <tr><td>About / Contact</td><td>172 / 103 words</td><td>These two pages are where a reviewer checks whether a real operator exists</td></tr>
+    <tr><td>First-party crawl log</td><td>None — only aggregate zone analytics</td><td>Per-bot, per-page, per-day history is what makes a claim like "AI crawlers are reading us" checkable next month</td></tr>
+  </tbody>
+</table></div>
+
+<p>Note the shape of this list: nothing here is a markup problem. The technical layer is complete and the trust layer is thin, which is the opposite of the usual tool-site pattern and the reason the first audit's conclusion was so wrong.</p>
+
+<p>One operational item belongs here too. Of the 1,342 timeouts in the week, the top paths include real pages, not only scan targets, and they cluster in the same hour as the 404 peak. Scan volume can push a small origin into timeouts, and a page that times out is a page a real crawler will retry later or drop. A WAF rule on known probe paths is a crawl-budget fix, not just housekeeping.</p>
 
 <h2>VI. The Test: What Would Tell Us This Worked</h2>
 
-<p>With verified-bot data available, the checkpoints can be written in terms that spoofing cannot fake. Thresholds are set in advance so later claims cannot be adjusted to fit whatever happened.</p>
+<p>Thresholds are written in advance, in terms spoofing cannot fake, so later claims cannot be adjusted to fit whatever happened.</p>
 
 <div class="table-wrap"><table>
   <thead><tr><th>Checkpoint</th><th>Signal (verified only)</th><th>What a miss would mean</th></tr></thead>
   <tbody>
-    <tr><td>Day 30</td><td>All six URLs indexed; at least one verified AI-crawler request on a tool page (not the homepage)</td><td>Discovery is the constraint, and the fix is inbound references, not markup</td></tr>
-    <tr><td>Day 60</td><td>Verified AI crawls above 100/week with 200-status responses; one tool page fetched by two different AI crawlers</td><td>If crawls rise but pages stay unquoted, the pages are thin relative to competitors</td></tr>
-    <tr><td>Day 90</td><td>One engine, asked by hand about a convention question, names the page</td><td>Crawling without citation means the gap is authority — inbound mentions, not on-page edits</td></tr>
+    <tr><td>Day 30</td><td>All eight URLs indexed; at least one verified AI-crawler request on a tool page rather than the homepage</td><td>Discovery is the constraint, and the fix is inbound references, not more markup</td></tr>
+    <tr><td>Day 60</td><td>Verified AI crawls above 100/week returning 200; one tool page fetched by two different AI crawlers</td><td>If crawls rise and pages stay unquoted, the pages are thin relative to competitors</td></tr>
+    <tr><td>Day 90</td><td>One engine, asked by hand about a convention question — which month-count rule a date calculator uses — names the page</td><td>Crawling without citation means the gap is authority, not on-page edits</td></tr>
   </tbody>
 </table></div>
 
@@ -394,11 +385,11 @@
 
 <h2>VII. What This Audit Cannot Prove</h2>
 
-<p>It is twelve days, two tools, one operator, no control group. Page figures are inventory, not performance. Traffic figures cover one week and one zone; Cloudflare's verifier is good but not omniscient, and the 16,092 unverified requests are a mix of humans, scanners and unknown agents rather than a single category. Nothing here isolates a cause: static delivery, one-intent URLs, stated methods and missing schema all arrived together, and a second site would be needed to separate them.</p>
+<p>It is eleven days, eight pages, one operator, no control group. Page figures are inventory, not performance. Traffic figures cover one week and one zone; Cloudflare's verifier is good but not omniscient, and the 16,092 unverified requests are a mix of humans, scanners and unknown agents rather than a single category. Nothing here isolates a cause — static delivery, one-intent URLs, stated methods and complete schema all arrived together, and a second site would be needed to separate them.</p>
 
-<p>What the audit can do is falsify. It falsifies the idea that a tool page is automatically GEO-ready because it is useful — this one is useful and still has no structured data, no author entity and, for its first eight days, no measurement. It falsifies the traffic story that a busy log tells: 16,545 requests contained 102 real AI crawls, and the busiest "crawler" in the table was a scanner in Brazil. And it falsifies the opposite overcorrection, that schema and <code>llms.txt</code> are what make a tool page citable; the winnable queries in section IV are won by a paragraph of convention detail.</p>
+<p>What the audit can do is falsify. It falsifies the claim that a tool page is GEO-ready because it is useful: this one is useful, fully marked up, and cited by nothing measurable yet. It falsifies the traffic story a busy log tells: 16,545 requests contained 102 real AI crawls, and the busiest "GPTBot" in the table was a scanner in Brazil. And it falsifies its own first version, which reported zero schema on a site that had JSON-LD on every page — the failure mode this page exists to document.</p>
 
-<p>The cheapest next step is not another tool page. It is verified-bot measurement on every page, a named author, and one paragraph per calculator that states the rule and the exception. Then wait ninety days and read the result against the table above.</p>
+<p>The cheapest next step is not another tool page. It is a named author with a page, a first-party bot log that can be checked next month, and enough text on the homepage, About and Contact pages that a reviewer can tell who is running the site. Then wait ninety days and read the result against the table above.</p>
 
 <div class="nav-links">
         <a href="why-ai-answers-vary.html">← Why AI Answers Vary</a>
