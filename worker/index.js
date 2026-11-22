@@ -1,5 +1,5 @@
 /**
- * GEO Encyclopedia — AI Crawler Access Logger
+ * GEO Notes — AI Crawler Access Logger
  *
  * Sits in front of the static content of geo010.com.
  * 1. Classifies each request by User-Agent (AI crawler vs. human).
@@ -338,6 +338,24 @@ async function ensureToolColumn(env) {
   toolSchemaChecked = true;
 }
 
+// verified 列：Cloudflare 侧验证的机器人类别（request.cf.verifiedBotCategory，如
+// "AI Crawler" / "Search Engine Crawler"）。UA 字符串可被任意伪造，本列是唯一
+// 能区分"UA 声称"与"CF 实际验证"的依据。惰性迁移，与 referer_host/tool_name 相同。
+let verifiedSchemaChecked = false;
+async function ensureVerifiedColumn(env) {
+  if (verifiedSchemaChecked) return;
+  try {
+    const { results } = await env.DB.prepare('PRAGMA table_info(crawler_logs)').all();
+    const cols = (results || []).map((r) => r.name);
+    if (!cols.includes('verified')) {
+      await env.DB.prepare('ALTER TABLE crawler_logs ADD COLUMN verified TEXT').run();
+    }
+  } catch (e) {
+    console.error('verified column migration failed:', e.message);
+  }
+  verifiedSchemaChecked = true;
+}
+
 /** Extract hostname from a Referer header, or null when absent/invalid/same-site. */
 function refererHost(raw) {
   if (!raw) return null;
@@ -347,6 +365,12 @@ function refererHost(raw) {
   } catch (e) {
     return null;
   }
+}
+
+/** Cloudflare-verified bot category for this request, or null when not verified. */
+function verifiedBotCategory(request) {
+  const cf = request.cf;
+  return (cf && cf.verifiedBotCategory) || null;
 }
 
 // ---------- Comments (Community) ----------
@@ -554,8 +578,8 @@ const FAQS = [
     en: [/contact|email|reach you|get in touch/],
     zh: ['联系', '邮箱', '联系方式', '发邮件', '合作'],
     enText:
-      'You can reach the GEO Encyclopedia team via the contact page.',
-    zhText: '你可以通过 contact 页面联系 GEO Encyclopedia 团队。',
+      'You can reach the GEO Notes team via the contact page.',
+    zhText: '你可以通过 contact 页面联系 GEO Notes 团队。',
     sources: [
       { title: 'Contact', url: 'https://geo010.com/contact.html' },
     ],
@@ -914,7 +938,7 @@ async function handleAdminComments(request, env) {
     `<!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8"><meta name="robots" content="noindex, nofollow">
-<title>Comments Admin — GEO Encyclopedia</title>
+<title>Comments Admin — GEO Notes</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; background: #f5f5f5; line-height: 1.7; color: #222; }
@@ -950,13 +974,13 @@ a { color: #0066cc; }
   );
 }
 
-async function logRequest(env, { ts, ua, crawler, tool, path, status, isHtml, refHost }) {
+async function logRequest(env, { ts, ua, crawler, tool, path, status, isHtml, refHost, verified }) {
   try {
     await env.DB.prepare(
-      `INSERT INTO crawler_logs (ts, date, ua, crawler_name, tool_name, path, status, is_html, referer_host)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
+      `INSERT INTO crawler_logs (ts, date, ua, crawler_name, tool_name, path, status, is_html, referer_host, verified)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
     )
-      .bind(ts, ts.slice(0, 10), ua, crawler, tool || null, path, status, isHtml ? 1 : 0, refHost || null)
+      .bind(ts, ts.slice(0, 10), ua, crawler, tool || null, path, status, isHtml ? 1 : 0, refHost || null, verified || null)
       .run();
   } catch (e) {
     // logging must never break the site
@@ -965,7 +989,7 @@ async function logRequest(env, { ts, ua, crawler, tool, path, status, isHtml, re
 }
 
 function renderStatsPage(data) {
-  const { totals, byCrawler, byDate, byDateDaily, byPath, byReferrer, byClickPath, byEntry, byTool, ai404, ai404Paths, recent } = data;
+  const { totals, byCrawler, byCrawlerVerified, byDate, byDateDaily, byPath, byReferrer, byClickPath, byEntry, byTool, ai404, ai404Paths, recent } = data;
   const a404 = ai404 || { total: 0, scan: 0, content: 0 };
   const rows = (arr) =>
     arr
@@ -997,7 +1021,7 @@ function renderStatsPage(data) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>AI Crawler Log — GEO Encyclopedia</title>
+<title>AI Crawler Log — GEO Notes</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; background: #f5f5f5; line-height: 1.9; color: #222; }
@@ -1041,11 +1065,17 @@ a { color: #0066cc; }
         ${rows(byTool)}
       </table></div>
 
-      <h2>按爬虫统计</h2>
+      <h2>按爬虫统计（UA 声称 vs CF 已验证）</h2>
       <div class="card"><table>
-        <tr><th>爬虫</th><th>请求数</th></tr>
-        ${rows(byCrawler)}
+        <tr><th>爬虫</th><th>UA 声称</th><th>CF 已验证</th><th>验证率</th></tr>
+        ${byCrawlerVerified
+          .map(
+            (r, i) =>
+              `<tr${i % 2 ? ' class="alt"' : ''}><td>${r.label}</td><td>${r.n}</td><td>${r.v}</td><td>${r.n ? Math.round((r.v / r.n) * 100) : 0}%</td></tr>`
+          )
+          .join('')}
       </table></div>
+      <p class="sub">说明：verified 列来自 Cloudflare <code>request.cf.verifiedBotCategory</code>（2026-11-22 起记录）；此前数据该列为空，验证率仅对新数据有效。UA 声称高、验证率低的爬虫应视为可疑伪装流量。</p>
 
       <h2>按日期统计</h2>
       <div class="card"><table>
@@ -1099,16 +1129,16 @@ a { color: #0066cc; }
 
       <h2>最近 20 条记录</h2>
       <div class="card"><table>
-        <tr><th>时间</th><th>爬虫</th><th>路径</th><th>状态</th><th>来源</th></tr>
+        <tr><th>时间</th><th>爬虫</th><th>路径</th><th>状态</th><th>来源</th><th>CF 验证</th></tr>
         ${recent
           .map(
             (r) =>
-              `<tr><td>${r.ts}</td><td>${r.crawler_name || r.ua || '—'}</td><td>${r.path}</td><td>${r.status}</td><td>${r.referer_host || '—'}</td></tr>`
+              `<tr><td>${r.ts}</td><td>${r.crawler_name || r.ua || '—'}</td><td>${r.path}</td><td>${r.status}</td><td>${r.referer_host || '—'}</td><td>${r.verified || '—'}</td></tr>`
           )
           .join('')}
       </table></div>
 
-      <p class="footer">GEO Encyclopedia · private stats endpoint</p>
+      <p class="footer">GEO Notes · private stats endpoint</p>
     </div>
   </div>
 </div>
@@ -1119,8 +1149,9 @@ a { color: #0066cc; }
 async function handleStats(env) {
   await ensureRefererColumn(env);
   await ensureToolColumn(env);
+  await ensureVerifiedColumn(env);
   const entryPlaceholders = [...AI_ENTRY_FILES].map(() => '?').join(',');
-  const [totals, byCrawler, byDate, byDateDaily, byPath, byReferrer, byClickPath, byEntry, byTool, ai404, ai404Paths, recent] = await Promise.all([
+  const [totals, byCrawler, byCrawlerVerified, byDate, byDateDaily, byPath, byReferrer, byClickPath, byEntry, byTool, ai404, ai404Paths, recent] = await Promise.all([
     env.DB.prepare(
       `SELECT COUNT(*) AS total,
               SUM(CASE WHEN crawler_name IS NOT NULL THEN 1 ELSE 0 END) AS ai,
@@ -1130,6 +1161,13 @@ async function handleStats(env) {
     ).first(),
     env.DB.prepare(
       `SELECT crawler_name AS label, COUNT(*) AS n FROM crawler_logs
+       WHERE crawler_name IS NOT NULL
+       GROUP BY crawler_name ORDER BY n DESC LIMIT 30`
+    ).all(),
+    env.DB.prepare(
+      `SELECT crawler_name AS label, COUNT(*) AS n,
+              SUM(CASE WHEN verified IS NOT NULL THEN 1 ELSE 0 END) AS v
+       FROM crawler_logs
        WHERE crawler_name IS NOT NULL
        GROUP BY crawler_name ORDER BY n DESC LIMIT 30`
     ).all(),
@@ -1185,7 +1223,7 @@ async function handleStats(env) {
        GROUP BY path ORDER BY n DESC LIMIT 15`
     ).all(),
     env.DB.prepare(
-      `SELECT ts, crawler_name, ua, path, status, referer_host FROM crawler_logs
+      `SELECT ts, crawler_name, ua, path, status, referer_host, verified FROM crawler_logs
        ORDER BY id DESC LIMIT 20`
     ).all(),
   ]);
@@ -1204,6 +1242,7 @@ async function handleStats(env) {
       toolPct: total ? Math.round((tools / total) * 100) : 0,
     },
     byCrawler: byCrawler?.results || [],
+    byCrawlerVerified: byCrawlerVerified?.results || [],
     byDate: byDate?.results || [],
     byDateDaily: byDateDaily?.results || [],
     byPath: byPath?.results || [],
@@ -1381,7 +1420,7 @@ function injectAssistant(html) {
 
 const NOT_FOUND_HTML = `<!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>404 — GEO Encyclopedia</title>
+<head><meta charset="UTF-8"><title>404 — GEO Notes</title>
 <style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;background:#f5f5f5;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;color:#222}div{text-align:center}p{color:#666;margin-top:8px}a{color:#0066cc}</style>
 </head>
 <body><div><h1>404</h1><p>Page not found or has been moved.</p><a href="/">Back to Home</a></div></body>
@@ -1429,6 +1468,7 @@ export default {
       const crawler = classifyCrawler(ua);
       if (crawler) {
         await ensureRefererColumn(env);
+        await ensureVerifiedColumn(env);
         await logRequest(env, {
           ts: new Date().toISOString().slice(0, 19) + 'Z',
           ua,
@@ -1437,6 +1477,7 @@ export default {
           status: 200,
           isHtml: false,
           refHost: refererHost(request.headers.get('Referer')),
+          verified: verifiedBotCategory(request),
         });
       }
       return new Response(JSON.stringify(MCP_MANIFEST), {
@@ -1495,6 +1536,7 @@ export default {
     const ua = request.headers.get('user-agent') || '';
     const crawler = classifyCrawler(ua);
     const tool = crawler ? null : classifyToolbot(ua);
+    const vbCategory = verifiedBotCategory(request);
     const isHtml = !STATIC_EXT.test(rawPath);
     // 记录规则（口径真实）：
     //  - AI 爬虫：isHtml 的请求或访问入口文件一律记录（含 404，用于观察 AI 找错路径）；
@@ -1507,6 +1549,7 @@ export default {
     if (shouldLog) {
       await ensureRefererColumn(env);
       if (tool) await ensureToolColumn(env);
+      if (crawler || vbCategory) await ensureVerifiedColumn(env);
       await logRequest(env, {
         ts: new Date().toISOString().slice(0, 19) + 'Z',
         ua,
@@ -1516,6 +1559,7 @@ export default {
         status,
         isHtml,
         refHost: refererHost(request.headers.get('Referer')),
+        verified: vbCategory,
       });
     }
 
