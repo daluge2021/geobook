@@ -1549,7 +1549,8 @@ export default {
     if (shouldLog) {
       await ensureRefererColumn(env);
       if (tool) await ensureToolColumn(env);
-      if (crawler || vbCategory) await ensureVerifiedColumn(env);
+      // INSERT 固定含 verified 列，必须保证列存在（无 verifiedBotCategory 时写 NULL）
+      await ensureVerifiedColumn(env);
       await logRequest(env, {
         ts: new Date().toISOString().slice(0, 19) + 'Z',
         ua,
